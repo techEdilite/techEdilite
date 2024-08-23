@@ -27,8 +27,6 @@
             }
         }
 
-
-
         .space-x-4 {
             display: flex;
             align-items: center;
@@ -56,7 +54,7 @@
     <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="./logo.png" class="h-8" alt="Flowbite Logo" />
+                <img src="./logo.png" class="h-8" alt="Tech Edilite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Tech Edilite</span>
             </a>
             <button id="mobile-menu-button" type="button"
@@ -173,7 +171,6 @@
                         <h3 class="text-2xl font-bold mb-2">Edilite Tech</h3>
                     </a>
 
-
                     <p class="text-gray-600">Software Solutions Consulting Firm</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
@@ -186,7 +183,7 @@
                         <h3 class="text-2xl font-bold mb-2">Cloudscape Construction</h3>
                     </a>
 
-                    <p class="text-gray-600">Bulding the innovation.</p>
+                    <p class="text-gray-600">Building the innovation.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
@@ -237,36 +234,12 @@
                 <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" style="background-color: #010826;">Send message</button>
             </form>
         </div>
-      </section>
-    <!-- <section id="contact" class="py-20 bg-gray-200 relative" style="background-color: #cccccc;">
-        <div class="container mx-auto px-4 relative z-10">
-            <h2 class="text-4xl font-bold text-center mb-12">Contact Us</h2>
-            <form class="bg-white p-6 rounded-lg shadow-md max-w-lg mx-auto" id="contactForm">
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-600">Name</label>
-                    <input type="text" id="name"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                </div>
-                <div class="mb-4">
-                    <label for="message" class="block text-gray-600">Message</label>
-                    <textarea id="message"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" rows="4"
-                        required></textarea>
-                </div>
-                <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600">Send
-                    Message</button>
-            </form>
-        </div>
-    </section> -->
-    <!-- <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4"> -->
+    </section>
+    <!-- Footer -->
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
-            <!-- <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"  style="color: #010826;">Flowbite</span>
-            </a> -->
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="./logo.png" class="h-8" alt="Flowbite Logo" />
+                <img src="./logo.png" class="h-8" alt="Tech Edilite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap ">Tech Edilite</span>
             </a>
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400"
@@ -289,39 +262,40 @@
         <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#"
                 class="hover:underline">Tech Edilite™</a>. All Rights Reserved.</span>
     </div>
-    <!-- </footer> -->
-    <!-- <script>
-        // Toggle the mobile menu
+
+    <!-- JavaScript for mobile menu toggle -->
+    <script>
         document.getElementById('mobile-menu-button').addEventListener('click', function () {
             var menu = document.getElementById('navbar-default');
             menu.classList.toggle('hidden');
         });
-    </script> -->
+    </script>
+
+    <!-- JavaScript for contact form submission -->
     <script>
         document.getElementById('contactForm').addEventListener('submit', function (event) {
             event.preventDefault();
             console.log({
-
                 yourName: document.getElementById('subject').value,
                 message: document.getElementById('message').value,
             });
             const now = new Date();
             const currentUTCDateTime = now.toISOString();
-            let _subject = "From Tech edilite client " + currentUTCDateTime
+            let _subject = "From Tech Edilite client " + currentUTCDateTime
             var mailtoLink = 'mailto:techedilite@gmail.com?subject=' + _subject + '&body=' +
                 'Name: ' + document.getElementById('subject').value + '%0A' +
                 'Message: ' + document.getElementById('message').value;
 
-
             window.location.href = mailtoLink;
         });
     </script>
-     <script type="text/javascript">
+
+    <!-- Google Translate script -->
+    <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
         }
     </script>
-
     <script type="text/javascript"
         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
