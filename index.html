@@ -46,16 +46,26 @@
             height: 100% !important;
             width: auto !important;
         }
+        @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800" style="font-family: 'Exo', sans-serif;">
+<body class="bg-gray-100 text-gray-800" style="font-family: 'Exo', sans-serif; font-size: 15px;">
     <div id="google_translate_element" class="google-translate"></div>
+    
     <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./logo.png" class="h-8" alt="Tech Edilite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Tech Edilite</span>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white" style="font-size: 20px;">Tech Edilite</span>
             </a>
             <button id="mobile-menu-button" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -83,17 +93,48 @@
                         <a href="#portfolio"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Projects</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#contact"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
                             Us</a>
+                    </li> -->
+                    <li>
+                        <a href="#contact"
+                           class="blink block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
+                           Us</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <div id="sticky-banner" tabindex="-1" class="fixed top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+        <div class="flex items-center mx-auto">
+            <p class="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
+                <span class="inline-flex p-1 me-3 bg-gray-200 rounded-full dark:bg-gray-600 w-6 h-6 items-center justify-center flex-shrink-0">
+                    <svg class="w-3 h-3 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+                        <path d="M15 1.943v12.114a1 1 0 0 1-1.581.814L8 11V5l5.419-3.871A1 1 0 0 1 15 1.943ZM7 4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2v5a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V4ZM4 17v-5h1v5H4ZM16 5.183v5.634a2.984 2.984 0 0 0 0-5.634Z"/>
+                    </svg>
+                    <span class="sr-only">Light bulb</span>
+                </span>
+                <span> We are developing at 50% discount, celebrating our official launch! </span>
+            </p>
+        </div>
+        <div class="flex items-center">
+            <button id="close-banner" data-dismiss-target="#sticky-banner" type="button" class="flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                </svg>
+                <span class="sr-only">Close banner</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('close-banner').addEventListener('click', function() {
+            document.getElementById('sticky-banner').style.display = 'none';
+        });
+    </script>
     <!-- hero section -->
-    <section class="relative h-[75vh]">
+    <section class="relative h-[75vh]" >
         <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-desktop">
             <source src="./heroDesk.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -103,107 +144,171 @@
             Your browser does not support the video tag.
         </video>
     </section>
+    <div class="container mx-auto">
+        <!-- grid section -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 p-8" style="padding: 50px;">
+            <div class="md:col-span-2">
+                <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 30px;">What Solution Do You Need?</h2>
+                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Web development services help create all types of web-based software and ensure a great experience for web users. Different types of web solutions may seem similar from the outside, but we approach them differently and know what factors are winning in each case.</p>
+            </div>
+            <div id="accordion-collapse" data-accordion="collapse">
+                <h2 id="accordion-collapse-heading-1">
+                    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                        <span>Why Tech Edilite?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
+                    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">Our team consists of members with extensive experience in creating web applications, from Web 2.0 to Web 3.0. We specialize in designing systems that attracts and enhance your business.</p>
+                        <p class="text-gray-500 dark:text-gray-400">Our team of experts specializes in building responsive, fast, and secure websites tailored to your business needs.</p>
+                    </div>
+                </div>
+                <h2 id="accordion-collapse-heading-2">
+                    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+                        <span>Why Choose Our Web Development Services?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
+                    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">We offer top-notch web development services that are tailored to meet your specific needs. Our team of experts ensures that your website is not only visually appealing but also highly functional and user-friendly.</p>
+                        <p class="text-gray-500 dark:text-gray-400">With our services, you can expect a website that drives traffic, engages users, and converts visitors into customers.</p>
+                    </div>
+                </div>
+                <h2 id="accordion-collapse-heading-3">
+                    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+                        <span>What Technologies Do We Use?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
+                    <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                        <p class="mb-2 text-gray-500 dark:text-gray-400" >We utilize a variety of modern technologies to build robust and scalable web solutions. Some of the technologies we use include:</p>
+                        <ul class="ps-5 text-gray-500 list-disc dark:text-gray-400">
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>React, Angular, Vue.js</li>
+                            <li>Node.js, Express.js</li>
+                            <li>Django, Flask</li>
+                            <li>MySQL, PostgreSQL, MongoDB</li>
+                        </ul>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">Our expertise in these technologies ensures that your web project is built with the best tools available.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const accordionItems = document.querySelectorAll('[data-accordion-target]');
+
+                accordionItems.forEach(item => {
+                    item.addEventListener('click', function () {
+                        const targetId = this.getAttribute('data-accordion-target');
+                        const target = document.querySelector(targetId);
+
+                        if (target.classList.contains('hidden')) {
+                            target.classList.remove('hidden');
+                            this.setAttribute('aria-expanded', 'true');
+                        } else {
+                            target.classList.add('hidden');
+                            this.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+            });
+        </script>
     <!-- Quote section -->
-    <section class="bg-white py-12">
+    <!-- <section class="bg-white py-12"  >
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4 text-primary">Why Your Website Matters</h2>
-            <p class="text-xl italic text-gray-600">"Your website will take your business global, not restricted by
+            <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 30px;">Why Your Website Matters</h2>
+            <p class="text-xl italic text-gray-600" style="font-size: 18px;">"Your website will take your business global, not restricted by
                 language or region, and can be explored by anyone around the globe.
 
                 "</p>
         </div>
-    </section>
+    </section> -->
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-100" style="background-color: #010826;">
-        <div class="container mx-auto px-4 max-w-7xl">
-            <h2 class="text-4xl font-bold text-center mb-12 text-white">Services We Provide</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <section id="services" class="bg-white dark:bg-gray-900" style="background-color: #ffffff;  padding-top: 15px; ">
+    <!-- class="bg-white dark:bg-gray-900"> -->
+    <div class="container mx-auto px-4 max-w-7xl">
+        <h2 class="text-4xl font-bold text-center mb-12" style="font-size: 28px; color: #002266;">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
 
-                <!-- Website Development -->
-                <div class="bg-white p-6 rounded-lg shadow-md" style="background-color: #ffffff;">
-                    <video width="350" height="200" autoplay loop muted
-                        class="w-full h-48 object-cover mb-4 rounded-lg">
-                        <source src="webDev.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <h3 class="text-2xl font-bold mb-4">Website Development</h3>
-                    <p class="text-gray-600">We create robust and functional websites tailored to your needs.</p>
-                </div>
-
-                <!-- Designing -->
-                <div class="bg-white p-6 rounded-lg shadow-md" style="background-color: #ffff;">
-                    <video width="350" height="200" autoplay loop muted
-                        class="w-full h-48 object-cover mb-4 rounded-lg">
-                        <source src="webDesign.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <h3 class="text-2xl font-bold mb-4">Designing</h3>
-                    <p class="text-gray-600">Our design services ensure your brand stands out with visually appealing
-                        designs.</p>
-                </div>
-
-                <!-- Content Writing -->
-                <div class="bg-white p-6 rounded-lg shadow-md" style="background-color: #ffff;">
-                    <video width="350" height="200" autoplay loop muted
-                        class="w-full h-48 object-cover mb-4 rounded-lg">
-                        <source src="contentDesign.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <h3 class="text-2xl font-bold mb-4">Content Writing</h3>
-                    <p class="text-gray-600">We provide engaging and SEO-friendly content to enhance your online
-                        presence.</p>
-                </div>
+                <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Website Development</h2>
+                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Web development services help create all types of web-based software and ensure a great experience for web users. Different types of web solutions may seem similar from the outside, but we approach them differently and know what factors are winning in each case.</p>
 
             </div>
-        </div>
-    </section>
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-gray-200" style="background-color: #ffffff;">
-        <div class="container mx-auto px-4 max-w-7xl">
-            <h2 class="text-4xl font-bold text-center mb-12">Our Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
-                        <source src="./Edilite TechV.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <a href="https://calvinjoshua.github.io/edilit" target="_blank" rel="noopener noreferrer">
-                        <h3 class="text-2xl font-bold mb-2">Edilite Tech</h3>
-                    </a>
+            <div class="bg-white p-6 rounded-lg shadow-md">
 
-                    <p class="text-gray-600">Software Solutions Consulting Firm</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-
-                    <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
-                        <source src="./myClient01.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <a href="https://techedilite.github.io/cloudscape/" target="_blank" rel="noopener noreferrer">
-                        <h3 class="text-2xl font-bold mb-2">Cloudscape Construction</h3>
-                    </a>
-
-                    <p class="text-gray-600">Building the innovation.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
-                        <source src="./liveSoon.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <h3 class="text-2xl font-bold mb-2">Gemstone Emporium</h3>
-                    <p class="text-gray-600">Trading in the finest rocks and stones for all your needs.</p>
-                </div>
+                <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Website Design</h2>
+                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We create custom web designs that perfectly align with your brand's identity and values. Our designs are not only visually appealing but also functional, ensuring a seamless user experience that speaks to your clients.</p>
 
             </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+
+                <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Data Management Tools</h2>
+                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We develop robust customer data management tools that help you efficiently manage and analyze your customer data. Our solutions are designed to enhance your operational efficiency, improve customer relationships, and drive business growth.</p>
+
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+<br>
+<!-- Portfolio Section -->
+<section id="portfolio" class="bg-white dark:bg-gray-900" style="background-color: #ffffff; padding-top: 15px;">
+<div class="container mx-auto px-4 max-w-7xl">
+    <h2 class="text-4xl font-bold text-center mb-12" style="font-size: 28px; color: #002266;">Our Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
+                <source src="./Edilite TechV.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <a href="https://calvinjoshua.github.io/edilit" target="_blank" rel="noopener noreferrer">
+                <h3 class="text-2xl font-bold mb-2" style="font-size: 20px; text-align: center;">Edilite Tech</h3>
+            </a>
+
+            <p class="text-gray-600" style="text-align: center;">Software Solutions Consulting Firm</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+
+            <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
+                <source src="./myClient01.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <a href="https://techedilite.github.io/cloudscape/" target="_blank" rel="noopener noreferrer">
+                <h3 class="text-2xl font-bold mb-2" style="font-size: 20px; text-align: center;">Cloudscape Construction</h3>
+            </a>
+
+            <p class="text-gray-600" style="text-align: center;">Building with innovation.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
+                <source src="./liveSoon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h3 class="text-2xl font-bold mb-2" style="font-size: 20px; text-align: center;">Gemstone Emporium</h3>
+            <p class="text-gray-600" style="text-align: center;">Trading in the finest rocks and stones for all your needs.</p>
+        </div>
+
+    </div>
+</div>
+</section>
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 bg-gray-100" style="background-color: #010826;">
         <div class="container mx-auto px-4 max-w-7xl">
-            <h2 class="text-4xl font-bold text-center mb-12" style="color: #fff;">Testimonials</h2>
+            <h2 class="text-4xl font-bold text-center mb-12" style="color: #fff; font-size: 28px;" >Testimonials</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <p class="text-gray-600 mb-4">"Amazing work! Highly recommend their services."</p>
+                    <p class="text-gray-600 mb-4"  style="font-size: 15px; text-align: center;">"Amazing work! Highly recommend their services."</p>
                     <p class="text-gray-800 font-bold">- Joshua</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
@@ -220,23 +325,42 @@
     <!-- contact -->
     <section id="contact" class="bg-white dark:bg-gray-900">
         <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
-            <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">"If you’re interested in our services or have any specific requirements, please reach out to us for a personalized quotation. We will get back to you with good news.</p>
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white" style="color: #fff; font-size: 28px;">Contact Us</h2>
+            <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl" style="font-size: 19px;">If you’re interested in our services or have any specific requirements, please reach out to us for a personalized quotation. We will get back to you with good news.</p>
             <form id="contactForm" action="#" class="space-y-8">
                 <div>
-                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your name</label>
+                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Name</label>
                     <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
                 </div>
                 <div class="sm:col-span-2">
-                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your Message</label>
                     <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Please share your thoughts with us..."></textarea>
                 </div>
                 <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" style="background-color: #010826;">Send message</button>
             </form>
         </div>
     </section>
+</div>
     <!-- Footer -->
-    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+         <!-- footer -->
+    <footer class="bg-white shadow dark:bg-gray-800">
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" class="hover:underline">Tech Edilite</a>. All Rights Reserved.
+            </span>
+            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Mail Us</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Twitter</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Instagram</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <!-- <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./logo.png" class="h-8" alt="Tech Edilite Logo" />
@@ -261,7 +385,7 @@
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#"
                 class="hover:underline">Tech Edilite™</a>. All Rights Reserved.</span>
-    </div>
+    </div> -->
 
     <!-- JavaScript for mobile menu toggle -->
     <script>
