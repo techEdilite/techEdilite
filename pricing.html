@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechEdilite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Hide mobile video by default */
+        .video-mobile {
+            display: none;
+        }
+
+        /* Show mobile video on small screens */
+        @media (max-width: 768px) {
+            .video-desktop {
+                display: none;
+            }
+
+            .video-mobile {
+                display: block;
+            }
+        }
+
+        .space-x-4 {
+            display: flex;
+            align-items: center;
+        }
+
+        .google-translate {
+            display: inline-block;
+            vertical-align: middle;
+            height: 24px;
+            /* Adjust the height as needed */
+            width: auto;
+            /* Adjust the width as needed */
+            overflow: hidden;
+        }
+
+        .google-translate iframe {
+            height: 100% !important;
+            width: auto !important;
+        }
+        @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800" style="font-family: 'Exo', sans-serif; font-size: 15px;">
+    <div id="google_translate_element" class="google-translate"></div>
+
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="https://techedilite.github.io/techEdilite/#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="./logo.png" class="h-8" alt="Tech Edilite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white" style="font-size: 20px;">Tech Edilite</span>
+            </a>
+            <button id="mobile-menu-button" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul
+                    class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="https://techedilite.github.io/techEdilite/#"
+                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+                            aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://techedilite.github.io/techEdilite/#serv"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+                    </li>
+                    <li>
+                        <a href="https://techedilite.github.io/techEdilite/#portfolio"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Projects</a>
+                    </li>
+                    <!-- <li>
+                        <a href="#contact"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
+                            Us</a>
+                    </li> -->
+                    <li>
+                        <a href="#contact"
+                           class="blink block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
+                           Us</a>
+                    </li>
+              
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-8">
+        <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 30px;">How will your project be built</h2>
+        <br>
+        <ol class="relative border-s border-gray-200 dark:border-gray-700">                  
+            <li class="mb-10 ms-4">
+                <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Day 1-2</time>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-blue-500">Design Development</h3>
+                <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Create a visually appealing and functional design tailored to your business needs.</p>
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+          </svg></a>
+            </li>
+            <li class="mb-10 ms-4">
+                <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Day 3-5</time>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-blue-500">Website Development</h3>
+                <p class="text-base font-normal text-gray-500 dark:text-gray-400">Build a fully functional website based on the approved design.</p>
+            </li>
+            <li class="ms-4">
+                <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Day 6-7</time>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-blue-500">Demo and Suggestions</h3>
+                <p class="text-base font-normal text-gray-500 dark:text-gray-400">Present the website to the client and gather feedback for final adjustments.</p>
+            </li>
+        </ol>
+        
+        
+        <br>
+        <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Category
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Price
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Single page website
+                        </th>
+                        <td class="px-6 py-4">
+                            Fixed Rate
+                        </td>
+                        <td class="px-6 py-4">
+                            ₹2999
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Website with functionality
+                        </th>
+                        <td class="px-6 py-4">
+                            Variable
+                        </td>
+                        <td class="px-6 py-4">
+                            Starting from ₹5000
+                        </td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800">
+                        <th scope="row" data-popover-target="popover-default" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white cursor-pointer">
+                            Web 3 enabled website
+                        </th>
+                        <td class="px-6 py-4">
+                            Variable
+                        </td>
+                        <td class="px-6 py-4">
+                            Starting from ₹5200
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <div data-popover id="popover-default" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                    <h3 class="font-semibold text-gray-900 dark:text-white">Popover title</h3>
+                </div>
+                <div class="px-3 py-2">
+                    <p>And here's some amazing content. It's very engaging. Right?</p>
+                </div>
+                <div data-popper-arrow></div>
+            </div>
+        </div>
+        
+    </div>
+    <section id="contact" class="bg-white dark:bg-gray-900">
+        <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white" style="color: #fff; font-size: 28px;">Contact Us</h2>
+            <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl" style="font-size: 19px;">If you’re interested in our services or have any specific requirements, please reach out to us for a personalized quotation. We will get back to you with good news.</p>
+            <form id="contactForm" action="#" class="space-y-8">
+                <div>
+                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Name</label>
+                    <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your Message</label>
+                    <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Please share your thoughts with us..."></textarea>
+                </div>
+                <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" style="background-color: #010826;">Send message</button>
+            </form>
+        </div>
+    </section>
+       <!-- footer -->
+       <footer class="bg-white shadow dark:bg-gray-800">
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" class="hover:underline">Tech Edilite</a>. All Rights Reserved.
+            </span>
+            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Mail Us</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Twitter</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Instagram</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+<!-- JavaScript for mobile menu toggle -->
+<script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+        var menu = document.getElementById('navbar-default');
+        menu.classList.toggle('hidden');
+    });
+</script>
+
+ <!-- JavaScript for contact form submission -->
+ <script>
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        console.log({
+            yourName: document.getElementById('subject').value,
+            message: document.getElementById('message').value,
+        });
+        const now = new Date();
+        const currentUTCDateTime = now.toISOString();
+        let _subject = "From Tech Edilite client " + currentUTCDateTime
+        var mailtoLink = 'mailto:techedilite@gmail.com?subject=' + _subject + '&body=' +
+            'Name: ' + document.getElementById('subject').value + '%0A' +
+            'Message: ' + document.getElementById('message').value;
+
+        window.location.href = mailtoLink;
+    });
+</script>
+<!-- JavaScript for modal functionality -->
+<script>
+    // Show the modal on page load
+    window.addEventListener('load', function () {
+        document.getElementById('default-modal').classList.remove('hidden');
+    });
+
+    document.getElementById('close-modal').addEventListener('click', function () {
+        document.getElementById('default-modal').classList.add('hidden');
+    });
+
+    document.getElementById('accept-modal').addEventListener('click', function () {
+        document.getElementById('default-modal').classList.add('hidden');
+    });
+
+    document.getElementById('decline-modal').addEventListener('click', function () {
+        document.getElementById('default-modal').classList.add('hidden');
+    });
+</script>
+
+<!-- Google Translate script -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>
