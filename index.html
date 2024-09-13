@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-        <link rel="icon" type="image/png" href="./favTE.png"/>
-
+    <link rel="icon" type="image/png" href="./favTE.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechEdilite</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,6 +12,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <style>
+        .service-section {
+            text-align: center;
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            font-size: 40px;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
         /* Hide mobile video by default */
         .video-mobile {
             display: none;
@@ -62,7 +113,7 @@
 
 <body class="bg-gray-100 text-gray-800" style="font-family: 'Exo', sans-serif; font-size: 15px;">
     <div id="google_translate_element" class="google-translate"></div>
-    
+
     <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -117,7 +168,8 @@
             </div>
         </div>
     </nav>
-    <div id="sticky-banner" tabindex="-1" class="fixed top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+    <!-- banner code 50% -->
+    <!-- <div id="sticky-banner" tabindex="-1" class="fixed top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
         <div class="flex items-center mx-auto">
             <p class="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
                 <span class="inline-flex p-1 me-3 bg-gray-200 rounded-full dark:bg-gray-600 w-6 h-6 items-center justify-center flex-shrink-0">
@@ -137,7 +189,7 @@
                 <span class="sr-only">Close banner</span>
             </button>
         </div>
-    </div>
+    </div> -->
     <script>
         document.getElementById('close-banner').addEventListener('click', function() {
             document.getElementById('sticky-banner').style.display = 'none';
@@ -157,7 +209,7 @@
     <div class="container mx-auto">
         <!-- grid section -->
         <section class="grid grid-cols-1 md:grid-cols-3 gap-8 p-8" style="padding: 50px;">
-            
+
             <div class="md:col-span-2" style="padding: 20px;">
                 <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 30px;">What Solution Do You Need?</h2>
                 <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Web development services help create all types of web-based software and ensure a great experience for web users. Different types of web solutions may seem similar from the outside, but we approach them differently and know what factors are winning in each case.</p>
@@ -244,33 +296,56 @@
                 "</p>
         </div>
     </section> -->
-   
+
 <br>
+
     <!-- Services Section -->
-  <section id="services" class="bg-white dark:bg-gray-900" style="background-color: #ffffff;  padding-top: 15px; ">
+  <section id="services" class="service-section bg-white dark:bg-gray-900" style="background-color: #ffffff;  padding-top: 15px; ">
     <!-- class="bg-white dark:bg-gray-900"> -->
     <div class="container mx-auto px-4 max-w-7xl" >
         <h2 class="text-4xl font-bold text-center mb-12" style="font-size: 28px; color: #002266;">Our Services</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-
-                <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Website Development</h2>
-                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Web development services help create all types of web-based software and ensure a great experience for web users. Different types of web solutions may seem similar from the outside, but we approach them differently and know what factors are winning in each case.</p>
-
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="carousel-item">
+                    <div class="card">
+                        <h3>E-Commerce Solutions</h3>
+                        <!-- <p>We specialize in creating robust and scalable e-commerce platforms tailored to your business needs. From building custom online stores to integrating advanced payment gateways, our solutions ensure a seamless shopping experience for your customers. Our services include end-to-end e-commerce development, UI/UX design, inventory management, and personalized checkout processes.</p> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card">
+                        <h3>Website Design</h3>
+                        <!-- <p>We specialize in creating robust and scalable e-commerce platforms tailored to your business needs. From building custom online stores to integrating advanced payment gateways, our solutions ensure a seamless shopping experience for your customers. Our services include end-to-end e-commerce development, UI/UX design, inventory management, and personalized checkout processes.</p> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card">
+                        <h4>Website Development</h4>
+                        <!-- <p>Transform your online presence with our expert website development services. We build responsive, high-performance websites that are both visually appealing and functionally robust. Our services include custom website design, front-end and back-end development, content management system (CMS) integration, and ongoing maintenance. We ensure that your website is optimized for speed, SEO-friendly, and tailored to provide an exceptional user experience across all devices.</p> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card">
+                        <h4>Visitor managment solution</h4>
+                        <!-- <p>Transform your online presence with our expert website development services. We build responsive, high-performance websites that are both visually appealing and functionally robust. Our services include custom website design, front-end and back-end development, content management system (CMS) integration, and ongoing maintenance. We ensure that your website is optimized for speed, SEO-friendly, and tailored to provide an exceptional user experience across all devices.</p> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card">
+                        <h4>Resource managment solution</h4>
+                        <!-- <p>Transform your online presence with our expert website development services. We build responsive, high-performance websites that are both visually appealing and functionally robust. Our services include custom website design, front-end and back-end development, content management system (CMS) integration, and ongoing maintenance. We ensure that your website is optimized for speed, SEO-friendly, and tailored to provide an exceptional user experience across all devices.</p> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card">
+                        <h3>Web 3 Development</h3>
+                        <!-- <p>Embrace the future with our Web 3 development services. We design and build decentralized applications (dApps), smart contracts, and blockchain-based solutions that align with your vision. Our expertise spans various blockchain technologies, including Ethereum, Solana, and Polygon, ensuring secure and innovative solutions for your digital assets and decentralized projects.</p> -->
+                    </div>
+                </div>
+                <!-- Add more cards as needed -->
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-
-                <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Website Design</h2>
-                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We create custom web designs that perfectly align with your brand's identity and values. Our designs are not only visually appealing but also functional, ensuring a seamless user experience that speaks to your clients.</p>
-
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-
-                <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Data Management Tools</h2>
-                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We develop robust customer data management tools that help you efficiently manage and analyze your customer data. Our solutions are designed to enhance your operational efficiency, improve customer relationships, and drive business growth.</p>
-
-            </div>
-
+            <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+            <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
         </div>
     </div>
 </section>
@@ -317,6 +392,7 @@
 <br>
 </section>
 <hr>
+
 <!-- about us Section -->
 <section id="aboutUs" class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8" style="padding: 50px;">
     <!-- class="bg-white dark:bg-gray-900"> -->
@@ -328,9 +404,9 @@
         <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We, as a team, discussed the challenges and planned to deliver any project with efficiency and productivity, which gave birth to Tech Edilite.</p>
         <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We begin by thoroughly understanding your project requirements, goals, and objectives. This ensures that we are aligned with your vision and can deliver a solution that meets your needs.</p>
         <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We carefully analyze the technology stack to make the project cost-effective and efficient. By selecting the right tools and technologies, we ensure that your project is developed within your budget.</p>
-       
+
     </div>
-    <ol class="relative border-s border-gray-200 dark:border-gray-700">                  
+    <ol class="relative border-s border-gray-200 dark:border-gray-700">
         <li class="mb-10 ms-4">
             <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
             <!-- <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Day 1-2</time> -->
@@ -352,10 +428,7 @@
             <p class="text-base font-normal text-gray-500 dark:text-gray-400">We create a design that is both efficient and user-friendly, allowing users to explore all features and products seamlessly. Our focus is on delivering a design that enhances user experience and meets your project's functional requirements.</p>
         </li>
     </ol>
-    
 
-  
-  
 </section>
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 bg-gray-100" style="background-color: #010826;">
@@ -693,6 +766,28 @@
             </ul>
         </div>
     </footer>
+
+    <script>
+        let currentIndex = 0;
+        const carouselContainer = document.querySelector('.carousel-container');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+
+        function showSlide(index) {
+            currentIndex = (index + carouselItems.length) % carouselItems.length;
+            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        // Optional: Auto-slide every 3 seconds
+        setInterval(nextSlide, 3000);
+    </script>
     <!-- <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
