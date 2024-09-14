@@ -1,831 +1,838 @@
-package main
+<!DOCTYPE html>
+<html lang="en">
 
-import (
-	"errors"
-	"fmt"
-	"log"
-	"os"
-	"regexp"
-	"time"
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="./favTE.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechEdilite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        .service-section {
+            text-align: center;
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-	"math/rand"
+        .carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
 
-	"github.com/couchbase/gocb/v2"
-	"github.com/go-playground/validator/v10"
-	"github.com/gofiber/fiber/v2"
-	"github.com/joho/godotenv"
-	"golang.org/x/crypto/bcrypt"
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
 
-	// jwtware "github.com/gofiber/contrib/jwt"
-	"github.com/golang-jwt/jwt/v5"
-)
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
 
-type User struct {
-	ID       string `json:"id"`
-	Name     string `json:"name" validate:"required"`
-	Email    string `json:"email" validate:"required,email"`
-	Password string `json:"password" validate:"required"`
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            font-size: 40px;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Hide mobile video by default */
+        .video-mobile {
+            display: none;
+        }
+
+        /* Show mobile video on small screens */
+        @media (max-width: 768px) {
+            .video-desktop {
+                display: none;
+            }
+
+            .video-mobile {
+                display: block;
+            }
+        }
+
+        .space-x-4 {
+            display: flex;
+            align-items: center;
+        }
+
+        .google-translate {
+            display: inline-block;
+            vertical-align: middle;
+            height: 24px;
+            /* Adjust the height as needed */
+            width: auto;
+            /* Adjust the width as needed */
+            overflow: hidden;
+        }
+
+        .google-translate iframe {
+            height: 100% !important;
+            width: auto !important;
+        }
+        @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-type Address struct {
-	ID      string `json:"id"`
-	UserID  string `json:"userId"`
-	Address string `json:"address" validate:"required"`
+.blink {
+    animation: blink 1s infinite;
 }
-
-type Cart struct {
-	ID     string   `json:"id" validate:"required"`
-	UserID string   `json:"userId" validate:"required"`
-	Items  []string `json:"items"`
-}
-
-type APIResponse struct {
-	Status  int         `json:"status"`
-	Message string      `json:"message"`
-	Err     string      `json:"err,omitempty"`
-	Data    interface{} `json:"data,omitempty"`
-}
-
-var cluster *gocb.Cluster
-var usersCollection *gocb.Collection
-var addressesCollection *gocb.Collection
-var cartsCollection *gocb.Collection
-var productsCollection *gocb.Collection
-
-var validate *validator.Validate
-
-var productBucket *gocb.Bucket
-
-var bucket *gocb.Bucket
-
-func customCORS(c *fiber.Ctx) error {
-	// Allow all origins dynamically
-	origin := c.Get("Origin")
-	if origin == "" {
-		origin = "*"
-	}
-
-	c.Set("Access-Control-Allow-Origin", origin)
-	c.Set("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS")
-	c.Set("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization")
-	c.Set("Access-Control-Allow-Credentials", "true")
-
-	// Handle preflight OPTIONS request
-	if c.Method() == fiber.MethodOptions {
-		return c.SendStatus(fiber.StatusNoContent)
-	}
-
-	return c.Next()
-}
-
-func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
-	connectionString := os.Getenv("COUCHBASE_CONNECTION_STRING")
-	bucketName := os.Getenv("COUCHBASE_BUCKET_NAME")
-	username := os.Getenv("COUCHBASE_USERNAME")
-	password := os.Getenv("COUCHBASE_PASSWORD")
-
-	cluster, err = gocb.Connect("couchbase://"+connectionString, gocb.ClusterOptions{
-		Authenticator: gocb.PasswordAuthenticator{
-			Username: username,
-			Password: password,
-		},
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	bucket = cluster.Bucket(bucketName)
-	productBucket = cluster.Bucket("ProductsBucket")
-
-	err = bucket.WaitUntilReady(10*time.Second, nil)
-	if err != nil {
-		log.Fatalf("Bucket not ready: %v", err)
-	}
-
-	usersCollection = bucket.Scope("users").Collection("users")
-	addressesCollection = bucket.Scope("users").Collection("addresses")
-	cartsCollection = bucket.Scope("users").Collection("carts")
-
-	productsCollection = productBucket.Scope("products").Collection("products")
-
-	validate = validator.New()
-
-	app := fiber.New()
-
-	app.Use(customCORS)
-
-	app.Post("/register", registerUser)
-	app.Post("/login", loginUser)
-	// JWT Middleware
-
-	// app.Use("/", AuthMiddleware)
-
-	// app.Use(jwtware.New(jwtware.Config{
-	// 	SigningKey: jwtware.SigningKey{Key: []byte("secret")},
-	// }))
-
-	app.Get("/users/:userId", getUserProfile)
-	app.Put("/users/:userId", updateUserProfile)
-	app.Post("/users/:userId/addresses", addUserAddress)
-	app.Post("/users/:userId/addresses/:addressId", updateUserAddress)
-	app.Post("/users/:userId/cart", addToCart)
-	app.Delete("/users/:userId/cart/:itemId", removeFromCart)
-	app.Get("/users/:userId/get-cart", getCart)
-
-	app.Listen(":3001")
-}
-
-const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-
-func generateRandomUserID(length int) string {
-	b := make([]byte, length)
-	for i := range b {
-		b[i] = charset[rand.Intn(len(charset))]
-	}
-	return string(b)
-}
-
-func registerUser(c *fiber.Ctx) error {
-	user := new(User)
-	if err := c.BodyParser(user); err != nil {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	if err := validate.Struct(user); err != nil {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "validation error", Err: err.Error(), Data: nil})
-	}
-
-	bucket := cluster.Bucket("UsersBucket")
-
-	queryResult, err := bucket.Scope("users").Query(
-		"SELECT * FROM `users` WHERE email=$1",
-		&gocb.QueryOptions{Adhoc: true, PositionalParameters: []interface{}{user.Email}},
-	)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	var _user UserResponse
-	for queryResult.Next() {
-		var result UserResponse
-		err := queryResult.Row(&result)
-		if err != nil {
-			return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-		}
-		_user = result
-	}
-
-	if _user.Users.Email != "" {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "User already exist", Err: errors.New("User already exist").Error(), Data: nil})
-
-	}
-
-	user.ID = generateRandomUserID(10)
-
-	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	user.Password = string(hashedPassword)
-
-	_, err = usersCollection.Upsert(user.ID, user, nil)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	return c.Status(fiber.StatusOK).JSON(APIResponse{Status: fiber.StatusOK, Message: "User registered successfully", Data: user})
-}
-
-type UserResponse struct {
-	Users User `json:"Users"`
-}
-
-type CartResponse struct {
-	Cart Cart `json:"carts"`
-}
-
-func generateAccessToken(user string) (string, error) {
-	claims := jwt.MapClaims{
-		"name": user,
-		"role": "customer",
-		"type": "at",
-		"exp":  time.Now().Add(time.Minute * 15).Unix(),
-	}
-
-	// Create token
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-
-	// Generate encoded token and send it as response.
-	t, err := token.SignedString([]byte("secret"))
-	if err != nil {
-		return "", err
-	}
-
-	log.Println(t)
-
-	return t, nil
-}
-
-func AuthMiddleware(c *fiber.Ctx) error {
-	// Get the access token from the cookie
-	accessToken := c.Cookies("accessToken")
-	if accessToken == "" {
-		return c.Status(fiber.StatusUnauthorized).JSON(APIResponse{Status: fiber.StatusUnauthorized, Message: "Unauthorized", Err: "Access token missing"})
-	}
-
-	// Parse and validate the access token
-	token, err := jwt.Parse(accessToken, func(token *jwt.Token) (interface{}, error) {
-		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
-		}
-		return []byte("secret"), nil
-	})
-
-	if err != nil {
-		// Access token is invalid or expired, check the refresh token
-		refreshToken := c.Cookies("refreshToken")
-		if refreshToken == "" {
-			return c.Status(fiber.StatusUnauthorized).JSON(APIResponse{Status: fiber.StatusUnauthorized, Message: "Login required", Err: "Refresh token missing"})
-		}
-
-		// Parse and validate the refresh token
-		refreshTokenClaims, err := jwt.Parse(refreshToken, func(token *jwt.Token) (interface{}, error) {
-			if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-				return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
-			}
-			return []byte("secret"), nil
-		})
-
-		if err != nil || !refreshTokenClaims.Valid {
-			return c.Status(fiber.StatusUnauthorized).JSON(APIResponse{Status: fiber.StatusUnauthorized, Message: "Login required", Err: "Invalid refresh token"})
-		}
-
-		userClaims := refreshTokenClaims.Claims.(jwt.MapClaims)
-
-		// Generate a new access token
-		newAccessToken, err := generateAccessToken(userClaims["name"].(string))
-		if err != nil {
-			return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "Internal Server Error", Err: "Failed to generate new access token"})
-		}
-
-		// Set the new access token in the cookie
-		c.Cookie(&fiber.Cookie{
-			Name:     "accessToken",
-			Value:    newAccessToken,
-			Expires:  time.Now().Add(time.Minute * 15),
-			HTTPOnly: true,
-			SameSite: "Strict",
-		})
-
-		// Parse and validate the new access token
-		token, err = jwt.Parse(newAccessToken, func(token *jwt.Token) (interface{}, error) {
-			if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-				return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
-			}
-			return []byte("secret"), nil
-		})
-
-		if err != nil {
-			return c.Status(fiber.StatusUnauthorized).JSON(APIResponse{Status: fiber.StatusUnauthorized, Message: "Invalid token", Err: "Invalid new access token"})
-		}
-	}
-
-	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-		// Attach user information to the context
-		c.Locals("user", claims)
-		return c.Next()
-	}
-
-	return c.Status(fiber.StatusUnauthorized).JSON(APIResponse{Status: fiber.StatusUnauthorized, Message: "Invalid token", Err: "Invalid access token"})
-}
-
-func loginUser(c *fiber.Ctx) error {
-	loginRequest := new(User)
-	if err := c.BodyParser(loginRequest); err != nil {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	// if err := validate.Struct(loginRequest); err != nil {
-	// return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "validation error", Err: err.Error(), Data: nil})
-	// }
-
-	if loginRequest.Email == "" || loginRequest.Password == "" {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "validation error", Err: errors.New("mandatory fields missing").Error(), Data: nil})
-
-	}
-
-	bucket := cluster.Bucket("UsersBucket")
-
-	queryResult, err := bucket.Scope("users").Query(
-		"SELECT * FROM `users` WHERE email=$1",
-		&gocb.QueryOptions{Adhoc: true, PositionalParameters: []interface{}{loginRequest.Email}},
-	)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	var user UserResponse
-	for queryResult.Next() {
-		var result UserResponse
-		err := queryResult.Row(&result)
-		if err != nil {
-			return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-		}
-		user = result
-	}
-
-	if user.Users.ID == "" {
-		return c.Status(fiber.StatusNotFound).JSON(APIResponse{Status: fiber.StatusNotFound, Message: "User not found", Data: nil})
-	}
-
-	err = bcrypt.CompareHashAndPassword([]byte(user.Users.Password), []byte(loginRequest.Password))
-	if err != nil {
-		return c.Status(fiber.StatusUnauthorized).JSON(APIResponse{Status: fiber.StatusUnauthorized, Message: "Invalid password", Data: nil})
-	}
-
-	user.Users.Password = ""
-
-	// Create the Claims
-	// claims := jwt.MapClaims{
-	// 	"name": user.Users.Name,
-	// 	"role": "customer",
-	// 	"type": "at",
-	// 	"exp":  time.Now().Add(time.Minute * 15).Unix(),
-	// }
-
-	// // Create token
-	// token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-
-	// // Generate encoded token and send it as response.
-	t, err := generateAccessToken(user.Users.Name)
-	if err != nil {
-		return c.SendStatus(fiber.StatusInternalServerError)
-	}
-
-	// Create the Claims
-	claims := jwt.MapClaims{
-		"name": user.Users.Name,
-		"role": "customer",
-		"type": "rt",
-		"exp":  time.Now().Add(time.Hour * 168).Unix(), //7 days
-	}
-
-	// Create token
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-
-	// Generate encoded token and send it as response.
-	r, err := token.SignedString([]byte("secret"))
-	if err != nil {
-		return c.SendStatus(fiber.StatusInternalServerError)
-	}
-
-	// Set Access Token as HTTP-only, Secure, and SameSite Cookie
-	c.Cookie(&fiber.Cookie{
-		Name:     "accessToken",
-		Value:    t,
-		Expires:  time.Now().Add(time.Minute * 15),
-		HTTPOnly: true,
-		// Secure:   true,
-		SameSite: "Strict",
-	})
-
-	// Set Refresh Token as HTTP-only, Secure, and SameSite Cookie
-	c.Cookie(&fiber.Cookie{
-		Name:     "refreshToken",
-		Value:    r,
-		Expires:  time.Now().Add(time.Hour * 168),
-		HTTPOnly: true,
-		// Secure:   true,
-		SameSite: "Strict",
-	})
-
-	c.Cookie(&fiber.Cookie{
-		Name:     "userId",
-		Value:    user.Users.ID,
-		Expires:  time.Now().Add(time.Hour * 168),
-		HTTPOnly: true,
-		// Secure:   true,
-		SameSite: "Strict",
-	})
-
-	// return c.JSON(fiber.Map{"token": t})
-
-	return c.Status(fiber.StatusOK).JSON(APIResponse{Status: fiber.StatusOK, Message: "User authenticated successfully", Data: fiber.Map{"accessToken": t, "refreshToken": r, "userData": user}})
-}
-
-func getUserProfile(c *fiber.Ctx) error {
-	userId := c.Params("userId")
-
-	// log.Println(c.Request().Header.Cookie("userID"))
-
-	// userId := c.Cookies("userID")
-	// if userId == "" {
-	// 	return c.Status(fiber.StatusUnauthorized).JSON(APIResponse{Status: fiber.StatusUnauthorized, Message: "User not authenticated", Err: "No userID cookie found", Data: nil})
-	// }
-
-	getResult, err := usersCollection.Get(userId, nil)
-	if err != nil {
-		return c.Status(fiber.StatusNotFound).JSON(APIResponse{Status: fiber.StatusNotFound, Message: "User not found", Err: err.Error(), Data: nil})
-	}
-
-	var user User
-	err = getResult.Content(&user)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	user.Password = ""
-
-	bucket := cluster.Bucket("UsersBucket")
-
-	queryResult, err := bucket.Scope("users").Query(
-		"SELECT * FROM `addresses` WHERE userId=$1",
-		&gocb.QueryOptions{Adhoc: true, PositionalParameters: []interface{}{userId}},
-	)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	var userAddress []AddressResponse
-	for queryResult.Next() {
-		var result AddressResponse
-		err := queryResult.Row(&result)
-		if err != nil {
-			return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-		}
-		userAddress = append(userAddress, result)
-	}
-
-	cartB := false
-
-	getResult, err = cartsCollection.Get(userId, nil)
-	if err != nil {
-		re := regexp.MustCompile(`^[^|]+`)
-		match := re.FindString(err.Error())
-
-		if match == "document not found " {
-
-		} else {
-			return c.Status(fiber.StatusNotFound).JSON(APIResponse{Status: fiber.StatusNotFound, Message: "Cart not found", Err: err.Error(), Data: nil})
-		}
-	} else {
-		cartB = true
-	}
-
-	var cart Cart
-	var totalPrice = float64(0)
-
-	if cartB {
-		err = getResult.Content(&cart)
-		if err != nil {
-
-			return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-
-		}
-		//
-		// var totalPrice = float64(0)
-
-		for _, items := range cart.Items {
-			query := "SELECT * FROM `products`"
-			if items != "" {
-				query += fmt.Sprintf(" WHERE id = '%s'", items)
-			}
-			queryResult, err := productBucket.Scope("products").Query(query, &gocb.QueryOptions{Adhoc: true})
-			if err != nil {
-				return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "Something went wrong!, CODE - 01", Err: err.Error(), Data: nil})
-			}
-			for queryResult.Next() {
-				var productResponse ProductResponse
-				err := queryResult.Row(&productResponse)
-				if err != nil {
-					return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-				}
-				log.Println(productResponse.Products.ID)
-
-				totalPrice += productResponse.Products.Price
-			}
-
-		}
-
-	}
-
-	return c.Status(fiber.StatusOK).JSON(APIResponse{Status: fiber.StatusOK, Message: "User profile retrieved successfully", Data: fiber.Map{"userInfo": user, "Address": userAddress, "cart": cart, "totalPrice": totalPrice}}) // user})
-}
-
-func updateUserProfile(c *fiber.Ctx) error {
-	userId := c.Params("userId")
-	user := new(User)
-	if err := c.BodyParser(user); err != nil {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	if user.Name == "" && user.Email == "" && user.Password == "" {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "validation error", Err: errors.New("mandatory fields missing").Error(), Data: nil})
-
-	}
-
-	getResult, err := usersCollection.Get(userId, nil)
-	if err != nil {
-		return c.Status(fiber.StatusNotFound).JSON(APIResponse{Status: fiber.StatusNotFound, Message: "User not found", Err: err.Error(), Data: nil})
-	}
-
-	var newUserDetails User
-	err = getResult.Content(&newUserDetails)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	if user.Name != "" {
-		newUserDetails.Name = user.Name
-	} else if user.Email != "" {
-		newUserDetails.Email = user.Email
-	} else if user.Password != "" {
-
-		hashedPassword, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
-		if err != nil {
-			return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-		}
-
-		newUserDetails.Password = string(hashedPassword)
-	}
-
-	// || user.Email == "" || user.Password == "" {
-
-	// if err := validate.Struct(user); err != nil {
-	// 	return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "validation error", Err: err.Error(), Data: nil})
-	// }
-
-	_, err = usersCollection.Upsert(userId, newUserDetails, nil)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	newUserDetails.Password = ""
-
-	return c.Status(fiber.StatusOK).JSON(APIResponse{Status: fiber.StatusOK, Message: "User profile updated successfully", Data: newUserDetails})
-}
-
-func addUserAddress(c *fiber.Ctx) error {
-	userId := c.Params("userId")
-	if userId == "" {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "validation error", Err: errors.New("mandatory fields missing").Error(), Data: nil})
-
-	}
-	address := new(Address)
-	if err := c.BodyParser(address); err != nil {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	if address.Address == "" {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "validation error", Err: errors.New("mandatory fields missing").Error(), Data: nil})
-
-	}
-
-	address.ID = generateRandomUserID(10)
-
-	// if err := validate.Struct(address); err != nil {
-	// 	return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "validation error", Err: err.Error(), Data: nil})
-	// }
-
-	address.UserID = userId
-	_, err := addressesCollection.Upsert(address.ID, address, nil)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	return c.Status(fiber.StatusCreated).JSON(APIResponse{Status: fiber.StatusCreated, Message: "Address added successfully", Data: address})
-}
-
-func updateUserAddress(c *fiber.Ctx) error {
-	userId := c.Params("userId")
-	addressId := c.Params("addressId")
-	address := new(Address)
-	if err := c.BodyParser(address); err != nil {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	if address.Address == "" {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "validation error", Err: errors.New("mandatory fields missing").Error(), Data: nil})
-
-	}
-
-	_, err := addressesCollection.Get(addressId, nil)
-	if err != nil {
-		return c.Status(fiber.StatusNotFound).JSON(APIResponse{Status: fiber.StatusNotFound, Message: "Address ID not found", Err: err.Error(), Data: nil})
-	}
-
-	address.ID = addressId
-
-	address.UserID = userId
-
-	// if err := validate.Struct(address); err != nil {
-	// 	return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "validation error", Err: err.Error(), Data: nil})
-	// }
-
-	address.UserID = userId
-	_, err = addressesCollection.Upsert(addressId, address, nil)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	return c.Status(fiber.StatusOK).JSON(APIResponse{Status: fiber.StatusOK, Message: "Address updated successfully", Data: address})
-}
-
-func addToCart(c *fiber.Ctx) error {
-	userId := c.Params("userId")
-	cart := new(Cart)
-	if err := c.BodyParser(cart); err != nil {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	if len(cart.Items) == 0 {
-		return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "validation error", Err: errors.New("mandatory fields missing").Error(), Data: nil})
-
-	}
-
-	log.Println(userId)
-	getCart, err := cartsCollection.Get(userId, nil)
-	if err != nil {
-
-		re := regexp.MustCompile(`^[^|]+`)
-		match := re.FindString(err.Error())
-
-		if match == "document not found " {
-			log.Println("here")
-			cart.ID = generateRandomUserID(7)
-			_, err := cartsCollection.Upsert(userId, cart, nil)
-			if err != nil {
-				return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-			}
-			return c.Status(fiber.StatusOK).JSON(APIResponse{Status: fiber.StatusOK, Message: "Item added to cart successfully", Data: cart})
-
-		} else {
-			return c.Status(fiber.StatusNotFound).JSON(APIResponse{Status: fiber.StatusNotFound, Message: "Something went wrong", Err: err.Error(), Data: nil})
-
-		}
-	}
-
-	var _cart Cart
-	err = getCart.Content(&_cart)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	// if _cart.Cart.ID == "" {
-	// 	cart.ID = generateRandomUserID(7)
-	// 	_, err := cartsCollection.Upsert(userId, cart, nil)
-	// 	if err != nil {
-	// 		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	// 	}
-
-	// } else {
-
-	// log.Println(_cart, getCart)
-
-	// if len(_cart.Items) == 0 {
-	// 	return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "temp", Err: "err", Data: nil})
-
-	// }
-	for _, items := range cart.Items {
-		_, err := productsCollection.Get(items, nil)
-		if err == nil {
-			_cart.Items = append(_cart.Items, items)
-
-			// return c.Status(fiber.StatusNotFound).JSON(APIResponse{Status: fiber.StatusNotFound, Message: "error", Err: err.Error(), Data: nil})
-		}
-		// if _cart.Items[i] == items {
-		// 	return c.Status(fiber.StatusCreated).JSON(APIResponse{Status: fiber.StatusCreated, Message: "Item added to cart successfully", Data: cart})
-
-		// }
-	}
-
-	// for _, items := range cart.Items {
-
-	// }
-
-	_, err = cartsCollection.Upsert(userId, _cart, nil)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	// query := "SELECT * FROM `carts`"
-	// if userId != "" {
-	// 	query += fmt.Sprintf(" WHERE userId = '%s'", userId)
-	// }
-
-	// queryResult, err := bucket.Scope(os.Getenv("COUCHBASE_SCOPE")).Query(query, &gocb.QueryOptions{Adhoc: true})
-	// if err != nil {
-	// 	return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	// }
-
-	// for queryResult.Next() {
-
-	// }
-
-	// if err := validate.Struct(cart); err != nil {
-	// 	return c.Status(fiber.StatusBadRequest).JSON(APIResponse{Status: fiber.StatusBadRequest, Message: "validation error", Err: err.Error(), Data: nil})
-	// }
-
-	return c.Status(fiber.StatusOK).JSON(APIResponse{Status: fiber.StatusOK, Message: "Item added to cart successfully", Data: cart})
-}
-
-func removeFromCart(c *fiber.Ctx) error {
-	userId := c.Params("userId")
-	itemId := c.Params("itemId")
-
-	getResult, err := cartsCollection.Get(userId, nil)
-	if err != nil {
-		return c.Status(fiber.StatusNotFound).JSON(APIResponse{Status: fiber.StatusNotFound, Message: "Cart not found", Err: err.Error(), Data: nil})
-	}
-
-	var cart Cart
-	err = getResult.Content(&cart)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	for i, item := range cart.Items {
-		if item == itemId {
-			cart.Items = append(cart.Items[:i], cart.Items[i+1:]...)
-			break
-		}
-	}
-
-	_, err = cartsCollection.Upsert(userId, cart, nil)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	return c.Status(fiber.StatusOK).JSON(APIResponse{Status: fiber.StatusOK, Message: "Item removed from cart successfully", Data: cart})
-}
-
-type Product struct {
-	Type        string    `json:"type"`
-	ID          string    `json:"id"`
-	Name        string    `json:"name"`
-	Description string    `json:"description"`
-	Price       float64   `json:"price"`
-	CreatedAt   time.Time `json:"created_at"`
-	UpdatedAt   time.Time `json:"updated_at"`
-	OneStar     int       `json:"oneStar"`
-	TwoStar     int       `json:"twoStar"`
-	ThreeStar   int       `json:"threeStar"`
-	FourStar    int       `json:"fourStar"`
-	FiveStar    int       `json:"fiveStar"`
-	Quantity    int       `json:"quantity"`
-}
-
-type ProductResponse struct {
-	Products Product `json:"products"`
-}
-
-type AddressResponse struct {
-	Address Address `json:"addresses"`
-}
-
-func getCart(c *fiber.Ctx) error {
-	userId := c.Params("userId")
-
-	getResult, err := cartsCollection.Get(userId, nil)
-	if err != nil {
-		return c.Status(fiber.StatusNotFound).JSON(APIResponse{Status: fiber.StatusNotFound, Message: "Cart not found", Err: err.Error(), Data: nil})
-	}
-
-	var cart Cart
-	err = getResult.Content(&cart)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-	}
-
-	var totalPrice = float64(0)
-
-	for _, items := range cart.Items {
-		query := "SELECT * FROM `products`"
-		if items != "" {
-			query += fmt.Sprintf(" WHERE id = '%s'", items)
-		}
-		queryResult, err := productBucket.Scope("products").Query(query, &gocb.QueryOptions{Adhoc: true})
-		if err != nil {
-			return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "Something went wrong!, CODE - 01", Err: err.Error(), Data: nil})
-		}
-		for queryResult.Next() {
-			var productResponse ProductResponse
-			err := queryResult.Row(&productResponse)
-			if err != nil {
-				return c.Status(fiber.StatusInternalServerError).JSON(APIResponse{Status: fiber.StatusInternalServerError, Message: "error", Err: err.Error(), Data: nil})
-			}
-			log.Println(productResponse.Products.ID)
-
-			totalPrice += productResponse.Products.Price
-		}
-
-	}
-
-	return c.Status(fiber.StatusOK).JSON(APIResponse{Status: fiber.StatusOK, Message: "Fetched user cart", Data: fiber.Map{"cart": cart, "totalPrice": totalPrice}}) // cart})
-}
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800" style="font-family: 'Exo', sans-serif; font-size: 15px;">
+    <div id="google_translate_element" class="google-translate"></div>
+
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="./logo.png" class="h-8" alt="Tech Edilite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white" style="font-size: 20px;">Tech Edilite</span>
+            </a>
+            <button id="mobile-menu-button" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul
+                    class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+                            aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="#services"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Projects</a>
+                    </li>
+                    <!-- <li>
+                        <a href="#contact"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
+                            Us</a>
+                    </li> -->
+                    <li>
+                        <a href="#contact"
+                           class="blink block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
+                           Us</a>
+                    </li>
+                    <li>
+                        <a href="solutions.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Solutions</a>
+                    </li>
+                    <li>
+                        <a href="#aboutUs"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- banner code 50% -->
+    <!-- <div id="sticky-banner" tabindex="-1" class="fixed top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+        <div class="flex items-center mx-auto">
+            <p class="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
+                <span class="inline-flex p-1 me-3 bg-gray-200 rounded-full dark:bg-gray-600 w-6 h-6 items-center justify-center flex-shrink-0">
+                    <svg class="w-3 h-3 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+                        <path d="M15 1.943v12.114a1 1 0 0 1-1.581.814L8 11V5l5.419-3.871A1 1 0 0 1 15 1.943ZM7 4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2v5a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V4ZM4 17v-5h1v5H4ZM16 5.183v5.634a2.984 2.984 0 0 0 0-5.634Z"/>
+                    </svg>
+                    <span class="sr-only">Light bulb</span>
+                </span>
+                <span> We are developing at 50% discount, celebrating our official launch! </span>
+            </p>
+        </div>
+        <div class="flex items-center">
+            <button id="close-banner" data-dismiss-target="#sticky-banner" type="button" class="flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                </svg>
+                <span class="sr-only">Close banner</span>
+            </button>
+        </div>
+    </div> -->
+    <script>
+        document.getElementById('close-banner').addEventListener('click', function() {
+            document.getElementById('sticky-banner').style.display = 'none';
+        });
+    </script>
+    <!-- hero section -->
+    <section class="relative h-[75vh]" >
+        <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-desktop">
+            <source src="./new hero.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-mobile">
+            <source src="./New gro mobile.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+    <div class="container mx-auto">
+        <!-- grid section -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 p-8" style="padding: 50px;">
+
+            <div class="md:col-span-2" style="padding: 20px;">
+                <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 30px;">What Solution Do You Need?</h2>
+                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Our software solutions cover a broad spectrum of needs, from web development to custom software and consulting. We specialize in creating tailored solutions that ensure an exceptional experience for your users. While different types of software solutions might appear similar, our approach is uniquely designed to address the specific factors that drive success in each case.
+
+                </p>
+            </div>
+            <div id="accordion-collapse" data-accordion="collapse">
+                <h2 id="accordion-collapse-heading-1">
+                    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                        <span>Why Tech Edilite?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
+                    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">Our team consists of members with extensive experience in creating web applications, from Web 2.0 to Web 3.0. We specialize in designing systems that attracts and enhance your business.</p>
+                        <p class="text-gray-500 dark:text-gray-400">Our team of experts specializes in building responsive, fast, and secure websites tailored to your business needs.</p>
+                    </div>
+                </div>
+                <h2 id="accordion-collapse-heading-2">
+                    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+                        <span>Why Choose Our Web Development Services?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
+                    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">We offer top-notch web development services that are tailored to meet your specific needs. Our team of experts ensures that your website is not only visually appealing but also highly functional and user-friendly.</p>
+                        <p class="text-gray-500 dark:text-gray-400">With our services, you can expect a website that drives traffic, engages users, and converts visitors into customers.</p>
+                    </div>
+                </div>
+                <h2 id="accordion-collapse-heading-3">
+                    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+                        <span>What Technologies Do We Use?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
+                    <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                        <p class="mb-2 text-gray-500 dark:text-gray-400" >We utilize a variety of modern technologies to build robust and scalable web solutions. Some of the technologies we use include:</p>
+                        <ul class="ps-5 text-gray-500 list-disc dark:text-gray-400">
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>React, Angular, Vue.js</li>
+                            <li>Node.js, Express.js</li>
+                            <li>Django, Flask</li>
+                            <li>MySQL, PostgreSQL, MongoDB</li>
+                        </ul>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">Our expertise in these technologies ensures that your web project is built with the best tools available.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const accordionItems = document.querySelectorAll('[data-accordion-target]');
+
+                accordionItems.forEach(item => {
+                    item.addEventListener('click', function () {
+                        const targetId = this.getAttribute('data-accordion-target');
+                        const target = document.querySelector(targetId);
+
+                        if (target.classList.contains('hidden')) {
+                            target.classList.remove('hidden');
+                            this.setAttribute('aria-expanded', 'true');
+                        } else {
+                            target.classList.add('hidden');
+                            this.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+            });
+        </script>
+    <!-- Quote section -->
+    <!-- <section class="bg-white py-12"  >
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 30px;">Why Your Website Matters</h2>
+            <p class="text-xl italic text-gray-600" style="font-size: 18px;">"Your website will take your business global, not restricted by
+                language or region, and can be explored by anyone around the globe.
+
+                "</p>
+        </div>
+    </section> -->
+
+<br>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-white dark:bg-gray-900" style="background-color: #ffffff;  padding-top: 15px; ">
+        <!-- class="bg-white dark:bg-gray-900"> -->
+        <div class="container mx-auto px-4 max-w-7xl" >
+            <h2 class="text-4xl font-bold text-center mb-12" style="font-size: 28px; color: #002266;">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+    
+                    <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Tailored Software Solutions for Your Business</h2>
+                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We specialize in developing custom software solutions that meet the unique needs of businesses and institutions. From intricate web-based platforms to robust enterprise applications, our software is designed to streamline operations and enhance efficiency, helping you achieve your goals with precision and innovation.</p>
+    
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+    
+                    <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Expert Consultancy for Optimal Software Solutions</h2>
+                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Our consultancy services offer expert guidance in selecting and implementing the right software solutions for your business. We analyze your needs, provide strategic advice, and ensure that your software infrastructure aligns with your objectives, leading to smarter decisions and better outcomes.</p>
+    
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+    
+                    <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Innovative Design Solutions: Logos, Posters, and More</h2>
+                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Enhance your brand’s identity with our creative design services. We craft compelling logos, eye-catching posters, and other visual content that effectively communicate your message and resonate with your audience. Our designs are tailored to reflect your brand’s unique personality and vision.
+
+                    </p>
+    
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    <br>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="bg-white dark:bg-gray-900" style="background-color: #ffffff; padding-top: 15px;">
+    <div class="container mx-auto px-4 max-w-7xl">
+        <h2 class="text-4xl font-bold text-center mb-12" style="font-size: 28px; color: #002266;">Our Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <source src="./Edilite TechV.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- <a href="https://calvinjoshua.github.io/edilit" target="_blank" rel="noopener noreferrer"> -->
+                    <h3 class="text-2xl font-bold mb-2" style="font-size: 20px; text-align: center;">Edilite Tech</h3>
+                <!-- </a> -->
+    
+                <p class="text-gray-600" style="text-align: center;">Software Solutions Consulting Firm</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+    
+                <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <source src="./myClient01.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <a href="https://techedilite.github.io/cloudscape/" target="_blank" rel="noopener noreferrer">
+                    <h3 class="text-2xl font-bold mb-2" style="font-size: 20px; text-align: center;">Cloudscape Construction</h3>
+                </a>
+    
+                <p class="text-gray-600" style="text-align: center;">Building with innovation.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <source src="./liveSoon.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3 class="text-2xl font-bold mb-2" style="font-size: 20px; text-align: center;">Gemstone Emporium</h3>
+                <p class="text-gray-600" style="text-align: center;">Trading in the finest rocks and stones for all your needs.</p>
+            </div>
+    
+        </div>
+        </div>
+    </section>
+<br>
+
+<hr>
+
+<!-- about us Section -->
+<section id="aboutUs" class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8" style="padding: 50px;">
+    <!-- class="bg-white dark:bg-gray-900"> -->
+    <div class="bg-white p-6 rounded-lg shadow-md">
+
+        <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">About Tech Edilite</h2>
+        <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Our team, working in various fields, has always believed that technology is meant to bring out innovation and help people.</p>
+        <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">How we achieve it?</p>
+        <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We, as a team, discussed the challenges and planned to deliver any project with efficiency and productivity, which gave birth to Tech Edilite.</p>
+        <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We begin by thoroughly understanding your project requirements, goals, and objectives. This ensures that we are aligned with your vision and can deliver a solution that meets your needs.</p>
+        <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We carefully analyze the technology stack to make the project cost-effective and efficient. By selecting the right tools and technologies, we ensure that your project is developed within your budget.</p>
+
+    </div>
+    <ol class="relative border-s border-gray-200 dark:border-gray-700">
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <!-- <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Day 1-2</time> -->
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-blue-500">Understand the Project</h3>
+            <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">We begin by thoroughly understanding your project requirements, goals, and objectives. This ensures that we are aligned with your vision and can deliver a solution that meets your needs.</p>
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+      </svg></a>
+        </li>
+        <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <!-- <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Day 3-5</time> -->
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-blue-500">Analyze the Tech Stack</h3>
+            <p class="text-base font-normal text-gray-500 dark:text-gray-400">We carefully analyze the technology stack to make the project cost-effective and efficient. By selecting the right tools and technologies, we ensure that your project is developed with optimal performance and within your budget.</p>
+        </li>
+        <li class="ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <!-- <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Day 6-7</time> -->
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-blue-500">Create a Design</h3>
+            <p class="text-base font-normal text-gray-500 dark:text-gray-400">We create a design that is both efficient and user-friendly, allowing users to explore all features and products seamlessly. Our focus is on delivering a design that enhances user experience and meets your project's functional requirements.</p>
+        </li>
+    </ol>
+
+</section>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-100" style="background-color: #010826;">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <h2 class="text-4xl font-bold text-center mb-12" style="color: #fff; font-size: 28px;" >Our Impact</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-gray-600 mb-4"  style="font-size: 15px; text-align: center;">"Tech Edilite’s Student Management System Nexus has revolutionized our operations. It’s streamlined our student record management and boosted our overall efficiency, making it an essential tool for our institution"</p>
+                    <!-- <p class="text-gray-800 font-bold">- Instutions</p> -->
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-gray-600 mb-4">"Tech Edilite transformed our online presence with a stunning website. Their design made it easy for our clients to understand and engage with our business. We’ve seen a significant boost in client interactions since the launch."</p>
+                    <!-- <p class="text-gray-800 font-bold">- Bhavesh</p> -->
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-gray-600 mb-4">"Thanks to Tech Edilite, our e-commerce site has expanded our reach beyond borders. We’re now selling directly to customers around the world, which has greatly increased our sales and visibility.."</p>
+                    <!-- <p class="text-gray-800 font-bold">- Andrew</p> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact -->
+    <section id="contact" class="bg-white dark:bg-gray-900">
+        <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white"
+                style="font-size: 28px;">Contact Us</h2>
+            <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl"
+                style="font-size: 19px;">If you’re interested in our services or have any specific requirements, please
+                reach out to us for a personalized quotation. We will get back to you with good news.</p>
+            <form id="contactForm" action="#" class="space-y-8">
+                <div>
+                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Organisation Name</label>
+                    <input type="text" id="subject"
+                        class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                        placeholder="Let us know how we can help you" required>
+                </div>
+                <div class="mb-5">
+                    <label for="country" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Country</label>
+                    <select id="country"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required>
+                        <option value="">Select your country</option>
+                        <option value="AF">Afghanistan</option>
+                        <option value="AX">Åland Islands</option>
+                        <option value="AL">Albania</option>
+                        <option value="DZ">Algeria</option>
+                        <option value="AS">American Samoa</option>
+                        <option value="AD">Andorra</option>
+                        <option value="AO">Angola</option>
+                        <option value="AI">Anguilla</option>
+                        <option value="AQ">Antarctica</option>
+                        <option value="AG">Antigua and Barbuda</option>
+                        <option value="AR">Argentina</option>
+                        <option value="AM">Armenia</option>
+                        <option value="AW">Aruba</option>
+                        <option value="AU">Australia</option>
+                        <option value="AT">Austria</option>
+                        <option value="AZ">Azerbaijan</option>
+                        <option value="BS">Bahamas</option>
+                        <option value="BH">Bahrain</option>
+                        <option value="BD">Bangladesh</option>
+                        <option value="BB">Barbados</option>
+                        <option value="BY">Belarus</option>
+                        <option value="BE">Belgium</option>
+                        <option value="BZ">Belize</option>
+                        <option value="BJ">Benin</option>
+                        <option value="BM">Bermuda</option>
+                        <option value="BT">Bhutan</option>
+                        <option value="BO">Bolivia</option>
+                        <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                        <option value="BA">Bosnia and Herzegovina</option>
+                        <option value="BW">Botswana</option>
+                        <option value="BV">Bouvet Island</option>
+                        <option value="BR">Brazil</option>
+                        <option value="IO">British Indian Ocean Territory</option>
+                        <option value="BN">Brunei Darussalam</option>
+                        <option value="BG">Bulgaria</option>
+                        <option value="BF">Burkina Faso</option>
+                        <option value="BI">Burundi</option>
+                        <option value="CV">Cabo Verde</option>
+                        <option value="KH">Cambodia</option>
+                        <option value="CM">Cameroon</option>
+                        <option value="CA">Canada</option>
+                        <option value="KY">Cayman Islands</option>
+                        <option value="CF">Central African Republic</option>
+                        <option value="TD">Chad</option>
+                        <option value="CL">Chile</option>
+                        <option value="CN">China</option>
+                        <option value="CX">Christmas Island</option>
+                        <option value="CC">Cocos (Keeling) Islands</option>
+                        <option value="CO">Colombia</option>
+                        <option value="KM">Comoros</option>
+                        <option value="CG">Congo</option>
+                        <option value="CD">Congo, Democratic Republic of the Congo</option>
+                        <option value="CK">Cook Islands</option>
+                        <option value="CR">Costa Rica</option>
+                        <option value="CI">Cote D'Ivoire</option>
+                        <option value="HR">Croatia</option>
+                        <option value="CU">Cuba</option>
+                        <option value="CW">Curaçao</option>
+                        <option value="CY">Cyprus</option>
+                        <option value="CZ">Czech Republic</option>
+                        <option value="DK">Denmark</option>
+                        <option value="DJ">Djibouti</option>
+                        <option value="DM">Dominica</option>
+                        <option value="DO">Dominican Republic</option>
+                        <option value="EC">Ecuador</option>
+                        <option value="EG">Egypt</option>
+                        <option value="SV">El Salvador</option>
+                        <option value="GQ">Equatorial Guinea</option>
+                        <option value="ER">Eritrea</option>
+                        <option value="EE">Estonia</option>
+                        <option value="SZ">Eswatini</option>
+                        <option value="ET">Ethiopia</option>
+                        <option value="FK">Falkland Islands (Malvinas)</option>
+                        <option value="FO">Faroe Islands</option>
+                        <option value="FJ">Fiji</option>
+                        <option value="FI">Finland</option>
+                        <option value="FR">France</option>
+                        <option value="GF">French Guiana</option>
+                        <option value="PF">French Polynesia</option>
+                        <option value="TF">French Southern Territories</option>
+                        <option value="GA">Gabon</option>
+                        <option value="GM">Gambia</option>
+                        <option value="GE">Georgia</option>
+                        <option value="DE">Germany</option>
+                        <option value="GH">Ghana</option>
+                        <option value="GI">Gibraltar</option>
+                        <option value="GR">Greece</option>
+                        <option value="GL">Greenland</option>
+                        <option value="GD">Grenada</option>
+                        <option value="GP">Guadeloupe</option>
+                        <option value="GU">Guam</option>
+                        <option value="GT">Guatemala</option>
+                        <option value="GG">Guernsey</option>
+                        <option value="GN">Guinea</option>
+                        <option value="GW">Guinea-Bissau</option>
+                        <option value="GY">Guyana</option>
+                        <option value="HT">Haiti</option>
+                        <option value="HM">Heard Island and McDonald Islands</option>
+                        <option value="VA">Holy See (Vatican City State)</option>
+                        <option value="HN">Honduras</option>
+                        <option value="HK">Hong Kong</option>
+                        <option value="HU">Hungary</option>
+                        <option value="IS">Iceland</option>
+                        <option value="IN">India</option>
+                        <option value="ID">Indonesia</option>
+                        <option value="IR">Iran, Islamic Republic of</option>
+                        <option value="IQ">Iraq</option>
+                        <option value="IE">Ireland</option>
+                        <option value="IM">Isle of Man</option>
+                        <option value="IL">Israel</option>
+                        <option value="IT">Italy</option>
+                        <option value="JM">Jamaica</option>
+                        <option value="JP">Japan</option>
+                        <option value="JE">Jersey</option>
+                        <option value="JO">Jordan</option>
+                        <option value="KZ">Kazakhstan</option>
+                        <option value="KE">Kenya</option>
+                        <option value="KI">Kiribati</option>
+                        <option value="KP">Korea, Democratic People's Republic of</option>
+                        <option value="KR">Korea, Republic of</option>
+                        <option value="KW">Kuwait</option>
+                        <option value="KG">Kyrgyzstan</option>
+                        <option value="LA">Lao People's Democratic Republic</option>
+                        <option value="LV">Latvia</option>
+                        <option value="LB">Lebanon</option>
+                        <option value="LS">Lesotho</option>
+                        <option value="LR">Liberia</option>
+                        <option value="LY">Libyan Arab Jamahiriya</option>
+                        <option value="LI">Liechtenstein</option>
+                        <option value="LT">Lithuania</option>
+                        <option value="LU">Luxembourg</option>
+                        <option value="MO">Macao</option>
+                        <option value="MG">Madagascar</option>
+                        <option value="MW">Malawi</option>
+                        <option value="MY">Malaysia</option>
+                        <option value="MV">Maldives</option>
+                        <option value="ML">Mali</option>
+                        <option value="MT">Malta</option>
+                        <option value="MH">Marshall Islands</option>
+                        <option value="MQ">Martinique</option>
+                        <option value="MR">Mauritania</option>
+                        <option value="MU">Mauritius</option>
+                        <option value="YT">Mayotte</option>
+                        <option value="MX">Mexico</option>
+                        <option value="FM">Micronesia, Federated States of</option>
+                        <option value="MD">Moldova, Republic of</option>
+                        <option value="MC">Monaco</option>
+                        <option value="MN">Mongolia</option>
+                        <option value="ME">Montenegro</option>
+                        <option value="MS">Montserrat</option>
+                        <option value="MA">Morocco</option>
+                        <option value="MZ">Mozambique</option>
+                        <option value="MM">Myanmar</option>
+                        <option value="NA">Namibia</option>
+                        <option value="NR">Nauru</option>
+                        <option value="NP">Nepal</option>
+                        <option value="NL">Netherlands</option>
+                        <option value="NC">New Caledonia</option>
+                        <option value="NZ">New Zealand</option>
+                        <option value="NI">Nicaragua</option>
+                        <option value="NE">Niger</option>
+                        <option value="NG">Nigeria</option>
+                        <option value="NU">Niue</option>
+                        <option value="NF">Norfolk Island</option>
+                        <option value="MP">Northern Mariana Islands</option>
+                        <option value="NO">Norway</option>
+                        <option value="OM">Oman</option>
+                        <option value="PK">Pakistan</option>
+                        <option value="PW">Palau</option>
+                        <option value="PS">Palestinian Territory, Occupied</option>
+                        <option value="PA">Panama</option>
+                        <option value="PG">Papua New Guinea</option>
+                        <option value="PY">Paraguay</option>
+                        <option value="PE">Peru</option>
+                        <option value="PH">Philippines</option>
+                        <option value="PN">Pitcairn</option>
+                        <option value="PL">Poland</option>
+                        <option value="PT">Portugal</option>
+                        <option value="PR">Puerto Rico</option>
+                        <option value="QA">Qatar</option>
+                        <option value="RE">Réunion</option>
+                        <option value="RO">Romania</option>
+                        <option value="RU">Russian Federation</option>
+                        <option value="RW">Rwanda</option>
+                        <option value="BL">Saint Barthélemy</option>
+                        <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                        <option value="KN">Saint Kitts and Nevis</option>
+                        <option value="LC">Saint Lucia</option>
+                        <option value="MF">Saint Martin (French part)</option>
+                        <option value="PM">Saint Pierre and Miquelon</option>
+                        <option value="VC">Saint Vincent and the Grenadines</option>
+                        <option value="WS">Samoa</option>
+                        <option value="SM">San Marino</option>
+                        <option value="ST">Sao Tome and Principe</option>
+                        <option value="SA">Saudi Arabia</option>
+                        <option value="SN">Senegal</option>
+                        <option value="RS">Serbia</option>
+                        <option value="SC">Seychelles</option>
+                        <option value="SL">Sierra Leone</option>
+                        <option value="SG">Singapore</option>
+                        <option value="SX">Sint Maarten (Dutch part)</option>
+                        <option value="SK">Slovakia</option>
+                        <option value="SI">Slovenia</option>
+                        <option value="SB">Solomon Islands</option>
+                        <option value="SO">Somalia</option>
+                        <option value="ZA">South Africa</option>
+                        <option value="GS">South Georgia and the South Sandwich Islands</option>
+                        <option value="SS">South Sudan</option>
+                        <option value="ES">Spain</option>
+                        <option value="LK">Sri Lanka</option>
+                        <option value="SD">Sudan</option>
+                        <option value="SR">Suriname</option>
+                        <option value="SJ">Svalbard and Jan Mayen</option>
+                        <option value="SE">Sweden</option>
+                        <option value="CH">Switzerland</option>
+                        <option value="SY">Syrian Arab Republic</option>
+                        <option value="TW">Taiwan, Province of China</option>
+                        <option value="TJ">Tajikistan</option>
+                        <option value="TZ">Tanzania, United Republic of</option>
+                        <option value="TH">Thailand</option>
+                        <option value="TL">Timor-Leste</option>
+                        <option value="TG">Togo</option>
+                        <option value="TK">Tokelau</option>
+                        <option value="TO">Tonga</option>
+                        <option value="TT">Trinidad and Tobago</option>
+                        <option value="TN">Tunisia</option>
+                        <option value="TR">Turkey</option>
+                        <option value="TM">Turkmenistan</option>
+                        <option value="TC">Turks and Caicos Islands</option>
+                        <option value="TV">Tuvalu</option>
+                        <option value="UG">Uganda</option>
+                        <option value="UA">Ukraine</option>
+                        <option value="AE">United Arab Emirates</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="US">United States</option>
+                        <option value="UM">United States Minor Outlying Islands</option>
+                        <option value="UY">Uruguay</option>
+                        <option value="UZ">Uzbekistan</option>
+                        <option value="VU">Vanuatu</option>
+                        <option value="VE">Venezuela, Bolivarian Republic of</option>
+                        <option value="VN">Viet Nam</option>
+                        <option value="VG">Virgin Islands, British</option>
+                        <option value="VI">Virgin Islands, U.S.</option>
+                        <option value="WF">Wallis and Futuna</option>
+                        <option value="EH">Western Sahara</option>
+                        <option value="YE">Yemen</option>
+                        <option value="ZM">Zambia</option>
+                        <option value="ZW">Zimbabwe</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Name</label>
+                    <input type="text" id="rName"
+                        class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                        placeholder="Let us know how we can help you" required>
+                </div>
+                <div>
+                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Role</label>
+                    <input type="text" id="role"
+                        class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                        placeholder="Let us know how we can help you" required>
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your
+                        About your business</label>
+                    <textarea id="message" rows="6"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Please share your thoughts with us..."></textarea>
+                </div>
+                <button type="submit"
+                    class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                    style="background-color: #010826;">Send message</button>
+            </form>
+        </div>
+    </section>
+</div>
+    <!-- Footer -->
+         <!-- footer -->
+    <footer class="bg-white shadow dark:bg-gray-800">
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">Tech Edilite</a>. All Rights Reserved.
+            </span>
+            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Mail Us</a>
+                </li>
+                <li>
+                    <a href="https://x.com/TechEdilite" target="_blank" rel="noopener noreferrer" class="hover:underline me-4 md:me-6">Twitter</a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/techedilite/" class="hover:underline me-4 md:me-6">Instagram</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const carouselContainer = document.querySelector('.carousel-container');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+
+        function showSlide(index) {
+            currentIndex = (index + carouselItems.length) % carouselItems.length;
+            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        // Optional: Auto-slide every 3 seconds
+        setInterval(nextSlide, 3000);
+    </script>
+    <!-- <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="./logo.png" class="h-8" alt="Tech Edilite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap ">Tech Edilite</span>
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400"
+                style="color: #010826;">
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Mail Us</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Twitter</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Instagram</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Blogs</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#"
+                class="hover:underline">Tech Edilite™</a>. All Rights Reserved.</span>
+    </div> -->
+
+    <!-- JavaScript for mobile menu toggle -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            var menu = document.getElementById('navbar-default');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+    <!-- JavaScript for contact form submission -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+     
+            const now = new Date();
+            const currentUTCDateTime = now.toISOString();
+            let _subject = "From Tech Edilite client " + currentUTCDateTime
+            var mailtoLink = 'mailto:techedilite@gmail.com?subject=' + _subject + '&body=' +
+                'Organisation: ' + document.getElementById('subject').value + '%0A' +
+                'Country: ' + document.getElementById('country').value + '%0A' +
+                'Representative Name: ' + document.getElementById('rName').value + '%0A' +
+                'Representative Role: ' + document.getElementById('role').value + '%0A' +
+                'Message: ' + document.getElementById('message').value;
+
+            window.location.href = mailtoLink;
+        });
+    </script>
+
+    <!-- Google Translate script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>
