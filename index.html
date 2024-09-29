@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <style>
-        .scroll-button {
+            .scroll-button {
             position: fixed;
             bottom: 20px;
             right: 40px;
@@ -135,7 +135,7 @@
     <div id="google_translate_element" class="google-translate"></div>
 
     <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./logo.png" class="h-8" alt="Tech Edilite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white" style="font-size: 20px;">Tech Edilite</span>
@@ -210,29 +210,29 @@
             </button>
         </div>
     </div> -->
-    <!-- <script>
+    <script>
         document.getElementById('close-banner').addEventListener('click', function() {
             document.getElementById('sticky-banner').style.display = 'none';
         });
-    </script> -->
+    </script>
     <!-- hero section -->
-    <section class="relative h-[77vh]">
-        <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-desktop" playsinline>
-            <source src="./newhrorev.mp4" type="video/mp4">
+    <section class="relative h-[75vh]" >
+        <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-desktop">
+            <source src="./new hero.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <!-- <img src="./fallback-image.jpg" alt="Fallback Image" class="absolute inset-0 w-full h-full object-cover hidden md:block"> -->
+        <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-mobile">
+            <source src="./New gro mobile.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </section>
-    
     <div class="container mx-auto">
-
-        
         <!-- grid section -->
         <section class="grid grid-cols-1 md:grid-cols-3 gap-8 p-8" style="padding: 50px;">
 
             <div class="md:col-span-2" style="padding: 20px;">
                 <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 30px;">What Solution Do You Need?</h2>
-                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">From web development to custom software and consulting, we create solutions designed for your unique challenges. Our expert team ensures an exceptional user experience by addressing the specific factors that drive your success. Let's find the right fit for you!
+                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Our software solutions cover a broad spectrum of needs, from web development to custom software and consulting. We specialize in creating tailored solutions that ensure an exceptional experience for your users. While different types of software solutions might appear similar, our approach is uniquely designed to address the specific factors that drive success in each case.
 
                 </p>
             </div>
@@ -275,13 +275,15 @@
                 </h2>
                 <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
                     <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                
-                        <p class="mb-2 text-gray-500 dark:text-gray-400" >At Tech Edilite, we choose an efficient tech stack that ensures robust and scalable web solutions. This approach results in:</p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400" >We utilize a variety of modern technologies to build robust and scalable web solutions. Some of the technologies we use include:</p>
                         <ul class="ps-5 text-gray-500 list-disc dark:text-gray-400">
-                            <li>Efficiency: Streamlined development processes for quicker delivery.</li>
-                            <li>Ease of Hosting: Simplified deployment for hassle-free management.</li>
-                            <li>High Availability: Reliable performance to keep your services accessible at all times</li>
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>React, Angular, Vue.js</li>
+                            <li>Node.js, Express.js</li>
+                            <li>Django, Flask</li>
+                            <li>MySQL, PostgreSQL, MongoDB</li>
                         </ul>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">Our expertise in these technologies ensures that your web project is built with the best tools available.</p>
                     </div>
                 </div>
             </div>
@@ -320,41 +322,81 @@
 <br>
 
     <!-- Services Section -->
-
     <section id="services" class="bg-white dark:bg-gray-900" style="background-color: #ffffff;  padding-top: 15px; ">
-        <div class="container mx-auto px-4 max-w-7xl">
+        <!-- class="bg-white dark:bg-gray-900"> -->
+        <div class="container mx-auto px-4 max-w-7xl" >
             <h2 class="text-4xl font-bold text-center mb-12" style="font-size: 28px; color: #002266;">Our Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Website Development</h3>
-                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We build custom websites that are responsive and user-friendly, ensuring an engaging online presence for your business.</p>
+    
+                    <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Tailored Software Solutions for Your Business</h2>
+                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We specialize in developing custom software solutions that meet the unique needs of businesses and institutions. From intricate web-based platforms to robust enterprise applications, our software is designed to streamline operations and enhance efficiency, helping you achieve your goals with precision and innovation.</p>
+    
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">E-commerce Solutions</h3>
-                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Our e-commerce platforms are designed to optimize sales, featuring secure payment integration and seamless shopping experiences.</p>
+    
+                    <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Expert Consultancy for Optimal Software Solutions</h2>
+                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Our consultancy services offer expert guidance in selecting and implementing the right software solutions for your business. We analyze your needs, provide strategic advice, and ensure that your software infrastructure aligns with your objectives, leading to smarter decisions and better outcomes.</p>
+    
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Mobile App Development</h3>
-                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We create intuitive mobile applications for iOS and Android, enhancing user engagement and accessibility.</p>
+    
+                    <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Innovative Design Solutions: Logos, Posters, and More</h2>
+                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Enhance your brand’s identity with our creative design services. We craft compelling logos, eye-catching posters, and other visual content that effectively communicate your message and resonate with your audience. Our designs are tailored to reflect your brand’s unique personality and vision.
+
+                    </p>
+    
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Consultancy Services</h3>
-                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Our consultancy team offers strategic advice to align your software solutions with your business goals, ensuring optimal performance.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Web3 Applications & Integration</h3>
-                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We develop and integrate Web3 applications, including blockchain solutions and smart contracts, to enhance your digital capabilities.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Custom Application Development</h3>
-                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Our team specializes in developing custom applications tailored to your specific needs, streamlining your operations and boosting efficiency.</p>
-                </div>
+    
             </div>
         </div>
     </section>
-    
     <br>
-    <!-- about us Section -->
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="bg-white dark:bg-gray-900" style="background-color: #ffffff; padding-top: 15px;">
+    <div class="container mx-auto px-4 max-w-7xl">
+        <h2 class="text-4xl font-bold text-center mb-12" style="font-size: 28px; color: #002266;">Our Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <source src="./Edilite TechV.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- <a href="https://calvinjoshua.github.io/edilit" target="_blank" rel="noopener noreferrer"> -->
+                    <h3 class="text-2xl font-bold mb-2" style="font-size: 20px; text-align: center;">Edilite Tech</h3>
+                <!-- </a> -->
+    
+                <p class="text-gray-600" style="text-align: center;">Software Solutions Consulting Firm</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+    
+                <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <source src="./myClient01.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <a href="https://techedilite.github.io/cloudscape/" target="_blank" rel="noopener noreferrer">
+                    <h3 class="text-2xl font-bold mb-2" style="font-size: 20px; text-align: center;">Cloudscape Construction</h3>
+                </a>
+    
+                <p class="text-gray-600" style="text-align: center;">Building with innovation.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <source src="./liveSoon.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3 class="text-2xl font-bold mb-2" style="font-size: 20px; text-align: center;">Gemstone Emporium</h3>
+                <p class="text-gray-600" style="text-align: center;">Trading in the finest rocks and stones for all your needs.</p>
+            </div>
+    
+        </div>
+        </div>
+    </section>
+<br>
+
+<hr>
+
+<!-- about us Section -->
 <section id="aboutUs" class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8" style="padding: 50px;">
     <!-- class="bg-white dark:bg-gray-900"> -->
     <div class="bg-white p-6 rounded-lg shadow-md">
@@ -391,91 +433,21 @@
     </ol>
 
 </section>
-<br>
-
-<section id="services" class="bg-white dark:bg-gray-900" style="background-color: #ffffff;  padding-top: 15px; ">
-    <div class="container mx-auto px-4 max-w-7xl">
-        <h2 class="text-4xl font-bold text-center mb-12" style="font-size: 28px; color: #002266;">Our Core Values</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Integrity</h3>
-                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We uphold the highest standards of honesty and transparency, building trust with our clients and partners.</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Innovation</h3>
-                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">We embrace creativity and forward-thinking solutions, continuously exploring new technologies to drive success.</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Client-Centricity</h3>
-                <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Our clients are at the heart of everything we do. We work collaboratively to deliver tailored solutions that exceed expectations.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<br>
-<br>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="bg-white dark:bg-gray-900" style="background-color: #ffffff; padding-top: 15px;">
-    <div class="container mx-auto px-4 max-w-7xl">
-        <h2 class="text-4xl font-bold text-center mb-12" style="font-size: 28px; color: #002266;">Our Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
-                    <source src="./Edilite TechV.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <!-- <a href="https://calvinjoshua.github.io/edilit" target="_blank" rel="noopener noreferrer"> -->
-                    <h3 class="text-2xl font-bold mb-2" style="font-size: 20px; text-align: center;">Edilite Tech</h3>
-                <!-- </a> -->
-    
-                <p class="text-gray-600" style="text-align: center;">Software Solutions Consulting Firm</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-    
-                <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
-                    <source src="./myClient01.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <a href="https://techedilite.github.io/cloudscape/" target="_blank" rel="noopener noreferrer">
-                    <h3 class="text-2xl font-bold mb-2" style="font-size: 20px; text-align: center;">Cloudscape Construction</h3>
-                </a>
-    
-                <p class="text-gray-600" style="text-align: center;">Building with innovation.</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <video autoplay loop muted class="w-full h-48 object-cover mb-4 rounded-lg">
-                    <source src="./liveSoon.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <h3 class="text-2xl font-bold mb-2" style="font-size: 20px; text-align: center;">Star School</h3>
-                <p class="text-gray-600" style="text-align: center;">Live soon</p>
-            </div>
-    
-        </div>
-        </div>
-    </section>
-<br>
-
-<hr>
-
-
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 bg-gray-100" style="background-color: #010826;">
         <div class="container mx-auto px-4 max-w-7xl">
             <h2 class="text-4xl font-bold text-center mb-12" style="color: #fff; font-size: 28px;" >Our Impact</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <p class="text-gray-600 mb-4"  style="font-size: 15px; text-align: center;">“Tech Edilite transformed our online presence. Their expertise in web development is unparalleled!”</p>
+                    <p class="text-gray-600 mb-4"  style="font-size: 15px; text-align: center;">"Tech Edilite’s Student Management System Nexus has revolutionized our operations. It’s streamlined our student record management and boosted our overall efficiency, making it an essential tool for our institution"</p>
                     <!-- <p class="text-gray-800 font-bold">- Instutions</p> -->
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <p class="text-gray-600 mb-4">“The custom software solution we received streamlined our operations significantly. Highly recommended!”</p>
+                    <p class="text-gray-600 mb-4">"Tech Edilite transformed our online presence with a stunning website. Their design made it easy for our clients to understand and engage with our business. We’ve seen a significant boost in client interactions since the launch."</p>
                     <!-- <p class="text-gray-800 font-bold">- Bhavesh</p> -->
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <p class="text-gray-600 mb-4">“Tech Edilite’s e-commerce solution transformed our online store, boosting sales and enhancing customer engagement. We couldn’t be happier with the results!”</p>
+                    <p class="text-gray-600 mb-4">"Thanks to Tech Edilite, our e-commerce site has expanded our reach beyond borders. We’re now selling directly to customers around the world, which has greatly increased our sales and visibility.."</p>
                     <!-- <p class="text-gray-800 font-bold">- Andrew</p> -->
                 </div>
             </div>
@@ -806,8 +778,8 @@
         const carouselItems = document.querySelectorAll('.carousel-item');
 
         function showSlide(index) {
-            // currentIndex = (index + carouselItems.length) % carouselItems.length;
-            // carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            currentIndex = (index + carouselItems.length) % carouselItems.length;
+            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
 
         function nextSlide() {
