@@ -12,7 +12,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    
     <style>
+         .scroll-button {
+            position: fixed;
+            bottom: 20px;
+            right: 40px;
+            padding: 10px 20px;
+            background-color: #0155b5;
+            color: rgb(251, 251, 251);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            z-index: 1000;
+            /* Ensure it's on top of other elements */
+        }
         /* Hide mobile video by default */
         .video-mobile {
             display: none;
@@ -69,12 +86,12 @@
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800" style="font-family: 'Exo', sans-serif; font-size: 15px;">
+<body class="bg-gray-100 text-gray-800" style="font-family: 'Exo', sans-serif; font-size: 15px; color: #003db6;">
     <div id="google_translate_element" class="google-translate"></div>
 
     <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://www.techedilite.co/"
+            <a href="https://techedilite.github.io/techEdilite/#"
                 class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./logo.png" class="h-8" alt="Tech Edilite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
@@ -121,7 +138,9 @@
             </div>
         </div>
     </nav>
-
+    <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"> -->
+        <a class="scroll-button" href="#contact">Request a Demo</a>
+      <!-- </button> -->
     <div class="container mx-auto p-8">
        
   
@@ -131,34 +150,77 @@
       
       <!-- <section id="services" class="bg-white dark:bg-gray-900" style="background-color: #ffffff;  padding-top: 15px; "></section> -->
         <!-- class="bg-white dark:bg-gray-900"> -->
-        <div >
-            <h2 class="text-4xl font-bold text-center mb-12" style="font-size: 28px; color: #002266;">Our Solutions</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-    
-                    <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">InvenTrack</h2>
-                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Effortlessly manage your inventory with InventoryMaster. Store records, track stock levels in real-time, and manage orders with ease. Gain valuable insights through detailed analytics, optimize your operations, and reduce costs with our intuitive, all-in-one solution</p>
-    
+        <div>
+            <h2 class="text-4xl font-bold text-center mb-12" style="font-size: 28px; color: #003db6;">Our Solutions</h2>
+        
+            <!-- Swiper -->
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">InvenTrack</h2>
+                            <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Effortlessly manage your inventory with InventoryMaster. Store records, track stock levels in real-time, and manage orders with ease. Gain valuable insights through detailed analytics, optimize your operations, and reduce costs with our intuitive, all-in-one solution.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Nexus</h2>
+                            <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Nexus simplifies student management with seamless record storage, real-time tracking, and intuitive order management. Access detailed analytics and enhance your institution’s efficiency with our user-friendly solution.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">E-Commerce Solution</h2>
+                            <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Expand your business with our e-commerce solution. Reach global customers, streamline your sales process, and manage your online store effortlessly. Boost your revenue and visibility with our easy-to-use, comprehensive platform.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-    
-                    <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">Nexus</h2>
-                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Nexus simplifies student management with seamless record storage, real-time tracking, and intuitive order management. Access detailed analytics and enhance your institution’s efficiency with our user-friendly solution.</p>
-    
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-    
-                    <h2 class="text-3xl font-bold mb-4 text-primary" style="font-size: 20px; text-align: center;">E-Commerce Solution</h2>
-                    <p class="text-gray-700 mb-4" style="font-size: 16px; line-height: 25px;">Expand your business with our e-commerce solution. Reach global customers, streamline your sales process, and manage your online store effortlessly. Boost your revenue and visibility with our easy-to-use, comprehensive platform
-
-                    </p>
-    
-                </div>
-    
+        
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+        
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
+        <script>
+            const swiper = new Swiper('.swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                loop: true, // Enables looping of slides
+                grabCursor: true, // Changes cursor on hover to indicate draggable
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2, // 2 slides on small screens
+                    },
+                    768: {
+                        slidesPerView: 3, // 3 slides on medium screens
+                    },
+                },
+            });
+        </script>
 <br>
 <hr>
+<br>
+<section class="relative h-[45vh]">
+    <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-desktop">
+        <source src="./solutinadd.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-mobile">
+        <source src="./mobile adds.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
 <br>
         <h2 class="text-3xl font-bold mb-4 text-primary" style="display: flex; justify-content: center; align-items: center; text-align: center;" style="font-size: 30px;">How will your project be built</h2>
         <br>
@@ -171,7 +233,7 @@
 <!--                     <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Day 1-2</time> -->
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-blue-500">Design Development</h3>
                     <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Create a visually appealing and
-                        functional design tailored to your business needs.</p>
+                        functional design tailored to your Organisation needs.</p>
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M1 5h12m0 0L9 1m4 4L9 9" />
                     </svg></a>
@@ -181,8 +243,8 @@
                         class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
                     </div>
 <!--                     <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Day 3-5</time> -->
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-blue-500">Website Development</h3>
-                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">Build a fully functional website based
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-blue-500">Application Development</h3>
+                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">Build a fully functional Application based
                         on the approved design.</p>
                 </li>
                 <li class="ms-4">
@@ -191,7 +253,7 @@
                     </div>
 <!--                     <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Day 6-7</time> -->
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-blue-500">Demo and Suggestions</h3>
-                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">Present the website to the client and
+                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">Present the Application to the client and
                         gather feedback for final adjustments.</p>
                 </li>
             </ol>
