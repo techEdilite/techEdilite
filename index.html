@@ -219,19 +219,49 @@
             </div>
         </div>
     </nav>
-    <!-- hero section -->
-    <section class="relative h-[75vh]">
-        <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-desktop">
-            <source src="./newHero3131.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-mobile">
-            <source src="./New gro mobile.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </section>
+   <!-- Hero Section -->
+   <section class="relative h-[75vh]">
+    <!-- Modal -->
+    <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-50 flex justify-center items-center w-full h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Close button (X) -->
+                <button id="close-modal-button" class="absolute top-4 right-4 text-white text-2xl font-bold hover:bg-gray-200 rounded-full p-1">
+                    &times;
+                </button>
+                
+                <iframe
+                    src="https://lu.ma/embed/event/evt-NreoG1jdB1aRLEq/simple"
+                    width="100%"
+                    height="650"
+                    frameborder="0"
+                    style="border: 1px solid #bfcbda88; border-radius: 4px;"
+                    allowfullscreen=""
+                    aria-hidden="false"
+                    tabindex="0"
+                ></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Background -->
+    <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-desktop">
+        <source src="./newHero3131.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-mobile">
+        <source src="./New gro mobile.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
+
+<!-- JavaScript to open and close modal -->
+
 
     <div class="container mx-auto">
+
+        
 
 
         <!-- grid section -->
@@ -321,6 +351,18 @@
             </div>
         </section>
         <script>
+             // Remove 'hidden' class when the page loads
+  window.addEventListener('load', function() {
+    const modal = document.getElementById("default-modal");
+    modal.classList.remove("hidden");
+  });
+
+  // Optional close button functionality
+  const closeButton = document.getElementById("close-modal-button");
+  closeButton.addEventListener("click", function() {
+    const modal = document.getElementById("default-modal");
+    modal.classList.add("hidden");
+  });
             document.addEventListener('DOMContentLoaded', function () {
                 const accordionItems = document.querySelectorAll('[data-accordion-target]');
 
@@ -561,8 +603,28 @@
 
 
 
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="bg-white dark:bg-gray-900" style="background-color: #f1f1f1; padding: 15px;">
+   <!-- Portfolio Section -->
+<section id="portfolio" class="bg-white dark:bg-gray-900" style="padding: 15px; background-color: #f1f1f1;">
+    <div class="container mx-auto px-7 max-w-4xl">
+        <h2 class="text-4xl font-bold text-center mb-8" style="font-size: 28px;">Our Product</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-4 rounded-lg shadow-md flex justify-center items-center">
+                <!-- Image Box -->
+                <div class="w-full h-56 md:h-64 relative overflow-hidden rounded-lg">
+                    <img class="w-full h-full object-cover" src="./connectED (1).png" alt="office content 1">
+                </div>
+            </div>
+            
+            <p class="md:col-span-1" style="line-height: 30px;">
+                ConnectedED is an innovative platform for educational institutions, providing a secure space for students, faculty, and parents. It prioritizes privacy while fostering collaboration, allowing students to interact with faculty, ask questions, and share ideas. Additionally, parents can access important records, from attendance to marks, keeping them informed about their child's progress. Empower your academic community with ConnectedED, where education, privacy, and innovation come together.
+            </p>
+        </div>
+    </div>
+    <br>
+</section>
+
+
+        <section id="portfolio" class="bg-white dark:bg-gray-900" style="background-color: #ffffff; padding: 10px;">
             <div class="container mx-auto px-4 max-w-7xl">
                 <h2 class="text-4xl font-bold text-center mb-8" style="font-size: 28px; ">Our Projects
                 </h2>
@@ -602,8 +664,9 @@
 
 
 
+
         <!-- Testimonials Section -->
-        <section id="testimonials" class="py-20 bg-gray-100" style="background-color: #ffffff; padding: 15px;">
+        <section id="testimonials" class="py-20 bg-gray-100" style="background-color: #f1f1f1; padding: 15px;">
             <div class="container mx-auto px-4 max-w-7xl">
                 <h2 class="text-4xl font-bold text-center mb-12" style=" font-size: 28px;">Our Impact
                 </h2>
@@ -641,7 +704,7 @@
             Button
         </a> -->
 
-        <section class="" style="background-image: url('./hreo22.png');" id="section2">
+        <section class="" style="background-color: #ffffff;" id="section2" >
             <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
                 <div class="font-light text-gray-500 sm:text-lg dark:">
                     <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">We undertake meaningful initiatives</h2>
@@ -961,7 +1024,7 @@
         <!-- footer -->
         <footer class="bg-white shadow dark:bg-gray-800">
             <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a
+                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a
                         href="https://flowbite.com/" class="hover:underline">Tech Edilite</a>. All Rights Reserved.
                 </span>
                 <ul
