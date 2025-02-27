@@ -761,7 +761,7 @@
                             Name</label>
                         <input type="text" id="subject"
                             class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                            placeholder="Let us know how we can help you" required>
+                            placeholder="Let us know how we can support you" required>
                     </div>
                     <div class="mb-5">
                         <label for="country"
@@ -1025,14 +1025,21 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Name</label>
                         <input type="text" id="rName"
                             class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                            placeholder="Let us know how we can help you" required>
+                            placeholder="Let us know your name" required>
                     </div>
                     <div>
                         <label for="subject"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Role</label>
                         <input type="text" id="role"
                             class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                            placeholder="Let us know how we can help you" required>
+                            placeholder="Let us know about your role" required>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your
+                            Email</label>
+                        <input type="email" id="email"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="name@example.com" required>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="message"
@@ -1040,7 +1047,7 @@
                             About your business</label>
                         <textarea id="message" rows="6"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Please share your thoughts with us..."></textarea>
+                            placeholder="Please share about your business"></textarea>
                     </div>
                     <button type="submit"
                         class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
@@ -1216,20 +1223,64 @@
         <!-- JavaScript for contact form submission -->
         <script>
             document.getElementById('contactForm').addEventListener('submit', function (event) {
-                event.preventDefault();
+    event.preventDefault();
 
-                const now = new Date();
-                const currentUTCDateTime = now.toISOString();
-                let _subject = "From Tech Edilite client " + currentUTCDateTime
-                var mailtoLink = 'mailto:techedilite@gmail.com?subject=' + _subject + '&body=' +
-                    'Organisation: ' + document.getElementById('subject').value + '%0A' +
-                    'Country: ' + document.getElementById('country').value + '%0A' +
-                    'Representative Name: ' + document.getElementById('rName').value + '%0A' +
-                    'Representative Role: ' + document.getElementById('role').value + '%0A' +
-                    'Message: ' + document.getElementById('message').value;
+    // Gather form data
+    const organisationName = document.getElementById('subject').value;
+    const country = document.getElementById('country').value;
+    const yourName = document.getElementById('rName').value;
+    const yourRole = document.getElementById('role').value;
+    const aboutYourBusiness = document.getElementById('message').value;
+    const mailId = document.getElementById('email').value;
 
-                window.location.href = mailtoLink;
-            });
+    // Prepare data for API
+    const payload = {
+        organisationName,
+        country,
+        yourName,
+        yourRole,
+        aboutYourBusiness,
+        mailId
+    };
+
+    // First send data to API
+    fetch('https://contact-manager-one-gamma.vercel.app/register-contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        
+        // After successful API call, continue with email
+        // const now = new Date();
+        // const currentUTCDateTime = now.toISOString();
+        // let _subject = "From Tech Edilite client " + currentUTCDateTime;
+        
+        // var mailtoLink = 'mailto:techedilite@gmail.com?subject=' + _subject + '&body=' +
+        //     'Organisation: ' + organisationName + '%0A' +
+        //     'Country: ' + country + '%0A' +
+        //     'Representative Name: ' + yourName + '%0A' +
+        //     'Representative Role: ' + yourRole + '%0A' +
+        //     'Email: ' + mailId + '%0A' +
+        //     'Message: ' + aboutYourBusiness;
+
+        // window.location.href = mailtoLink;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('There was a problem submitting your contact information. Please try again.');
+    });
+});
+           
         </script>
 
         <!-- Google Translate script -->
