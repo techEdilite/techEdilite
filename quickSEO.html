@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website & SEO Audit Tool - Tech Edilite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.3/cdn.min.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        .loading-spinner {
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .blink {
+            animation: blink-animation 1s steps(5, start) infinite;
+        }
+        @keyframes blink-animation {
+            to {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800" style="font-family: 'Exo', sans-serif; font-size: 15px; color: #000c23; ">
+    <!-- Header Navigation -->
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 sticky top-0 z-50">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="./logo.png" class="h-8" alt="Tech Edilite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+                    style="font-size: 20px;">Tech Edilite</span>
+            </a>
+            <button id="mobile-menu-button" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul
+                    class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="https://www.techedilite.co/"
+                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                           >Home</a>
+                    </li>
+                    <li>
+                        <a href="https://www.techedilite.co/#services"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+                    </li>
+                    <li>
+                        <a href="https://www.techedilite.co/#portfolio"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Projects</a>
+                    </li>
+                    <!-- <li>
+                        <a href="#contact"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
+                            Us</a>
+                    </li> -->
+                    <li>
+                        <a href="https://www.techedilite.co/#contact"
+                            class="blink block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
+                            Us</a>
+                    </li>
+                    <li>
+                        <a href="https://www.techedilite.co/solutions.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Solutions</a>
+                    </li>
+                    <li>
+                        <a href="https://www.techedilite.co/#aboutUs"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About
+                            Us</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Banner -->
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-12">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-3">Website & SEO Audit Tool</h1>
+            <p class="text-blue-100 max-w-2xl mx-auto text-lg">Analyze your website's performance, SEO, mobile responsiveness, and more with our comprehensive audit tool.</p>
+            <div class="mt-6 flex justify-center">
+                <span class="inline-flex rounded-md shadow-sm">
+                    <a href="#audit-form" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out">
+                        Start Your Free Audit
+                        <svg class="ml-2 -mr-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <div id="audit-form" class="max-w-4xl mx-auto" x-data="{
+            url: '',
+            checkSEO: true,
+            checkSpeed: true,
+            checkMobile: true,
+            checkAccessibility: true,
+            isSubmitted: false,
+            isLoading: false,
+            results: null,
+
+            submitForm() {
+                if (!this.url) return;
+
+                this.isLoading = true;
+                this.isSubmitted = false;
+
+                // Simulate API call with timeout
+                setTimeout(() => {
+                    this.results = {
+                        seo: this.checkSEO ? this.generateScore(100) : null,
+                        speed: this.checkSpeed ? this.generateScore(100) : null,
+                        mobile: this.checkMobile ? this.generateScore(100) : null,
+                        accessibility: this.checkAccessibility ? this.generateScore(100) : null
+                    };
+
+                    this.isLoading = false;
+                    this.isSubmitted = true;
+                }, 2000);
+            },
+
+            generateScore(max) {
+                const score = Math.floor(Math.random() * 40) + 60;
+                return {
+                    score: score,
+                    rating: this.getRating(score),
+                    issues: this.generateIssues(score)
+                };
+            },
+
+            getRating(score) {
+                if (score >= 90) return 'Excellent';
+                if (score >= 80) return 'Good';
+                if (score >= 70) return 'Average';
+                if (score >= 60) return 'Needs Improvement';
+                return 'Poor';
+            },
+
+            generateIssues(score) {
+                const issues = [
+                    { name: 'Missing meta descriptions', severity: 'High' },
+                    { name: 'Slow server response time', severity: 'High' },
+                    { name: 'Missing alt attributes', severity: 'Medium' },
+                    { name: 'Duplicate content', severity: 'Medium' },
+                    { name: 'Broken links', severity: 'High' },
+                    { name: 'Low word count', severity: 'Low' },
+                    { name: 'Mobile viewport not set', severity: 'High' },
+                    { name: 'HTTP instead of HTTPS', severity: 'High' }
+                ];
+
+                // Higher score = fewer issues
+                const issueCount = Math.floor((100 - score) / 10) + 1;
+                return issues.sort(() => 0.5 - Math.random()).slice(0, issueCount);
+            },
+
+            getScoreColor(score) {
+                if (score >= 90) return 'text-green-600';
+                if (score >= 80) return 'text-green-500';
+                if (score >= 70) return 'text-yellow-500';
+                if (score >= 60) return 'text-orange-500';
+                return 'text-red-600';
+            },
+
+            getSeverityColor(severity) {
+                if (severity === 'High') return 'bg-red-100 text-red-800';
+                if (severity === 'Medium') return 'bg-yellow-100 text-yellow-800';
+                return 'bg-blue-100 text-blue-800';
+            }
+        }">
+            <!-- Audit form card -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
+                <!-- Form Section -->
+                <div class="p-6 md:p-8 border-b">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Enter Your Website Details</h2>
+                    <form @submit.prevent="submitForm" class="space-y-6">
+                        <div>
+                            <label for="url" class="block text-sm font-medium text-gray-700 mb-1">Website URL</label>
+                            <input
+                                type="url"
+                                id="url"
+                                x-model="url"
+                                placeholder="https://example.com"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+                                required
+                            >
+                        </div>
+
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-700 mb-3">Audit Options</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-md hover:bg-gray-50 transition cursor-pointer">
+                                    <input type="checkbox" x-model="checkSEO" class="h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <div>
+                                        <span class="text-gray-700 font-medium">SEO Analysis</span>
+                                        <p class="text-gray-500 text-sm mt-1">Analyze SEO factors like meta tags, headings and content</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-md hover:bg-gray-50 transition cursor-pointer">
+                                    <input type="checkbox" x-model="checkSpeed" class="h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <div>
+                                        <span class="text-gray-700 font-medium">Page Speed</span>
+                                        <p class="text-gray-500 text-sm mt-1">Check loading times and performance metrics</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-md hover:bg-gray-50 transition cursor-pointer">
+                                    <input type="checkbox" x-model="checkMobile" class="h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <div>
+                                        <span class="text-gray-700 font-medium">Mobile Responsiveness</span>
+                                        <p class="text-gray-500 text-sm mt-1">Test how your site performs on mobile devices</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-md hover:bg-gray-50 transition cursor-pointer">
+                                    <input type="checkbox" x-model="checkAccessibility" class="h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <div>
+                                        <span class="text-gray-700 font-medium">Accessibility</span>
+                                        <p class="text-gray-500 text-sm mt-1">Ensure your site is accessible to all users</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-md"
+                            :disabled="!url || isLoading"
+                        >
+                            <span x-show="!isLoading">Analyze Website</span>
+                            <span x-show="isLoading" class="flex items-center justify-center">
+                                <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Analyzing...
+                            </span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Loading indicator -->
+                <div x-show="isLoading" class="p-12 text-center">
+                    <div class="inline-block w-16 h-16 border-4 border-blue-500 border-solid rounded-full loading-spinner"></div>
+                    <p class="mt-4 text-gray-600">Analyzing your website. This may take a minute...</p>
+                </div>
+
+                <!-- Results Section -->
+                <div x-show="isSubmitted && !isLoading" class="p-6 md:p-8">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Audit Results for <span x-text="url" class="text-blue-600"></span></h2>
+
+                    <!-- Overall Score Card -->
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 mb-8 border border-blue-100 shadow-sm">
+                        <h3 class="text-lg font-medium text-gray-700 mb-4">Overall Performance</h3>
+                        <div class="flex flex-col md:flex-row md:items-center">
+                            <div class="w-32 h-32 relative mr-8 mx-auto md:mx-0 mb-4 md:mb-0">
+                                <svg viewBox="0 0 36 36" class="w-full h-full">
+                                    <!-- Background circle -->
+                                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                          fill="none"
+                                          stroke="#e6e6e6"
+                                          stroke-width="3" />
+
+                                    <!-- Foreground circle -->
+                                    <path
+                                        stroke-dasharray="98, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                        fill="none"
+                                        stroke="#4f46e5"
+                                        stroke-width="3" />
+                                </svg>
+                                <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                                    <span class="text-3xl font-bold text-indigo-600">85</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800 text-center md:text-left">Good</h4>
+                                <p class="text-gray-600 mt-2 text-center md:text-left">Your website performs well in most areas but has room for improvement.</p>
+                                <div class="mt-4 flex flex-wrap gap-3 justify-center md:justify-start">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        Good Performance
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        Minor Issues
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category Scores -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <template x-for="(data, category) in results" :key="category">
+                            <div x-show="data !== null" class="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+                                <h3 class="text-lg font-medium text-gray-700 capitalize mb-3" x-text="category"></h3>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="flex items-baseline">
+                                            <span class="text-3xl font-bold" x-bind:class="getScoreColor(data.score)" x-text="data.score"></span>
+                                            <span class="text-gray-500 ml-1">/100</span>
+                                        </div>
+                                        <p class="text-gray-600 mt-1" x-text="data.rating"></p>
+                                    </div>
+                                    <div class="w-20 h-20 relative">
+                                        <svg viewBox="0 0 36 36" class="w-full h-full">
+                                            <!-- Background circle -->
+                                            <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                  fill="none"
+                                                  stroke="#e6e6e6"
+                                                  stroke-width="3" />
+
+                                            <!-- Foreground circle -->
+                                            <path
+                                                x-bind:stroke-dasharray="data.score + ', 100'"
+                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                fill="none"
+                                                x-bind:stroke="data.score >= 90 ? '#10B981' : data.score >= 70 ? '#F59E0B' : '#EF4444'"
+                                                stroke-width="3" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Issues Found -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-medium text-gray-700 mb-4">Issues Found</h3>
+                        <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Issue</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Severity</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <template x-for="(category, categoryName) in results" :key="categoryName">
+                                            <template x-if="category !== null">
+                                                <template x-for="(issue, index) in category.issues" :key="index">
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800" x-text="issue.name"></td>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                                            <span
+                                                                class="px-2 py-1 text-xs rounded-full"
+                                                                x-bind:class="getSeverityColor(issue.severity)"
+                                                                x-text="issue.severity">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize" x-text="categoryName"></td>
+                                                    </tr>
+                                                </template>
+                                            </template>
+                                        </template>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-700 mb-4">Expert Recommendations</h3>
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 shadow-sm">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="flex-shrink-0 mx-auto md:mx-0 mb-4 md:mb-0 md:mr-6">
+                                    <div class="bg-blue-100 p-3 rounded-full">
+                                        <svg class="h-8 w-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-blue-800 mb-2 text-center md:text-left">Our SEO experts can help you fix these issues</h4>
+                                    <div class="text-blue-700">
+                                        <p class="mb-4">Based on your audit results, we recommend scheduling a consultation with our team to discuss strategies for improving your website's performance and search engine rankings.</p>
+                                        <ul class="list-disc list-inside mb-6 space-y-2">
+                                            <li>Detailed analysis of your website's technical issues</li>
+                                            <li>Customized SEO strategy to improve rankings</li>
+                                            <li>Actionable recommendations with clear implementation steps</li>
+                                        </ul>
+                                        <div class="flex justify-center md:justify-start">
+                                            <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-md">
+                                                Schedule Free Consultation
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials Section -->
+            <div class="bg-white py-12">
+                <div class="container mx-auto px-4 md:px-6">
+                    <h2 class="text-2xl font-semibold text-gray-800 text-center mb-8">Appreciation we received for our small efforts</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- <div class="bg-gray-100 rounded-lg p-6 shadow-md">
+                            <p class="text-gray-700 mb-4">"This audit tool has been a game-changer for our website's performance. The insights provided have helped us improve our SEO and user experience significantly."</p>
+                            <div class="flex items-center">
+                                <img src="./cl1.png" class="h-10 w-10 rounded-full mr-4" alt="Client Avatar">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-800">John Doe</h4>
+                                    <p class="text-gray-600">CEO, Tech Innovations</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-6 shadow-md">
+                            <p class="text-gray-700 mb-4">"The detailed reports and actionable recommendations have been incredibly helpful. Our website's speed and mobile responsiveness have improved tremendously."</p>
+                            <div class="flex items-center">
+                                <img src="./cl2.png" class="h-10 w-10 rounded-full mr-4" alt="Client Avatar">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-800">Jane Smith</h4>
+                                    <p class="text-gray-600">Marketing Manager, Web Solutions</p>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="bg-gray-100 rounded-lg p-6 shadow-md">
+                            <p class="text-gray-700 mb-4">"This SEO analysis tool has been incredibly helpful and insightful. It provided valuable recommendations for optimizing my website, and the support team was always ready to assist when needed. Highly recommend it!"</p>
+                            <div class="flex items-center">
+                                <img src="./cl3.png" class="h-10 w-10 rounded-full mr-4" alt="Client Avatar">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-800">Selva</h4>
+                                    <p class="text-gray-600">Founder, Kalwe</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow dark:bg-gray-800">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <p class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /> -->
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">GSTIN:
+                        33AHDPF3055G1ZV</span>
+                </p>
+                <ul
+                    class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                    <!-- <p>GSTIN: 33AHDPF3055GIZV </p> -->
+
+                    <!-- <li>
+                            <!-- <a href="#" class="hover:underline me-4 md:me-6">About</a> -->
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Mail Us</a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/TechEdilite" class="hover:underline me-4 md:me-6">Twitter</a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/techedilite/"
+                            class="hover:underline me-4 md:me-6">Instagram</a>
+                    </li>
+                    <!-- <li>
+                            <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:underline">Contact</a>
+                        </li> -->
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="/"
+                    class="hover:underline">TECHEDILITE</a>. All Rights Reserved.</span>
+        </div>
+        <!-- <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a
+                        href="https://flowbite.com/" class="hover:underline">TECHEDILITE</a>. All Rights Reserved.
+                </span>
+                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">GSTIN: 33AHDPF3055GIZV 
+            </span>
+                <ul
+                    class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Mail Us</a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/TechEdilite" class="hover:underline me-4 md:me-6">Twitter</a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/techedilite/"
+                            class="hover:underline me-4 md:me-6">Instagram</a>
+                    </li>
+                </ul>
+            </div> -->
+    </footer>
+</body>
+</html>
