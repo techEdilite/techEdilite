@@ -1,49 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website & SEO Audit Tool - Tech Edilite</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.3/cdn.min.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <style>
-         .google-translate {
-            display: inline-block;
-            vertical-align: middle;
-            height: 24px;
-            /* Adjust the height as needed */
-            width: auto;
-            /* Adjust the width as needed */
-            overflow: hidden;
-        }
-
-        .google-translate iframe {
-            height: 100% !important;
-            width: auto !important;
-        }
-
-        .loading-spinner {
-            border-top-color: transparent;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .blink {
-            animation: blink-animation 1s steps(5, start) infinite;
-        }
-        @keyframes blink-animation {
-            to {
-                opacity: 0.5;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Website & SEO Audit Tool - Free SEO Checker | Tech Edilite</title>
+        
+        <!-- Primary Meta Tags -->
+        <meta name="description" content="Free SEO checker and website audit tool. Analyze your website performance, get detailed SEO reports, and actionable optimization tips to improve your search rankings.">
+        <meta name="keywords" content="SEO analysis, website audit, SEO checker, SEO audit tool, website optimization, search engine optimization, SEO score, keyword analysis, backlink checker, site performance, free SEO tool">
+        <meta name="author" content="Tech Edilite">
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://www.techedilite.co/seo-audit">
+        <meta property="og:title" content="Website & SEO Audit Tool - Free SEO Checker | Tech Edilite">
+        <meta property="og:description" content="Free comprehensive SEO audit tool. Analyze your website, get detailed reports, and boost your search rankings with actionable insights.">
+        <meta property="og:image" content="https://www.techedilite.co/images/seo-audit-tool.jpg">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://www.techedilite.co/seo-audit">
+        <meta property="twitter:title" content="Website & SEO Audit Tool - Free SEO Checker | Tech Edilite">
+        <meta property="twitter:description" content="Free comprehensive SEO audit tool. Analyze your website, get detailed reports, and boost your search rankings with actionable insights.">
+        <meta property="twitter:image" content="https://www.techedilite.co/images/seo-audit-tool.jpg">
+        
+        <!-- Canonical URL -->
+        <meta rel="canonical" href="https://www.techedilite.co/seo-audit">
+        
+        <!-- Robots -->
+        <meta name="robots" content="index, follow">
+        
+        <!-- Schema.org markup for Google -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Website & SEO Audit Tool",
+          "url": "https://www.techedilite.co/seo-audit",
+          "description": "Free SEO checker and website audit tool. Analyze your website performance, get detailed SEO reports, and actionable optimization tips to improve your search rankings.",
+          "applicationCategory": "SEO Tool",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Tech Edilite",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.techedilite.co/images/logo.png"
             }
+          }
         }
-    </style>
-</head>
+        </script>
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.3/cdn.min.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
+        <style>
+             .google-translate {
+                display: inline-block;
+                vertical-align: middle;
+                height: 24px;
+                /* Adjust the height as needed */
+                width: auto;
+                /* Adjust the width as needed */
+                overflow: hidden;
+            }
+    
+            .google-translate iframe {
+                height: 100% !important;
+                width: auto !important;
+            }
+    
+            .loading-spinner {
+                border-top-color: transparent;
+                animation: spin 1s linear infinite;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .blink {
+                animation: blink-animation 1s steps(5, start) infinite;
+            }
+            @keyframes blink-animation {
+                to {
+                    opacity: 0.5;
+                }
+            }
+        </style>
+    </head>
 <body class="bg-gray-100 text-gray-800" style="font-family: 'Exo', sans-serif; font-size: 15px; color: #000c23; ">
     <div id="google_translate_element" class="google-translate"></div>
     <!-- Header Navigation -->
