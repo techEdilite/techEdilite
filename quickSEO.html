@@ -11,6 +11,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <style>
+         .google-translate {
+            display: inline-block;
+            vertical-align: middle;
+            height: 24px;
+            /* Adjust the height as needed */
+            width: auto;
+            /* Adjust the width as needed */
+            overflow: hidden;
+        }
+
+        .google-translate iframe {
+            height: 100% !important;
+            width: auto !important;
+        }
+
         .loading-spinner {
             border-top-color: transparent;
             animation: spin 1s linear infinite;
@@ -30,6 +45,7 @@
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800" style="font-family: 'Exo', sans-serif; font-size: 15px; color: #000c23; ">
+    <div id="google_translate_element" class="google-translate"></div>
     <!-- Header Navigation -->
     <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 sticky top-0 z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
@@ -405,9 +421,11 @@
                                             <li>Actionable recommendations with clear implementation steps</li>
                                         </ul>
                                         <div class="flex justify-center md:justify-start">
-                                            <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-md">
-                                                Schedule Free Consultation
-                                            </button>
+                                            <button 
+                                            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-md"
+                                            onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                                            Schedule Free Consultation
+                                        </button>
                                         </div>
                                     </div>
                                 </div>
@@ -456,8 +474,80 @@
                 </div>
             </div>
         </div>
+        <div id="notifier"
+        class="fixed top-4 right-4 max-w-sm transform transition-transform duration-300 translate-x-full z-50 hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-4">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3 flex-1"> <!-- Changed w-0 to flex-1 for proper width -->
+                    <p id="notifier-message" class="text-sm font-medium text-gray-900 dark:text-gray-100 pr-2"></p>
+                    <!-- Added padding-right -->
+                </div>
+                <div class="ml-2 flex-shrink-0 flex"> <!-- Reduced margin -->
+                    <button id="close-notifier"
+                        class="inline-flex text-gray-400 hover:text-gray-500 focus:outline-none">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     </main>
-
+    <section id="contact" class="bg-white dark:bg-gray-900">
+        <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white"
+                style="font-size: 28px;">Schedule a free appointment</h2>
+            <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl"
+                style="font-size: 19px;">We will review, analyze, and help optimize your website to make it more accessible and reach a broader audience.</p>
+            <form id="contactForm" action="#" class="space-y-8">
+                <div>
+                    <label for="url"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Organisation Website URL</label>
+                    <input type="url" id="url"
+                        class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                        placeholder="Enter your website URL" required pattern="https?://.+">
+                    <small class="text-red-500" id="url-error" style="display:none;">Please enter a valid URL starting with http:// or https://</small>
+                </div>
+           
+                <div>
+                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
+                        Name</label>
+                    <input type="text" id="rName"
+                        class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                        placeholder="Let us know your name" required>
+                </div>
+                <div>
+                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
+                        Role</label>
+                    <input type="text" id="role"
+                        class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                        placeholder="Let us know about your role" required>
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your
+                        Email</label>
+                    <input type="email" id="email"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="name@example.com" required>
+                </div>
+                <button id="sendMessageBtn" type="submit"
+                    class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                    style="background-color: #010826;">Send message</button>
+            </form>
+        </div>
+    </section>
     <!-- Footer -->
     <footer class="bg-white shadow dark:bg-gray-800">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
@@ -519,5 +609,145 @@
                 </ul>
             </div> -->
     </footer>
+    <script>
+
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+
+
+        function enableButton() {
+            sendMessageBtn.disabled = false;
+            sendMessageBtn.style.backgroundColor = "#010826";  // Optionally, restore the background color if disabled
+        }
+
+        // Function to disable the button
+        function disableButton() {
+            sendMessageBtn.disabled = true;
+            sendMessageBtn.style.backgroundColor = "#b0b0b0";  // You can change the background to a disabled color
+        }
+
+        showNotification("Your language settings can be changed from the top left corner; we are open to all borders.", 8000)
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            disableButton();
+
+            // Gather form data
+            const organisationName = document.getElementById('url').value;
+            const country ="SEO Audit";
+            const yourName = document.getElementById('rName').value;
+            const yourRole = document.getElementById('role').value;
+            const aboutYourBusiness = "SEO Audit";
+            const mailId = document.getElementById('email').value;
+
+            // Prepare data for API
+            const payload = {
+                organisationName,
+                country,
+                yourName,
+                yourRole,
+                aboutYourBusiness,
+                mailId
+            };
+
+
+            // First send data to API
+            fetch('https://contact-manager-one-gamma.vercel.app/register-contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        // throw new Error('Network response was not ok');
+
+                        showNotification("We are currently under maintenance. Please feel free to try again after some time.", 80000)            // Optionally, you can stop observing after it has been triggered once
+                        setTimeout(enableButton, 3000);  // This will enable the button after 3 seconds
+
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    showNotification("Thank you for contacting us and giving us the opportunity to offer our support. Our team will get back to you shortly.", 80000)            // Optionally, you can stop observing after it has been triggered once
+                    setTimeout(enableButton, 3000);  // This will enable the button after 3 seconds
+
+
+                    // After successful API call, continue with email
+                    // const now = new Date();
+                    // const currentUTCDateTime = now.toISOString();
+                    // let _subject = "From Tech Edilite client " + currentUTCDateTime;
+
+                    // var mailtoLink = 'mailto:techedilite@gmail.com?subject=' + _subject + '&body=' +
+                    //     'Organisation: ' + organisationName + '%0A' +
+                    //     'Country: ' + country + '%0A' +
+                    //     'Representative Name: ' + yourName + '%0A' +
+                    //     'Representative Role: ' + yourRole + '%0A' +
+                    //     'Email: ' + mailId + '%0A' +
+                    //     'Message: ' + aboutYourBusiness;
+
+                    // window.location.href = mailtoLink;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // alert('There was a problem submitting your contact information. Please try again.');
+                    showNotification("We are currently under maintenance. Please feel free to try again after some time.", 80000)            // Optionally, you can stop observing after it has been triggered once
+                    setTimeout(enableButton, 3000);  // This will enable the button after 3 seconds
+
+                });
+        });
+
+        // Target the section
+
+        // Create an IntersectionObserver to detect when the section is in view
+       
+
+
+        function showNotification(message, duration = 3000) {
+            const notifier = document.getElementById('notifier');
+            const notifierMessage = document.getElementById('notifier-message');
+            const closeButton = document.getElementById('close-notifier');
+
+            // Set the message
+            notifierMessage.textContent = message;
+
+            // Show the notification
+            notifier.classList.remove('hidden');
+            setTimeout(() => {
+                notifier.classList.remove('translate-x-full');
+                notifier.classList.add('translate-x-0');
+            }, 10); // Small delay to ensure transition works
+
+            // Set up auto-dismiss
+            const timer = setTimeout(() => {
+                hideNotification();
+            }, duration);
+
+            // Set up close button
+            closeButton.onclick = () => {
+                clearTimeout(timer);
+                hideNotification();
+            };
+
+            function hideNotification() {
+                notifier.classList.remove('translate-x-0');
+                notifier.classList.add('translate-x-full');
+
+                // Add hidden class after transition completes
+                setTimeout(() => {
+                    notifier.classList.add('hidden');
+                }, 300); // Match this to your transition duration
+            }
+        }
+
+    </script>
+       <!-- Google Translate script -->
+       <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
