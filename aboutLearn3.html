@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn3 Studio - About Us</title>
+    <link rel="icon" type="image/png" href="./faviconL3.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(90deg, #4F46E5 0%, #7C3AED 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.25);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class=" top-0 z-50 bg-white shadow-lg backdrop-blur-sm bg-opacity-95">
+      <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+          <!-- Logo & Brand -->
+          <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center shadow-md transition-transform hover:scale-105">
+                  <img src="./L.png" alt="L3 Logo" class="w-10 h-10 rounded-full">
+              </div>
+              <span class="font-bold text-2xl text-gray-800 tracking-tight">Learn3 Studio</span>
+          </div>
+          
+          <!-- Desktop Navigation - Centered -->
+          <nav class="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2">
+              <div class="flex space-x-8">
+                  <a href="/learn.html" class="text-gray-700 hover:text-indigo-600 font-medium relative group py-2">
+                      Home
+                      <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                  <a href="/learn.html#courses" class="text-gray-700 hover:text-indigo-600 font-medium relative group py-2">
+                      Events
+                      <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                  <!-- <a href="#about" class="text-gray-700 hover:text-indigo-600 font-medium relative group py-2">
+                      About
+                      <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                  </a> -->
+              </div>
+          </nav>
+          
+          <!-- Login/User Profile -->
+          <div class="flex items-center">
+              <div id="g_id_onload"
+                   data-client_id="906801802809-7svnmj539qcgv4ed2128c5uclnbgv5qt.apps.googleusercontent.com"
+                   data-context="signin"
+                   data-callback="handleCredentialResponse">
+              </div>
+              <div class="g_id_signin"
+                   data-type="standard"
+                   data-size="medium"
+                   data-theme="outline"
+                   data-text="signin"
+                   data-shape="pill"
+                   data-logo_alignment="left">
+              </div>
+              <!-- User profile will appear here after login -->
+              <div id="user-profile" class="hidden"></div>
+          </div>
+          
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50" id="mobile-menu-button" aria-label="Menu">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+          </button>
+      </div>
+      
+      <!-- Mobile menu with improved animation -->
+      <div class="md:hidden hidden bg-white py-2 shadow-inner transform transition-all duration-300 opacity-0 -translate-y-4" id="mobile-menu">
+          <div class="container mx-auto px-4 flex flex-col space-y-4 py-3">
+              <a href="/learn.html" class="text-gray-700 hover:text-indigo-600 font-medium px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors">Home</a>
+              <a href="/learn.html#courses" class="text-gray-700 hover:text-indigo-600 font-medium px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors">Events</a>
+              <!-- <a href="#about" class="text-gray-700 hover:text-indigo-600 font-medium px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors">About</a> -->
+          </div>
+      </div>
+  </header>
+  
+  <script>
+  // Enhanced mobile menu animation
+  document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener('click', function() {
+              if (mobileMenu.classList.contains('hidden')) {
+                  // Show menu
+                  mobileMenu.classList.remove('hidden');
+                  // Use setTimeout to allow the browser to process the display change before animating
+                  setTimeout(() => {
+                      mobileMenu.classList.remove('opacity-0', '-translate-y-4');
+                  }, 10);
+              } else {
+                  // Hide menu
+                  mobileMenu.classList.add('opacity-0', '-translate-y-4');
+                  // Wait for animation to complete before hiding
+                  setTimeout(() => {
+                      mobileMenu.classList.add('hidden');
+                  }, 300);
+              }
+          });
+          
+          // Close mobile menu when clicking on a link
+          mobileMenu.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', function() {
+                  mobileMenu.classList.add('opacity-0', '-translate-y-4');
+                  setTimeout(() => {
+                      mobileMenu.classList.add('hidden');
+                  }, 300);
+              });
+          });
+      }
+  });
+  </script>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-indigo-900 overflow-hidden">
+            <!-- Modern SVG Decoration Elements -->
+            <svg class="absolute top-0 right-0 w-2/3 h-full text-indigo-800 opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M42.9,-68.5C54.8,-62.2,63.2,-48.4,69.2,-34.1C75.2,-19.8,78.7,-4.9,75.8,8.9C72.9,22.8,63.5,35.7,52.6,45.9C41.7,56.1,29.2,63.7,15.1,69.2C1,74.8,-14.7,78.3,-31.1,75.6C-47.6,72.9,-64.8,64.1,-74.1,50.2C-83.3,36.3,-84.6,17.2,-80.5,0.8C-76.4,-15.6,-67,-29.5,-56.2,-40.2C-45.4,-50.9,-33.2,-58.5,-20.4,-63.5C-7.6,-68.5,5.8,-70.9,19.8,-72.3C33.8,-73.8,48.3,-74.4,42.9,-68.5Z" transform="translate(100 100)" />
+            </svg>
+            
+            <!-- Grid lines -->
+            <div class="absolute inset-0 grid grid-cols-6 opacity-10">
+                <div class="border-r border-white"></div>
+                <div class="border-r border-white"></div>
+                <div class="border-r border-white"></div>
+                <div class="border-r border-white"></div>
+                <div class="border-r border-white"></div>
+            </div>
+                
+            <!-- Dots pattern -->
+            <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">About Learn3 Studio</h1>
+                <p class="text-xl text-indigo-100 mb-8">A community-driven platform bridging the gap between Web2 and Web3 technologies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Story</h2>
+                    <div class="w-20 h-1 bg-indigo-600 mx-auto mb-6"></div>
+                </div>
+                
+                <div class="prose prose-lg max-w-none text-gray-600">
+                    <p class="mb-6">Learn3 Studio was created with a vision to train people and build a thriving community for technology enthusiasts who want to explore the evolving landscape from Web2 to Web3. In a rapidly changing technological world, we recognized the need for a space where developers, innovators, and technology enthusiasts could come together to learn, collaborate, and grow.</p>
+                    
+                    <p class="mb-6">Our founders, a team of industry experts from diverse technological backgrounds, noticed a gap between traditional learning environments and the practical, community-driven knowledge sharing that drives true innovation. Learn3 Studio was born from this insight, creating a bridge between established technologies and emerging frontiers.</p>
+                    
+                    <p class="mb-6">We've developed a unique approach that combines structured learning with the dynamic energy of community collaboration. Through our carefully curated online events, hands-on workshops, and interactive events, we've created an ecosystem where knowledge flows freely and innovation thrives.</p>
+                    
+                    <p>At Learn3 Studio, we believe that the future of technology will be built by communities working together, sharing knowledge, and pushing boundaries. We're committed to fostering these connections and empowering individuals to be part of the next great technological evolution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">What We Do</h2>
+                    <div class="w-20 h-1 bg-indigo-600 mx-auto mb-6"></div>
+                    <p class="text-lg text-gray-600">We've figured out a way to conduct engaging online and offline events where collaboration happens naturally.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 card-hover">
+                        <div class="w-14 h-14 rounded-full gradient-bg flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-laptop-code text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Interactive events</h3>
+                        <p class="text-gray-600 text-center">Comprehensive online events covering both Web2 and Web3 technologies, from blockchain fundamentals to advanced AI applications.</p>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 card-hover">
+                        <div class="w-14 h-14 rounded-full gradient-bg flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-users text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Community Gatherings</h3>
+                        <p class="text-gray-600 text-center">Regular meetups, hackathons, and networking events where our community comes together to solve problems and share insights.</p>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 card-hover">
+                        <div class="w-14 h-14 rounded-full gradient-bg flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-chalkboard-teacher text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Expert Workshops</h3>
+                        <p class="text-gray-600 text-center">Specialized hands-on sessions led by industry professionals who bring real-world experience to complex technological concepts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Community-Driven Events Section -->
+    <section class="py-16 bg-indigo-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Community-Driven Events</h2>
+                    <div class="w-20 h-1 bg-white mx-auto mb-6"></div>
+                    <p class="text-lg text-indigo-100">We believe in the power of community-driven initiatives. Here are some of the events we've planned based on your feedback.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Event 1 -->
+                    <div class="bg-indigo-800 bg-opacity-50 rounded-xl p-6 backdrop-blur-sm">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 rounded-full bg-indigo-600 flex-shrink-0 flex items-center justify-center mr-4">
+                                <i class="fas fa-code text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Web3 Hackathons</h3>
+                                <p class="text-indigo-200">Quarterly hackathons focused on building innovative solutions using blockchain, smart contracts, and decentralized applications.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-indigo-300 text-sm mt-2">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>Quarterly Events</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 2 -->
+                    <div class="bg-indigo-800 bg-opacity-50 rounded-xl p-6 backdrop-blur-sm">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 rounded-full bg-indigo-600 flex-shrink-0 flex items-center justify-center mr-4">
+                                <i class="fas fa-laptop text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Tech Workshops</h3>
+                                <p class="text-indigo-200">Hands-on workshops covering everything from smart contract development to AI model training and deployment.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-indigo-300 text-sm mt-2">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>Monthly Sessions</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 3 -->
+                    <div class="bg-indigo-800 bg-opacity-50 rounded-xl p-6 backdrop-blur-sm">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 rounded-full bg-indigo-600 flex-shrink-0 flex items-center justify-center mr-4">
+                                <i class="fas fa-comments text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Tech Talks & Panels</h3>
+                                <p class="text-indigo-200">Engaging discussions with industry leaders about the future of technology, latest trends, and career opportunities.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-indigo-300 text-sm mt-2">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>Bi-weekly Webinars</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 4 -->
+                    <div class="bg-indigo-800 bg-opacity-50 rounded-xl p-6 backdrop-blur-sm">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 rounded-full bg-indigo-600 flex-shrink-0 flex items-center justify-center mr-4">
+                                <i class="fas fa-network-wired text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Networking Mixers</h3>
+                                <p class="text-indigo-200">Casual meetups designed to foster connections between developers, entrepreneurs, and technology enthusiasts.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-indigo-300 text-sm mt-2">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>Monthly Events</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <p class="text-lg text-indigo-100 mb-6">Have ideas for events you'd like to see? We value your input and are always looking for new ways to engage our community.</p>
+                    <a href="/learn.html/#suggest" class="px-8 py-3 bg-white text-indigo-700 font-semibold rounded-lg hover:bg-indigo-50 transition duration-300">Suggest an Event</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Approach</h2>
+                    <div class="w-20 h-1 bg-indigo-600 mx-auto mb-6"></div>
+                    <p class="text-lg text-gray-600">What makes Learn3 Studio different from traditional learning platforms.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8">
+                    <!-- Approach 1 -->
+                    <div class="flex">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">1</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Community-First Philosophy</h3>
+                            <p class="text-gray-600">Unlike traditional top-down learning platforms, we build our curriculum and events based on direct community feedback. Your preferences shape our roadmap.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Approach 2 -->
+                    <div class="flex">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">2</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Bridging Theory & Practice</h3>
+                            <p class="text-gray-600">We combine theoretical knowledge with hands-on practice through real-world projects, ensuring you gain applicable skills, not just concepts.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Approach 3 -->
+                    <div class="flex">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">3</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Industry Expert Collaboration</h3>
+                            <p class="text-gray-600">Our instructors aren't just educators—they're active industry practitioners who bring current, relevant experience to every session.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Approach 4 -->
+                    <div class="flex">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">4</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Technology Ecosystem</h3>
+                            <p class="text-gray-600">We don't just teach isolated technologies—we show how Web2 and Web3 connect, overlap, and complement each other in the modern tech landscape.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="container mx-auto px-6">
+          <div class="flex flex-col items-center justify-center">
+              <div class="flex items-center space-x-4 mb-8">
+                  <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex items-center justify-center">
+                      <span class="text-white font-bold text-2xl">L3</span>
+                  </div>
+                  <span class="font-bold text-2xl">Learn3 Studio</span>
+              </div>
+              <p class="text-gray-400 mb-8 text-center max-w-lg">Learn3 Studio offers interactive online events, webinars, and training programs focused on blockchain, AI, and cutting-edge web technologies.</p>
+              <!-- <div class="border-t border-gray-800 w-full max-w-lg pt-8 text-center">
+                  <p class="text-gray-500">&copy; 2025 Learn3 Studio. All rights reserved.</p>
+              </div> -->
+          </div>
+      </div>
+  </footer>
+    
+
+    <!-- JavaScript -->
+    <script>
+        // Backend service URL configuration
+const BACKEND_SERVICE_URL = 'https://learn3-service.vercel.app';//'http://13.233.14.66:3006';
+
+// Function to send vote to server
+async function submitVote(email, course) {
+  try {
+    const response = await fetch(`${BACKEND_SERVICE_URL}/api/vote`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, course }),
+    });
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error submitting vote:', error);
+    throw error;
+  }
+}
+
+// Function to get vote statistics
+async function getVoteStats() {
+  try {
+    const response = await fetch(`${BACKEND_SERVICE_URL}/api/votes/stats`);
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching vote statistics:', error);
+    throw error;
+  }
+}
+
+// Enhanced Google Sign-In handler
+function handleCredentialResponse(response) {
+  // Decode the JWT token
+  const responsePayload = parseJwt(response.credential);
+  
+  // Store user info
+  const userData = {
+    email: responsePayload.email,
+    name: responsePayload.name,
+    picture: responsePayload.picture
+  };
+  
+  console.log('User signed in:', userData);
+  
+  // Store the user email globally for later use
+  window.userEmail = userData.email;
+  
+  // Hide Google Sign-In button and show user info
+  const googleSignInDiv = document.querySelector('.g_id_signin');
+  if (googleSignInDiv) {
+    googleSignInDiv.style.display = 'none';
+  }
+  
+  // Create and show user info in header
+  const headerContainer = document.querySelector('header .flex.items-center');
+  if (headerContainer) {
+    // If we already have a user profile div, update it, otherwise create it
+    let userProfileDiv = document.getElementById('user-profile');
+    if (!userProfileDiv) {
+      userProfileDiv = document.createElement('div');
+      userProfileDiv.id = 'user-profile';
+      userProfileDiv.className = 'flex items-center space-x-2';
+      headerContainer.appendChild(userProfileDiv);
+    }
+    
+    userProfileDiv.innerHTML = `
+      <img src="${userData.picture}" alt="${userData.name}" class="w-8 h-8 rounded-full">
+      <div class="hidden md:block">
+        <p class="text-sm font-medium text-gray-700">${userData.name}</p>
+        <p class="text-xs text-gray-500">${userData.email}</p>
+      </div>
+    `;
+  }
+  
+  // Update voting section
+  const notSignedInDiv = document.getElementById('not-signed-in');
+  const signedInDiv = document.getElementById('signed-in');
+  
+  if (notSignedInDiv) {
+    notSignedInDiv.classList.add('hidden');
+  }
+  
+  if (signedInDiv) {
+    signedInDiv.classList.remove('hidden');
+    
+    // Add user info to the signed in section if it doesn't have it already
+    if (!signedInDiv.querySelector('.user-info')) {
+      const userInfoDiv = document.createElement('div');
+      userInfoDiv.className = 'user-info flex items-center mb-6';
+      userInfoDiv.innerHTML = `
+        <img src="${userData.picture}" alt="${userData.name}" class="w-12 h-12 rounded-full mr-4">
+        <div>
+          <p class="font-semibold text-gray-800">${userData.name}</p>
+          <p class="text-sm text-gray-500">${userData.email}</p>
+        </div>
+      `;
+      signedInDiv.insertBefore(userInfoDiv, signedInDiv.firstChild);
+    }
+  }
+  
+  // Enable voting buttons
+  const voteButtons = document.querySelectorAll('.vote-btn');
+  voteButtons.forEach(button => {
+    button.disabled = false;
+    button.innerHTML = 'Vote Now';
+    
+    // Add click handler to scroll to voting section
+    const courseId = button.closest('[data-course]')?.getAttribute('data-course');
+    if (courseId) {
+      button.addEventListener('click', function() {
+        const radioInput = document.getElementById(`vote-${courseId}`);
+        if (radioInput) radioInput.checked = true;
+        document.getElementById('voting').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+  });
+  
+  // Get initial vote statistics
+  getVoteStats()
+    .then(stats => {
+      updateVotingResults(stats);
+    })
+    .catch(error => {
+      console.error('Failed to fetch vote statistics:', error);
+    });
+}
+
+// Function to update voting results based on API data
+function updateVotingResults(stats) {
+  if (!stats) return;
+  
+  // Update progress bars and percentages
+  for (const [course, percentage] of Object.entries(stats.percentages)) {
+    const progressElement = document.getElementById(`${course}-progress`);
+    const percentageElement = document.getElementById(`${course}-percent`);
+    
+    if (progressElement) {
+      progressElement.style.width = `${percentage}%`;
+    }
+    
+    if (percentageElement) {
+      percentageElement.textContent = `${percentage}%`;
+    }
+  }
+  
+  // Add total votes count if not already present
+  const votingSection = document.querySelector('#voting .text-center.mb-10');
+  if (votingSection) {
+    let totalVotesElement = document.getElementById('total-votes');
+    if (!totalVotesElement) {
+      const totalVotesP = document.createElement('p');
+      totalVotesP.className = 'mt-2 text-sm text-gray-500';
+      totalVotesP.innerHTML = `Total votes: <span id="total-votes">${stats.total}</span>`;
+      votingSection.appendChild(totalVotesP);
+    } else {
+      totalVotesElement.textContent = stats.total;
+    }
+  }
+}
+
+// Submit vote handler
+document.getElementById('submit-vote').addEventListener('click', async function() {
+  if (!window.userEmail) {
+    alert('Please sign in to vote');
+    return;
+  }
+  
+  const selectedCourse = document.querySelector('input[name="course-vote"]:checked');
+  if (!selectedCourse) {
+    alert('Please select a course to vote for');
+    return;
+  }
+  
+  // Disable button and show loading state
+  this.disabled = true;
+  const originalText = this.textContent;
+  this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Submitting...';
+  
+  try {
+    // Send vote to server
+    const result = await submitVote(window.userEmail, selectedCourse.value);
+    
+    if (result.success) {
+      // Show success message
+      const successDiv = document.getElementById('vote-success');
+      if (successDiv) {
+        successDiv.classList.remove('hidden');
+      }
+      
+      // Update voting results
+      const stats = await getVoteStats();
+      updateVotingResults(stats);
+      
+      // Keep button disabled and update text
+      this.innerHTML = '<i class="fas fa-check mr-2"></i> Vote Recorded';
+    } else {
+      // Show error
+      alert(result.message || 'Failed to record your vote. Please try again.');
+      
+      // Re-enable button
+      this.disabled = false;
+      this.textContent = originalText;
+    }
+  } catch (error) {
+    console.error('Error submitting vote:', error);
+    alert('An error occurred while submitting your vote. Please try again later.');
+    
+    // Re-enable button
+    this.disabled = false;
+    this.textContent = originalText;
+  }
+});
+
+// Helper function to parse JWT token
+function parseJwt(token) {
+  const base64Url = token.split('.')[1];
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+  
+  return JSON.parse(jsonPayload);
+}
+
+// Setup periodic vote stats refresh
+function setupPeriodicRefresh() {
+  setInterval(async function() {
+    try {
+      const stats = await getVoteStats();
+      updateVotingResults(stats);
+    } catch (error) {
+      console.error('Failed to refresh vote statistics:', error);
+    }
+  }, 30000); // Refresh every 30 seconds
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+  // Make sure the Google Sign-In button in the voting section has the correct client ID
+  const mainSignInButton = document.getElementById('g_id_onload_main');
+  if (mainSignInButton && mainSignInButton.getAttribute('data-client_id') === 'YOUR_GOOGLE_CLIENT_ID') {
+    mainSignInButton.setAttribute('data-client_id', '906801802809-7svnmj539qcgv4ed2128c5uclnbgv5qt.apps.googleusercontent.com');
+  }
+  
+  // Fetch initial vote stats
+  getVoteStats()
+    .then(stats => {
+      updateVotingResults(stats);
+    })
+    .catch(error => {
+      console.error('Failed to fetch initial vote statistics:', error);
+    });
+  
+  // Setup refresh
+  setupPeriodicRefresh();
+  
+  // Update countdown timer
+  updateCountdown();
+});
+
+// Countdown Timer (keeping the existing function)
+function updateCountdown() {
+  const targetDate = new Date('May 20, 2025 23:59:59').getTime();
+  const now = new Date().getTime();
+  const timeLeft = targetDate - now;
+  
+  if (timeLeft < 0) {
+    document.getElementById('countdown').innerHTML = '<p class="text-white">Voting has ended!</p>';
+    return;
+  }
+  
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+  
+  document.getElementById('days').textContent = String(days).padStart(2, '0');
+  document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+}
+
+setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
