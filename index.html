@@ -314,85 +314,501 @@
         </div>
     </nav>
     <!-- Hero Section -->
-    <section class="relative min-h-[75vh] overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50">
-        <!-- Decorative Elements -->
-        <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-blue-500 opacity-10 rounded-full transform translate-x-1/4 -translate-y-1/4"></div>
-        <div class="absolute bottom-0 left-0 w-2/3 h-2/3 bg-indigo-500 opacity-10 rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
-        
-        <!-- Animated Shapes - Hidden on smallest screens -->
-        <div class="absolute top-1/4 left-1/4 w-16 h-16 bg-blue-400 rounded-lg opacity-20 animate-float hidden sm:block"></div>
-        <div class="absolute top-2/3 right-1/3 w-24 h-24 bg-purple-400 rounded-full opacity-20 animate-float-slow hidden sm:block"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-12 h-12 bg-green-400 rounded-lg opacity-20 animate-float-reverse hidden sm:block"></div>
-        
-        <!-- Geometric patterns - Hidden on smallest screens -->
-        <div class="absolute inset-0 hidden sm:block">
-          <div class="absolute top-20 right-40 w-40 h-40">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-blue-500 opacity-10">
-              <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="2" />
-              <circle cx="50" cy="50" r="30" stroke="currentColor" stroke-width="2" />
-              <circle cx="50" cy="50" r="20" stroke="currentColor" stroke-width="2" />
-            </svg>
-          </div>
-          <div class="absolute bottom-40 left-20 w-64 h-64">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-indigo-500 opacity-10">
-              <path d="M10 10L90 10L90 90L10 90L10 10Z" stroke="currentColor" stroke-width="2" />
-              <path d="M30 30L70 30L70 70L30 70L30 30Z" stroke="currentColor" stroke-width="2" />
-              <path d="M50 50L90 10M50 50L10 10M50 50L10 90M50 50L90 90" stroke="currentColor" stroke-width="1" />
-            </svg>
-          </div>
+  <!-- Explore Section HTML - Improved with better hero integration -->
+     
+  <section class="relative min-h-[75vh] overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50">
+    <!-- Decorative Elements -->
+    <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-blue-500 opacity-10 rounded-full transform translate-x-1/4 -translate-y-1/4"></div>
+    <div class="absolute bottom-0 left-0 w-2/3 h-2/3 bg-indigo-500 opacity-10 rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
+    
+    <!-- Animated Shapes - Hidden on smallest screens -->
+    <div class="absolute top-1/4 left-1/4 w-16 h-16 bg-blue-400 rounded-lg opacity-20 animate-float hidden sm:block"></div>
+    <div class="absolute top-2/3 right-1/3 w-24 h-24 bg-purple-400 rounded-full opacity-20 animate-float-slow hidden sm:block"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-12 h-12 bg-green-400 rounded-lg opacity-20 animate-float-reverse hidden sm:block"></div>
+    
+    <!-- Geometric patterns - Hidden on smallest screens -->
+    <div class="absolute inset-0 hidden sm:block">
+      <div class="absolute top-20 right-40 w-40 h-40">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-blue-500 opacity-10">
+          <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="2" />
+          <circle cx="50" cy="50" r="30" stroke="currentColor" stroke-width="2" />
+          <circle cx="50" cy="50" r="20" stroke="currentColor" stroke-width="2" />
+        </svg>
+      </div>
+      <div class="absolute bottom-40 left-20 w-64 h-64">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-indigo-500 opacity-10">
+          <path d="M10 10L90 10L90 90L10 90L10 10Z" stroke="currentColor" stroke-width="2" />
+          <path d="M30 30L70 30L70 70L30 70L30 30Z" stroke="currentColor" stroke-width="2" />
+          <path d="M50 50L90 10M50 50L10 10M50 50L10 90M50 50L90 90" stroke="currentColor" stroke-width="1" />
+        </svg>
+      </div>
+    </div>
+  
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-indigo-600/5"></div>
+    
+    <!-- Hero Content -->
+    <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-24 h-full py-16 flex items-center relative z-10">
+      <div class="max-w-3xl">
+        <div class="inline-block py-1 px-3 mb-4 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
+          Innovative Software Solutions
         </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-[#001c55] leading-tight">
+          Transforming Ideas Into Powerful Digital Experiences
+        </h1>
+        <p class="text-base md:text-lg lg:text-xl text-[#001c55] mb-6 md:mb-8 max-w-2xl opacity-90">
+          We blend creativity and technology to build custom software solutions that drive business growth and enhance user experience.
+        </p>
+        <div class="flex flex-wrap gap-3 md:gap-4">
+          <a href="#services" class="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-[#001c55] hover:bg-blue-900 text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl text-center">
+            Explore Our Services
+          </a>
+          <a href="#contact" class="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 border-2 border-[#001c55] text-[#001c55] hover:bg-blue-50 font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1 text-center">
+            Get In Touch
+          </a>
+        </div>
+        
+        <!-- Social Proof / Stats - Uncomment if needed -->
+        <!-- <div class="mt-10 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8 max-w-2xl">
+          <div class="text-center sm:text-left">
+            <h3 class="text-2xl md:text-3xl font-bold text-[#001c55]">100+</h3>
+            <p class="text-[#001c55] opacity-80 text-sm md:text-base">Projects Completed</p>
+          </div>
+          <div class="text-center sm:text-left">
+            <h3 class="text-2xl md:text-3xl font-bold text-[#001c55]">50+</h3>
+            <p class="text-[#001c55] opacity-80 text-sm md:text-base">Happy Clients</p>
+          </div>
+          <div class="text-center sm:text-left">
+            <h3 class="text-2xl md:text-3xl font-bold text-[#001c55]">5+</h3>
+            <p class="text-[#001c55] opacity-80 text-sm md:text-base">Years of Experience</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    
+    <!-- Curved Wave Bottom -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full">
+        <path fill="#ffffff" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+      </svg>
+    </div>
+  </section>
+
+
+
+<!-- Explore Section CSS with improved hero integration and image effects -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+  
+  :root {
+      --primary: #6d28d9;
+      --secondary: #10b981;
+      --accent: #8b5cf6;
+      --dark: #111827;
+      --light: #f3f4f6;
+  }
+  
+  .explore-section {
+      padding: 10rem 0 15rem;
+      position: relative;
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: #f8fafc;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+      min-height: 120vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+  
+  /* Background elements */
+  .explore-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+          radial-gradient(circle at 20% 30%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+      z-index: 0;
+  }
+  
+  .explore-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 2;
+  }
+  
+  .explore-header {
+      text-align: center;
+      margin-bottom: 5rem;
+  }
+  
+  .explore-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+  }
+  
+  .gradient-text {
+      background: linear-gradient(90deg, #10b981, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+  }
+  
+  .explore-subtitle {
+      font-size: 1.25rem;
+      color: #cbd5e1;
+      max-width: 700px;
+      margin: 0 auto;
+  }
+  
+  .explore-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 5rem;
+  }
+  
+  /* New circular image showcase with zoom effect */
+  .circular-image-container {
+      position: relative;
+      width: 100%;
+      height: 550px;
+      margin-bottom: 2rem;
+  }
+  
+  .circular-image-wrapper {
+      position: absolute;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s ease-out, box-shadow 0.4s ease;
+  }
+  
+  .circular-image-wrapper:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      z-index: 5;
+  }
+  
+  .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(109, 40, 217, 0.2), rgba(59, 130, 246, 0.4));
+      z-index: 1;
+  }
+  
+  .zoom-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+  }
+  
+  .circular-image-wrapper:hover .zoom-image {
+      transform: scale(1.1);
+  }
+  
+  .main-image {
+      width: 320px;
+      height: 320px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+  }
+  
+  .main-image:hover {
+      transform: translate(-50%, -50%) scale(1.05);
+  }
+  
+  .small-image {
+      width: 160px;
+      height: 160px;
+  }
+  
+  .top-left {
+      top: 10%;
+      left: 15%;
+  }
+  
+  .top-right {
+      top: 10%;
+      right: 15%;
+  }
+  
+  .bottom-left {
+      bottom: 10%;
+      left: 15%;
+  }
+  
+  .bottom-right {
+      bottom: 10%;
+      right: 15%;
+  }
+  
+  /* Floating icons animation */
+  .floating-icon {
+      position: absolute;
+      z-index: 1;
+      opacity: 0.6;
+      color: var(--accent);
+  }
+  
+  .icon-1 {
+      top: 15%;
+      left: 5%;
+      width: 40px;
+      height: 40px;
+      animation: float 6s ease-in-out infinite;
+  }
+  
+  .icon-2 {
+      bottom: 20%;
+      right: 8%;
+      width: 32px;
+      height: 32px;
+      animation: float 5s ease-in-out infinite 1s;
+  }
+  
+  @keyframes float {
+      0% {
+          transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+          transform: translateY(-15px) rotate(5deg);
+      }
+      100% {
+          transform: translateY(0px) rotate(0deg);
+      }
+  }
+  
+  .explore-images {
+      position: relative;
+  }
+  
+  .pulse-circle {
+      position: absolute;
+      border-radius: 50%;
+      animation: pulse 3s infinite;
+  }
+  
+  .top-left {
+      top: -2rem;
+      left: -2rem;
+      height: 5rem;
+      width: 5rem;
+      background-color: rgba(147, 51, 234, 0.2);
+  }
+  
+  .bottom-right {
+      bottom: -2rem;
+      right: -2rem;
+      height: 4rem;
+      width: 4rem;
+      background-color: rgba(59, 130, 246, 0.2);
+  }
+  
+  .explore-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+  }
+  
+  .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+  }
+  
+  .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+  }
+  
+  .card-description {
+      color: #cbd5e1;
+      margin-bottom: 1rem;
+  }
+  
+  .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+  }
+  
+  .tag {
+      background-color: rgba(124, 58, 237, 0.2);
+      color: #c4b5fd;
+      font-size: 0.875rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+  }
+  
+  .cta-container {
+      text-align: center;
+      margin-top: 1rem;
+  }
+  
+  .explore-button {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(90deg, #6d28d9, #8b5cf6);
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(109, 40, 217, 0.4);
+  }
+  
+  .explore-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+  }
+  
+  .button-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-left: 0.5rem;
+  }
+  
+  /* Wave bottom for better integration with next section */
+  .wave-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+  }
+  
+  .wave-svg {
+      display: block;
+      width: 100%;
+      height: 70px;
+  }
+  
+  @keyframes pulse {
+      0% {
+          box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7);
+      }
+      70% {
+          box-shadow: 0 0 0 20px rgba(139, 92, 246, 0);
+      }
+      100% {
+          box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+      }
+  }
+  
+  /* Responsive styles */
+  @media (min-width: 768px) {
+      .explore-title {
+          font-size: 3rem;
+      }
       
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-indigo-600/5"></div>
-        
-        <!-- Hero Content -->
-        <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-24 h-full py-16 flex items-center relative z-10">
-          <div class="max-w-3xl">
-            <div class="inline-block py-1 px-3 mb-4 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
-              Innovative Software Solutions
-            </div>
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-[#001c55] leading-tight">
-              Transforming Ideas Into Powerful Digital Experiences
-            </h1>
-            <p class="text-base md:text-lg lg:text-xl text-[#001c55] mb-6 md:mb-8 max-w-2xl opacity-90">
-              We blend creativity and technology to build custom software solutions that drive business growth and enhance user experience.
-            </p>
-            <div class="flex flex-wrap gap-3 md:gap-4">
-              <a href="#services" class="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-[#001c55] hover:bg-blue-900 text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl text-center">
-                Explore Our Services
-              </a>
-              <a href="#contact" class="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 border-2 border-[#001c55] text-[#001c55] hover:bg-blue-50 font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1 text-center">
-                Get In Touch
-              </a>
-            </div>
-            
-            <!-- Social Proof / Stats - Uncomment if needed -->
-            <!-- <div class="mt-10 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8 max-w-2xl">
-              <div class="text-center sm:text-left">
-                <h3 class="text-2xl md:text-3xl font-bold text-[#001c55]">100+</h3>
-                <p class="text-[#001c55] opacity-80 text-sm md:text-base">Projects Completed</p>
-              </div>
-              <div class="text-center sm:text-left">
-                <h3 class="text-2xl md:text-3xl font-bold text-[#001c55]">50+</h3>
-                <p class="text-[#001c55] opacity-80 text-sm md:text-base">Happy Clients</p>
-              </div>
-              <div class="text-center sm:text-left">
-                <h3 class="text-2xl md:text-3xl font-bold text-[#001c55]">5+</h3>
-                <p class="text-[#001c55] opacity-80 text-sm md:text-base">Years of Experience</p>
-              </div>
-            </div> -->
-          </div>
-        </div>
-        
-        <!-- Curved Wave Bottom -->
-        <div class="absolute bottom-0 left-0 right-0">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full">
-            <path fill="#ffffff" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
-          </svg>
-        </div>
-      </section>
-
-    <!-- JavaScript to open and close modal -->
-
+      .explore-content {
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+      }
+      
+      .circular-image-container {
+          height: 600px;
+      }
+      
+      .main-image {
+          width: 360px;
+          height: 360px;
+      }
+      
+      .small-image {
+          width: 180px;
+          height: 180px;
+      }
+      
+      .top-left {
+          top: 10%;
+          left: 10%;
+      }
+      
+      .top-right {
+          top: 10%;
+          right: 10%;
+      }
+      
+      .bottom-left {
+          bottom: 10%;
+          left: 10%;
+      }
+      
+      .bottom-right {
+          bottom: 10%;
+          right: 10%;
+      }
+  }
+  
+  @media (max-width: 767px) {
+      .explore-section {
+          padding: 5rem 0 8rem;
+      }
+      
+      .circular-image-container {
+          height: 350px;
+          margin-bottom: 2rem;
+      }
+      
+      .main-image {
+          width: 200px;
+          height: 200px;
+      }
+      
+      .small-image {
+          width: 100px;
+          height: 100px;
+      }
+      
+      .top-left {
+          top: 15%;
+          left: 10%;
+      }
+      
+      .top-right {
+          top: 15%;
+          right: 10%;
+      }
+      
+      .bottom-left {
+          bottom: 15%;
+          left: 10%;
+      }
+      
+      .bottom-right {
+          bottom: 15%;
+          right: 10%;
+      }
+  }
+</style>
 
 
         <div class="container mx-auto bg-gradient-to-br from-gray-50 to-gray-100 shadow-xl relative">
@@ -584,7 +1000,489 @@
             })();
           </script>
 
+<section id="explore" class="explore-section">
+  <div class="explore-container">
+      <div class="explore-header">
+          <h2 class="explore-title">Explore Our <span class="gradient-text">Web3 Side</span></h2>
+          <p class="explore-subtitle">Dive into our innovative projects and discover the future of decentralized applications.</p>
+      </div>
+      
+      <div class="explore-content">
+          <div class="explore-images">
+              <!-- Circular Image Showcase with Zoom Effect -->
+              <div class="circular-image-container">
+                  <div class="circular-image-wrapper main-image">
+                      <div class="image-overlay"></div>
+                      <img src="./WEB 3.0.png" alt="Web3 Ecosystem" class="zoom-image">
+                  </div>
+                  <div class="circular-image-cluster">
+                      <div class="circular-image-wrapper small-image top-left">
+                          <div class="image-overlay"></div>
+                          <img src="./11.png" alt="DeFi" class="zoom-image">
+                      </div>
+                      <div class="circular-image-wrapper small-image top-right">
+                          <div class="image-overlay"></div>
+                          <img src="./12.png" alt="NFTs" class="zoom-image">
+                      </div>
+                      <div class="circular-image-wrapper small-image bottom-left">
+                          <div class="image-overlay"></div>
+                          <img src="./13.png" alt="Metaverse" class="zoom-image">
+                      </div>
+                      <div class="circular-image-wrapper small-image bottom-right">
+                          <div class="image-overlay"></div>
+                          <img src="./14.png" alt="DAOs" class="zoom-image">
+                      </div>
+                  </div>
+              </div>
+              <!-- Animated elements -->
+              <div class="pulse-circle top-left"></div>
+              <div class="pulse-circle bottom-right"></div>
+              <div class="floating-icon icon-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+              </div>
+              <div class="floating-icon icon-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                  </svg>
+              </div>
+          </div>
+          
+          <div class="explore-text">
+            <div class="feature-card">
+                <h3 class="card-title">Decentralized Finance</h3>
+                <p class="card-description">Our DeFi solutions are designed for easy integration, supporting multiple blockchain networks to help clients build secure, efficient, and scalable decentralized financial services.</p>
+                <div class="tag-container">
+                    <span class="tag">Swap</span>
+                    <span class="tag">Staking</span>
+                    <span class="tag">Farm</span>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <h3 class="card-title">RWA Ecosystems</h3>
+                <p class="card-description">We build RWA applications to foster a strong community around real-world asset ecosystems, bringing practical Web3 use cases to life on the most effective and widely adopted blockchain networks.</p>
+                <div class="tag-container">
+                    <span class="tag">Collectibles</span>
+                    <span class="tag">Gaming</span>
+                    <span class="tag">Enterprise</span>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <h3 class="card-title">Creative Infrastructure</h3>
+                <p class="card-description">We provide stunning, simple, and smart designs—from websites to posters—along with expert consultation. In the futuristic world of Web3, the right design is key to helping people understand your project and its real-world utility.</p>
+                <div class="tag-container">
+                    <span class="tag">Design</span>
+                    <span class="tag">Community</span>
+                    <span class="tag">Product</span>
+                </div>
+            </div>
+            
+            <div class="cta-container">
+                <!-- <a href="web3.html" class="explore-button">
+                    Explore Web3 World
+                    <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a> -->
+                <div class="cta-telegram">
+                  <a href="https://t.me/techedilite" class="telegram-button">
+                    <svg class="telegram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.2581 2.99895C21.9877 2.73921 21.64 2.57244 21.263 2.52402C20.886 2.47559 20.5022 2.54771 20.1631 2.72895L2.29615 11.4289C1.90748 11.6415 1.59346 11.9733 1.40078 12.3785C1.2081 12.7837 1.14677 13.2404 1.22615 13.6839C1.30432 14.1255 1.51834 14.5342 1.83873 14.856C2.15912 15.1778 2.56748 15.3976 3.01315 15.4839L6.00615 16.0439L7.50615 20.2439C7.5507 20.3692 7.61374 20.4888 7.69315 20.5989C7.69315 20.6139 7.70715 20.6139 7.71315 20.6289C7.80723 20.7547 7.92544 20.8625 8.06115 20.9479C8.09229 20.9662 8.12532 20.982 8.15988 20.9951C8.31563 21.0726 8.48569 21.1172 8.65915 21.1271H8.71315C8.90732 21.119 9.09574 21.0659 9.26311 20.9717C9.43049 20.8776 9.57237 20.7449 9.67615 20.5839L11.5762 17.9989L14.7762 20.5539C15.0758 20.7953 15.4401 20.9366 15.8221 20.9564C16.2042 20.9761 16.5823 20.8734 16.9061 20.6639C17.2265 20.4545 17.4816 20.1518 17.6414 19.7953C17.8011 19.4389 17.8594 19.0439 17.8091 18.6539L16.0091 3.77895C15.9661 3.39773 15.8175 3.03659 15.5798 2.74123C15.3421 2.44587 15.0263 2.23033 14.6711 2.12395C14.3159 2.01757 13.9365 2.02513 13.5858 2.14553C13.2351 2.26593 12.9303 2.495 12.7071 2.79895L12.6581 2.47895" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8 21C8 21 3 16 2 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M11.5 18L7.5 16L15 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Connect on Telegram
+                  </a>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+      </div>
+  </div>
+  <!-- Accelerator Section -->
+<section id="accelerator" class="accelerator-section">
+  <div class="accelerator-container">
+    <div class="accelerator-content">
+      <div class="accelerator-text-container">
+        <h2 class="accelerator-title">Web3 <span class="gradient-text">Accelerator Program</span></h2>
+        <p class="accelerator-description">
+          We are also accelerators who sort out the community to build innovative projects on the chains. If your project or chain is interesting, contact us right away. We develop on-chain applications through our strong community.
+        </p>
+        <div class="accelerator-features">
+          <div class="feature">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h3>Chain Support</h3>
+              <p>Expertise across multiple blockchain ecosystems</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="2" x2="12" y2="6"></line>
+                <line x1="12" y1="18" x2="12" y2="22"></line>
+                <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+                <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+                <line x1="2" y1="12" x2="6" y2="12"></line>
+                <line x1="18" y1="12" x2="22" y2="12"></line>
+                <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+                <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h3>Technical Guidance</h3>
+              <p>Expert mentorship and development support</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h3>Community Access</h3>
+              <p>Connect with our network of Web3 builders</p>
+            </div>
+          </div>
+        </div>
+        <div class="cta-telegram">
+          <a href="https://t.me/techedilite" class="telegram-button">
+            <svg class="telegram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.2581 2.99895C21.9877 2.73921 21.64 2.57244 21.263 2.52402C20.886 2.47559 20.5022 2.54771 20.1631 2.72895L2.29615 11.4289C1.90748 11.6415 1.59346 11.9733 1.40078 12.3785C1.2081 12.7837 1.14677 13.2404 1.22615 13.6839C1.30432 14.1255 1.51834 14.5342 1.83873 14.856C2.15912 15.1778 2.56748 15.3976 3.01315 15.4839L6.00615 16.0439L7.50615 20.2439C7.5507 20.3692 7.61374 20.4888 7.69315 20.5989C7.69315 20.6139 7.70715 20.6139 7.71315 20.6289C7.80723 20.7547 7.92544 20.8625 8.06115 20.9479C8.09229 20.9662 8.12532 20.982 8.15988 20.9951C8.31563 21.0726 8.48569 21.1172 8.65915 21.1271H8.71315C8.90732 21.119 9.09574 21.0659 9.26311 20.9717C9.43049 20.8776 9.57237 20.7449 9.67615 20.5839L11.5762 17.9989L14.7762 20.5539C15.0758 20.7953 15.4401 20.9366 15.8221 20.9564C16.2042 20.9761 16.5823 20.8734 16.9061 20.6639C17.2265 20.4545 17.4816 20.1518 17.6414 19.7953C17.8011 19.4389 17.8594 19.0439 17.8091 18.6539L16.0091 3.77895C15.9661 3.39773 15.8175 3.03659 15.5798 2.74123C15.3421 2.44587 15.0263 2.23033 14.6711 2.12395C14.3159 2.01757 13.9365 2.02513 13.5858 2.14553C13.2351 2.26593 12.9303 2.495 12.7071 2.79895L12.6581 2.47895" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 21C8 21 3 16 2 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11.5 18L7.5 16L15 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Connect on Telegram
+          </a>
+        </div>
+      </div>
+      <!--  -->
+    </div>
+  </div>
+</section>
 
+<style>
+  /* Base Styles */
+  :root {
+    --primary: #0f172a;
+    --secondary: #1e293b;
+    --accent-1: #6d28d9;
+    --accent-2: #8b5cf6;
+    --accent-3: #10b981;
+    --telegram: #0088cc;
+    --telegram-hover: #0099e6;
+    --text-light: #f8fafc;
+    --text-muted: #cbd5e1;
+  }
+  
+  .accelerator-section {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--text-light);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .accelerator-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(109, 40, 217, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(16, 185, 129, 0.15) 0%, transparent 40%);
+    z-index: 1;
+  }
+  
+  .accelerator-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .accelerator-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  /* Text Container */
+  .accelerator-text-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .accelerator-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(90deg, var(--accent-3), var(--accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .accelerator-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 650px;
+  }
+  
+  /* Features */
+  .accelerator-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background: rgba(139, 92, 246, 0.15);
+    border-radius: 12px;
+    color: var(--accent-2);
+    flex-shrink: 0;
+  }
+  
+  .feature-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .feature-text h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature-text p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+  
+  /* Telegram Button */
+  .cta-telegram {
+    margin-top: 1rem;
+  }
+  
+  .telegram-button {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(90deg, var(--telegram), var(--telegram-hover));
+    color: white;
+    font-weight: 600;
+    padding: 0.875rem 1.75rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 136, 204, 0.4);
+  }
+  
+  .telegram-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 136, 204, 0.5);
+  }
+  
+  .telegram-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.75rem;
+    color: white;
+  }
+  
+  /* Image Container */
+  .accelerator-image-container {
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+  }
+  
+  .glow-effect {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+    filter: blur(40px);
+    z-index: 1;
+  }
+  
+  .image-grid {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+      "a a"
+      "b c";
+    gap: 1rem;
+  }
+  
+  .image-item {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease;
+  }
+  
+  .image-item:hover {
+    transform: translateY(-8px);
+  }
+  
+  .image-item.item1 {
+    grid-area: a;
+  }
+  
+  .image-item.item2 {
+    grid-area: b;
+  }
+  
+  .image-item.item3 {
+    grid-area: c;
+  }
+  
+  .accelerator-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  
+  .image-item:hover .accelerator-image {
+    transform: scale(1.05);
+  }
+  
+  /* Floating Shapes */
+  .floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+  }
+  
+  .shape1 {
+    width: 8rem;
+    height: 8rem;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+    top: -2rem;
+    right: -2rem;
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .shape2 {
+    width: 5rem;
+    height: 5rem;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+    bottom: 3rem;
+    left: -1rem;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+  
+  .shape3 {
+    width: 3rem;
+    height: 3rem;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+    bottom: -1rem;
+    right: 30%;
+    animation: float 6s ease-in-out infinite 1s;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(5deg);
+    }
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+  }
+  
+  /* Responsive Styles */
+  @media (min-width: 768px) {
+    .accelerator-content {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+    
+    .accelerator-title {
+      font-size: 3rem;
+    }
+    
+    .accelerator-features {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .image-grid {
+      height: 450px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .accelerator-section {
+      padding: 4rem 0;
+    }
+    
+    .accelerator-features {
+      gap: 2rem;
+    }
+    
+    .image-grid {
+      grid-template-areas:
+        "a a"
+        "b b"
+        "c c";
+    }
+    
+    .image-item.item2,
+    .image-item.item3 {
+      height: 180px;
+    }
+  }
+</style>
+  <!-- Curved Wave Bottom (helps with integration) -->
+  <div class="wave-bottom">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="wave-svg">
+          <path fill="#ffffff" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+      </svg>
+  </div>
+</section>
         <section id="services" class="bg-gradient-to-b from-white to-gray-50 py-16">
             <div class="container mx-auto px-4 max-w-7xl">
               <div class="text-center mb-16">
