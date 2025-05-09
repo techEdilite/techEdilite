@@ -999,205 +999,182 @@
               });
             })();
           </script>
-
-<section id="explore" class="explore-section">
-  <div class="explore-container">
-      <div class="explore-header">
-          <h2 class="explore-title">Explore Our <span class="gradient-text">Web3 Side</span></h2>
-          <p class="explore-subtitle">Dive into our innovative projects and discover the future of decentralized applications.</p>
+<section id="blockchain-expertise" class="py-24 relative overflow-hidden bg-gradient-to-b from-blue-50 to-white">
+  <!-- Abstract decorative elements -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
+      <div class="absolute w-96 h-96 rounded-full bg-blue-500 blur-3xl -top-20 -left-20"></div>
+      <div class="absolute w-96 h-96 rounded-full bg-blue-300 blur-3xl -bottom-20 -right-20"></div>
+  </div>
+  
+  <!-- Animated hexagon pattern -->
+  <div class="absolute inset-0 opacity-5">
+      <svg width="100%" height="100%">
+          <pattern id="hexagon-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M20 0 L40 10 L40 30 L20 40 L0 30 L0 10 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+          </pattern>
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#hexagon-pattern)" />
+      </svg>
+  </div>
+  
+  <!-- Floating elements that represent blockchain nodes -->
+  <div class="absolute left-10 top-1/4 w-4 h-4 bg-blue-600 rounded-full opacity-20 animate-pulse"></div>
+  <div class="absolute right-20 top-1/3 w-6 h-6 bg-blue-600 rounded-full opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
+  <div class="absolute left-1/3 bottom-1/4 w-5 h-5 bg-blue-600 rounded-full opacity-20 animate-pulse" style="animation-delay: 1.5s;"></div>
+  <div class="absolute right-1/4 bottom-1/3 w-8 h-8 bg-blue-600 rounded-full opacity-20 animate-pulse" style="animation-delay: 0.5s;"></div>
+  
+  <!-- Connecting lines to illustrate blockchain connectivity -->
+  <div class="absolute inset-0">
+      <svg class="w-full h-full opacity-10">
+          <line x1="10%" y1="25%" x2="33%" y2="75%" stroke="#3B82F6" stroke-width="1" stroke-dasharray="5,5" />
+          <line x1="33%" y1="75%" x2="75%" y2="67%" stroke="#3B82F6" stroke-width="1" stroke-dasharray="5,5" />
+          <line x1="75%" y1="67%" x2="90%" y2="33%" stroke="#3B82F6" stroke-width="1" stroke-dasharray="5,5" />
+          <line x1="90%" y1="33%" x2="10%" y2="25%" stroke="#3B82F6" stroke-width="1" stroke-dasharray="5,5" />
+      </svg>
+  </div>
+  
+  <!-- Added more padding to the container for better readability -->
+  <div class="relative z-10 max-w-7xl mx-auto px-8 md:px-12 lg:px-16">
+      <div class="max-w-4xl mx-auto text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-bold mb-6 relative inline-block">
+              <span class="relative z-10">Web3 & Blockchain</span>
+              <span class="absolute -bottom-1.5 left-0 w-full h-3 bg-blue-200 opacity-40 transform -rotate-1"></span>
+              <span class="absolute -bottom-1 left-0 w-full h-1 bg-blue-500 transform -rotate-1"></span>
+          </h2>
+          <p class="text-xl text-gray-700 mb-8">We're experts in creating blockchain solutions that bring tangible value to your business</p>
       </div>
       
-      <div class="explore-content">
-          <div class="explore-images">
-              <!-- Circular Image Showcase with Zoom Effect -->
-              <div class="circular-image-container">
-                  <div class="circular-image-wrapper main-image">
-                      <div class="image-overlay"></div>
-                      <img src="./WEB 3.0.png" alt="Web3 Ecosystem" class="zoom-image">
-                  </div>
-                  <div class="circular-image-cluster">
-                      <div class="circular-image-wrapper small-image top-left">
-                          <div class="image-overlay"></div>
-                          <img src="./11.png" alt="DeFi" class="zoom-image">
-                      </div>
-                      <div class="circular-image-wrapper small-image top-right">
-                          <div class="image-overlay"></div>
-                          <img src="./12.png" alt="NFTs" class="zoom-image">
-                      </div>
-                      <div class="circular-image-wrapper small-image bottom-left">
-                          <div class="image-overlay"></div>
-                          <img src="./13.png" alt="Metaverse" class="zoom-image">
-                      </div>
-                      <div class="circular-image-wrapper small-image bottom-right">
-                          <div class="image-overlay"></div>
-                          <img src="./14.png" alt="DAOs" class="zoom-image">
-                      </div>
-                  </div>
-              </div>
-              <!-- Animated elements -->
-              <div class="pulse-circle top-left"></div>
-              <div class="pulse-circle bottom-right"></div>
-              <div class="floating-icon icon-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                  </svg>
-              </div>
-              <div class="floating-icon icon-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                  </svg>
+      <!-- Added more spacing between grid items -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-20 mb-16">
+          <!-- Left side - Main messaging with animated border -->
+          <div class="bg-white rounded-2xl p-8 md:p-10 shadow-xl relative border border-blue-100 group transform transition duration-300 hover:-translate-y-2">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+              <div class="relative">
+                  <h3 class="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">Practical Web3 Solutions</h3>
+                  <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                      We undertake practical Web3 solutions that directly benefit your business operations. Our blockchain implementations focus on real-world utility, efficiency, and measurable returns on investment.
+                  </p>
+                  <ul class="space-y-4">
+                      <li class="flex items-start">
+                          <span class="bg-blue-100 p-1 rounded-full mr-4 mt-1">
+                              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                              </svg>
+                          </span>
+                          <span>Seamless integration with existing systems</span>
+                      </li>
+                      <li class="flex items-start">
+                          <span class="bg-blue-100 p-1 rounded-full mr-4 mt-1">
+                              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                              </svg>
+                          </span>
+                          <span>Industry-specific blockchain applications</span>
+                      </li>
+                      <li class="flex items-start">
+                          <span class="bg-blue-100 p-1 rounded-full mr-4 mt-1">
+                              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                              </svg>
+                          </span>
+                          <span>Supply chain tracking and verification</span>
+                      </li>
+                  </ul>
               </div>
           </div>
           
-          <div class="explore-text">
-            <div class="feature-card">
-                <h3 class="card-title">Decentralized Finance</h3>
-                <p class="card-description">Our DeFi solutions are designed for easy integration, supporting multiple blockchain networks to help clients build secure, efficient, and scalable decentralized financial services.</p>
-                <div class="tag-container">
-                    <span class="tag">Swap</span>
-                    <span class="tag">Staking</span>
-                    <span class="tag">Farm</span>
-                </div>
-            </div>
-            
-            <div class="feature-card">
-                <h3 class="card-title">RWA Ecosystems</h3>
-                <p class="card-description">We build RWA applications to foster a strong community around real-world asset ecosystems, bringing practical Web3 use cases to life on the most effective and widely adopted blockchain networks.</p>
-                <div class="tag-container">
-                    <span class="tag">Collectibles</span>
-                    <span class="tag">Gaming</span>
-                    <span class="tag">Enterprise</span>
-                </div>
-            </div>
-            
-            <div class="feature-card">
-                <h3 class="card-title">Creative Infrastructure</h3>
-                <p class="card-description">We provide stunning, simple, and smart designs—from websites to posters—along with expert consultation. In the futuristic world of Web3, the right design is key to helping people understand your project and its real-world utility.</p>
-                <div class="tag-container">
-                    <span class="tag">Design</span>
-                    <span class="tag">Community</span>
-                    <span class="tag">Product</span>
-                </div>
-            </div>
-            
-            <div class="cta-container">
-                <!-- <a href="web3.html" class="explore-button">
-                    Explore Web3 World
-                    <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                    </svg>
-                </a> -->
-                <div class="cta-telegram">
-                  <a href="https://t.me/techedilite" class="telegram-button">
-                    <svg class="telegram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M22.2581 2.99895C21.9877 2.73921 21.64 2.57244 21.263 2.52402C20.886 2.47559 20.5022 2.54771 20.1631 2.72895L2.29615 11.4289C1.90748 11.6415 1.59346 11.9733 1.40078 12.3785C1.2081 12.7837 1.14677 13.2404 1.22615 13.6839C1.30432 14.1255 1.51834 14.5342 1.83873 14.856C2.15912 15.1778 2.56748 15.3976 3.01315 15.4839L6.00615 16.0439L7.50615 20.2439C7.5507 20.3692 7.61374 20.4888 7.69315 20.5989C7.69315 20.6139 7.70715 20.6139 7.71315 20.6289C7.80723 20.7547 7.92544 20.8625 8.06115 20.9479C8.09229 20.9662 8.12532 20.982 8.15988 20.9951C8.31563 21.0726 8.48569 21.1172 8.65915 21.1271H8.71315C8.90732 21.119 9.09574 21.0659 9.26311 20.9717C9.43049 20.8776 9.57237 20.7449 9.67615 20.5839L11.5762 17.9989L14.7762 20.5539C15.0758 20.7953 15.4401 20.9366 15.8221 20.9564C16.2042 20.9761 16.5823 20.8734 16.9061 20.6639C17.2265 20.4545 17.4816 20.1518 17.6414 19.7953C17.8011 19.4389 17.8594 19.0439 17.8091 18.6539L16.0091 3.77895C15.9661 3.39773 15.8175 3.03659 15.5798 2.74123C15.3421 2.44587 15.0263 2.23033 14.6711 2.12395C14.3159 2.01757 13.9365 2.02513 13.5858 2.14553C13.2351 2.26593 12.9303 2.495 12.7071 2.79895L12.6581 2.47895" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M8 21C8 21 3 16 2 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M11.5 18L7.5 16L15 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Connect on Telegram
-                  </a>
-                </div>
-                <br>
-                <br>
-            </div>
-        </div>
-      </div>
-  </div>
-  <!-- Accelerator Section -->
-<!-- Accelerator Section -->
- <br>
- <br>
-<!-- Accelerator Section Without Images -->
-
-  <!-- Curved Wave Bottom (helps with integration) -->
-
-</section>
-
-<section id="accelerator" class="accelerator-section">
-  <div class="accelerator-container">
-    <div class="accelerator-content">
-      <div class="accelerator-text-container">
-        <h2 class="accelerator-title">Web3 <span class="gradient-text">Accelerator Program</span></h2>
-        <p class="accelerator-description">
-          We are also accelerators who sort out the community to build innovative projects on the chains. If your project or chain is interesting, contact us right away. We develop on-chain applications through our strong community.
-        </p>
-        <div class="accelerator-features">
-          <div class="feature">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-            </div>
-            <div class="feature-text">
-              <h3>Chain Support</h3>
-              <p>Expertise across multiple blockchain ecosystems</p>
-            </div>
+          <!-- Right side - Feature cards -->
+          <div class="space-y-8">
+              <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-blue-600 hover:shadow-xl transition duration-300">
+                  <h3 class="text-xl font-bold mb-3">Smart Contract Development</h3>
+                  <p class="text-gray-600 mb-4">We create secure, auditable, and efficient smart contracts that automate processes, reduce costs, and eliminate intermediaries.</p>
+                  <div class="flex flex-wrap gap-2">
+                      <span class="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1 rounded">Ethereum</span>
+                      <span class="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1 rounded">Solana</span>
+                      <span class="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1 rounded">Polygon</span>
+                  </div>
+              </div>
+              
+              <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-purple-600 hover:shadow-xl transition duration-300">
+                  <h3 class="text-xl font-bold mb-3">Decentralized Applications</h3>
+                  <p class="text-gray-600 mb-4">Our dApps combine intuitive user experiences with the powerful security and transparency features of blockchain technology.</p>
+                  <div class="flex flex-wrap gap-2">
+                      <span class="bg-purple-50 text-purple-700 text-sm font-medium px-3 py-1 rounded">DeFi</span>
+                      <span class="bg-purple-50 text-purple-700 text-sm font-medium px-3 py-1 rounded">NFTs</span>
+                      <span class="bg-purple-50 text-purple-700 text-sm font-medium px-3 py-1 rounded">DAOs</span>
+                  </div>
+              </div>
+              
+              <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-indigo-600 hover:shadow-xl transition duration-300">
+                  <h3 class="text-xl font-bold mb-3">Enterprise Blockchain</h3>
+                  <p class="text-gray-600 mb-4">We design foolproof blockchain solutions tailored for enterprise needs, with robust security and scalability as core priorities.</p>
+                  <div class="flex flex-wrap gap-2">
+                      <span class="bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1 rounded">Hyperledger</span>
+                      <span class="bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1 rounded">Private Chains</span>
+                      <span class="bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1 rounded">Consortiums</span>
+                  </div>
+              </div>
           </div>
-          <div class="feature">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="2" x2="12" y2="6"></line>
-                <line x1="12" y1="18" x2="12" y2="22"></line>
-                <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
-                <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
-                <line x1="2" y1="12" x2="6" y2="12"></line>
-                <line x1="18" y1="12" x2="22" y2="12"></line>
-                <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
-                <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
-              </svg>
-            </div>
-            <div class="feature-text">
-              <h3>Technical Guidance</h3>
-              <p>Expert mentorship and development support</p>
-            </div>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <div class="feature-text">
-              <h3>Community Access</h3>
-              <p>Connect with our network of Web3 builders</p>
-            </div>
-          </div>
-        </div>
-        <div class="cta-telegram">
-          <a href="https://t.me/techedilite" class="telegram-button">
-            <svg class="telegram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22.2581 2.99895C21.9877 2.73921 21.64 2.57244 21.263 2.52402C20.886 2.47559 20.5022 2.54771 20.1631 2.72895L2.29615 11.4289C1.90748 11.6415 1.59346 11.9733 1.40078 12.3785C1.2081 12.7837 1.14677 13.2404 1.22615 13.6839C1.30432 14.1255 1.51834 14.5342 1.83873 14.856C2.15912 15.1778 2.56748 15.3976 3.01315 15.4839L6.00615 16.0439L7.50615 20.2439C7.5507 20.3692 7.61374 20.4888 7.69315 20.5989C7.69315 20.6139 7.70715 20.6139 7.71315 20.6289C7.80723 20.7547 7.92544 20.8625 8.06115 20.9479C8.09229 20.9662 8.12532 20.982 8.15988 20.9951C8.31563 21.0726 8.48569 21.1172 8.65915 21.1271H8.71315C8.90732 21.119 9.09574 21.0659 9.26311 20.9717C9.43049 20.8776 9.57237 20.7449 9.67615 20.5839L11.5762 17.9989L14.7762 20.5539C15.0758 20.7953 15.4401 20.9366 15.8221 20.9564C16.2042 20.9761 16.5823 20.8734 16.9061 20.6639C17.2265 20.4545 17.4816 20.1518 17.6414 19.7953C17.8011 19.4389 17.8594 19.0439 17.8091 18.6539L16.0091 3.77895C15.9661 3.39773 15.8175 3.03659 15.5798 2.74123C15.3421 2.44587 15.0263 2.23033 14.6711 2.12395C14.3159 2.01757 13.9365 2.02513 13.5858 2.14553C13.2351 2.26593 12.9303 2.495 12.7071 2.79895L12.6581 2.47895" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8 21C8 21 3 16 2 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M11.5 18L7.5 16L15 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Connect on Telegram
-          </a>
-        </div>
       </div>
       
-      <!-- Decorative elements instead of images -->
-      <div class="decorative-container">
-        <div class="decorative-pattern pattern-1"></div>
-        <div class="decorative-pattern pattern-2"></div>
-        <div class="decorative-pattern pattern-3"></div>
-        <div class="decorative-circle circle-1"></div>
-        <div class="decorative-circle circle-2"></div>
-        <div class="decorative-circle circle-3"></div>
-        <div class="decorative-line line-1"></div>
-        <div class="decorative-line line-2"></div>
-        <div class="decorative-line line-3"></div>
+      <!-- Bottom CTA with glowing effect -->
+      <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-10 md:p-12 text-white text-center relative overflow-hidden group">
+          <!-- Animated glow effect -->
+          <div class="absolute -inset-40 rounded-full opacity-20 bg-white blur-3xl group-hover:opacity-30 transition-opacity duration-700 animate-pulse-slow"></div>
+          
+          <h3 class="text-2xl font-bold mb-4 relative">Ready to Transform Your Business with Blockchain?</h3>
+          <p class="text-xl mb-8 max-w-3xl mx-auto relative">Our team delivers cool and foolproof solutions that keep you ahead of the technological curve.</p>
+          
+          <!-- Fixed clickable buttons with JavaScript -->
+          
       </div>
-    </div>
   </div>
-  <div class="wave-bottom">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="wave-svg">
-        <path fill="#ffffff" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
-    </svg>
-</div>
+  
+  <!-- Bottom wave pattern -->
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="w-full h-auto">
+          <path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,213.3C672,224,768,224,864,208C960,192,1056,160,1152,149.3C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+  </div>
+  
+  <style>
+      @keyframes pulse-slow {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 0.3; }
+      }
+      
+      .animate-pulse-slow {
+          animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+  </style>
+  
+  <!-- Additional Script to ensure links work -->
+  <script>
+      // Ensure the buttons are clickable
+      document.addEventListener('DOMContentLoaded', function() {
+          // Get Started button
+          const getStartedBtn = document.querySelector('[onclick="window.location.href=\'#contact\'"]');
+          if (getStartedBtn) {
+              getStartedBtn.addEventListener('click', function() {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                      window.location.href = '#contact';
+                  }
+              });
+          }
+          
+          // Telegram button
+          const telegramBtn = document.querySelector('[onclick="window.open(\'https://t.me/techedilite\', \'_blank\')"]');
+          if (telegramBtn) {
+              telegramBtn.addEventListener('click', function() {
+                  window.open('https://t.me/techedilite', '_blank');
+              });
+          }
+      });
+  </script>
 </section>
+
 
 <style>
   /* Base Styles */
