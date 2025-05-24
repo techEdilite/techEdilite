@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="./faviconL3.png">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn3 Studio - Web2 & Web3 Learning Platform</title>
+    <title>Learn3 Studio - community-driven exploration of emerging technologies</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -67,7 +67,7 @@
         </nav>
         
         <!-- Login/User Profile -->
-        <div class="flex items-center">
+        <!-- <div class="flex items-center">
             <div id="g_id_onload"
                  data-client_id="906801802809-7svnmj539qcgv4ed2128c5uclnbgv5qt.apps.googleusercontent.com"
                  data-context="signin"
@@ -81,9 +81,8 @@
                  data-shape="pill"
                  data-logo_alignment="left">
             </div>
-            <!-- User profile will appear here after login -->
             <div id="user-profile" class="hidden"></div>
-        </div>
+        </div> -->
         
         <!-- Mobile Menu Button -->
         <button class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50" id="mobile-menu-button" aria-label="Menu">
@@ -141,84 +140,146 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative py-20 md:py-28 overflow-hidden">
-        <div class="absolute inset-0 z-0 bg-indigo-900 overflow-hidden">
-            <!-- Modern SVG Decoration Elements -->
-            <svg class="absolute top-0 right-0 w-2/3 h-full text-indigo-800 opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="currentColor" d="M42.9,-68.5C54.8,-62.2,63.2,-48.4,69.2,-34.1C75.2,-19.8,78.7,-4.9,75.8,8.9C72.9,22.8,63.5,35.7,52.6,45.9C41.7,56.1,29.2,63.7,15.1,69.2C1,74.8,-14.7,78.3,-31.1,75.6C-47.6,72.9,-64.8,64.1,-74.1,50.2C-83.3,36.3,-84.6,17.2,-80.5,0.8C-76.4,-15.6,-67,-29.5,-56.2,-40.2C-45.4,-50.9,-33.2,-58.5,-20.4,-63.5C-7.6,-68.5,5.8,-70.9,19.8,-72.3C33.8,-73.8,48.3,-74.4,42.9,-68.5Z" transform="translate(100 100)" />
-            </svg>
+<!-- Hero Section -->
+<!-- Hero Section -->
+<section id="hero" class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 z-0 bg-indigo-900 overflow-hidden">
+        <!-- Modern SVG Decoration Elements -->
+        <svg class="absolute top-0 right-0 w-2/3 h-full text-indigo-800 opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M42.9,-68.5C54.8,-62.2,63.2,-48.4,69.2,-34.1C75.2,-19.8,78.7,-4.9,75.8,8.9C72.9,22.8,63.5,35.7,52.6,45.9C41.7,56.1,29.2,63.7,15.1,69.2C1,74.8,-14.7,78.3,-31.1,75.6C-47.6,72.9,-64.8,64.1,-74.1,50.2C-83.3,36.3,-84.6,17.2,-80.5,0.8C-76.4,-15.6,-67,-29.5,-56.2,-40.2C-45.4,-50.9,-33.2,-58.5,-20.4,-63.5C-7.6,-68.5,5.8,-70.9,19.8,-72.3C33.8,-73.8,48.3,-74.4,42.9,-68.5Z" transform="translate(100 100)" />
+        </svg>
+        
+        <svg class="absolute bottom-0 left-0 w-1/2 h-1/2 text-indigo-700 opacity-30" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M35.8,-55.2C47.5,-45.3,59.1,-37.2,65.8,-25.7C72.5,-14.3,74.4,0.6,70.9,13.7C67.3,26.8,58.3,38.1,47.1,47.6C35.9,57.1,22.4,64.7,6.9,70.4C-8.6,76.1,-26.1,79.7,-40.5,73.5C-54.9,67.3,-66.2,51.2,-72.6,33.9C-79,16.6,-80.4,-1.9,-75.2,-17.6C-70,-33.3,-58.2,-46.1,-44.5,-55.2C-30.8,-64.3,-15.4,-69.6,-0.9,-68.4C13.7,-67.1,27.3,-59.4,35.8,-55.2Z" transform="translate(100 100)" />
+        </svg>
+        
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-1/4 w-8 h-8 bg-purple-400 rounded-full opacity-20"></div>
+            <div class="absolute top-40 right-1/3 w-12 h-12 bg-blue-400 rounded-full opacity-30"></div>
+            <div class="absolute bottom-1/3 left-1/5 w-6 h-6 bg-indigo-300 rounded-full opacity-20"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-10 h-10 bg-indigo-500 rounded-full opacity-20"></div>
             
-            <svg class="absolute bottom-0 left-0 w-1/2 h-1/2 text-indigo-700 opacity-30" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="currentColor" d="M35.8,-55.2C47.5,-45.3,59.1,-37.2,65.8,-25.7C72.5,-14.3,74.4,0.6,70.9,13.7C67.3,26.8,58.3,38.1,47.1,47.6C35.9,57.1,22.4,64.7,6.9,70.4C-8.6,76.1,-26.1,79.7,-40.5,73.5C-54.9,67.3,-66.2,51.2,-72.6,33.9C-79,16.6,-80.4,-1.9,-75.2,-17.6C-70,-33.3,-58.2,-46.1,-44.5,-55.2C-30.8,-64.3,-15.4,-69.6,-0.9,-68.4C13.7,-67.1,27.3,-59.4,35.8,-55.2Z" transform="translate(100 100)" />
-            </svg>
-            
-            <div class="absolute inset-0">
-                <div class="absolute top-20 left-1/4 w-8 h-8 bg-purple-400 rounded-full opacity-20"></div>
-                <div class="absolute top-40 right-1/3 w-12 h-12 bg-blue-400 rounded-full opacity-30"></div>
-                <div class="absolute bottom-1/3 left-1/5 w-6 h-6 bg-indigo-300 rounded-full opacity-20"></div>
-                <div class="absolute bottom-1/4 right-1/4 w-10 h-10 bg-indigo-500 rounded-full opacity-20"></div>
-                
-                <!-- Grid lines -->
-                <div class="absolute inset-0 grid grid-cols-6 opacity-10">
-                    <div class="border-r border-white"></div>
-                    <div class="border-r border-white"></div>
-                    <div class="border-r border-white"></div>
-                    <div class="border-r border-white"></div>
-                    <div class="border-r border-white"></div>
-                </div>
-                
-                <!-- Dots pattern -->
-                <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+            <!-- Grid lines -->
+            <div class="absolute inset-0 grid grid-cols-6 opacity-10">
+                <div class="border-r border-white"></div>
+                <div class="border-r border-white"></div>
+                <div class="border-r border-white"></div>
+                <div class="border-r border-white"></div>
+                <div class="border-r border-white"></div>
             </div>
             
-            <!-- Circuit-like SVG paths -->
-            <svg class="absolute bottom-0 right-0 w-full h-1/3 text-indigo-600 opacity-10" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="none" stroke="currentColor" stroke-width="2" d="M0,100 Q150,50 300,100 T600,100" />
-                <path fill="none" stroke="currentColor" stroke-width="2" d="M0,150 Q150,100 300,150 T600,150" />
-                <path fill="none" stroke="currentColor" stroke-width="2" d="M0,50 Q150,0 300,50 T600,50" />
-                <circle fill="currentColor" cx="150" cy="50" r="3" />
-                <circle fill="currentColor" cx="300" cy="100" r="3" />
-                <circle fill="currentColor" cx="450" cy="50" r="3" />
-                <circle fill="currentColor" cx="150" cy="150" r="3" />
-                <circle fill="currentColor" cx="450" cy="150" r="3" />
-            </svg>
+            <!-- Dots pattern -->
+            <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
         </div>
         
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">Unlock the Future of Technology</h1>
-                <p class="text-xl text-indigo-100 mb-8">Learn3 Studio offers interactive online events, webinars, and training programs focused on blockchain, AI, and cutting-edge web technologies.</p>
+        <!-- Circuit-like SVG paths -->
+        <svg class="absolute bottom-0 right-0 w-full h-1/3 text-indigo-600 opacity-10" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M0,100 Q150,50 300,100 T600,100" />
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M0,150 Q150,100 300,150 T600,150" />
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M0,50 Q150,0 300,50 T600,50" />
+            <circle fill="currentColor" cx="150" cy="50" r="3" />
+            <circle fill="currentColor" cx="300" cy="100" r="3" />
+            <circle fill="currentColor" cx="450" cy="50" r="3" />
+            <circle fill="currentColor" cx="150" cy="150" r="3" />
+            <circle fill="currentColor" cx="450" cy="150" r="3" />
+        </svg>
+    </div>
+    
+    <div class="container mx-auto px-6 lg:px-12 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+            <!-- Text Content -->
+            <div class="text-center lg:text-left lg:pr-8">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                    Explore Tomorrow's Tech Today
+                </h1>
+                <p class="text-xl text-indigo-100 mb-8">
+                    Learn3 Studio hosts hands-on workshops, immersive events, and collaborative sessions that dive into emerging technologies like blockchain, AI, and modern web development. Join us to learn, build, and innovate with the community.
+                </p>
                 
-                <div class="countdown-timer inline-block mb-8">
-                    <p class="text-white text-sm mb-1">Voting ends in:</p>
-                    <div class="flex justify-center space-x-4" id="countdown">
-                        <div class="text-center">
-                            <span class="text-2xl font-bold text-white" id="days">00</span>
-                            <p class="text-xs text-indigo-200">Days</p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                    <a href="#courses" class="px-8 py-3 bg-white text-indigo-700 font-semibold rounded-lg hover:bg-indigo-50 transition duration-300">Explore Events</a>
+                    <!-- <a href="#voting" class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-300">Vote Now</a> -->
+                </div>
+            </div>
+            
+            <!-- Image Container - Centered with spacing -->
+            <div class="flex justify-center lg:pl-8">
+                <div class="relative w-170 max-w-sm">
+                    <!-- Decorative floating elements - smaller -->
+                    <div class="absolute w-16 h-16 border border-blue-200/20 rounded-xl transform rotate-12 -right-3 top-5 animate-float hidden lg:block"></div>
+                    <div class="absolute w-12 h-12 border border-blue-300/20 rounded-full transform -rotate-12 left-5 top-2 animate-float animation-delay-1000 hidden lg:block"></div>
+                    
+                    <!-- Main image container with fixed smaller size -->
+                    <div class="relative z-10 rounded-xl bg-gradient-to-br from-blue-500/10 to-blue-600/20 backdrop-blur-sm p-3 shadow-xl border border-white/10 transform hover:rotate-1 transition-transform duration-300">
+                        <div class="relative overflow-hidden rounded-lg">
+                            <img 
+                                src="./hero.png" 
+                                alt="Learning Illustration" 
+                                class="w-full h-auto object-cover transform -rotate-1 hover:rotate-0 transition-transform duration-300"
+                                style="max-height: 250px; width: 100%; object-fit: cover; image-rendering: -webkit-optimize-contrast;"
+                            >
                         </div>
-                        <div class="text-center">
-                            <span class="text-2xl font-bold text-white" id="hours">00</span>
-                            <p class="text-xs text-indigo-200">Hours</p>
+                        
+                        <!-- Floating badges - smaller -->
+                        <div class="absolute -top-2 -left-2 bg-white rounded-full p-1.5 shadow-md animate-float">
+                            <i class="fas fa-brain text-blue-600 text-sm"></i>
                         </div>
-                        <div class="text-center">
-                            <span class="text-2xl font-bold text-white" id="minutes">00</span>
-                            <p class="text-xs text-indigo-200">Minutes</p>
-                        </div>
-                        <div class="text-center">
-                            <span class="text-2xl font-bold text-white" id="seconds">00</span>
-                            <p class="text-xs text-indigo-200">Seconds</p>
+                        <div class="absolute -bottom-2 -right-2 bg-white rounded-full p-1.5 shadow-md animate-float animation-delay-2000">
+                            <i class="fas fa-code text-blue-600 text-sm"></i>
                         </div>
                     </div>
                 </div>
-                
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#courses" class="px-8 py-3 bg-white text-indigo-700 font-semibold rounded-lg hover:bg-indigo-50 transition duration-300">Explore Events</a>
-                    <a href="#voting" class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-300">Vote Now</a>
-                </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animation-delay-1000 {
+            animation-delay: 1s;
+        }
+        
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        
+        /* Optimize image rendering */
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .w-80 {
+                width: 16rem; /* 256px */
+            }
+            
+            img {
+                max-height: 200px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .w-80 {
+                width: 14rem; /* 224px */
+            }
+            
+            img {
+                max-height: 180px !important;
+            }
+        }
+    </style>
+</section>
 
     <!-- Announcement Section with Right-to-Left Style -->
 <section class="py-12 bg-gradient-to-r from-indigo-900 to-purple-900 text-white overflow-hidden relative">
@@ -269,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <span class="font-bold">3</span>
                 </div>
                 <p class="text-left">
-                  Each course delivers <span class="font-semibold text-indigo-300">in-depth knowledge from industry experts</span>, at no cost and at your own pace.
+                  Each course delivers <span class="font-semibold text-indigo-300">in-depth knowledge from industry experts</span>
                 </p>
               </div>
               
@@ -278,19 +339,19 @@ document.addEventListener('DOMContentLoaded', function() {
                   <span class="font-bold">4</span>
                 </div>
                 <p class="text-left">
-                  Course notifications will be sent to your email — stay tuned for cutting-edge content that transforms your skills!
+                  stay tuned for cutting-edge content that transforms your skills!
                 </p>
               </div>
             </div>
             
-            <div class="mt-8 flex items-center space-x-4">
+            <!-- <div class="mt-8 flex items-center space-x-4">
               <a href="#courses" class="px-6 py-3 bg-white text-indigo-700 font-semibold rounded-lg hover:bg-indigo-50 transition duration-300">
                 Explore Events
               </a>
               <a href="#voting" class="flex items-center text-white hover:text-indigo-300 transition duration-300">
                 Vote Now <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -339,7 +400,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="md:w-1/2 md:pl-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Get Our Limited NFT Airdrop</h2>
                 <div class="w-20 h-1 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 mb-6"></div>
-                <p class="text-lg text-indigo-100 mb-6">Participate in quizzes conducted during our events and stand a chance to win exclusive Learn3 Studio NFTs. These limited-edition digital collectibles grant special access to premium content.</p>
+                <p class="text-lg text-indigo-100 mb-6">Participate in Learn3 Studio events and become an active member of our community!
+                    As a token of appreciation, exclusive Learn3 Studio NFTs will be airdropped to participants as proof of participation. These limited-edition digital collectibles unlock special access to premium content and future benefits.</p>
                 
                 <div class="mb-8">
                     <div class="flex items-center mb-3">
@@ -376,444 +438,1077 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
-<section class="relative py-16 bg-gray-50 overflow-hidden">
-    <!-- Decorative elements -->
-    <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 rounded-full bg-indigo-100 opacity-30"></div>
-    <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-64 h-64 rounded-full bg-purple-100 opacity-30"></div>
-    
-    <!-- Dot pattern background -->
-    <div class="absolute inset-0" style="background-image: radial-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px); background-size: 24px 24px;"></div>
+<section class="relative py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0">
+        <!-- Floating geometric shapes -->
+        <div class="absolute top-10 left-10 w-20 h-20 bg-blue-400 rounded-full opacity-20 animate-pulse"></div>
+        <div class="absolute top-40 right-20 w-16 h-16 bg-purple-400 transform rotate-45 opacity-30 animate-bounce"></div>
+        <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-pink-400 rounded-full opacity-25 animate-ping"></div>
+        <div class="absolute bottom-40 right-1/3 w-14 h-14 bg-indigo-400 transform rotate-12 opacity-20 animate-pulse"></div>
+        
+        <!-- Circuit-like animated paths -->
+        <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 600">
+            <path class="animate-dash" stroke="#60A5FA" stroke-width="2" fill="none" 
+                  d="M0,300 Q250,100 500,300 T1000,300" 
+                  stroke-dasharray="10,5"/>
+            <path class="animate-dash-reverse" stroke="#A78BFA" stroke-width="2" fill="none" 
+                  d="M0,200 Q250,400 500,200 T1000,200" 
+                  stroke-dasharray="15,10"/>
+            <circle class="animate-pulse" cx="250" cy="200" r="4" fill="#60A5FA"/>
+            <circle class="animate-pulse" cx="500" cy="300" r="4" fill="#A78BFA" style="animation-delay: 1s"/>
+            <circle class="animate-pulse" cx="750" cy="200" r="4" fill="#EC4899" style="animation-delay: 2s"/>
+        </svg>
+        
+        <!-- Matrix-style background -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="matrix-rain"></div>
+        </div>
+    </div>
     
     <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div class="p-8 md:p-12">
-                <!-- Timeline indicator -->
-                <div class="flex items-center mb-8">
-                    <div class="w-3 h-3 rounded-full bg-gray-300"></div>
-                    <div class="flex-1 h-1 bg-gray-200 mx-2"></div>
-                    <div class="w-3 h-3 rounded-full bg-gray-300"></div>
-                    <div class="flex-1 h-1 bg-gray-200 mx-2"></div>
-                    <div class="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
+        <div class="max-w-6xl mx-auto">
+            <!-- Main header -->
+            <div class="text-center mb-16">
+                <div class="inline-block relative">
+                    <h2 class="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 mb-4 tracking-tight">
+                        WE'RE LIVE!
+                    </h2>
+                    <!-- Holographic glow effect -->
+                    <div class="absolute inset-0 text-5xl md:text-7xl font-black text-cyan-400 opacity-30 blur-sm animate-pulse">
+                        WE'RE LIVE!
                     </div>
                 </div>
                 
-                <div class="text-center" id="suggest">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Coming Soon</h2>
-                    <div class="w-20 h-1 bg-indigo-600 mx-auto mb-8"></div>
-                    
-                    <p class="text-xl text-gray-600 mb-8">Learn3 Studio will officially launch our event schedule starting <span class="font-semibold text-indigo-700">June 2025</span>.</p>
-                    
-                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
-                        <div class="bg-indigo-50 p-6 rounded-lg text-center w-full md:w-1/3">
-                            <div class="text-indigo-500 mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <!-- Dynamic subtitle with typewriter effect -->
+                <div class="mt-8">
+                    <p class="text-2xl md:text-3xl text-white font-light tracking-wide">
+                        <span id="typewriter-text" class="border-r-2 border-cyan-400 animate-pulse"></span>
+                    </p>
+                </div>
+                
+                <!-- Status indicator -->
+                <div class="mt-8 inline-flex items-center bg-green-500/20 backdrop-blur-md rounded-full px-6 py-3 border border-green-400/50">
+                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse mr-3"></div>
+                    <span class="text-green-300 font-semibold">Active Community • New Events Monthly</span>
+                </div>
+            </div>
+            
+            <!-- What We Offer - Grid of Activities -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- Monthly Events -->
+                <div class="group relative bg-black/20 backdrop-blur-md rounded-2xl p-6 border border-cyan-400/20 hover:border-cyan-400/50 transition-all duration-500 transform hover:scale-105 hover:rotate-1">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-blue-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-spin"></div>
+                            <div class="absolute inset-1 bg-black rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
                             </div>
-                            <h3 class="font-semibold text-gray-800">Regular Schedule</h3>
-                            <p class="text-gray-600 text-sm">Consistent weekly and monthly events</p>
                         </div>
-                        
-                        <div class="bg-indigo-50 p-6 rounded-lg text-center w-full md:w-1/3">
-                            <div class="text-indigo-500 mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        <h3 class="text-lg font-bold text-white mb-2">Monthly Events</h3>
+                        <p class="text-gray-300 text-sm">Regular deep-dive sessions exploring cutting-edge technologies</p>
+                    </div>
+                </div>
+                
+                <!-- Workshops -->
+                <div class="group relative bg-black/20 backdrop-blur-md rounded-2xl p-6 border border-purple-400/20 hover:border-purple-400/50 transition-all duration-500 transform hover:scale-105 hover:-rotate-1">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-400/10 to-pink-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full animate-pulse"></div>
+                            <div class="absolute inset-1 bg-black rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                                 </svg>
                             </div>
-                            <h3 class="font-semibold text-gray-800">Expert Speakers</h3>
-                            <p class="text-gray-600 text-sm">Industry leaders and innovators</p>
                         </div>
-                        
-                        <div class="bg-indigo-50 p-6 rounded-lg text-center w-full md:w-1/3">
-                            <div class="text-indigo-500 mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                        <h3 class="text-lg font-bold text-white mb-2">Workshops</h3>
+                        <p class="text-gray-300 text-sm">Hands-on learning sessions with industry experts</p>
+                    </div>
+                </div>
+                
+                <!-- Hackathons -->
+                <div class="group relative bg-black/20 backdrop-blur-md rounded-2xl p-6 border border-green-400/20 hover:border-green-400/50 transition-all duration-500 transform hover:scale-105 hover:rotate-1">
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-400/10 to-cyan-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-cyan-500 rounded-full animate-bounce"></div>
+                            <div class="absolute inset-1 bg-black rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                             </div>
-                            <h3 class="font-semibold text-gray-800">Hands-on Learning</h3>
-                            <p class="text-gray-600 text-sm">Interactive workshops and sessions</p>
                         </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Hackathons</h3>
+                        <p class="text-gray-300 text-sm">Build innovative solutions in competitive coding events</p>
                     </div>
-                    
-                    <div class="bg-indigo-100 p-6 rounded-lg mb-8">
-                        <h3 class="text-lg font-semibold text-indigo-800 mb-2">Meanwhile, We're Cooking Up Something Special</h3>
-                        <p class="text-indigo-700">Our team is busy planning extraordinary events, building community partnerships, and creating unforgettable learning experiences for our launch.</p>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="#newsletter" class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-300">Get Launch Updates</a>
-                        <button id="suggest-event-btn" class="px-8 py-3 bg-white border border-indigo-600 text-indigo-600 font-semibold rounded-lg hover:bg-indigo-50 transition duration-300">Suggest an Event</button>
+                </div>
+                
+                <!-- Forums -->
+                <div class="group relative bg-black/20 backdrop-blur-md rounded-2xl p-6 border border-orange-400/20 hover:border-orange-400/50 transition-all duration-500 transform hover:scale-105 hover:-rotate-1">
+                    <div class="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-red-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-500 rounded-full animate-pulse"></div>
+                            <div class="absolute inset-1 bg-black rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Forums</h3>
+                        <p class="text-gray-300 text-sm">Community discussions and knowledge sharing</p>
                     </div>
                 </div>
             </div>
             
-            <!-- Bottom decorative wave -->
-            <div class="bg-indigo-600 h-12 relative overflow-hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="absolute bottom-0 w-full">
-                    <path fill="#ffffff" fill-opacity="1" d="M0,96L48,106.7C96,117,192,139,288,138.7C384,139,480,117,576,117.3C672,117,768,139,864,133.3C960,128,1056,96,1152,90.7C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-                </svg>
+            <!-- Technology Focus Areas -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-center text-white mb-12">
+                    Exploring <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">Various Technologies</span>
+                </h3>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <!-- Web3 -->
+                    <div class="bg-black/30 backdrop-blur-md rounded-xl p-4 border border-blue-400/30 hover:border-blue-400/60 transition-all duration-300 text-center group hover:scale-110">
+                        <div class="text-3xl mb-2 group-hover:animate-bounce">🌐</div>
+                        <p class="text-blue-300 font-semibold text-sm">Web3</p>
+                    </div>
+                    
+                    <!-- AI/ML -->
+                    <div class="bg-black/30 backdrop-blur-md rounded-xl p-4 border border-purple-400/30 hover:border-purple-400/60 transition-all duration-300 text-center group hover:scale-110">
+                        <div class="text-3xl mb-2 group-hover:animate-bounce">🤖</div>
+                        <p class="text-purple-300 font-semibold text-sm">AI</p>
+                    </div>
+                    
+                    <!-- Blockchain -->
+                    <div class="bg-black/30 backdrop-blur-md rounded-xl p-4 border border-green-400/30 hover:border-green-400/60 transition-all duration-300 text-center group hover:scale-110">
+                        <div class="text-3xl mb-2 group-hover:animate-bounce">⛓️</div>
+                        <p class="text-green-300 font-semibold text-sm">Blockchain</p>
+                    </div>
+                    
+                    <!-- DeFi -->
+                    <div class="bg-black/30 backdrop-blur-md rounded-xl p-4 border border-yellow-400/30 hover:border-yellow-400/60 transition-all duration-300 text-center group hover:scale-110">
+                        <div class="text-3xl mb-2 group-hover:animate-bounce">💰</div>
+                        <p class="text-yellow-300 font-semibold text-sm">Cryptography</p>
+                    </div>
+                    
+                    <!-- NFTs -->
+                    <div class="bg-black/30 backdrop-blur-md rounded-xl p-4 border border-pink-400/30 hover:border-pink-400/60 transition-all duration-300 text-center group hover:scale-110">
+                        <div class="text-3xl mb-2 group-hover:animate-bounce">🎨</div>
+                        <p class="text-pink-300 font-semibold text-sm">RWA</p>
+                    </div>
+                    
+                    <!-- IoT -->
+                    <div class="bg-black/30 backdrop-blur-md rounded-xl p-4 border border-cyan-400/30 hover:border-cyan-400/60 transition-all duration-300 text-center group hover:scale-110">
+                        <div class="text-3xl mb-2 group-hover:animate-bounce">📡</div>
+                        <p class="text-cyan-300 font-semibold text-sm">Quantum</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to action -->
+            <div class="text-center">
+                <!-- <div class="mb-8">
+                    <p class="text-xl text-gray-300 mb-4">Join our vibrant community of builders and innovators</p>
+                    <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+                        <span class="flex items-center">
+                            <div class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                            500+ Active Members
+                        </span>
+                        <span class="flex items-center">
+                            <div class="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></div>
+                            Monthly Tech Talks
+                        </span>
+                        <span class="flex items-center">
+                            <div class="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse"></div>
+                            Open Source Projects
+                        </span>
+                    </div>
+                </div> -->
+                
+                <div class="inline-flex flex-col sm:flex-row gap-6">
+                    <a href="#newsletter" class="group relative px-10 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-full overflow-hidden transition-all duration-300 transform hover:scale-110 hover:shadow-2xl hover:shadow-cyan-500/50">
+                        <span class="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <span class="relative flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM12 17h.01M12 3v1m0 16v1m8.45-9H21m-16.45 0H3" />
+                            </svg>
+                            Join Newsletter
+                        </span>
+                    </a>
+                    
+                    <!-- <button id="suggest-event-btn" class="group relative px-10 py-4 bg-transparent border-2 border-purple-400 text-purple-400 font-bold rounded-full overflow-hidden transition-all duration-300 transform hover:scale-110 hover:text-white">
+                        <span class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <span class="relative flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                            Suggest Event Topic
+                        </span>
+                    </button> -->
+                </div>
+                
+                <!-- Next event teaser -->
+                <div class="mt-12 bg-black/30 backdrop-blur-md rounded-2xl p-6 border border-yellow-400/30 max-w-md mx-auto">
+                    <div class="flex items-center justify-center mb-3">
+                        <div class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse mr-2"></div>
+                        <span class="text-yellow-300 font-semibold">Next Event</span>
+                    </div>
+                    <p class="text-white font-bold">Decoding Blockchain Fundamentals</p>
+                    <p class="text-gray-400 text-sm mt-1">Register now for our upcoming workshop</p>
+                </div>
             </div>
         </div>
     </div>
+    
+    <style>
+        @keyframes dash {
+            to { stroke-dashoffset: -50; }
+        }
+        
+        @keyframes dash-reverse {
+            to { stroke-dashoffset: 50; }
+        }
+        
+        .animate-dash {
+            animation: dash 3s linear infinite;
+        }
+        
+        .animate-dash-reverse {
+            animation: dash-reverse 4s linear infinite;
+        }
+        
+        .matrix-rain {
+            background: linear-gradient(0deg, transparent 0%, rgba(0, 255, 255, 0.1) 50%, transparent 100%);
+            background-size: 2px 100px;
+            animation: rain 5s linear infinite;
+        }
+        
+        @keyframes rain {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 100%; }
+        }
+        
+        /* Typewriter effect */
+        #typewriter-text::after {
+            content: '';
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+    
+    <script>
+        // Typewriter effect
+        const texts = [
+            "Monthly Events • Web3 to AI Workshops",
+            "Hackathons • Community Forums",
+            "Building Tomorrow's Developers",
+            "From Blockchain to Machine Learning"
+        ];
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            const typewriterElement = document.getElementById('typewriter-text');
+            
+            if (isDeleting) {
+                typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => { isDeleting = true; }, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+            
+            const typingSpeed = isDeleting ? 50 : 100;
+            setTimeout(typeWriter, typingSpeed);
+        }
+        
+        // Start typewriter effect when page loads
+        document.addEventListener('DOMContentLoaded', typeWriter);
+    </script>
 </section>
 
-    <!-- Courses Section -->
-    <section id="courses" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Upcoming Events</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Vote for the events you're interested in! Events will be scheduled starting from the first week of June based on the number of votes they receive.</p>
+     <!-- Courses Section -->
+     <section id="courses" class="py-24 relative bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <!-- Floating geometric shapes -->
+            <div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full opacity-10 animate-pulse"></div>
+            <div class="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-r from-purple-400 to-pink-500 transform rotate-45 opacity-10 animate-bounce"></div>
+            <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-15 animate-ping"></div>
+            
+            <!-- Animated grid lines -->
+            <svg class="absolute inset-0 w-full h-full opacity-5" viewBox="0 0 1000 600">
+                <defs>
+                    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                        <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#3B82F6" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+            
+            <!-- Circuit-like paths -->
+            <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 600">
+                <path class="animate-dash" stroke="#8B5CF6" stroke-width="2" fill="none" 
+                      d="M0,100 Q250,50 500,100 T1000,100" 
+                      stroke-dasharray="10,5"/>
+                <path class="animate-dash-reverse" stroke="#06B6D4" stroke-width="2" fill="none" 
+                      d="M0,200 Q250,250 500,200 T1000,200" 
+                      stroke-dasharray="15,10"/>
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Enhanced Header -->
+            <div class="text-center mb-20">
+                <div class="inline-block relative">
+                    <h2 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mb-4">
+                        Explore Our Events
+                    </h2>
+                    <!-- Holographic effect -->
+                    <div class="absolute inset-0 text-4xl md:text-6xl font-black text-blue-500 opacity-20 blur-sm animate-pulse">
+                        Explore Our Events
+                    </div>
+                </div>
+                <p class="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+                    Immerse yourself in cutting-edge technology through interactive workshops and hands-on learning experiences
+                </p>
+                <!-- Progress indicator -->
+                <div class="mt-8 flex justify-center">
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
+                </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Course 1 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 card-hover" data-course="blockchain-basics">
-                    <div class="h-48 bg-indigo-400 relative">
-                        <img src="/api/placeholder/600/400" alt="Blockchain Basics" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/70 to-transparent flex items-end">
-                            <div class="p-4">
-                                <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium mb-2">Technology</span>
-                                <h3 class="text-xl font-semibold text-white">Blockchain Basics</h3>
+            <!-- Single Event Card - Centered -->
+            <div class="flex justify-center">
+                <div class="w-full max-w-md">
+                    <!-- Course Card - Enhanced -->
+                    <div class="group relative">
+                        <!-- Glowing border effect -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+                        
+                        <div class="relative bg-white rounded-3xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105 hover:-rotate-1">
+                            <!-- Status indicator -->
+                            <div class="absolute top-4 right-4 z-10">
+                                <div class="flex items-center bg-green-500/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                                    <div class="w-2 h-2 bg-white rounded-full mr-2 animate-ping"></div>
+                                    Upcoming Event
+                                </div>
+                            </div>
+                            
+                            <!-- Image with overlay effects -->
+                            <div class="relative overflow-hidden h-48">
+                                <img src="./DBP.png" alt="Blockchain Course" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                                <!-- Gradient overlay -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                                <!-- Floating icons -->
+                                <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition duration-500 transform translate-y-4 group-hover:translate-y-0">
+                                    <div class="flex space-x-2">
+                                        <div class="w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
+                                            <span class="text-white text-sm">⛓️</span>
+                                        </div>
+                                        <div class="w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
+                                            <span class="text-white text-sm">💰</span>
+                                        </div>
+                                        <div class="w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
+                                            <span class="text-white text-sm">🔐</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Enhanced content -->
+                            <div class="p-8">
+                                <!-- Title with gradient underline -->
+                                <h3 class="text-2xl font-bold mb-4 text-gray-800 relative">
+                                    Decoding Blockchain
+                                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500 group-hover:w-full"></span>
+                                </h3>
+                                
+                                <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                                    Master blockchain fundamentals, smart contracts, and decentralized applications with hands-on projects.
+                                </p>
+                                
+                                <!-- Interactive elements -->
+                                <div class="space-y-4">
+                                    <!-- Progress bar -->
+                                    <div class="bg-gray-200 rounded-full h-2 overflow-hidden">
+                                        <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full w-3/4 transform transition-all duration-1000 group-hover:w-full"></div>
+                                    </div>
+                                    
+                                    <!-- Action button -->
+                                    <a href="https://lu.ma/event/evt-JOonjZXdMiX5ZZB" 
+                                       class="luma-checkout--button block w-full text-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+                                       data-luma-action="checkout" data-luma-event-id="evt-JOonjZXdMiX5ZZB">
+                                        <span class="flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                            </svg>
+                                            Register Now
+                                        </span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">Understand how blockchain works under the hood — decentralization, consensus, cryptography, blocks, chains, immutability.</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-sm">Centralized vs Decentralized Systems</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-sm">Cryptography Fundamentals</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-sm">Consensus Mechanisms</span>
-                            </li>
-                        </ul>
-                        <button class="vote-btn w-full py-2 px-4 bg-indigo-100 text-indigo-600 rounded-lg font-medium hover:bg-indigo-600 hover:text-white transition duration-300" disabled>Sign in to Vote</button>
-                    </div>
-                </div>
-                
-                <!-- Course 2 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 card-hover" data-course="intro-to-ai">
-                    <div class="h-48 bg-purple-400 relative">
-                        <img src="/api/placeholder/600/400" alt="Introduction to AI" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/70 to-transparent flex items-end">
-                            <div class="p-4">
-                                <span class="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium mb-2">Technology</span>
-                                <h3 class="text-xl font-semibold text-white">Introduction to AI</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">Get a grasp of what AI is, where it's used, and basic hands-on ML models.</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-sm">Types of AI: Narrow, General, Super AI</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-sm">AI Tools & Libraries</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-sm">Building Your First ML Model</span>
-                            </li>
-                        </ul>
-                        <button class="vote-btn w-full py-2 px-4 bg-purple-100 text-purple-600 rounded-lg font-medium hover:bg-purple-600 hover:text-white transition duration-300" disabled>Sign in to Vote</button>
-                    </div>
-                </div>
-                
-                <!-- Course 3 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 card-hover" data-course="cryptocurrency">
-                    <div class="h-48 bg-blue-400 relative">
-                        <img src="/api/placeholder/600/400" alt="Cryptocurrency and Their Functioning" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent flex items-end">
-                            <div class="p-4">
-                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-2">Finance</span>
-                                <h3 class="text-xl font-semibold text-white">Cryptocurrency</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">Learn what cryptocurrencies are, how they work, and how transactions are validated.</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-sm">How Bitcoin & Ethereum Work</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-sm">Crypto Wallets & Keys</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-sm">Tokenomics Basics</span>
-                            </li>
-                        </ul>
-                        <button class="vote-btn w-full py-2 px-4 bg-blue-100 text-blue-600 rounded-lg font-medium hover:bg-blue-600 hover:text-white transition duration-300" disabled>Sign in to Vote</button>
-                    </div>
-                </div>
-                
-                <!-- Course 4 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 card-hover" data-course="blockchain-dev">
-                    <div class="h-48 bg-green-400 relative">
-                        <img src="/api/placeholder/600/400" alt="Blockchain Application Development" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-green-900/70 to-transparent flex items-end">
-                            <div class="p-4">
-                                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-2">Development</span>
-                                <h3 class="text-xl font-semibold text-white">Blockchain Development</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">Learn how to develop blockchain-based apps (DApps) from scratch.</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-sm">Smart Contracts & Solidity</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-sm">DApp Development Tools</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-sm">NFT, DeFi & DAO Development</span>
-                            </li>
-                        </ul>
-                        <button class="vote-btn w-full py-2 px-4 bg-green-100 text-green-600 rounded-lg font-medium hover:bg-green-600 hover:text-white transition duration-300" disabled>Sign in to Vote</button>
                     </div>
                 </div>
             </div>
+            
+            <!-- Call to Action Footer -->
+            <div class="text-center mt-16">
+                <div class="inline-block bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-gray-200/50">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Ready to Start Your Journey?</h3>
+                    <p class="text-gray-600 mb-6">Join our community of innovators and stay updated on new events</p>
+                    <a href="#newsletter" class="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-8 rounded-xl hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Get Notified
+                    </a>
+                </div>
+            </div>
         </div>
+        
+        <!-- Enhanced Luma Script -->
+        <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
+        
+        <style>
+            @keyframes dash {
+                to { stroke-dashoffset: -50; }
+            }
+            
+            @keyframes dash-reverse {
+                to { stroke-dashoffset: 50; }
+            }
+            
+            .animate-dash {
+                animation: dash 8s linear infinite;
+            }
+            
+            .animate-dash-reverse {
+                animation: dash-reverse 10s linear infinite;
+            }
+            
+            /* Enhanced hover effects */
+            .group:hover .transform {
+                transform: translateY(-8px) scale(1.02);
+            }
+            
+            /* Glowing effect */
+            .group:hover .absolute.-inset-1 {
+                filter: blur(20px);
+            }
+        </style>
     </section>
-
     <!-- Voting Section -->
-    <section id="voting" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Vote for the event you're interested in!</h2>
-                    <p class="text-lg text-gray-600">Events will be scheduled based on community preferences — your vote decides what we explore together next!</p>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-8 shadow-lg">
-                    <div id="not-signed-in" class="text-center py-8">
-                        <img src="./l3sbg.png" alt="Sign In" class="w-24 h-24 mx-auto mb-4 rounded-full">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Sign In to Vote</h3>
-                        <p class="text-gray-600 mb-6">Please sign in with your Google account to cast your vote for your interested event.</p>
-                        <div class="flex justify-center">
-                            <div id="g_id_onload_main"
-                                 data-client_id="YOUR_GOOGLE_CLIENT_ID"
-                                 data-context="signin"
-                                 data-callback="handleCredentialResponse">
-                            </div>
-                            <div class="g_id_signin"
-                                 data-type="standard"
-                                 data-size="large"
-                                 data-theme="filled_blue"
-                                 data-text="signin_with"
-                                 data-shape="rectangular"
-                                 data-logo_alignment="left">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="signed-in" class="hidden">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Select a Course to Vote</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <input type="radio" id="vote-blockchain-basics" name="course-vote" value="blockchain-basics" class="w-5 h-5 text-indigo-600">
-                                <label for="vote-blockchain-basics" class="ml-3 text-gray-700 font-medium">Blockchain Basics</label>
-                            </div>
-                            <div class="flex items-center">
-                                <input type="radio" id="vote-intro-to-ai" name="course-vote" value="intro-to-ai" class="w-5 h-5 text-indigo-600">
-                                <label for="vote-intro-to-ai" class="ml-3 text-gray-700 font-medium">Introduction to AI</label>
-                            </div>
-                            <div class="flex items-center">
-                                <input type="radio" id="vote-cryptocurrency" name="course-vote" value="cryptocurrency" class="w-5 h-5 text-indigo-600">
-                                <label for="vote-cryptocurrency" class="ml-3 text-gray-700 font-medium">Cryptocurrency and Their Functioning</label>
-                            </div>
-                            <div class="flex items-center">
-                                <input type="radio" id="vote-blockchain-dev" name="course-vote" value="blockchain-dev" class="w-5 h-5 text-indigo-600">
-                                <label for="vote-blockchain-dev" class="ml-3 text-gray-700 font-medium">Blockchain Application Development</label>
-                            </div>
-                            
-                            <div class="pt-4">
-                                <button id="submit-vote" class="w-full py-3 px-6 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-300">Submit Your Vote</button>
-                            </div>
-                            
-                            <div id="vote-success" class="hidden pt-4 text-center text-green-600 font-medium">
-                                <svg class="w-6 h-6 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Your vote has been recorded successfully!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-12">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Current Voting Results</h3>
-                    <div class="bg-white rounded-xl p-6 shadow-lg">
-                        <div class="space-y-6">
-                            <!-- Blockchain Basics Progress -->
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm font-medium text-gray-700">Blockchain Basics</span>
-                                    <span class="text-sm font-medium text-gray-700" id="blockchain-basics-percent">0%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <div class="bg-indigo-600 h-2.5 rounded-full" id="blockchain-basics-progress" style="width: 0%"></div>
-                                </div>
-                            </div>
-                            
-                            <!-- Intro to AI Progress -->
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm font-medium text-gray-700">Introduction to AI</span>
-                                    <span class="text-sm font-medium text-gray-700" id="intro-to-ai-percent">0%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <div class="bg-purple-600 h-2.5 rounded-full" id="intro-to-ai-progress" style="width: 0%"></div>
-                                </div>
-                            </div>
-                            
-                            <!-- Cryptocurrency Progress -->
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm font-medium text-gray-700">Cryptocurrency</span>
-                                    <span class="text-sm font-medium text-gray-700" id="cryptocurrency-percent">0%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <div class="bg-blue-600 h-2.5 rounded-full" id="cryptocurrency-progress" style="width: 0%"></div>
-                                </div>
-                            </div>
-                            
-                            <!-- Blockchain Dev Progress -->
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm font-medium text-gray-700">Blockchain Development</span>
-                                    <span class="text-sm font-medium text-gray-700" id="blockchain-dev-percent">0%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <div class="bg-green-600 h-2.5 rounded-full" id="blockchain-dev-progress" style="width: 0%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <section id="about" class="py-24 relative bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <!-- Floating geometric shapes -->
+            <div class="absolute top-10 right-20 w-40 h-40 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-10 animate-pulse"></div>
+            <div class="absolute bottom-20 left-10 w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-500 transform rotate-45 opacity-10 animate-bounce"></div>
+            <div class="absolute top-1/2 right-1/4 w-24 h-24 bg-gradient-to-r from-green-400 to-cyan-500 rounded-full opacity-15 animate-ping"></div>
+            
+            <!-- Circuit-like animated paths -->
+            <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 600">
+                <path class="animate-dash" stroke="#60A5FA" stroke-width="2" fill="none" 
+                      d="M0,300 Q250,100 500,300 T1000,300" 
+                      stroke-dasharray="10,5"/>
+                <path class="animate-dash-reverse" stroke="#A78BFA" stroke-width="2" fill="none" 
+                      d="M0,200 Q250,400 500,200 T1000,200" 
+                      stroke-dasharray="15,10"/>
+                <circle class="animate-pulse" cx="250" cy="200" r="4" fill="#60A5FA"/>
+                <circle class="animate-pulse" cx="500" cy="300" r="4" fill="#A78BFA" style="animation-delay: 1s"/>
+                <circle class="animate-pulse" cx="750" cy="200" r="4" fill="#EC4899" style="animation-delay: 2s"/>
+            </svg>
+            
+            <!-- Matrix-style grid -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="grid grid-cols-12 h-full">
+                    <div class="border-r border-cyan-400"></div>
+                    <div class="border-r border-cyan-400"></div>
+                    <div class="border-r border-cyan-400"></div>
+                    <div class="border-r border-cyan-400"></div>
+                    <div class="border-r border-cyan-400"></div>
+                    <div class="border-r border-cyan-400"></div>
+                    <div class="border-r border-cyan-400"></div>
+                    <div class="border-r border-cyan-400"></div>
+                    <div class="border-r border-cyan-400"></div>
+                    <div class="border-r border-cyan-400"></div>
+                    <div class="border-r border-cyan-400"></div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="about" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-4">About Learn3 Studio</h2>
-                    <p class="text-lg text-gray-600">We're a cutting-edge learning platform focused on Web2 and Web3 technologies.</p>
+    
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Enhanced Header -->
+            <div class="text-center mb-20">
+                <div class="inline-block relative">
+                    <h2 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 mb-4">
+                        About Learn3 Studio
+                    </h2>
+                    <!-- Holographic glow effect -->
+                    <div class="absolute inset-0 text-4xl md:text-6xl font-black text-cyan-400 opacity-20 blur-sm animate-pulse">
+                        About Learn3 Studio
+                    </div>
+                </div>
+                <p class="text-xl text-white/80 mt-6 max-w-3xl mx-auto">
+                    Pioneering the future of technology education through immersive Web3 and AI experiences
+                </p>
+                <!-- Progress indicator -->
+                <div class="mt-8 flex justify-center">
+                    <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse"></div>
+                </div>
+            </div>
+    
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+                <!-- Mission Card -->
+                <div class="group relative">
+                    <!-- Glowing border effect -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+                    
+                    <div class="relative bg-black/30 backdrop-blur-md rounded-3xl p-8 border border-white/10 transform transition-all duration-500 hover:scale-105">
+                        <!-- Icon header -->
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Our Mission</h3>
+                        </div>
+                        
+                        <p class="text-white/80 mb-8 text-lg leading-relaxed">
+                            Our mission is to make cutting-edge technology accessible to everyone. We believe in learning by doing and provide interactive events that focus on practical applications of theoretical concepts.
+                        </p>
+                        
+                        <h4 class="text-xl font-semibold text-white mb-6 flex items-center">
+                            <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3 animate-pulse"></span>
+                            What Makes Us Different
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center group/item">
+                                <div class="w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center mr-4 group-hover/item:bg-cyan-500/40 transition duration-300">
+                                    <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-white/90 group-hover/item:text-white transition duration-300">Hands-on practical learning approach</span>
+                            </div>
+                            
+                            <div class="flex items-center group/item">
+                                <div class="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center mr-4 group-hover/item:bg-purple-500/40 transition duration-300">
+                                    <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-white/90 group-hover/item:text-white transition duration-300">Industry expert instructors</span>
+                            </div>
+                            
+                            <div class="flex items-center group/item">
+                                <div class="w-8 h-8 bg-pink-500/20 rounded-full flex items-center justify-center mr-4 group-hover/item:bg-pink-500/40 transition duration-300">
+                                    <svg class="w-4 h-4 text-pink-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-white/90 group-hover/item:text-white transition duration-300">Community-driven event selection</span>
+                            </div>
+                            
+                            <div class="flex items-center group/item">
+                                <div class="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center mr-4 group-hover/item:bg-green-500/40 transition duration-300">
+                                    <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-white/90 group-hover/item:text-white transition duration-300">Live interaction and networking opportunities</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-8 rounded-xl shadow-lg">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Our Mission</h3>
-                        <p class="text-gray-600 mb-6">Our mission is to make cutting-edge technology accessible to everyone. We believe in learning by doing and provide interactive events that focus on practical applications of theoretical concepts.</p>
-                        
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">What Makes Us Different</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-indigo-500 mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-600">Hands-on practical learning approach</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-indigo-500 mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-600">Industry expert instructors</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-indigo-500 mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-600">Community-driven event selection</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-indigo-500 mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-600">Live interaction and networking opportunities</span>
-                            </li>
-                        </ul>
-                    </div>
+                <!-- Newsletter Card -->
+                <div class="group relative">
+                    <!-- Glowing border effect -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
                     
-                    <div class="bg-white p-8 rounded-xl shadow-lg">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Join Our Community</h3>
-                        <p class="text-gray-600 mb-6">Connect with fellow learners and stay updated on upcoming events.</p>
+                    <div class="relative bg-black/30 backdrop-blur-md rounded-3xl p-8 border border-white/10 transform transition-all duration-500 hover:scale-105">
+                        <!-- Icon header -->
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-cyan-500 rounded-full flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Join Our Community</h3>
+                        </div>
                         
-                        <div id="newsletter" class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="font-semibold text-gray-800 mb-3">Subscribe to our newsletter</h4>
-                            <form id="subscribe-form" class="space-y-3">
-                                <div>
-                                    <input type="email" id="newsletter-email" placeholder="Enter your email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition" required>
+                        <p class="text-white/80 mb-8 text-lg leading-relaxed">
+                            Subscribe to stay updated on breakthrough technologies and exclusive events.                        </p>
+                        
+                        <!-- Newsletter signup -->
+                        <div id="newsletter" class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
+                            <h4 class="font-semibold text-white mb-4 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                Subscribe to our newsletter
+                            </h4>
+                            <form id="subscribe-form" class="space-y-4" onsubmit="return false;">
+                                <div class="relative">
+                                    <input type="email" 
+                                           id="newsletter-email" 
+                                           name="email"
+                                           placeholder="Enter your email" 
+                                           class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-white/60 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 outline-none transition backdrop-blur-sm" 
+                                           required>
+                                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none"></div>
                                 </div>
-                                <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-indigo-700 transition">Subscribe</button>
+                                <button type="submit" 
+                                        class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-blue-600 hover:to-cyan-500 text-white py-3 px-6 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                                    <span class="flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                        </svg>
+                                        Subscribe Now
+                                    </span>
+                                </button>
                             </form>
                         </div>
+                        
+                        <!-- Community stats -->
+                        <!-- <div class="mt-8 grid grid-cols-3 gap-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-cyan-400">500+</div>
+                                <div class="text-white/60 text-sm">Members</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-purple-400">50+</div>
+                                <div class="text-white/60 text-sm">Events</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-pink-400">10+</div>
+                                <div class="text-white/60 text-sm">Technologies</div>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
+        
+        <style>
+            @keyframes dash {
+                to { stroke-dashoffset: -50; }
+            }
+            
+            @keyframes dash-reverse {
+                to { stroke-dashoffset: 50; }
+            }
+            
+            .animate-dash {
+                animation: dash 8s linear infinite;
+            }
+            
+            .animate-dash-reverse {
+                animation: dash-reverse 10s linear infinite;
+            }
+        </style>
     </section>
+<!-- Contact Us Section -->
+<section class="py-24 relative bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0">
+        <!-- Floating geometric shapes -->
+        <div class="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full opacity-10 animate-pulse"></div>
+        <div class="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-500 transform rotate-45 opacity-10 animate-bounce"></div>
+        <div class="absolute top-1/2 right-1/4 w-24 h-24 bg-gradient-to-r from-green-400 to-cyan-500 rounded-full opacity-15 animate-ping"></div>
+        
+        <!-- Circuit-like animated paths -->
+        <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 600">
+            <path class="animate-dash" stroke="#60A5FA" stroke-width="2" fill="none" 
+                  d="M0,300 Q250,100 500,300 T1000,300" 
+                  stroke-dasharray="10,5"/>
+            <path class="animate-dash-reverse" stroke="#A78BFA" stroke-width="2" fill="none" 
+                  d="M0,200 Q250,400 500,200 T1000,200" 
+                  stroke-dasharray="15,10"/>
+        </svg>
+        
+        <!-- Grid pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="grid grid-cols-12 h-full">
+                <div class="border-r border-cyan-400"></div>
+                <div class="border-r border-cyan-400"></div>
+                <div class="border-r border-cyan-400"></div>
+                <div class="border-r border-cyan-400"></div>
+                <div class="border-r border-cyan-400"></div>
+                <div class="border-r border-cyan-400"></div>
+                <div class="border-r border-cyan-400"></div>
+                <div class="border-r border-cyan-400"></div>
+                <div class="border-r border-cyan-400"></div>
+                <div class="border-r border-cyan-400"></div>
+                <div class="border-r border-cyan-400"></div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col items-center justify-center">
-                <div class="flex items-center space-x-4 mb-8">
-                    <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
-                        <img src="./L.png" alt="L3 Logo" class="rounded-full">
-                    </div>
-                    <span class="font-bold text-2xl">Learn3 Studio</span>
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- Enhanced Header -->
+        <div class="text-center mb-20">
+            <div class="inline-block relative">
+                <h2 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 mb-4">
+                    Get In Touch
+                </h2>
+                <!-- Holographic glow effect -->
+                <div class="absolute inset-0 text-4xl md:text-6xl font-black text-cyan-400 opacity-20 blur-sm animate-pulse">
+                    Get In Touch
                 </div>
-                <p class="text-gray-400 mb-8 text-center max-w-lg">Learn3 Studio offers interactive online events, webinars, and training programs focused on blockchain, AI, and cutting-edge web technologies.</p>
-                <!-- <div class="border-t border-gray-800 w-full max-w-lg pt-8 text-center">
-                    <p class="text-gray-500">&copy; 2025 Learn3 Studio. All rights reserved.</p>
+            </div>
+            <p class="text-xl text-white/80 mt-6 max-w-3xl mx-auto">
+                Ready to embark on your technology learning journey? Connect with us today
+            </p>
+            <!-- Progress indicator -->
+            <div class="mt-8 flex justify-center">
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse"></div>
+            </div>
+        </div>
+
+        <!-- Contact Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Email Card -->
+            <div class="group relative">
+                <!-- Glowing border effect -->
+                <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+                
+                <div class="relative bg-black/30 backdrop-blur-md rounded-3xl p-8 border border-white/10 transform transition-all duration-500 hover:scale-105">
+                    <!-- Icon -->
+                    <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto mb-6 group-hover:animate-bounce">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-white mb-4">Email Us</h3>
+                        <p class="text-white/80 mb-6">Drop us a message and we'll get back to you within 24 hours</p>
+                        
+                        <p
+                           class="inline-flex items-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-blue-600 hover:to-cyan-500 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group/btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover/btn:animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
+                            contact@techdilite.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phone Card -->
+            <div class="group relative">
+                <!-- Glowing border effect -->
+                <div class="absolute -inset-1 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+                
+                <div class="relative bg-black/30 backdrop-blur-md rounded-3xl p-8 border border-white/10 transform transition-all duration-500 hover:scale-105">
+                    <!-- Icon -->
+                    <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full mx-auto mb-6 group-hover:animate-bounce">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                    </div>
+                    
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-white mb-4">Call Us</h3>
+                        <p class="text-white/80 mb-6">Speak directly with our team for immediate assistance</p>
+                        
+                        <p 
+                           class="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-600 hover:from-pink-600 hover:to-purple-500 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group/btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover/btn:animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            +91 96777 45956
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Contact Info -->
+        <!-- <div class="text-center mt-16">
+            <div class="inline-block bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                <h3 class="text-xl font-bold text-white mb-4">Office Hours</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-white/80">
+                    <div>
+                        <p class="font-semibold text-cyan-400">Monday - Friday</p>
+                        <p>9:00 AM - 6:00 PM IST</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-purple-400">Saturday</p>
+                        <p>10:00 AM - 4:00 PM IST</p>
+                    </div>
+                </div>
+                <p class="text-white/60 text-sm mt-4">Sunday: Closed</p>
+            </div>
+        </div> -->
+    </div>
+    
+    <style>
+        @keyframes dash {
+            to { stroke-dashoffset: -50; }
+        }
+        
+        @keyframes dash-reverse {
+            to { stroke-dashoffset: 50; }
+        }
+        
+        .animate-dash {
+            animation: dash 8s linear infinite;
+        }
+        
+        .animate-dash-reverse {
+            animation: dash-reverse 10s linear infinite;
+        }
+    </style>
+</section>
+
+<!-- TECHEDILITE Partnership Section -->
+<section class="py-20 relative bg-gradient-to-br from-slate-900 via-gray-900 to-black overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0">
+        <!-- Corporate-style geometric shapes -->
+        <div class="absolute top-20 right-10 w-48 h-48 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full opacity-10 animate-pulse"></div>
+        <div class="absolute bottom-20 left-10 w-36 h-36 bg-gradient-to-r from-blue-400 to-cyan-500 transform rotate-45 opacity-10 animate-bounce"></div>
+        
+        <!-- Professional grid pattern -->
+        <svg class="absolute inset-0 w-full h-full opacity-5" viewBox="0 0 1000 600">
+            <defs>
+                <pattern id="professional-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#6366F1" stroke-width="1"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#professional-grid)" />
+        </svg>
+        
+        <!-- Subtle animated lines -->
+        <svg class="absolute inset-0 w-full h-full opacity-15" viewBox="0 0 1000 400">
+            <path class="animate-dash-slow" stroke="#818CF8" stroke-width="1" fill="none" 
+                  d="M0,200 Q250,150 500,200 T1000,200" 
+                  stroke-dasharray="8,4"/>
+        </svg>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- Partnership Header -->
+        <div class="text-center mb-16">
+            <div class="inline-block relative">
+                <h2 class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mb-4">
+                    Powered by Innovation
+                </h2>
+                <!-- Subtle glow effect -->
+                <div class="absolute inset-0 text-3xl md:text-5xl font-bold text-indigo-400 opacity-20 blur-sm animate-pulse">
+                    Powered by Innovation
+                </div>
+            </div>
+            <div class="mt-8 flex justify-center">
+                <div class="w-20 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full"></div>
+            </div>
+        </div>
+
+        <!-- Partnership Card -->
+        <div class="max-w-4xl mx-auto">
+            <div class="group relative">
+                <!-- Elegant border effect -->
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                
+                <div class="relative bg-gradient-to-br from-slate-800/50 to-gray-900/50 backdrop-blur-xl rounded-3xl p-12 border border-slate-700/50">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <!-- Content Side -->
+                        <div>
+                            <!-- <div class="flex items-center mb-8">
+                                <div class="w-3 h-3 bg-indigo-400 rounded-full mr-4 animate-pulse"></div>
+                                <span class="text-indigo-400 font-semibold text-lg tracking-wider uppercase">Partnership</span>
+                            </div> -->
+                            
+                            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+                                Learn3 Studio is an 
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+                                    initiative undertaken
+                                </span> 
+                                by TECHEDILITE
+                            </h3>
+                            
+                            <!-- <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                                TECHEDILITE is a forward-thinking technology company committed to bridging the gap between cutting-edge innovation and practical education. Through Learn3 Studio, we're making advanced technologies accessible to learners worldwide.
+                            </p>
+                             -->
+                            <!-- Key points -->
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-indigo-400 rounded-full mr-4"></div>
+                                    <span class="text-gray-300">Innovative Technology Solutions</span>
+                                </div>
+                                <!-- <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-purple-400 rounded-full mr-4"></div>
+                                    <span class="text-gray-300">Educational Excellence</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-pink-400 rounded-full mr-4"></div>
+                                    <span class="text-gray-300">Community-Driven Learning</span>
+                                </div> -->
+                            </div>
+                        </div>
+                        
+                        <!-- Logo/Visual Side -->
+                        <div class="flex justify-center lg:justify-end">
+                            <div class="relative">
+                                <!-- Glowing ring around logo area -->
+                                <div class="absolute -inset-8 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 rounded-full opacity-20 animate-pulse blur-xl"></div>
+                                
+                                <!-- Logo container -->
+<div class="relative bg-gradient-to-br from-slate-800 to-gray-900 rounded-2xl p-12 border border-slate-600/50 shadow-2xl transform group-hover:scale-105 transition duration-500">
+    <!-- TECHEDILITE logo placeholder -->
+    <div class="text-center">
+        <div class="w-32 h-32 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl overflow-hidden">
+            <img src="./PARTNER.png" alt="TECHEDILITE Logo" class="w-full h-full object-contain rounded-2xl">
+        </div>
+        <h4 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 mb-2">
+            TECHEDILITE
+        </h4>
+    </div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Learn More CTA
+        <div class="text-center mt-16">
+            <a href="#contact" 
+               class="inline-flex items-center bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-purple-600 hover:to-indigo-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <span>Learn More About Our Partnership</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+            </a>
+        </div> -->
+    </div>
+    
+    <style>
+        @keyframes dash-slow {
+            to { stroke-dashoffset: -40; }
+        }
+        
+        .animate-dash-slow {
+            animation: dash-slow 12s linear infinite;
+        }
+    </style>
+</section>
+    
+    
+    <!-- Enhanced Footer -->
+    <footer class="relative bg-black overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0">
+            <!-- Gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 opacity-90"></div>
+            
+            <!-- Circuit patterns -->
+            <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 400">
+                <path class="animate-dash" stroke="#60A5FA" stroke-width="1" fill="none" 
+                      d="M0,200 Q250,100 500,200 T1000,200" 
+                      stroke-dasharray="5,3"/>
+                <path class="animate-dash-reverse" stroke="#A78BFA" stroke-width="1" fill="none" 
+                      d="M0,100 Q250,300 500,100 T1000,100" 
+                      stroke-dasharray="8,5"/>
+                <circle class="animate-pulse" cx="250" cy="100" r="2" fill="#60A5FA"/>
+                <circle class="animate-pulse" cx="500" cy="200" r="2" fill="#A78BFA" style="animation-delay: 1s"/>
+                <circle class="animate-pulse" cx="750" cy="100" r="2" fill="#EC4899" style="animation-delay: 2s"/>
+            </svg>
+            
+            <!-- Floating particles -->
+            <div class="absolute top-10 left-20 w-2 h-2 bg-cyan-400 rounded-full opacity-60 animate-ping"></div>
+            <div class="absolute bottom-20 right-20 w-2 h-2 bg-purple-400 rounded-full opacity-60 animate-ping" style="animation-delay: 1s"></div>
+            <div class="absolute top-1/2 left-1/3 w-1 h-1 bg-pink-400 rounded-full opacity-60 animate-ping" style="animation-delay: 2s"></div>
+        </div>
+    
+        <div class="container mx-auto px-6 py-16 relative z-10">
+            <div class="flex flex-col items-center justify-center">
+                <!-- Enhanced Logo Section -->
+                <div class="flex items-center space-x-4 mb-8 group">
+                    <div class="relative">
+                        <!-- Glowing ring around logo -->
+                        <div class="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 rounded-full opacity-30 group-hover:opacity-60 transition duration-500 animate-pulse"></div>
+                        <div class="relative w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition duration-300">
+                            <img src="./L.png" alt="L3 Logo" class="w-10 h-10 rounded-full">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-black text-3xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
+                            Learn3 Studio
+                        </h3>
+                        <div class="w-full h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 mt-1 transform scale-x-0 group-hover:scale-x-100 transition duration-500 origin-left"></div>
+                    </div>
+                </div>
+                
+                <!-- Enhanced Description -->
+                <div class="text-center mb-12 max-w-2xl">
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Learn3 Studio offers interactive online events, webinars, and training programs focused on blockchain, AI, and cutting-edge web technologies.
+                    </p>
+                    
+                    <!-- Tech tags -->
+                    <!-- <div class="flex flex-wrap justify-center gap-3">
+                        <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm border border-cyan-500/30">Web3</span>
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm border border-purple-500/30">AI/ML</span>
+                        <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm border border-pink-500/30">Blockchain</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm border border-green-500/30">DeFi</span>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm border border-blue-500/30">Innovation</span>
+                    </div> -->
+                </div>
+                
+                <!-- Social Links (if needed) -->
+                <!-- <div class="flex space-x-6 mb-8">
+                    <a href="#" class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-cyan-500/20 transition duration-300 group">
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition duration-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-purple-500/20 transition duration-300 group">
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition duration-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-pink-500/20 transition duration-300 group">
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-pink-400 transition duration-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.748-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.017.001z"/>
+                        </svg>
+                    </a>
                 </div> -->
+                
+                <!-- Copyright -->
+                <div class="border-t border-gray-700/50 w-full max-w-lg pt-8 text-center">
+                    <p class="text-gray-500 text-sm">
+                        &copy; TECHEDILITE. Innovating the future of technology education.
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
@@ -822,490 +1517,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- JavaScript -->
     <script>
-        // Backend service URL configuration
-const BACKEND_SERVICE_URL = 'https://learn3-service.vercel.app';//'http://13.233.14.66:3006';
-
-// Function to send vote to server
-async function submitVote(email, course) {
-  try {
-    const response = await fetch(`${BACKEND_SERVICE_URL}/api/vote`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, course }),
-    });
-    
-    return await response.json();
-  } catch (error) {
-    console.error('Error submitting vote:', error);
-    throw error;
-  }
-}
-
-// Function to get vote statistics
-async function getVoteStats() {
-  try {
-    const response = await fetch(`${BACKEND_SERVICE_URL}/api/votes/stats`);
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching vote statistics:', error);
-    throw error;
-  }
-}
-
-// Enhanced Google Sign-In handler
-function handleCredentialResponse(response) {
-  // Decode the JWT token
-  const responsePayload = parseJwt(response.credential);
-  
-  // Store user info
-  const userData = {
-    email: responsePayload.email,
-    name: responsePayload.name,
-    picture: responsePayload.picture
-  };
-  
-  console.log('User signed in:', userData);
-  
-  // Store the user email globally for later use
-  window.userEmail = userData.email;
-  
-  // Hide Google Sign-In button and show user info
-  const googleSignInDiv = document.querySelector('.g_id_signin');
-  if (googleSignInDiv) {
-    googleSignInDiv.style.display = 'none';
-  }
-  
-  // Create and show user info in header
-  const headerContainer = document.querySelector('header .flex.items-center');
-  if (headerContainer) {
-    // If we already have a user profile div, update it, otherwise create it
-    let userProfileDiv = document.getElementById('user-profile');
-    if (!userProfileDiv) {
-      userProfileDiv = document.createElement('div');
-      userProfileDiv.id = 'user-profile';
-      userProfileDiv.className = 'flex items-center space-x-2';
-      headerContainer.appendChild(userProfileDiv);
-    }
-    
-    userProfileDiv.innerHTML = `
-      <img src="${userData.picture}" alt="${userData.name}" class="w-8 h-8 rounded-full">
-      <div class="hidden md:block">
-        <p class="text-sm font-medium text-gray-700">${userData.name}</p>
-        <p class="text-xs text-gray-500">${userData.email}</p>
-      </div>
-    `;
-  }
-  
-  // Update voting section
-  const notSignedInDiv = document.getElementById('not-signed-in');
-  const signedInDiv = document.getElementById('signed-in');
-  
-  if (notSignedInDiv) {
-    notSignedInDiv.classList.add('hidden');
-  }
-  
-  if (signedInDiv) {
-    signedInDiv.classList.remove('hidden');
-    
-    // Add user info to the signed in section if it doesn't have it already
-    if (!signedInDiv.querySelector('.user-info')) {
-      const userInfoDiv = document.createElement('div');
-      userInfoDiv.className = 'user-info flex items-center mb-6';
-      userInfoDiv.innerHTML = `
-        <img src="${userData.picture}" alt="${userData.name}" class="w-12 h-12 rounded-full mr-4">
-        <div>
-          <p class="font-semibold text-gray-800">${userData.name}</p>
-          <p class="text-sm text-gray-500">${userData.email}</p>
-        </div>
-      `;
-      signedInDiv.insertBefore(userInfoDiv, signedInDiv.firstChild);
-    }
-  }
-  
-  // Enable voting buttons
-  const voteButtons = document.querySelectorAll('.vote-btn');
-  voteButtons.forEach(button => {
-    button.disabled = false;
-    button.innerHTML = 'Vote Now';
-    
-    // Add click handler to scroll to voting section
-    const courseId = button.closest('[data-course]')?.getAttribute('data-course');
-    if (courseId) {
-      button.addEventListener('click', function() {
-        const radioInput = document.getElementById(`vote-${courseId}`);
-        if (radioInput) radioInput.checked = true;
-        document.getElementById('voting').scrollIntoView({ behavior: 'smooth' });
-      });
-    }
-  });
-  
-  // Get initial vote statistics
-  getVoteStats()
-    .then(stats => {
-      updateVotingResults(stats);
-    })
-    .catch(error => {
-      console.error('Failed to fetch vote statistics:', error);
-    });
-}
-
-// Function to update voting results based on API data
-function updateVotingResults(stats) {
-  if (!stats) return;
-  
-  // Update progress bars and percentages
-  for (const [course, percentage] of Object.entries(stats.percentages)) {
-    const progressElement = document.getElementById(`${course}-progress`);
-    const percentageElement = document.getElementById(`${course}-percent`);
-    
-    if (progressElement) {
-      progressElement.style.width = `${percentage}%`;
-    }
-    
-    if (percentageElement) {
-      percentageElement.textContent = `${percentage}%`;
-    }
-  }
-  
-  // Add total votes count if not already present
-  const votingSection = document.querySelector('#voting .text-center.mb-10');
-  if (votingSection) {
-    let totalVotesElement = document.getElementById('total-votes');
-    if (!totalVotesElement) {
-      const totalVotesP = document.createElement('p');
-      totalVotesP.className = 'mt-2 text-sm text-gray-500';
-      totalVotesP.innerHTML = `Total votes: <span id="total-votes">${stats.total}</span>`;
-      votingSection.appendChild(totalVotesP);
-    } else {
-      totalVotesElement.textContent = stats.total;
-    }
-  }
-}
-
-// Submit vote handler
-document.getElementById('submit-vote').addEventListener('click', async function() {
-  if (!window.userEmail) {
-    alert('Please sign in to vote');
-    return;
-  }
-  
-  const selectedCourse = document.querySelector('input[name="course-vote"]:checked');
-  if (!selectedCourse) {
-    alert('Please select a course to vote for');
-    return;
-  }
-  
-  // Disable button and show loading state
-  this.disabled = true;
-  const originalText = this.textContent;
-  this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Submitting...';
-  
-  try {
-    // Send vote to server
-    const result = await submitVote(window.userEmail, selectedCourse.value);
-    
-    if (result.success) {
-      // Show success message
-      const successDiv = document.getElementById('vote-success');
-      if (successDiv) {
-        successDiv.classList.remove('hidden');
-      }
-      
-      // Update voting results
-      const stats = await getVoteStats();
-      updateVotingResults(stats);
-      
-      // Keep button disabled and update text
-      this.innerHTML = '<i class="fas fa-check mr-2"></i> Vote Recorded';
-    } else {
-      // Show error
-      alert(result.message || 'Failed to record your vote. Please try again.');
-      
-      // Re-enable button
-      this.disabled = false;
-      this.textContent = originalText;
-    }
-  } catch (error) {
-    console.error('Error submitting vote:', error);
-    alert('An error occurred while submitting your vote. Please try again later.');
-    
-    // Re-enable button
-    this.disabled = false;
-    this.textContent = originalText;
-  }
-});
-
-// Helper function to parse JWT token
-function parseJwt(token) {
-  const base64Url = token.split('.')[1];
-  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-  }).join(''));
-  
-  return JSON.parse(jsonPayload);
-}
-
-// Setup periodic vote stats refresh
-function setupPeriodicRefresh() {
-  setInterval(async function() {
-    try {
-      const stats = await getVoteStats();
-      updateVotingResults(stats);
-    } catch (error) {
-      console.error('Failed to refresh vote statistics:', error);
-    }
-  }, 30000); // Refresh every 30 seconds
-}
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
-  // Make sure the Google Sign-In button in the voting section has the correct client ID
-  const mainSignInButton = document.getElementById('g_id_onload_main');
-  if (mainSignInButton && mainSignInButton.getAttribute('data-client_id') === 'YOUR_GOOGLE_CLIENT_ID') {
-    mainSignInButton.setAttribute('data-client_id', '906801802809-7svnmj539qcgv4ed2128c5uclnbgv5qt.apps.googleusercontent.com');
-  }
-  
-  // Fetch initial vote stats
-  getVoteStats()
-    .then(stats => {
-      updateVotingResults(stats);
-    })
-    .catch(error => {
-      console.error('Failed to fetch initial vote statistics:', error);
-    });
-  
-  // Setup refresh
-  setupPeriodicRefresh();
-  
-  // Update countdown timer
-  updateCountdown();
-});
-
-// Countdown Timer (keeping the existing function)
-function updateCountdown() {
-  const targetDate = new Date('May 20, 2025 23:59:59').getTime();
-  const now = new Date().getTime();
-  const timeLeft = targetDate - now;
-  
-  if (timeLeft < 0) {
-    document.getElementById('countdown').innerHTML = '<p class="text-white">Voting has ended!</p>';
-    return;
-  }
-  
-  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-  
-  document.getElementById('days').textContent = String(days).padStart(2, '0');
-  document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-  document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-}
-
-setInterval(updateCountdown, 1000);
-
-// API URL Configuration
-const API_BASE_URL = 'https://learn3-service.vercel.app'; // Replace with your actual API URL
-
-// ===== EVENT SUGGESTION HANDLING =====
-document.addEventListener('DOMContentLoaded', function() {
-    // Connect suggestion button - using ID instead of complex selector
-    const suggestEventButton = document.getElementById('suggest-event-btn');
-    if (suggestEventButton) {
-        suggestEventButton.addEventListener('click', openSuggestionModal);
-        console.log('Event listener added to suggestion button');
-    } else {
-        console.error('Suggestion button not found with ID: suggest-event-btn');
+        // API URL Configuration
+        const API_BASE_URL = 'https://learn3-service.vercel.app'; // Replace with your actual API URL
         
-        // Fallback method - try to find by text content
-        const buttons = document.querySelectorAll('button');
-        for (const btn of buttons) {
-            if (btn.textContent.trim() === 'Suggest an Event') {
-                console.log('Found suggestion button by text');
-                btn.addEventListener('click', openSuggestionModal);
-                break;
-            }
-        }
-    }
-
-    // Connect get launch updates button to scroll to about section
-    const launchUpdatesLink = document.querySelector('a[href="#newsletter"]');
-    if (launchUpdatesLink) {
-        launchUpdatesLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('#about').scrollIntoView({
-                behavior: 'smooth'
-            });
-            // Focus on the email input after scrolling
-            setTimeout(() => {
-                const emailInput = document.querySelector('#newsletter-email');
-                if (emailInput) emailInput.focus();
-            }, 800);
-        });
-    }
-
-    // Connect newsletter subscription form
-    const subscribeForm = document.querySelector('#about form');
-    if (subscribeForm) {
-        subscribeForm.addEventListener('submit', handleSubscription);
-    }
-
-    // Create and append the suggestion modal to the document body
-    createSuggestionModal();
-});
-
-// Function to create suggestion modal
-function createSuggestionModal() {
-    const modalHTML = `
-    <div id="suggestion-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-xl shadow-lg p-8 max-w-md w-full mx-4 transform transition-all">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-xl font-semibold text-gray-800">Suggest an Event</h3>
-                <button id="close-modal" class="text-gray-500 hover:text-gray-800">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <form id="suggestion-form" class="space-y-4">
-                <div>
-                    <label for="suggestion-email" class="block text-gray-700 font-medium mb-2">Your Email</label>
-                    <input type="email" id="suggestion-email" required
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
-                </div>
-                <div>
-                    <label for="event-description" class="block text-gray-700 font-medium mb-2">Event Description</label>
-                    <textarea id="event-description" rows="4" required
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"
-                        placeholder="Please describe the event you'd like to suggest..."></textarea>
-                </div>
-                <div id="suggestion-message" class="hidden"></div>
-                <button type="submit" 
-                    class="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-indigo-700 transition">
-                    Submit Suggestion
-                </button>
-            </form>
-        </div>
-    </div>
-    `;
-    
-    const modalContainer = document.createElement('div');
-    modalContainer.innerHTML = modalHTML;
-    document.body.appendChild(modalContainer.firstElementChild);
-    
-    // Add event listeners for the modal
-    document.getElementById('close-modal').addEventListener('click', closeSuggestionModal);
-    document.getElementById('suggestion-form').addEventListener('submit', handleSuggestion);
-    
-    // Close modal when clicking outside
-    document.getElementById('suggestion-modal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeSuggestionModal();
-        }
-    });
-}
-
-// Function to open suggestion modal
-function openSuggestionModal() {
-    const modal = document.getElementById('suggestion-modal');
-    if (modal) {
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-        // Reset form and message
-        document.getElementById('suggestion-form').reset();
-        const messageDiv = document.getElementById('suggestion-message');
-        messageDiv.classList.add('hidden');
-        messageDiv.classList.remove('text-green-600', 'text-red-600');
-    }
-}
-
-// Function to close suggestion modal
-function closeSuggestionModal() {
-    const modal = document.getElementById('suggestion-modal');
-    if (modal) {
-        modal.classList.add('hidden');
-        document.body.style.overflow = ''; // Restore scrolling
-    }
-}
-
-// Function to handle event suggestion submission
-async function handleSuggestion(e) {
-    e.preventDefault();
-    
-    const emailInput = document.getElementById('suggestion-email');
-    const descriptionInput = document.getElementById('event-description');
-    const messageDiv = document.getElementById('suggestion-message');
-    const submitButton = e.target.querySelector('button[type="submit"]');
-    
-    // Validate inputs
-    if (!emailInput.value || !descriptionInput.value) {
-        showMessage(messageDiv, 'Please fill out all fields', 'error');
-        return;
-    }
-    
-    // Show loading state
-    submitButton.disabled = true;
-    submitButton.innerHTML = '<svg class="animate-spin h-5 w-5 mr-2 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...';
-    
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/suggestions`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: emailInput.value,
-                eventDescription: descriptionInput.value
-            }),
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            showMessage(messageDiv, result.message || 'Thank you for your suggestion!', 'success');
-            // Clear form
-            e.target.reset();
-            // Close modal after 3 seconds
-            setTimeout(closeSuggestionModal, 3000);
-        } else {
-            showMessage(messageDiv, result.message || 'Failed to submit suggestion. Please try again.', 'error');
-        }
-    } catch (error) {
-        console.error('Error submitting suggestion:', error);
-        showMessage(messageDiv, 'An error occurred. Please try again later.', 'error');
-    } finally {
-        // Reset button
-        submitButton.disabled = false;
-        submitButton.textContent = 'Submit Suggestion';
-    }
-}
-
-// Function to handle newsletter subscription
+       // Function to handle newsletter subscription - FIXED VERSION
 async function handleSubscription(e) {
-    e.preventDefault();
+    e.preventDefault(); // Prevent form submission
+    e.stopPropagation(); // Stop event bubbling
     
-    const emailInput = e.target.querySelector('input[type="email"]');
-    const submitButton = e.target.querySelector('button[type="submit"]');
+    const form = e.target;
+    const emailInput = form.querySelector('input[type="email"]');
+    const submitButton = form.querySelector('button[type="submit"]');
     
     // Validate email
-    if (!emailInput || !emailInput.value) {
-        // Create message element if it doesn't exist
-        let messageDiv = e.target.querySelector('.subscription-message');
-        if (!messageDiv) {
-            messageDiv = document.createElement('div');
-            messageDiv.className = 'subscription-message text-red-600 text-sm mt-2';
-            e.target.appendChild(messageDiv);
-        }
-        messageDiv.textContent = 'Please enter a valid email address';
-        return;
+    if (!emailInput || !emailInput.value.trim()) {
+        showSubscriptionMessage(form, 'Please enter a valid email address', 'error');
+        return false;
     }
     
+    // Store original button content
+    const originalButtonContent = submitButton.innerHTML;
+    
     // Show loading state
-    const originalButtonText = submitButton.textContent;
     submitButton.disabled = true;
     submitButton.innerHTML = '<svg class="animate-spin h-5 w-5 mr-2 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Subscribing...';
     
@@ -1316,59 +1549,116 @@ async function handleSubscription(e) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                email: emailInput.value
+                email: emailInput.value.trim()
             }),
         });
         
         const result = await response.json();
         
-        // Create or get message element
-        let messageDiv = e.target.querySelector('.subscription-message');
-        if (!messageDiv) {
-            messageDiv = document.createElement('div');
-            messageDiv.className = 'subscription-message mt-2';
-            e.target.appendChild(messageDiv);
-        }
-        
         if (result.success) {
-            messageDiv.className = 'subscription-message text-green-600 text-sm mt-2';
-            messageDiv.textContent = result.message || 'You have been successfully subscribed!';
-            // Clear form
-            e.target.reset();
+            showSubscriptionMessage(form, result.message || 'Successfully subscribed to our newsletter!', 'success');
+            form.reset(); // Clear form
+            
+            // Update button to show success state
+            submitButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Subscribed!';
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonContent;
+            }, 3000);
+            
         } else {
-            messageDiv.className = 'subscription-message text-red-600 text-sm mt-2';
-            messageDiv.textContent = result.message || 'Failed to subscribe. Please try again.';
+            showSubscriptionMessage(form, result.message || 'Subscription failed. Please try again.', 'error');
+            // Reset button immediately on error
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalButtonContent;
         }
     } catch (error) {
         console.error('Error subscribing:', error);
-        // Create or get message element
-        let messageDiv = e.target.querySelector('.subscription-message');
-        if (!messageDiv) {
-            messageDiv = document.createElement('div');
-            messageDiv.className = 'subscription-message text-red-600 text-sm mt-2';
-            e.target.appendChild(messageDiv);
-        }
-        messageDiv.textContent = 'An error occurred. Please try again later.';
-    } finally {
-        // Reset button
+        showSubscriptionMessage(form, 'Network error. Please check your connection and try again.', 'error');
+        // Reset button immediately on error
         submitButton.disabled = false;
-        submitButton.textContent = originalButtonText;
+        submitButton.innerHTML = originalButtonContent;
     }
-}
-
-// Helper function to show messages
-function showMessage(element, message, type) {
-    if (!element) return;
     
-    element.textContent = message;
-    element.classList.remove('hidden', 'text-green-600', 'text-red-600');
-    
-    if (type === 'success') {
-        element.classList.add('text-green-600');
-    } else if (type === 'error') {
-        element.classList.add('text-red-600');
-    }
+    return false; // Ensure form doesn't submit
 }
-    </script>
+        // Helper function for subscription messages
+        function showSubscriptionMessage(form, message, type) {
+            let messageDiv = form.querySelector('.subscription-message');
+            if (!messageDiv) {
+                messageDiv = document.createElement('div');
+                messageDiv.className = 'subscription-message mt-3 text-sm';
+                form.appendChild(messageDiv);
+            }
+            
+            // Reset classes
+            messageDiv.classList.remove('text-green-600', 'text-red-600', 'hidden');
+            
+            if (type === 'success') {
+                messageDiv.classList.add('text-green-600');
+            } else if (type === 'error') {
+                messageDiv.classList.add('text-red-600');
+            }
+            
+            messageDiv.textContent = message;
+            
+            // Auto-hide success messages after 5 seconds
+            if (type === 'success') {
+                setTimeout(() => {
+                    messageDiv.classList.add('hidden');
+                }, 5000);
+            }
+        }
+        
+        // Newsletter form setup - ADD THIS PART
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded - setting up newsletter form');
+            
+            // Newsletter form setup with better targeting
+            const subscribeForm = document.querySelector('#subscribe-form');
+            if (subscribeForm) {
+                console.log('Newsletter form found and event listener attached');
+                subscribeForm.addEventListener('submit', handleSubscription);
+                
+                // Also prevent any default form submission
+                subscribeForm.onsubmit = function(e) {
+                    return handleSubscription(e);
+                };
+            } else {
+                console.error('Newsletter form not found with ID: subscribe-form');
+                
+                // Fallback: find form inside newsletter section
+                const newsletterSection = document.querySelector('#newsletter');
+                if (newsletterSection) {
+                    const form = newsletterSection.querySelector('form');
+                    if (form) {
+                        console.log('Newsletter form found via fallback method');
+                        form.addEventListener('submit', handleSubscription);
+                        form.onsubmit = function(e) {
+                            return handleSubscription(e);
+                        };
+                    }
+                }
+            }
+        
+            // Connect get newsletter button to scroll to about section
+            const newsletterLinks = document.querySelectorAll('a[href="#newsletter"]');
+            newsletterLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector('#about').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Focus on the email input after scrolling
+                    setTimeout(() => {
+                        const emailInput = document.querySelector('#newsletter-email');
+                        if (emailInput) emailInput.focus();
+                    }, 800);
+                });
+            });
+        });
+        </script>
 </body>
 </html>
