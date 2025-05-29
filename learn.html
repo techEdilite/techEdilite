@@ -1020,7 +1020,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Check authentication status
         async function checkAuthStatus() {
             try {
-                const response = await fetch('https://learn3-service.vercel.app/api/check-auth');
+                const response = await fetch('https://learn3-service.vercel.app/api/check-auth', {
+  credentials: 'include'  // send cookies with the request
+});
                 const data = await response.json();
     
                 if (data.authenticated) {
