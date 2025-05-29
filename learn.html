@@ -1018,38 +1018,66 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     
         // Check authentication status
-        async function checkAuthStatus() {
-            try {
-                const response = await fetch('https://learn3-service.vercel.app/api/check-auth', {
-  credentials: 'include'  // send cookies with the request
-});
-                const data = await response.json();
+//         async function checkAuthStatus() {
+//             try {
+//                 const response = await fetch('https://learn3-service.vercel.app/api/check-auth', {
+//   credentials: 'include'  // send cookies with the request
+// });
+//                 const data = await response.json();
     
-                if (data.authenticated) {
-                    currentUser = data.user;
-                }
-            } catch (error) {
-                console.error('Error checking auth status:', error);
-            }
-        }
+//                 if (data.authenticated) {
+//                     currentUser = data.user;
+//                 }
+//             } catch (error) {
+//                 console.error('Error checking auth status:', error);
+//             }
+//         }
+            async function checkAuthStatus() {
+  try {
+    const response = await fetch('https://learn3-service.vercel.app/api/check-auth', {
+      credentials: 'include' // This is important for sending cookies
+    });
+    const data = await response.json();
+
+    if (data.authenticated) {
+      currentUser = data.user;
+      // Execute any pending actions after successful authentication
+      executePendingAction();
+    }
+  } catch (error) {
+    console.error('Error checking auth status:', error);
+  }
+}
     
         // Load events from API
-        async function loadEvents() {
-            try {
-                const response = await fetch('https://learn3-service.vercel.app/api/events');
-                if (response.ok) {
-                    events = await response.json();
-                    renderEvents();
-                } else {
-                    throw new Error('Failed to load events');
-                }
-            } catch (error) {
-                console.error('Error loading events:', error);
-                showError('Failed to load events. Please try again later.');
-            } finally {
-                document.getElementById('loading').classList.add('hidden');
-            }
-        }
+            // Update your fetch calls to include credentials
+async function loadEvents() {
+  try {
+    const response = await fetch('https://learn3-service.vercel.app/api/events', {
+      credentials: 'include' // Add this to include cookies
+    });
+    // Rest of your code
+  } catch (error) {
+    // Error handling
+  }
+}
+
+        // async function loadEvents() {
+        //     try {
+        //         const response = await fetch('https://learn3-service.vercel.app/api/events');
+        //         if (response.ok) {
+        //             events = await response.json();
+        //             renderEvents();
+        //         } else {
+        //             throw new Error('Failed to load events');
+        //         }
+        //     } catch (error) {
+        //         console.error('Error loading events:', error);
+        //         showError('Failed to load events. Please try again later.');
+        //     } finally {
+        //         document.getElementById('loading').classList.add('hidden');
+        //     }
+        // }
     
         // Render events to the DOM
         function renderEvents() {
@@ -1380,64 +1408,126 @@ async function toggleLike(eventId) {
         }
     
         // Show auth required overlay
-        function showAuthRequired(action, eventId, commentIndex = null) {
-            pendingAction = { action, eventId, commentIndex };
-            document.getElementById('auth-required-overlay').classList.add('visible');
-        }
+            // Update your auth overlay handling
+function showAuthRequired(action, eventId, commentIndex = null) {
+  pendingAction = { action, eventId, commentIndex };
+  document.getElementById('auth-required-overlay').classList.add('visible');
+
+  // Store the pending action in sessionStorage
+  sessionStorage.setItem('pendingAction', JSON.stringify(pendingAction));
+}
+
+        // function showAuthRequired(action, eventId, commentIndex = null) {
+        //     pendingAction = { action, eventId, commentIndex };
+        //     document.getElementById('auth-required-overlay').classList.add('visible');
+        // }
     
         // Hide auth overlay
         function hideAuthOverlay() {
             document.getElementById('auth-required-overlay').classList.remove('visible');
         }
-    
+
+            function handleCredentialResponse(response) {
+  console.log("Google Sign-In response:", response);
+
+  // After successful sign-in, check auth status again
+  checkAuthStatus().then(() => {
+    // After checking auth status, execute any pending action
+    setTimeout(executePendingAction, 1000);
+  });
+}
+
         // Handle Google Sign-In response
-        function handleCredentialResponse(response) {
-            console.log("Google Sign-In response:", response);
+        // function handleCredentialResponse(response) {
+        //     console.log("Google Sign-In response:", response);
     
-            // After successful sign-in, reload the page to check auth status again
-            window.location.reload();
-        }
+        //     // After successful sign-in, reload the page to check auth status again
+        //     window.location.reload();
+        // }
     
         // After successful authentication, execute the pending action
-        async function executePendingAction() {
-            if (!pendingAction) return;
+            // Update your executePendingAction function
+async function executePendingAction() {
+  // Get pending action from sessionStorage if it exists
+  const storedAction = sessionStorage.getItem('pendingAction');
+  if (storedAction) {
+    pendingAction = JSON.parse(storedAction);
+    sessionStorage.removeItem('pendingAction');
+  }
+
+  if (!pendingAction) return;
+
+  const { action, eventId, commentIndex } = pendingAction;
+
+  switch (action) {
+    case 'like':
+      toggleLike(eventId);
+      break;
+    case 'comment':
+      // Focus on the comment input field
+      document.getElementById(`comment-input-${eventId}`).focus();
+      break;
+    case 'edit':
+      editComment(eventId, commentIndex);
+      break;
+    case 'delete':
+      deleteComment(eventId, commentIndex);
+      break;
+  }
+
+  pendingAction = null;
+}
+        // async function executePendingAction() {
+        //     if (!pendingAction) return;
     
-            const { action, eventId, commentIndex } = pendingAction;
+        //     const { action, eventId, commentIndex } = pendingAction;
     
-            switch (action) {
-                case 'like':
-                    toggleLike(eventId);
-                    break;
-                case 'comment':
-                    // Focus on the comment input field
-                    document.getElementById(`comment-input-${eventId}`).focus();
-                    break;
-                case 'edit':
-                    editComment(eventId, commentIndex);
-                    break;
-                case 'delete':
-                    deleteComment(eventId, commentIndex);
-                    break;
-            }
+        //     switch (action) {
+        //         case 'like':
+        //             toggleLike(eventId);
+        //             break;
+        //         case 'comment':
+        //             // Focus on the comment input field
+        //             document.getElementById(`comment-input-${eventId}`).focus();
+        //             break;
+        //         case 'edit':
+        //             editComment(eventId, commentIndex);
+        //             break;
+        //         case 'delete':
+        //             deleteComment(eventId, commentIndex);
+        //             break;
+        //     }
     
-            pendingAction = null;
-        }
+        //     pendingAction = null;
+        // }
     
         // Check auth status after Google Sign-In
-        window.addEventListener('load', function() {
-            if (window.location.search.includes('auth_success=true')) {
-                // Remove the auth_success parameter from URL
-                const url = new URL(window.location.href);
-                url.searchParams.delete('auth_success');
-                window.history.replaceState({}, '', url);
+            window.addEventListener('load', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('auth_success') === 'true') {
+    // Remove the auth_success parameter from URL
+    const url = new URL(window.location.href);
+    url.searchParams.delete('auth_success');
+    window.history.replaceState({}, '', url);
+
+    // Check auth status again
+    checkAuthStatus();
+  }
+})
+        // window.addEventListener('load', function() {
+        //     if (window.location.search.includes('auth_success=true')) {
+        //         // Remove the auth_success parameter from URL
+        //         const url = new URL(window.location.href);
+        //         url.searchParams.delete('auth_success');
+        //         window.history.replaceState({}, '', url);
     
-                // Check auth status again
-                checkAuthStatus().then(() => {
-                    // After checking auth status, execute any pending action
-                    setTimeout(executePendingAction, 1000);
-                });
-            }
-        });
+        //         // Check auth status again
+        //         checkAuthStatus().then(() => {
+        //             // After checking auth status, execute any pending action
+        //             setTimeout(executePendingAction, 1000);
+        //         });
+        //     }
+        // });
         </script>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
