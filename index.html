@@ -299,10 +299,10 @@
                           class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About
                           Us</a>
                   </li>
-                  <li>
+                  <!-- <li>
                       <a href="quickSEO.html"
                           class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">QuickSEO</a>
-                  </li>
+                  </li> -->
                   <li class="flex items-center">
                       <a href="/learn.html"
                           class="block py-2 px-3 md:p-0">
@@ -316,87 +316,383 @@
     <!-- Hero Section -->
   <!-- Explore Section HTML - Improved with better hero integration -->
      
-  <section class="relative min-h-[75vh] overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50">
-    <!-- Decorative Elements -->
-    <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-blue-500 opacity-10 rounded-full transform translate-x-1/4 -translate-y-1/4"></div>
-    <div class="absolute bottom-0 left-0 w-2/3 h-2/3 bg-indigo-500 opacity-10 rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
+  <!-- Hero Section -->
+<section class="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0">
+    <!-- Gradient Orbs -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+    <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+    <div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
     
-    <!-- Animated Shapes - Hidden on smallest screens -->
-    <div class="absolute top-1/4 left-1/4 w-16 h-16 bg-blue-400 rounded-lg opacity-20 animate-float hidden sm:block"></div>
-    <div class="absolute top-2/3 right-1/3 w-24 h-24 bg-purple-400 rounded-full opacity-20 animate-float-slow hidden sm:block"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-12 h-12 bg-green-400 rounded-lg opacity-20 animate-float-reverse hidden sm:block"></div>
-    
-    <!-- Geometric patterns - Hidden on smallest screens -->
-    <div class="absolute inset-0 hidden sm:block">
-      <div class="absolute top-20 right-40 w-40 h-40">
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-blue-500 opacity-10">
-          <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="2" />
-          <circle cx="50" cy="50" r="30" stroke="currentColor" stroke-width="2" />
-          <circle cx="50" cy="50" r="20" stroke="currentColor" stroke-width="2" />
-        </svg>
-      </div>
-      <div class="absolute bottom-40 left-20 w-64 h-64">
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-indigo-500 opacity-10">
-          <path d="M10 10L90 10L90 90L10 90L10 10Z" stroke="currentColor" stroke-width="2" />
-          <path d="M30 30L70 30L70 70L30 70L30 30Z" stroke="currentColor" stroke-width="2" />
-          <path d="M50 50L90 10M50 50L10 10M50 50L10 90M50 50L90 90" stroke="currentColor" stroke-width="1" />
-        </svg>
+    <!-- Floating Grid -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="grid grid-cols-12 gap-4 h-full p-8 transform rotate-12">
+        <div class="bg-white/20 rounded animate-pulse"></div>
+        <div class="bg-white/10 rounded animate-pulse animation-delay-1000"></div>
+        <div class="bg-white/30 rounded animate-pulse animation-delay-2000"></div>
+        <div class="bg-white/20 rounded animate-pulse animation-delay-3000"></div>
+        <div class="bg-white/10 rounded animate-pulse animation-delay-4000"></div>
+        <div class="bg-white/40 rounded animate-pulse animation-delay-5000"></div>
+        <div class="bg-white/20 rounded animate-pulse animation-delay-6000"></div>
+        <div class="bg-white/30 rounded animate-pulse animation-delay-1000"></div>
+        <div class="bg-white/10 rounded animate-pulse animation-delay-2000"></div>
+        <div class="bg-white/20 rounded animate-pulse animation-delay-3000"></div>
+        <div class="bg-white/30 rounded animate-pulse animation-delay-4000"></div>
+        <div class="bg-white/10 rounded animate-pulse animation-delay-5000"></div>
       </div>
     </div>
-  
-    <div class="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-indigo-600/5"></div>
     
-    <!-- Hero Content -->
-    <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-24 h-full py-16 flex items-center relative z-10">
-      <div class="max-w-3xl">
-        <div class="inline-block py-1 px-3 mb-4 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
-          Innovative Software Solutions
-        </div>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-[#001c55] leading-tight">
-          Transforming Ideas Into Powerful Digital Experiences
-        </h1>
-        <p class="text-base md:text-lg lg:text-xl text-[#001c55] mb-6 md:mb-8 max-w-2xl opacity-90">
-          We blend creativity and technology to build custom software solutions that drive business growth and enhance user experience.
-        </p>
-        <div class="flex flex-wrap gap-3 md:gap-4">
-          <a href="#services" class="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-[#001c55] hover:bg-blue-900 text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl text-center">
-            Explore Our Services
-          </a>
-          <a href="#contact" class="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 border-2 border-[#001c55] text-[#001c55] hover:bg-blue-50 font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1 text-center">
-            Get In Touch
-          </a>
+    <!-- Code Rain Effect -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="code-rain">
+        <span style="--i:1;">01</span>
+        <span style="--i:2;">10</span>
+        <span style="--i:3;">11</span>
+        <span style="--i:4;">00</span>
+        <span style="--i:5;">01</span>
+        <span style="--i:6;">11</span>
+        <span style="--i:7;">10</span>
+        <span style="--i:8;">01</span>
+        <span style="--i:9;">00</span>
+        <span style="--i:10;">11</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 container mx-auto px-6 sm:px-8 md:px-12 lg:px-24 min-h-screen flex items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+      
+      <!-- Left Content -->
+      <div class="space-y-8">
+        <!-- Badge -->
+        <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3">
+          <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+          <span class="text-white/80 text-sm font-medium">Innovative Software Solutions</span>
         </div>
         
-        <!-- Social Proof / Stats - Uncomment if needed -->
-        <!-- <div class="mt-10 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8 max-w-2xl">
-          <div class="text-center sm:text-left">
-            <h3 class="text-2xl md:text-3xl font-bold text-[#001c55]">100+</h3>
-            <p class="text-[#001c55] opacity-80 text-sm md:text-base">Projects Completed</p>
+        <!-- Main Heading with Typing Effect -->
+        <div class="space-y-4">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+            <span class="block">Building</span>
+            <span class="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent typing-text" data-words="Digital Dreams,Future Tech,Smart Solutions,Web3 Apps"></span>
+            <span class="block">That Scale</span>
+          </h1>
+        </div>
+        
+        <!-- Description -->
+        <p class="text-xl text-white/80 max-w-2xl leading-relaxed">
+          We transform ambitious ideas into powerful digital experiences using cutting-edge technology, 
+          innovative design, and scalable architecture.
+        </p>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button class="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/25 hover:-translate-y-1">
+            <span class="relative z-10 flex items-center justify-center">
+              Start Your Project
+              <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </span>
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </button>
+          
+          <button class="group px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+            <span class="flex items-center justify-center">
+              View Our Work
+              <svg class="w-5 h-5 ml-2 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+        
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-8 pt-8 border-t border-white/20">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-white counter" data-target="10">0</div>
+            <div class="text-white/60 text-sm">Projects Delivered</div>
           </div>
-          <div class="text-center sm:text-left">
-            <h3 class="text-2xl md:text-3xl font-bold text-[#001c55]">50+</h3>
-            <p class="text-[#001c55] opacity-80 text-sm md:text-base">Happy Clients</p>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-white counter" data-target="25">0</div>
+            <div class="text-white/60 text-sm">Happy Clients</div>
           </div>
-          <div class="text-center sm:text-left">
-            <h3 class="text-2xl md:text-3xl font-bold text-[#001c55]">5+</h3>
-            <p class="text-[#001c55] opacity-80 text-sm md:text-base">Years of Experience</p>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-white counter" data-target="24">0</div>
+            <div class="text-white/60 text-sm">7 Support</div>
           </div>
-        </div> -->
+        </div>
+      </div>
+      
+      <!-- Right Content - 3D Interactive Element -->
+      <div class="relative flex items-center justify-center">
+        <!-- Main 3D Card -->
+        <div class="relative w-80 h-96 perspective-1000">
+          <div class="card-3d w-full h-full relative preserve-3d hover:rotate-y-12 transition-transform duration-700">
+            <!-- Front Face -->
+            <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-8 backface-hidden">
+              <div class="space-y-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl flex items-center justify-center">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Visionary Development</h3>
+                <!-- <p class="text-white/70">Tailored solutions built with modern technologies and best practices.</p> -->
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span class="text-white/80 text-sm">Clear requirements for optimal solution delivery</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    <span class="text-white/80 text-sm">Comfortable and user-friendly UI/UX</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-purple-400 rounded-full"></div>
+                    <span class="text-white/80 text-sm">Efficient timelines with dedicated support</span>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl rotate-12 animate-float opacity-80"></div>
+        <div class="absolute -bottom-4 -right-4 w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg -rotate-12 animate-float-reverse opacity-80"></div>
+        <div class="absolute top-1/2 -right-12 w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full animate-pulse opacity-80"></div>
       </div>
     </div>
-    
-    <!-- Curved Wave Bottom -->
-    <div class="absolute bottom-0 left-0 right-0">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full">
-        <path fill="#ffffff" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+  </div>
+  
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+    <div class="animate-bounce">
+      <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
       </svg>
     </div>
-  </section>
+  </div>
+</section>
+
+
+<script>
+  // Typing Effect
+  class TypingEffect {
+    constructor(element) {
+      this.element = element;
+      this.words = element.dataset.words.split(',');
+      this.currentWordIndex = 0;
+      this.currentText = '';
+      this.isDeleting = false;
+      this.typeSpeed = 150;
+      this.deleteSpeed = 100;
+      this.pauseTime = 2000;
+      
+      this.type();
+    }
+    
+    type() {
+      const currentWord = this.words[this.currentWordIndex];
+      
+      if (this.isDeleting) {
+        this.currentText = currentWord.substring(0, this.currentText.length - 1);
+      } else {
+        this.currentText = currentWord.substring(0, this.currentText.length + 1);
+      }
+      
+      this.element.textContent = this.currentText;
+      
+      let speed = this.isDeleting ? this.deleteSpeed : this.typeSpeed;
+      
+      if (!this.isDeleting && this.currentText === currentWord) {
+        speed = this.pauseTime;
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.currentText === '') {
+        this.isDeleting = false;
+        this.currentWordIndex = (this.currentWordIndex + 1) % this.words.length;
+        speed = 500;
+      }
+      
+      setTimeout(() => this.type(), speed);
+    }
+  }
+  
+  // Counter Animation
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    const speed = 2000; // Animation duration in ms
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.dataset.target);
+      const increment = target / (speed / 16); // 60fps
+      let current = 0;
+      
+      const updateCounter = () => {
+        if (current < target) {
+          current += increment;
+          counter.textContent = Math.ceil(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target;
+        }
+      };
+      
+      updateCounter();
+    });
+  }
+  
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize typing effect
+    const typingElement = document.querySelector('.typing-text');
+    if (typingElement) {
+      new TypingEffect(typingElement);
+    }
+    
+    // Initialize counters with intersection observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+    
+    const heroSection = document.querySelector('.min-h-screen');
+    if (heroSection) {
+      observer.observe(heroSection);
+    }
+    
+    // Add smooth scroll behavior to CTA buttons
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (this.textContent.includes('Start Your Project')) {
+          e.preventDefault();
+          document.getElementById('contact').scrollIntoView({
+            behavior: 'smooth'
+          });
+        } else if (this.textContent.includes('View Our Work')) {
+          e.preventDefault();
+          document.getElementById('portfolio').scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+  </script>
 
 
 
 <!-- Explore Section CSS with improved hero integration and image effects -->
 <style>
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+/* Animation Delays */
+.animation-delay-1000 { animation-delay: 1s; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-3000 { animation-delay: 3s; }
+.animation-delay-4000 { animation-delay: 4s; }
+.animation-delay-5000 { animation-delay: 5s; }
+.animation-delay-6000 { animation-delay: 6s; }
+
+/* Code Rain Effect */
+.code-rain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.code-rain span {
+  position: absolute;
+  top: -100px;
+  color: rgba(0, 255, 255, 0.3);
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  animation: rain 15s linear infinite;
+  animation-delay: calc(var(--i) * 0.5s);
+  left: calc(var(--i) * 10%);
+}
+
+@keyframes rain {
+  0% { 
+    top: -100px; 
+    opacity: 0;
+  }
+  10% { 
+    opacity: 1;
+  }
+  90% { 
+    opacity: 1;
+  }
+  100% { 
+    top: 100vh; 
+    opacity: 0;
+  }
+}
+
+/* 3D Effects */
+.perspective-1000 { perspective: 1000px; }
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+.rotate-y-12 { transform: rotateY(12deg); }
+
+/* Typing Effect */
+.typing-text {
+  display: inline-block;
+  border-right: 3px solid #60a5fa;
+  animation: blink-cursor 1s infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 50% { border-color: #60a5fa; }
+  51%, 100% { border-color: transparent; }
+}
+
+/* Counter Animation */
+.counter {
+  transition: all 0.3s ease;
+}
+
+/* Enhanced Float Animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 8s ease-in-out infinite;
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0) rotate(-12deg); }
+  50% { transform: translateY(-20px) rotate(-12deg); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .code-rain { display: none; }
+  .animate-blob { animation: none; }
+  .floating-grid { display: none; }
+}
+
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
   
   :root {
@@ -999,181 +1295,6 @@
               });
             })();
           </script>
-<section id="blockchain-expertise" class="py-24 relative overflow-hidden bg-gradient-to-b from-blue-50 to-white">
-  <!-- Abstract decorative elements -->
-  <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
-      <div class="absolute w-96 h-96 rounded-full bg-blue-500 blur-3xl -top-20 -left-20"></div>
-      <div class="absolute w-96 h-96 rounded-full bg-blue-300 blur-3xl -bottom-20 -right-20"></div>
-  </div>
-  
-  <!-- Animated hexagon pattern -->
-  <div class="absolute inset-0 opacity-5">
-      <svg width="100%" height="100%">
-          <pattern id="hexagon-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M20 0 L40 10 L40 30 L20 40 L0 30 L0 10 Z" fill="none" stroke="currentColor" stroke-width="1"/>
-          </pattern>
-          <rect x="0" y="0" width="100%" height="100%" fill="url(#hexagon-pattern)" />
-      </svg>
-  </div>
-  
-  <!-- Floating elements that represent blockchain nodes -->
-  <div class="absolute left-10 top-1/4 w-4 h-4 bg-blue-600 rounded-full opacity-20 animate-pulse"></div>
-  <div class="absolute right-20 top-1/3 w-6 h-6 bg-blue-600 rounded-full opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
-  <div class="absolute left-1/3 bottom-1/4 w-5 h-5 bg-blue-600 rounded-full opacity-20 animate-pulse" style="animation-delay: 1.5s;"></div>
-  <div class="absolute right-1/4 bottom-1/3 w-8 h-8 bg-blue-600 rounded-full opacity-20 animate-pulse" style="animation-delay: 0.5s;"></div>
-  
-  <!-- Connecting lines to illustrate blockchain connectivity -->
-  <div class="absolute inset-0">
-      <svg class="w-full h-full opacity-10">
-          <line x1="10%" y1="25%" x2="33%" y2="75%" stroke="#3B82F6" stroke-width="1" stroke-dasharray="5,5" />
-          <line x1="33%" y1="75%" x2="75%" y2="67%" stroke="#3B82F6" stroke-width="1" stroke-dasharray="5,5" />
-          <line x1="75%" y1="67%" x2="90%" y2="33%" stroke="#3B82F6" stroke-width="1" stroke-dasharray="5,5" />
-          <line x1="90%" y1="33%" x2="10%" y2="25%" stroke="#3B82F6" stroke-width="1" stroke-dasharray="5,5" />
-      </svg>
-  </div>
-  
-  <!-- Added more padding to the container for better readability -->
-  <div class="relative z-10 max-w-7xl mx-auto px-8 md:px-12 lg:px-16">
-      <div class="max-w-4xl mx-auto text-center mb-16">
-          <h2 class="text-3xl md:text-5xl font-bold mb-6 relative inline-block">
-              <span class="relative z-10">Web3 & Blockchain</span>
-              <span class="absolute -bottom-1.5 left-0 w-full h-3 bg-blue-200 opacity-40 transform -rotate-1"></span>
-              <span class="absolute -bottom-1 left-0 w-full h-1 bg-blue-500 transform -rotate-1"></span>
-          </h2>
-          <p class="text-xl text-gray-700 mb-8">We're experts in creating blockchain solutions that bring tangible value to your business</p>
-      </div>
-      
-      <!-- Added more spacing between grid items -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-20 mb-16">
-          <!-- Left side - Main messaging with animated border -->
-          <div class="bg-white rounded-2xl p-8 md:p-10 shadow-xl relative border border-blue-100 group transform transition duration-300 hover:-translate-y-2">
-              <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
-              <div class="relative">
-                  <h3 class="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">Practical Web3 Solutions</h3>
-                  <p class="text-gray-700 text-lg mb-6 leading-relaxed">
-                      We undertake practical Web3 solutions that directly benefit your business operations. Our blockchain implementations focus on real-world utility, efficiency, and measurable returns on investment.
-                  </p>
-                  <ul class="space-y-4">
-                      <li class="flex items-start">
-                          <span class="bg-blue-100 p-1 rounded-full mr-4 mt-1">
-                              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                              </svg>
-                          </span>
-                          <span>Seamless integration with existing systems</span>
-                      </li>
-                      <li class="flex items-start">
-                          <span class="bg-blue-100 p-1 rounded-full mr-4 mt-1">
-                              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                              </svg>
-                          </span>
-                          <span>Industry-specific blockchain applications</span>
-                      </li>
-                      <li class="flex items-start">
-                          <span class="bg-blue-100 p-1 rounded-full mr-4 mt-1">
-                              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                              </svg>
-                          </span>
-                          <span>Supply chain tracking and verification</span>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-          
-          <!-- Right side - Feature cards -->
-          <div class="space-y-8">
-              <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-blue-600 hover:shadow-xl transition duration-300">
-                  <h3 class="text-xl font-bold mb-3">Smart Contract Development</h3>
-                  <p class="text-gray-600 mb-4">We create secure, auditable, and efficient smart contracts that automate processes, reduce costs, and eliminate intermediaries.</p>
-                  <div class="flex flex-wrap gap-2">
-                      <span class="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1 rounded">Ethereum</span>
-                      <span class="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1 rounded">Solana</span>
-                      <span class="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1 rounded">Polygon</span>
-                  </div>
-              </div>
-              
-              <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-purple-600 hover:shadow-xl transition duration-300">
-                  <h3 class="text-xl font-bold mb-3">Decentralized Applications</h3>
-                  <p class="text-gray-600 mb-4">Our dApps combine intuitive user experiences with the powerful security and transparency features of blockchain technology.</p>
-                  <div class="flex flex-wrap gap-2">
-                      <span class="bg-purple-50 text-purple-700 text-sm font-medium px-3 py-1 rounded">DeFi</span>
-                      <span class="bg-purple-50 text-purple-700 text-sm font-medium px-3 py-1 rounded">NFTs</span>
-                      <span class="bg-purple-50 text-purple-700 text-sm font-medium px-3 py-1 rounded">DAOs</span>
-                  </div>
-              </div>
-              
-              <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-indigo-600 hover:shadow-xl transition duration-300">
-                  <h3 class="text-xl font-bold mb-3">Enterprise Blockchain</h3>
-                  <p class="text-gray-600 mb-4">We design foolproof blockchain solutions tailored for enterprise needs, with robust security and scalability as core priorities.</p>
-                  <div class="flex flex-wrap gap-2">
-                      <span class="bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1 rounded">Hyperledger</span>
-                      <span class="bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1 rounded">Private Chains</span>
-                      <span class="bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1 rounded">Consortiums</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-      
-      <!-- Bottom CTA with glowing effect -->
-      <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-10 md:p-12 text-white text-center relative overflow-hidden group">
-          <!-- Animated glow effect -->
-          <div class="absolute -inset-40 rounded-full opacity-20 bg-white blur-3xl group-hover:opacity-30 transition-opacity duration-700 animate-pulse-slow"></div>
-          
-          <h3 class="text-2xl font-bold mb-4 relative">Ready to Transform Your Business with Blockchain?</h3>
-          <p class="text-xl mb-8 max-w-3xl mx-auto relative">Our team delivers cool and foolproof solutions that keep you ahead of the technological curve.</p>
-          
-          <!-- Fixed clickable buttons with JavaScript -->
-          
-      </div>
-  </div>
-  
-  <!-- Bottom wave pattern -->
-  <div class="absolute bottom-0 left-0 w-full overflow-hidden">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="w-full h-auto">
-          <path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,213.3C672,224,768,224,864,208C960,192,1056,160,1152,149.3C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-      </svg>
-  </div>
-  
-  <style>
-      @keyframes pulse-slow {
-          0%, 100% { opacity: 0.2; }
-          50% { opacity: 0.3; }
-      }
-      
-      .animate-pulse-slow {
-          animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-      }
-  </style>
-  
-  <!-- Additional Script to ensure links work -->
-  <script>
-      // Ensure the buttons are clickable
-      document.addEventListener('DOMContentLoaded', function() {
-          // Get Started button
-          const getStartedBtn = document.querySelector('[onclick="window.location.href=\'#contact\'"]');
-          if (getStartedBtn) {
-              getStartedBtn.addEventListener('click', function() {
-                  const contactSection = document.getElementById('contact');
-                  if (contactSection) {
-                      contactSection.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                      window.location.href = '#contact';
-                  }
-              });
-          }
-          
-          // Telegram button
-          const telegramBtn = document.querySelector('[onclick="window.open(\'https://t.me/techedilite\', \'_blank\')"]');
-          if (telegramBtn) {
-              telegramBtn.addEventListener('click', function() {
-                  window.open('https://t.me/techedilite', '_blank');
-              });
-          }
-      });
-  </script>
-</section>
 
 
 <style>
@@ -1720,6 +1841,181 @@
           </script>
 
 
+<section id="blockchain-expertise" class="py-24 relative overflow-hidden bg-gradient-to-b from-blue-50 to-white">
+  <!-- Abstract decorative elements -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
+      <div class="absolute w-96 h-96 rounded-full bg-blue-500 blur-3xl -top-20 -left-20"></div>
+      <div class="absolute w-96 h-96 rounded-full bg-blue-300 blur-3xl -bottom-20 -right-20"></div>
+  </div>
+  
+  <!-- Animated hexagon pattern -->
+  <div class="absolute inset-0 opacity-5">
+      <svg width="100%" height="100%">
+          <pattern id="hexagon-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M20 0 L40 10 L40 30 L20 40 L0 30 L0 10 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+          </pattern>
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#hexagon-pattern)" />
+      </svg>
+  </div>
+  
+  <!-- Floating elements that represent blockchain nodes -->
+  <div class="absolute left-10 top-1/4 w-4 h-4 bg-blue-600 rounded-full opacity-20 animate-pulse"></div>
+  <div class="absolute right-20 top-1/3 w-6 h-6 bg-blue-600 rounded-full opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
+  <div class="absolute left-1/3 bottom-1/4 w-5 h-5 bg-blue-600 rounded-full opacity-20 animate-pulse" style="animation-delay: 1.5s;"></div>
+  <div class="absolute right-1/4 bottom-1/3 w-8 h-8 bg-blue-600 rounded-full opacity-20 animate-pulse" style="animation-delay: 0.5s;"></div>
+  
+  <!-- Connecting lines to illustrate blockchain connectivity -->
+  <div class="absolute inset-0">
+      <svg class="w-full h-full opacity-10">
+          <line x1="10%" y1="25%" x2="33%" y2="75%" stroke="#3B82F6" stroke-width="1" stroke-dasharray="5,5" />
+          <line x1="33%" y1="75%" x2="75%" y2="67%" stroke="#3B82F6" stroke-width="1" stroke-dasharray="5,5" />
+          <line x1="75%" y1="67%" x2="90%" y2="33%" stroke="#3B82F6" stroke-width="1" stroke-dasharray="5,5" />
+          <line x1="90%" y1="33%" x2="10%" y2="25%" stroke="#3B82F6" stroke-width="1" stroke-dasharray="5,5" />
+      </svg>
+  </div>
+  
+  <!-- Added more padding to the container for better readability -->
+  <div class="relative z-10 max-w-7xl mx-auto px-8 md:px-12 lg:px-16">
+      <div class="max-w-4xl mx-auto text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-bold mb-6 relative inline-block">
+              <span class="relative z-10">Web3 & Blockchain</span>
+              <span class="absolute -bottom-1.5 left-0 w-full h-3 bg-blue-200 opacity-40 transform -rotate-1"></span>
+              <span class="absolute -bottom-1 left-0 w-full h-1 bg-blue-500 transform -rotate-1"></span>
+          </h2>
+          <p class="text-xl text-gray-700 mb-8">We're experts in creating blockchain solutions that bring tangible value to your business</p>
+      </div>
+      
+      <!-- Added more spacing between grid items -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-20 mb-16">
+          <!-- Left side - Main messaging with animated border -->
+          <div class="bg-white rounded-2xl p-8 md:p-10 shadow-xl relative border border-blue-100 group transform transition duration-300 hover:-translate-y-2">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+              <div class="relative">
+                  <h3 class="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">Practical Web3 Solutions</h3>
+                  <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                      We undertake practical Web3 solutions that directly benefit your business operations. Our blockchain implementations focus on real-world utility, efficiency, and measurable returns on investment.
+                  </p>
+                  <ul class="space-y-4">
+                      <li class="flex items-start">
+                          <span class="bg-blue-100 p-1 rounded-full mr-4 mt-1">
+                              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                              </svg>
+                          </span>
+                          <span>Seamless integration with existing systems</span>
+                      </li>
+                      <li class="flex items-start">
+                          <span class="bg-blue-100 p-1 rounded-full mr-4 mt-1">
+                              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                              </svg>
+                          </span>
+                          <span>Industry-specific blockchain applications</span>
+                      </li>
+                      <li class="flex items-start">
+                          <span class="bg-blue-100 p-1 rounded-full mr-4 mt-1">
+                              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                              </svg>
+                          </span>
+                          <span>Supply chain tracking and verification</span>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          
+          <!-- Right side - Feature cards -->
+          <div class="space-y-8">
+              <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-blue-600 hover:shadow-xl transition duration-300">
+                  <h3 class="text-xl font-bold mb-3">Smart Contract Development</h3>
+                  <p class="text-gray-600 mb-4">We create secure, auditable, and efficient smart contracts that automate processes, reduce costs, and eliminate intermediaries.</p>
+                  <div class="flex flex-wrap gap-2">
+                      <span class="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1 rounded">Ethereum</span>
+                      <span class="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1 rounded">Solana</span>
+                      <span class="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1 rounded">Polygon</span>
+                  </div>
+              </div>
+              
+              <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-purple-600 hover:shadow-xl transition duration-300">
+                  <h3 class="text-xl font-bold mb-3">Decentralized Applications</h3>
+                  <p class="text-gray-600 mb-4">Our dApps combine intuitive user experiences with the powerful security and transparency features of blockchain technology.</p>
+                  <div class="flex flex-wrap gap-2">
+                      <span class="bg-purple-50 text-purple-700 text-sm font-medium px-3 py-1 rounded">DeFi</span>
+                      <span class="bg-purple-50 text-purple-700 text-sm font-medium px-3 py-1 rounded">NFTs</span>
+                      <span class="bg-purple-50 text-purple-700 text-sm font-medium px-3 py-1 rounded">DAOs</span>
+                  </div>
+              </div>
+              
+              <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-indigo-600 hover:shadow-xl transition duration-300">
+                  <h3 class="text-xl font-bold mb-3">Enterprise Blockchain</h3>
+                  <p class="text-gray-600 mb-4">We design foolproof blockchain solutions tailored for enterprise needs, with robust security and scalability as core priorities.</p>
+                  <div class="flex flex-wrap gap-2">
+                      <span class="bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1 rounded">Hyperledger</span>
+                      <span class="bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1 rounded">Private Chains</span>
+                      <span class="bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1 rounded">Consortiums</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Bottom CTA with glowing effect -->
+      <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-10 md:p-12 text-white text-center relative overflow-hidden group">
+          <!-- Animated glow effect -->
+          <div class="absolute -inset-40 rounded-full opacity-20 bg-white blur-3xl group-hover:opacity-30 transition-opacity duration-700 animate-pulse-slow"></div>
+          
+          <h3 class="text-2xl font-bold mb-4 relative">Ready to Transform Your Business with Blockchain?</h3>
+          <p class="text-xl mb-8 max-w-3xl mx-auto relative">Our team delivers cool and foolproof solutions that keep you ahead of the technological curve.</p>
+          
+          <!-- Fixed clickable buttons with JavaScript -->
+          
+      </div>
+  </div>
+  
+  <!-- Bottom wave pattern -->
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="w-full h-auto">
+          <path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,213.3C672,224,768,224,864,208C960,192,1056,160,1152,149.3C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+  </div>
+  
+  <style>
+      @keyframes pulse-slow {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 0.3; }
+      }
+      
+      .animate-pulse-slow {
+          animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+  </style>
+  
+  <!-- Additional Script to ensure links work -->
+  <script>
+      // Ensure the buttons are clickable
+      document.addEventListener('DOMContentLoaded', function() {
+          // Get Started button
+          const getStartedBtn = document.querySelector('[onclick="window.location.href=\'#contact\'"]');
+          if (getStartedBtn) {
+              getStartedBtn.addEventListener('click', function() {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                      window.location.href = '#contact';
+                  }
+              });
+          }
+          
+          // Telegram button
+          const telegramBtn = document.querySelector('[onclick="window.open(\'https://t.me/techedilite\', \'_blank\')"]');
+          if (telegramBtn) {
+              telegramBtn.addEventListener('click', function() {
+                  window.open('https://t.me/techedilite', '_blank');
+              });
+          }
+      });
+  </script>
+</section>
 
         <!-- Quote section -->
         <!-- <section class="bg-white py-12"  >
@@ -1766,74 +2062,7 @@
                 </div>
             </div>
         </div>
-
-        <section class="py-16 bg-gray-50">
-          <div class="container mx-auto px-4">
-              <div class="max-w-6xl mx-auto">
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                      <!-- Image Column -->
-                      <div class="order-2 md:order-1">
-                          <div class="relative">
-                              <div class="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl opacity-30 blur-xl"></div>
-                              <img src="./3d2883.png" alt="Tech Event at Learn3 Studio" class="relative rounded-xl shadow-lg w-full">
-                          </div>
-                      </div>
-                      
-                      <!-- Content Column -->
-                      <div class="order-1 md:order-2">
-                          <div class="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2"></div>
-                          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Learn3 Studio</h2>
-                          <div class="w-20 h-1 bg-indigo-600 mb-6"></div>
-                          
-                          <p class="text-lg text-gray-600 mb-6">Building a strong developer and tech enthusiast community through collaboration, learning, and innovation.</p>
-                          
-                          <div class="space-y-4">
-                              <div class="flex items-start">
-                                  <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
-                                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                      </svg>
-                                  </div>
-                                  <div>
-                                      <h3 class="font-semibold text-gray-800">Online & Offline Events</h3>
-                                      <p class="text-gray-600">Interactive workshops and seminars designed for all skill levels</p>
-                                  </div>
-                              </div>
-                              
-                              <div class="flex items-start">
-                                  <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
-                                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                      </svg>
-                                  </div>
-                                  <div>
-                                      <h3 class="font-semibold text-gray-800">Hackathons</h3>
-                                      <p class="text-gray-600">Competitive coding events that foster innovation and problem-solving</p>
-                                  </div>
-                              </div>
-                              
-                              <div class="flex items-start">
-                                  <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
-                                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                      </svg>
-                                  </div>
-                                  <div>
-                                      <h3 class="font-semibold text-gray-800">Tech Meetups</h3>
-                                      <p class="text-gray-600">Networking opportunities with industry professionals and like-minded enthusiasts</p>
-                                  </div>
-                              </div>
-                          </div>
-                          
-                          <div class="mt-8">
-                              <a href="/learn.html" class="inline-block px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-300">Explore Learn3 studio</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-      
+<!--  -->
         <section class="relative h-[45vh]">
             <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover video-desktop">
                 <source src="./addt34987.mp4" type="video/mp4">
@@ -2714,11 +2943,12 @@
                       <span class="text-gray-600">GSTIN: 33AHDPF3055G1ZV</span>
                   </div>
                   <div class="flex space-x-4 mt-4">
-                      <a href="https://x.com/TechEdilite" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-purple-100 transition-colors" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-                          <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-                          </svg>
-                      </a>
+                    <a href="https://x.com/TechEdilite" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-purple-100 transition-colors" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
+                      <svg class="w-5 h-5 text-gray-600" viewBox="0 0 1200 1227" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M741.33 580.16L1169.74 0H1063.8L699.29 492.75L371.5 0H0L454.15 683.32L0 1227H105.96L493.52 699.58L842.25 1227H1200L741.33 580.16ZM539.7 619.24L504.23 566.2L155.76 80.3H321.88L616.02 523.26L651.49 576.3L1014.67 1098.45H848.54L539.7 619.24Z"/>
+                      </svg>
+                    </a>
+                    
                       <a href="https://www.instagram.com/techedilite/" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-purple-100 transition-colors" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                           <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                               <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
