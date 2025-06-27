@@ -38,107 +38,310 @@
     <!-- Header -->
   <!-- Header -->
 <!-- Header -->
-<header class=" top-0 z-50 bg-white shadow-lg backdrop-blur-sm bg-opacity-95">
-    <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-        <!-- Logo & Brand -->
-        <div class="flex items-center space-x-3">
-            <!-- <div class="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center shadow-md transition-transform hover:scale-105"> -->
-                <img src="./L3.png" alt="L3 Logo" class="w-10 h-10 rounded-full">
-            <!-- </div> -->
-            <span class="font-bold text-2xl text-gray-800 tracking-tight">Learn3 Studio</span>
-        </div>
-        
-        <!-- Desktop Navigation - Centered -->
-        <nav class="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2">
-            <div class="flex space-x-8">
-                <a href="#hero" class="text-gray-700 hover:text-indigo-600 font-medium relative group py-2">
-                    Home
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#events" class="text-gray-700 hover:text-indigo-600 font-medium relative group py-2">
-                    Events
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="/aboutLearn3.html" class="text-gray-700 hover:text-indigo-600 font-medium relative group py-2">
-                    About
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-            </div>
-        </nav>
-        
-        <!-- Login/User Profile -->
-        <!-- <div class="flex items-center">
-            <div id="g_id_onload"
-                 data-client_id="906801802809-7svnmj539qcgv4ed2128c5uclnbgv5qt.apps.googleusercontent.com"
-                 data-context="signin"
-                 data-callback="handleCredentialResponse">
-            </div>
-            <div class="g_id_signin"
-                 data-type="standard"
-                 data-size="medium"
-                 data-theme="outline"
-                 data-text="signin"
-                 data-shape="pill"
-                 data-logo_alignment="left">
-            </div>
-            <div id="user-profile" class="hidden"></div>
-        </div> -->
-        
-        <!-- Mobile Menu Button -->
-        <button class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50" id="mobile-menu-button" aria-label="Menu">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-        </button>
+<!-- Innovative Header -->
+<header class="fixed top-0 z-50 w-full transition-all duration-500" id="main-header">
+    <!-- Glassmorphism background with gradient -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/20 via-indigo-900/30 to-purple-900/20 backdrop-blur-xl border-b border-white/10"></div>
+    
+    <!-- Animated background particles -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute w-2 h-2 bg-cyan-400 rounded-full opacity-60 animate-float" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="absolute w-1 h-1 bg-purple-400 rounded-full opacity-40 animate-float" style="top: 60%; left: 80%; animation-delay: 2s;"></div>
+        <div class="absolute w-1.5 h-1.5 bg-pink-400 rounded-full opacity-50 animate-float" style="top: 40%; left: 30%; animation-delay: 1s;"></div>
     </div>
     
-    <!-- Mobile menu with improved animation -->
-    <div class="md:hidden hidden bg-white py-2 shadow-inner transform transition-all duration-300 opacity-0 -translate-y-4" id="mobile-menu">
-        <div class="container mx-auto px-4 flex flex-col space-y-4 py-3">
-            <a href="#hero" class="text-gray-700 hover:text-indigo-600 font-medium px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors">Home</a>
-            <a href="#events" class="text-gray-700 hover:text-indigo-600 font-medium px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors">Events</a>
-            <a href="/aboutLearn3.html" class="text-gray-700 hover:text-indigo-600 font-medium px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors">About</a>
+    <div class="container mx-auto px-4 md:px-6 py-4 relative z-10">
+        <div class="flex justify-between items-center">
+            <!-- Enhanced Logo Section -->
+            <div class="flex items-center space-x-3 group cursor-pointer">
+                <div class="relative">
+                    <!-- Animated ring around logo -->
+                    <div class="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 rounded-full opacity-30 group-hover:opacity-60 transition duration-500 animate-spin-slow"></div>
+                    <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full opacity-40 group-hover:opacity-70 transition duration-300 animate-pulse"></div>
+                    <div class="relative w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition duration-300">
+                        <img src="./L (1).png" alt="L3 Logo" class="w-10 h-10 rounded-full">
+                    </div>
+                </div>
+                <div class="relative">
+                    <span class="font-black text-2xl text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-purple-200 tracking-tight group-hover:from-cyan-400 group-hover:to-purple-400 transition duration-500">
+                        Learn3 Studio
+                    </span>
+                    <!-- Underline animation -->
+                    <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-500 group-hover:w-full"></div>
+                </div>
+            </div>
+            
+            <!-- Futuristic Navigation -->
+            <nav class="hidden md:flex items-center justify-center">
+                <div class="relative">
+                    <!-- Glowing background for nav -->
+                    <div class="absolute inset-0 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10"></div>
+                    <div class="relative flex space-x-1 p-1">
+                        <a href="#hero" class="nav-link relative px-6 py-3 text-white/80 hover:text-white font-medium transition-all duration-300 rounded-xl group">
+                            <span class="relative z-10">Home</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 transition-all duration-300 group-hover:w-3/4"></div>
+                        </a>
+                        <a href="#events" class="nav-link relative px-6 py-3 text-white/80 hover:text-white font-medium transition-all duration-300 rounded-xl group">
+                            <span class="relative z-10">Events</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-300 group-hover:w-3/4"></div>
+                        </a>
+                        <a href="/aboutLearn3.html" class="nav-link relative px-6 py-3 text-white/80 hover:text-white font-medium transition-all duration-300 rounded-xl group">
+                            <span class="relative z-10">About</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-green-500/20 to-cyan-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-green-400 to-cyan-400 transition-all duration-300 group-hover:w-3/4"></div>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Futuristic Mobile Menu Button -->
+            <button class="md:hidden relative p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 transition-all duration-300 group" id="mobile-menu-button" aria-label="Menu">
+                <!-- Hamburger icon with animation -->
+                <div class="relative w-6 h-6">
+                    <span class="hamburger-line absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 transform transition duration-300 origin-center"></span>
+                    <span class="hamburger-line absolute top-2.5 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transform transition duration-300 origin-center"></span>
+                    <span class="hamburger-line absolute top-5 left-0 w-full h-0.5 bg-gradient-to-r from-pink-400 to-cyan-400 transform transition duration-300 origin-center"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Enhanced Mobile Menu -->
+        <div class="md:hidden hidden absolute top-full left-0 right-0 mt-2 mx-4 transform transition-all duration-500 opacity-0 -translate-y-4" id="mobile-menu">
+            <div class="relative bg-black/80 backdrop-blur-xl rounded-2xl border border-white/20 overflow-hidden">
+                <!-- Gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/50 via-purple-900/50 to-pink-900/50"></div>
+                
+                <!-- Menu items -->
+                <div class="relative z-10 py-6 px-4 space-y-2">
+                    <a href="#hero" class="block px-6 py-4 text-white/90 hover:text-white font-medium rounded-xl hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-blue-500/20 transition-all duration-300 transform hover:scale-105 group">
+                        <span class="flex items-center">
+                            <div class="w-2 h-2 bg-cyan-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            Home
+                        </span>
+                    </a>
+                    <a href="#events" class="block px-6 py-4 text-white/90 hover:text-white font-medium rounded-xl hover:bg-gradient-to-r hover:from-purple-500/20 hover:to-pink-500/20 transition-all duration-300 transform hover:scale-105 group">
+                        <span class="flex items-center">
+                            <div class="w-2 h-2 bg-purple-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            Events
+                        </span>
+                    </a>
+                    <a href="/aboutLearn3.html" class="block px-6 py-4 text-white/90 hover:text-white font-medium rounded-xl hover:bg-gradient-to-r hover:from-green-500/20 hover:to-cyan-500/20 transition-all duration-300 transform hover:scale-105 group">
+                        <span class="flex items-center">
+                            <div class="w-2 h-2 bg-green-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            About
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- Bottom gradient line -->
+                <div class="h-1 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400"></div>
+            </div>
         </div>
     </div>
 </header>
 
+<style>
+/* Enhanced floating animation */
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+    33% { transform: translateY(-10px) rotate(120deg); opacity: 0.8; }
+    66% { transform: translateY(5px) rotate(240deg); opacity: 0.4; }
+    100% { transform: translateY(0px) rotate(360deg); opacity: 0.6; }
+}
+
+/* Slow spin animation for logo ring */
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+}
+
+/* Scroll effect for header */
+.header-scrolled {
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Active navigation state */
+.nav-link.active {
+    color: #60A5FA;
+}
+
+.nav-link.active::after {
+    width: 75%;
+    opacity: 1;
+}
+
+/* Hamburger animation states */
+.mobile-menu-open .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-open .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Glassmorphism effects */
+.glass-morphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover effects for interactive elements */
+.nav-link:hover {
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .animate-float {
+        display: none; /* Hide floating particles on mobile for performance */
+    }
+}
+</style>
+
 <script>
-// Enhanced mobile menu animation
+// Enhanced mobile menu functionality with smooth animations
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
+    const header = document.getElementById('main-header');
+    let isMenuOpen = false;
     
+    // Mobile menu toggle
     if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function() {
-            if (mobileMenu.classList.contains('hidden')) {
+        mobileMenuButton.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent event from bubbling
+            
+            if (!isMenuOpen) {
                 // Show menu
+                isMenuOpen = true;
+                mobileMenuButton.classList.add('mobile-menu-open');
                 mobileMenu.classList.remove('hidden');
-                // Use setTimeout to allow the browser to process the display change before animating
+                // Use setTimeout to allow the browser to process the display change
                 setTimeout(() => {
                     mobileMenu.classList.remove('opacity-0', '-translate-y-4');
+                    mobileMenu.classList.add('opacity-100', 'translate-y-0');
                 }, 10);
             } else {
                 // Hide menu
+                closeMenu();
+            }
+        });
+        
+        function closeMenu() {
+            if (isMenuOpen) {
+                isMenuOpen = false;
+                mobileMenuButton.classList.remove('mobile-menu-open');
+                mobileMenu.classList.remove('opacity-100', 'translate-y-0');
                 mobileMenu.classList.add('opacity-0', '-translate-y-4');
                 // Wait for animation to complete before hiding
                 setTimeout(() => {
                     mobileMenu.classList.add('hidden');
-                }, 300);
+                }, 500);
+            }
+        }
+        
+        // Close mobile menu when clicking on links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (isMenuOpen && !mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                closeMenu();
             }
         });
         
-        // Close mobile menu when clicking on a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.add('opacity-0', '-translate-y-4');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300);
-            });
+        // Prevent menu clicks from closing the menu
+        mobileMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
         });
     }
+    
+    // Header scroll effect
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+            header.classList.add('header-scrolled');
+        } else {
+            header.classList.remove('header-scrolled');
+        }
+        
+        // Hide/show header on scroll
+        if (scrollTop > lastScrollTop && scrollTop > 200) {
+            // Scrolling down - hide header
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            // Scrolling up - show header
+            header.style.transform = 'translateY(0)';
+        }
+        lastScrollTop = scrollTop;
+    });
+    
+    // Active navigation highlighting
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+    
+    function highlightActiveNav() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', highlightActiveNav);
+    
+    // Smooth scrolling for navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
 });
 </script>
+
 
 <!-- Hero Section -->
 <!-- Hero Section -->
@@ -186,14 +389,17 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     
     <div class="container mx-auto px-6 lg:px-12 relative z-10">
+        <br>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             <!-- Text Content -->
             <div class="text-center lg:text-left lg:pr-8">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                     Explore Tomorrow's Tech Today
                 </h1>
-                <p class="text-xl text-indigo-100 mb-8">
+                <!-- <p class="text-xl text-indigo-100 mb-8">
                     Learn3 Studio hosts hands-on workshops, immersive events, and collaborative sessions that dive into emerging technologies like blockchain, AI, and modern web development. Join us to learn, build, and innovate with the community.
+                </p> -->
+                <p class="text-xl text-indigo-100 mb-8">Simple, sharp, and action-driven.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
@@ -282,161 +488,395 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
     <!-- Announcement Section with Right-to-Left Style -->
-<section class="py-12 bg-gradient-to-r from-indigo-900 to-purple-900 text-white overflow-hidden relative">
-    <div class="container mx-auto px-4">
-      <div class="max-w-6xl mx-auto relative">
-        <!-- Decorative elements -->
-        <div class="absolute -top-10 -right-20 w-40 h-40 bg-indigo-600 rounded-full opacity-20"></div>
-        <div class="absolute bottom-10 -left-10 w-24 h-24 bg-purple-500 rounded-full opacity-20"></div>
-        
-        <!-- Main content with right-to-left style -->
-        <div class="flex flex-col md:flex-row items-center">
-          <!-- Left side image/icon -->
-          <div class="md:w-2/5 mb-8 md:mb-0 md:order-2">
-            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg transform rotate-2 hover:rotate-0 transition-all duration-300">
-              <div class="text-center">
-                <div class="text-6xl mb-4 text-indigo-300">🚀</div>
-                <h3 class="text-2xl font-bold mb-2">Launch Special</h3>
-                <p class="text-indigo-200">Join our community clan to be part of learn3 studio </p>
+    <section class="py-12 bg-gradient-to-r from-indigo-900 to-purple-900 text-white overflow-hidden relative">
+        <div class="container mx-auto px-4">
+          <div class="max-w-6xl mx-auto relative">
+            <!-- Decorative elements -->
+            <div class="absolute -top-10 -right-20 w-40 h-40 bg-indigo-600 rounded-full opacity-20"></div>
+            <div class="absolute bottom-10 -left-10 w-24 h-24 bg-purple-500 rounded-full opacity-20"></div>
+            
+            <!-- Main content with right-to-left style -->
+            <div class="flex flex-col md:flex-row items-center">
+              <!-- Left side image/icon -->
+              <div class="md:w-2/5 mb-8 md:mb-0 md:order-2">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg transform rotate-2 hover:rotate-0 transition-all duration-300">
+                  <div class="text-center">
+                    <div class="text-6xl mb-4 text-indigo-300">🚀</div>
+                    <h3 class="text-2xl font-bold mb-2">Community Driven</h3>
+                    <p class="text-indigo-200">By the community, for the community</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Right side text (appears on left on desktop) -->
+              <div class="md:w-3/5 md:pr-12 md:order-1">
+                <h2 class="text-3xl font-bold mb-6 text-left">Learn3 Studio Has Launched!</h2>
+                
+                <div class="space-y-6">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                      <span class="font-bold">1</span>
+                    </div>
+                    <p class="text-left">
+                      <span class="font-semibold text-indigo-300">Learn3 Studio launched</span> with the aim to conduct exciting and insightful events that bridge the gap between cutting-edge technology and practical learning.
+                    </p>
+                  </div>
+                  
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                      <span class="font-bold">2</span>
+                    </div>
+                    <p class="text-left">
+                      <span class="font-semibold text-indigo-300">Join our community</span> and recommend what you're looking for — your input shapes our event calendar and helps us create content that truly matters to you.
+                    </p>
+                  </div>
+                  
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                      <span class="font-bold">3</span>
+                    </div>
+                    <p class="text-left">
+                      <span class="font-semibold text-indigo-300">Learn3 for the community, by the community, from the community</span> — we strongly believe in the power of collective learning and knowledge sharing.
+                    </p>
+                  </div>
+                  
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                      <span class="font-bold">4</span>
+                    </div>
+                    <p class="text-left">
+                      We're <span class="font-semibold text-indigo-300">aiming to provide periodic engaging events</span> to help bootstrap your tech journey and get insightful information on emerging technologies.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <!-- Right side text (appears on left on desktop) -->
-          <div class="md:w-3/5 md:pr-12 md:order-1">
-            <h2 class="text-3xl font-bold mb-6 text-left">Learn3 Studio Has Kickstarted!</h2>
-            
-            <div class="space-y-6">
-              <div class="flex items-start">
-                <div class="flex-shrink-0 w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                  <span class="font-bold">1</span>
-                </div>
-                <p class="text-left">
-                  We've launched with a range of <span class="font-semibold text-indigo-300">open events</span> available to everyone! Browse our initial offerings above.
-                </p>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="flex-shrink-0 w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                  <span class="font-bold">2</span>
-                </div>
-                <p class="text-left">
-                  Events will be scheduled based on <span class="font-semibold text-indigo-300">community voting</span> — your voice matters in what we teach first!
-                </p>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="flex-shrink-0 w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                  <span class="font-bold">3</span>
-                </div>
-                <p class="text-left">
-                  Each course delivers <span class="font-semibold text-indigo-300">in-depth knowledge from industry experts</span>
-                </p>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="flex-shrink-0 w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                  <span class="font-bold">4</span>
-                </div>
-                <p class="text-left">
-                  stay tuned for cutting-edge content that transforms your skills!
-                </p>
-              </div>
-            </div>
-            
-            <!-- <div class="mt-8 flex items-center space-x-4">
-              <a href="#courses" class="px-6 py-3 bg-white text-indigo-700 font-semibold rounded-lg hover:bg-indigo-50 transition duration-300">
-                Explore Events
-              </a>
-              <a href="#voting" class="flex items-center text-white hover:text-indigo-300 transition duration-300">
-                Vote Now <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-              </a>
-            </div> -->
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="relative py-16 overflow-hidden bg-indigo-900 text-white">
-    <!-- Decorative SVG background elements -->
-    <svg class="absolute top-0 right-0 w-2/3 h-full text-indigo-800 opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <path fill="currentColor" d="M42.9,-68.5C54.8,-62.2,63.2,-48.4,69.2,-34.1C75.2,-19.8,78.7,-4.9,75.8,8.9C72.9,22.8,63.5,35.7,52.6,45.9C41.7,56.1,29.2,63.7,15.1,69.2C1,74.8,-14.7,78.3,-31.1,75.6C-47.6,72.9,-64.8,64.1,-74.1,50.2C-83.3,36.3,-84.6,17.2,-80.5,0.8C-76.4,-15.6,-67,-29.5,-56.2,-40.2C-45.4,-50.9,-33.2,-58.5,-20.4,-63.5C-7.6,-68.5,5.8,-70.9,19.8,-72.3C33.8,-73.8,48.3,-74.4,42.9,-68.5Z" transform="translate(100 100)" />
-    </svg>
-    
-    <div class="absolute bottom-0 left-0 w-full opacity-10">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,186.7C960,192,1056,224,1152,229.3C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    <!-- Discord Community Section -->
+<section class="relative py-20 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0">
+        <!-- Floating shapes -->
+        <div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full opacity-10 animate-pulse"></div>
+        <div class="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-r from-purple-400 to-pink-500 transform rotate-45 opacity-10 animate-bounce"></div>
+        <div class="absolute top-1/2 right-1/4 w-16 h-16 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-15 animate-ping"></div>
+        
+        <!-- Discord-themed circuit paths -->
+        <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 600">
+            <path class="animate-dash" stroke="#5865F2" stroke-width="2" fill="none" 
+                  d="M0,300 Q250,100 500,300 T1000,300" 
+                  stroke-dasharray="10,5"/>
+            <path class="animate-dash-reverse" stroke="#7289DA" stroke-width="2" fill="none" 
+                  d="M0,200 Q250,400 500,200 T1000,200" 
+                  stroke-dasharray="15,10"/>
+            <circle class="animate-pulse" cx="250" cy="200" r="4" fill="#5865F2"/>
+            <circle class="animate-pulse" cx="500" cy="300" r="4" fill="#7289DA" style="animation-delay: 1s"/>
+            <circle class="animate-pulse" cx="750" cy="200" r="4" fill="#EB459E" style="animation-delay: 2s"/>
         </svg>
-    </div>
-    
-    <!-- Grid pattern -->
-    <div class="absolute inset-0 grid grid-cols-6 opacity-5">
-        <div class="border-r border-white"></div>
-        <div class="border-r border-white"></div>
-        <div class="border-r border-white"></div>
-        <div class="border-r border-white"></div>
-        <div class="border-r border-white"></div>
-    </div>
-    
-    <!-- Dots pattern -->
-    <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
-    
-    <!-- Main content -->
-    <div class="container mx-auto px-4 relative z-10">
-        <div class="flex flex-col md:flex-row items-center max-w-5xl mx-auto">
-            <!-- Left side: NFT image -->
-            <div class="md:w-1/2 mb-8 md:mb-0">
-                <div class="relative">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-lg opacity-75 blur-lg animate-pulse"></div>
-                    <div class="relative bg-indigo-800 rounded-lg p-2">
-                        <img src="./l3h.png" alt="Limited Edition NFT" class="rounded w-full">
-                        <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">LIMITED</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Right side: Text content -->
-            <div class="md:w-1/2 md:pl-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get Our Limited NFT Airdrop</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 mb-6"></div>
-                <p class="text-lg text-indigo-100 mb-6">Participate in Learn3 Studio events and become an active member of our community!
-                    As a token of appreciation, exclusive Learn3 Studio NFTs will be airdropped to participants as proof of participation. These limited-edition digital collectibles unlock special access to premium content and future benefits.</p>
-                
-                <div class="mb-8">
-                    <div class="flex items-center mb-3">
-                        <div class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <p class="text-indigo-100">Limited edition collection</p>
-                    </div>
-                    <div class="flex items-center mb-3">
-                        <div class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <p class="text-indigo-100">Exclusive event access</p>
-                    </div>
-                    <!-- <div class="flex items-center">
-                        <div class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <p class="text-indigo-100">Premium content unlocks</p>
-                    </div> -->
-                </div>
-                
-                <!-- <a href="#events" class="inline-block px-8 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-indigo-700 transition duration-300 shadow-lg">
-                    View Upcoming Events
-                </a> -->
+        
+        <!-- Matrix-style grid -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="grid grid-cols-12 h-full">
+                <div class="border-r border-indigo-400"></div>
+                <div class="border-r border-indigo-400"></div>
+                <div class="border-r border-indigo-400"></div>
+                <div class="border-r border-indigo-400"></div>
+                <div class="border-r border-indigo-400"></div>
+                <div class="border-r border-indigo-400"></div>
+                <div class="border-r border-indigo-400"></div>
+                <div class="border-r border-indigo-400"></div>
+                <div class="border-r border-indigo-400"></div>
+                <div class="border-r border-indigo-400"></div>
+                <div class="border-r border-indigo-400"></div>
             </div>
         </div>
     </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- Enhanced Header -->
+        <div class="text-center mb-16">
+            <div class="inline-block relative">
+                <h2 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mb-4">
+                    Join Our Discord Community
+                </h2>
+                <!-- Holographic glow effect -->
+                <div class="absolute inset-0 text-4xl md:text-6xl font-black text-indigo-400 opacity-20 blur-sm animate-pulse">
+                    Join Our Discord Community
+                </div>
+            </div>
+            <p class="text-xl text-white/80 mt-6 max-w-3xl mx-auto">
+                Connect with fellow tech enthusiasts, get real-time support, and be part of our vibrant learning community
+            </p>
+            <!-- Progress indicator -->
+            <div class="mt-8 flex justify-center">
+                <div class="w-24 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full animate-pulse"></div>
+            </div>
+        </div>
+
+        <!-- Main Discord Content -->
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Side: Discord Features -->
+                <div class="space-y-8">
+                    <div class="group relative">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+                        
+                        <div class="relative bg-black/30 backdrop-blur-md rounded-3xl p-8 border border-white/10">
+                            <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                                <div class="w-10 h-10 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full flex items-center justify-center mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </div>
+                                What You'll Find
+                            </h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start group/item">
+                                    <div class="w-8 h-8 bg-indigo-500/20 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:bg-indigo-500/40 transition duration-300">
+                                        <span class="text-indigo-400 text-sm">🚀</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-semibold mb-1">Real-time Tech Discussions</h4>
+                                        <p class="text-white/70 text-sm">Chat with developers, ask questions, and share insights about blockchain, AI, and emerging tech</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start group/item">
+                                    <div class="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:bg-purple-500/40 transition duration-300">
+                                        <span class="text-purple-400 text-sm">🔬</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-semibold mb-1">Live Workshop Support</h4>
+                                        <p class="text-white/70 text-sm">Get help during events, collaborate on projects, and continue discussions after sessions</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start group/item">
+                                    <div class="w-8 h-8 bg-pink-500/20 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:bg-pink-500/40 transition duration-300">
+                                        <span class="text-pink-400 text-sm">💡</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-semibold mb-1">Project Collaboration</h4>
+                                        <p class="text-white/70 text-sm">Find teammates, showcase your builds, and get feedback from the community</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start group/item">
+                                    <div class="w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center mr-4 mt-1 group-hover/item:bg-cyan-500/40 transition duration-300">
+                                        <span class="text-cyan-400 text-sm">🎯</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-semibold mb-1">Exclusive Content</h4>
+                                        <p class="text-white/70 text-sm">Early access to resources, behind-the-scenes content, and community-only events</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side: Discord Join Card -->
+                <div class="group relative">
+                    <!-- Glowing border effect -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+                    
+                    <div class="relative bg-black/30 backdrop-blur-md rounded-3xl p-8 border border-white/10 text-center transform transition-all duration-500 hover:scale-105">
+                        <!-- Discord Logo -->
+                        <div class="flex items-center justify-center mb-8">
+                            <div class="relative">
+                                <!-- Animated rings around Discord logo -->
+                                <div class="absolute -inset-4 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full opacity-20 animate-spin-slow"></div>
+                                <div class="absolute -inset-2 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-30 animate-pulse"></div>
+                                <div class="relative w-20 h-20 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
+                                    <!-- Discord SVG Icon -->
+                                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0190 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-3xl font-bold text-white mb-4">Ready to Connect?</h3>
+                        <p class="text-white/80 mb-8 text-lg">
+                            Join developers, learners, and tech enthusiasts in our Discord community
+                        </p>
+                        
+                        <!-- Community Stats -->
+                        <div class="grid grid-cols-3 gap-4 mb-8">
+                            <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                                <div class="text-2xl font-bold text-indigo-400">growing</div>
+                                <div class="text-white/60 text-sm">Members</div>
+                            </div>
+                            <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                                <div class="text-2xl font-bold text-purple-400">24/7</div>
+                                <div class="text-white/60 text-sm">Active</div>
+                            </div>
+                            <!-- <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                                <div class="text-2xl font-bold text-pink-400"></div>
+                                <div class="text-white/60 text-sm">Channels</div>
+                            </div> -->
+                        </div>
+                        
+                        <!-- Join Button -->
+                        <a href="https://discord.gg/arjqVq82" 
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="group/btn inline-flex items-center bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-purple-600 hover:to-indigo-500 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/50">
+                            <svg class="w-6 h-6 mr-3 group-hover/btn:animate-bounce" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0190 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                            </svg>
+                            Join Discord Community
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                        
+                        <p class="text-white/60 text-sm mt-4">
+                            Free to join • Always open • Instant access
+                        </p>
+                        
+                        <!-- Channel-specific call-out -->
+                        <div class="mt-6 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 backdrop-blur-sm rounded-xl p-4 border border-indigo-400/30">
+                            <div class="flex items-center justify-center mb-2">
+                                <span class="text-lg mr-2">📡</span>
+                                <span class="font-semibold text-indigo-300">#event-central</span>
+                            </div>
+                            <p class="text-white/80 text-sm">
+                                After joining, head to <span class="font-semibold text-purple-300">#event-central</span> for workshop updates, announcements, and event discussions!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom CTA -->
+        <div class="text-center mt-16">
+            <div class="inline-block bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <p class="text-white/80 mb-4">
+                    <span class="font-semibold text-indigo-300">Pro tip:</span> Join before our next workshop to get exclusive prep materials and connect with other attendees!
+                </p>
+                <div class="flex items-center justify-center text-sm text-white/60">
+                    <div class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                    <span>Community online now</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        @keyframes dash {
+            to { stroke-dashoffset: -50; }
+        }
+        
+        @keyframes dash-reverse {
+            to { stroke-dashoffset: 50; }
+        }
+        
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .animate-dash {
+            animation: dash 8s linear infinite;
+        }
+        
+        .animate-dash-reverse {
+            animation: dash-reverse 10s linear infinite;
+        }
+        
+        .animate-spin-slow {
+            animation: spin-slow 8s linear infinite;
+        }
+    </style>
 </section>
+    <section class="relative py-16 overflow-hidden bg-indigo-900 text-white">
+        <!-- Decorative SVG background elements -->
+        <svg class="absolute top-0 right-0 w-2/3 h-full text-indigo-800 opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M42.9,-68.5C54.8,-62.2,63.2,-48.4,69.2,-34.1C75.2,-19.8,78.7,-4.9,75.8,8.9C72.9,22.8,63.5,35.7,52.6,45.9C41.7,56.1,29.2,63.7,15.1,69.2C1,74.8,-14.7,78.3,-31.1,75.6C-47.6,72.9,-64.8,64.1,-74.1,50.2C-83.3,36.3,-84.6,17.2,-80.5,0.8C-76.4,-15.6,-67,-29.5,-56.2,-40.2C-45.4,-50.9,-33.2,-58.5,-20.4,-63.5C-7.6,-68.5,5.8,-70.9,19.8,-72.3C33.8,-73.8,48.3,-74.4,42.9,-68.5Z" transform="translate(100 100)" />
+        </svg>
+        
+        <div class="absolute bottom-0 left-0 w-full opacity-10">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,186.7C960,192,1056,224,1152,229.3C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+        
+        <!-- Grid pattern -->
+        <div class="absolute inset-0 grid grid-cols-6 opacity-5">
+            <div class="border-r border-white"></div>
+            <div class="border-r border-white"></div>
+            <div class="border-r border-white"></div>
+            <div class="border-r border-white"></div>
+            <div class="border-r border-white"></div>
+        </div>
+        
+        <!-- Dots pattern -->
+        <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <!-- Main content -->
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center max-w-5xl mx-auto">
+                <!-- Left side: NFT image -->
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-lg opacity-75 blur-lg animate-pulse"></div>
+                        <div class="relative bg-indigo-800 rounded-lg p-2">
+                            <img src="./l3h.png" alt="Proof of Attendance NFT" class="rounded w-full">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">COLLECTIBLE</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right side: Text content -->
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        <span class="line-through text-gray-400 opacity-60">Get Our Limited NFT Airdrop</span>
+                    </h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+                        Get Proof of Attendance NFTs
+                    </h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 mb-6"></div>
+                    <p class="text-lg text-indigo-100 mb-6">
+                        Mark your journey with us through unique digital collectibles! When you participate in Learn3 Studio events, you'll receive beautiful Proof of Attendance NFTs that commemorate your learning milestones and showcase your commitment to staying ahead in tech.
+                    </p>
+                    
+                    <div class="mb-8">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <p class="text-indigo-100">Commemorate your  journey</p>
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <p class="text-indigo-100">Showcase your tech commitment</p>
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <p class="text-indigo-100">Build your digital portfolio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <section class="relative py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 overflow-hidden">
     <!-- Animated Background Elements -->
@@ -872,23 +1312,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
             
-         
-        </div>
-<!-- Auth Required Overlay -->
-
-
-
-           <!-- Call to Action Footer -->
-           <div class="text-center mt-16">
-            <div class="inline-block bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-gray-200/50">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">Ready to Start Your Journey?</h3>
-                <p class="text-gray-600 mb-6">Join our community of innovators and stay updated on new events</p>
-                <a href="#newsletter" class="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-8 rounded-xl hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Get Notified
-                </a>
+            <!-- Call to Action Footer -->
+            <div class="text-center mt-16">
+                <div class="inline-block bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-gray-200/50">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Ready to Start Your Journey?</h3>
+                    <p class="text-gray-600 mb-6">Join our community of innovators and stay updated on new events</p>
+                    <a href="#newsletter" class="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-8 rounded-xl hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Get Notified
+                    </a>
+                </div>
             </div>
         </div>
         
@@ -923,10 +1358,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         </style>
     </section>
-
-
-
-    
     <!-- Voting Section -->
     <section id="about" class="py-24 relative bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 overflow-hidden">
         <!-- Animated Background Elements -->
@@ -980,8 +1411,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
                 <p class="text-xl text-white/80 mt-6 max-w-3xl mx-auto">
-                    Pioneering the future of technology education through immersive Web3 and AI experiences
-                </p>
+                    Pioneering the future of technology education through immersive experiences.                </p>
                 <!-- Progress indicator -->
                 <div class="mt-8 flex justify-center">
                     <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse"></div>
@@ -989,7 +1419,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
     
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
-                <!-- Mission Card -->
+                <!-- Techedilite Initiative Card -->
                 <div class="group relative">
                     <!-- Glowing border effect -->
                     <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
@@ -999,19 +1429,19 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="flex items-center mb-6">
                             <div class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mr-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H9m0 0H5m0 0h2M7 7h10M7 11h10M7 15h10" />
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-white">Our Mission</h3>
+                            <h3 class="text-2xl font-bold text-white">An Initiative by Techedilite</h3>
                         </div>
                         
                         <p class="text-white/80 mb-8 text-lg leading-relaxed">
-                            Our mission is to make cutting-edge technology accessible to everyone. We believe in learning by doing and provide interactive events that focus on practical applications of theoretical concepts.
+                            Learn3 Studio is proudly supported by <span class="font-semibold text-cyan-300">Techedilite</span>, a leading software development firm. We bring extensive tech expertise to deliver high-quality events and meaningful discussions that matter to the developer community.
                         </p>
                         
                         <h4 class="text-xl font-semibold text-white mb-6 flex items-center">
                             <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3 animate-pulse"></span>
-                            What Makes Us Different
+                            Our Tech Expertise
                         </h4>
                         
                         <div class="space-y-4">
@@ -1021,7 +1451,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
-                                <span class="text-white/90 group-hover/item:text-white transition duration-300">Hands-on practical learning approach</span>
+                                <span class="text-white/90 group-hover/item:text-white transition duration-300">Real-world software development experience</span>
                             </div>
                             
                             <div class="flex items-center group/item">
@@ -1030,7 +1460,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
-                                <span class="text-white/90 group-hover/item:text-white transition duration-300">Industry expert instructors</span>
+                                <span class="text-white/90 group-hover/item:text-white transition duration-300">Industry-standard practices and methodologies</span>
                             </div>
                             
                             <div class="flex items-center group/item">
@@ -1039,7 +1469,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
-                                <span class="text-white/90 group-hover/item:text-white transition duration-300">Community-driven event selection</span>
+                                <span class="text-white/90 group-hover/item:text-white transition duration-300">Cutting-edge technology insights</span>
                             </div>
                             
                             <div class="flex items-center group/item">
@@ -1048,7 +1478,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
-                                <span class="text-white/90 group-hover/item:text-white transition duration-300">Live interaction and networking opportunities</span>
+                                <span class="text-white/90 group-hover/item:text-white transition duration-300">Practical approach to complex technical discussions</span>
                             </div>
                         </div>
                     </div>
@@ -1071,7 +1501,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         
                         <p class="text-white/80 mb-8 text-lg leading-relaxed">
-                            Subscribe to stay updated on breakthrough technologies and exclusive events.                        </p>
+                            Subscribe to stay updated on breakthrough technologies and exclusive events backed by professional software development expertise.
+                        </p>
                         
                         <!-- Newsletter signup -->
                         <div id="newsletter" class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
@@ -1102,22 +1533,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </button>
                             </form>
                         </div>
-                        
-                        <!-- Community stats -->
-                        <!-- <div class="mt-8 grid grid-cols-3 gap-4">
-                            <div class="text-center">
-                                <div class="text-2xl font-bold text-cyan-400">500+</div>
-                                <div class="text-white/60 text-sm">Members</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-2xl font-bold text-purple-400">50+</div>
-                                <div class="text-white/60 text-sm">Events</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-2xl font-bold text-pink-400">10+</div>
-                                <div class="text-white/60 text-sm">Technologies</div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -1468,7 +1883,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <!-- Glowing ring around logo -->
                         <div class="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 rounded-full opacity-30 group-hover:opacity-60 transition duration-500 animate-pulse"></div>
                         <div class="relative w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition duration-300">
-                            <img src="./L.png" alt="L3 Logo" class="w-10 h-10 rounded-full">
+                            <img src="./L (1).png" alt="L3 Logo" class="w-10 h-10 rounded-full">
                         </div>
                     </div>
                     <div>
@@ -1517,7 +1932,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <!-- Copyright -->
                 <div class="border-t border-gray-700/50 w-full max-w-lg pt-8 text-center">
                     <p class="text-gray-500 text-sm">
-                        &copy; TECHEDILITE. Innovating the future of technology education.
+                        &copy; TECHEDILITE. Simple, sharp, and action-driven.
                     </p>
                 </div>
             </div>
