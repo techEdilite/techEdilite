@@ -4715,17 +4715,40 @@
 
 <!-- Chat Module -->
 <div id="chatModule" class="fixed bottom-24 left-4 sm:left-6 z-50">
-  <button id="chatToggle" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-blue-300">
-    <svg id="chatIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+  <button id="chatToggle" class="group relative overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-full p-4 shadow-xl transition-all duration-500 transform hover:scale-110 hover:rotate-6 focus:outline-none focus:ring-4 focus:ring-purple-300 animate-float">
+    
+    <!-- Animated Background Glow -->
+    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 opacity-30 animate-spin-slow"></div>
+    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-pink-400 via-purple-500 to-cyan-500 opacity-20 animate-pulse"></div>
+    
+    <!-- Floating Sparkles -->
+    <div class="absolute -top-1 -right-1 w-2 h-2 bg-yellow-300 rounded-full animate-ping"></div>
+    <div class="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-cyan-300 rounded-full animate-bounce delay-200"></div>
+    <div class="absolute top-0 left-0 w-1 h-1 bg-pink-300 rounded-full animate-pulse delay-500"></div>
+    
+    <!-- Notification Badge -->
+    <div class="absolute -top-2 -right-2 w-5 h-5 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg animate-bounce border-2 border-white">
+      !
+    </div>
+    
+    <!-- Main Chat Icon -->
+    <svg id="chatIcon" class="relative w-6 h-6 transition-all duration-300 group-hover:scale-110 animate-wiggle" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
     </svg>
-    <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    
+    <!-- Close Icon -->
+    <svg id="closeIcon" class="relative w-6 h-6 hidden transition-all duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
     </svg>
+    
+    <!-- Ripple Effect -->
+    <div class="absolute inset-0 rounded-full border-2 border-white/20 animate-ping-slow"></div>
+    <div class="absolute inset-0 rounded-full border border-white/10 animate-pulse"></div>
   </button>
 
   <!-- Chat Window -->
-<div id="chatWindow" class="hidden absolute bottom-16 left-0 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">    <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4">
+  <div id="chatWindow" class="hidden absolute bottom-16 left-0 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
+    <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4">
       <div class="flex items-center space-x-3">
         <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -4783,7 +4806,7 @@
 </div>
 
 <style>
-/* Chat Module Animations */
+/* Enhanced Catchy Chat Icon Animations */
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -4824,6 +4847,98 @@
   }
 }
 
+/* Catchy Icon Specific Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%, 100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes rainbow {
+  0%, 100% {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  }
+  25% {
+    background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+  }
+  50% {
+    background: linear-gradient(45deg, #45b7d1, #96ceb4);
+  }
+  75% {
+    background: linear-gradient(45deg, #96ceb4, #ff6b6b);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(139, 69, 19, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(139, 69, 19, 0.8), 0 0 40px rgba(139, 69, 19, 0.3);
+  }
+}
+
+/* Apply animations */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 4s linear infinite;
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-rainbow {
+  animation: rainbow 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Original animations */
 .chat-show {
   animation: slideInUp 0.3s ease-out forwards;
 }
@@ -4856,8 +4971,6 @@
 }
 
 /* Responsive adjustments */
-/* Responsive adjustments */
-/* Responsive adjustments */
 @media (max-width: 640px) {
   #chatModule {
     left: 1rem !important;
@@ -4870,11 +4983,11 @@
     right: auto;
   }
 }
+
 /* Typing indicator */
 .typing-indicator {
   display: flex;
   align-items: center;
-  
 }
 
 .typing-dot {
@@ -4903,6 +5016,42 @@
     opacity: 1;
   }
 }
+
+/* Enhanced hover effects for the icon */
+#chatToggle:hover {
+  animation: float 0.6s ease-in-out infinite, glow-pulse 2s ease-in-out infinite;
+}
+
+#chatToggle:hover #chatIcon {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+/* Add extra sparkle effects on hover */
+#chatToggle:hover::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ffd700, #ffff00);
+  border-radius: 50%;
+  animation: ping 1s infinite;
+  opacity: 0.8;
+}
+
+#chatToggle:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: -2px;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #00ffff, #0080ff);
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+  opacity: 0.6;
+}
 </style>
 
 <script>
@@ -4913,6 +5062,7 @@ class ChatModule {
     this.userId = this.generateUserId();
     this.initializeElements();
     this.bindEvents();
+    this.addCatchyEffects();
   }
 
   generateUserId() {
@@ -4930,6 +5080,36 @@ class ChatModule {
     this.closeIcon = document.getElementById('closeIcon');
     this.sendIcon = document.getElementById('sendIcon');
     this.loadingIcon = document.getElementById('loadingIcon');
+  }
+
+  addCatchyEffects() {
+    // Add random sparkle effects every few seconds
+    setInterval(() => {
+      this.addSparkleEffect();
+    }, 3000);
+
+    // Add attention-grabbing pulse every 10 seconds
+    setInterval(() => {
+      this.chatToggle.classList.add('animate-pulse');
+      setTimeout(() => {
+        this.chatToggle.classList.remove('animate-pulse');
+      }, 1000);
+    }, 10000);
+  }
+
+  addSparkleEffect() {
+    if (this.isOpen) return; // Don't add sparkles when chat is open
+
+    const sparkle = document.createElement('div');
+    sparkle.className = 'absolute w-1 h-1 bg-yellow-300 rounded-full animate-ping pointer-events-none';
+    sparkle.style.top = Math.random() * 20 - 10 + 'px';
+    sparkle.style.left = Math.random() * 20 - 10 + 'px';
+    
+    this.chatToggle.appendChild(sparkle);
+    
+    setTimeout(() => {
+      sparkle.remove();
+    }, 1000);
   }
 
   bindEvents() {
