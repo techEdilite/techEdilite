@@ -884,7 +884,6 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="hero-container">
     <div class="hero-content">
       
-      
       <h1 class="hero-heading">
         <span class="hero-line">Accelerate</span>
         <span class="hero-line">Digital</span>
@@ -898,28 +897,27 @@ document.addEventListener('DOMContentLoaded', function() {
       
       <div class="hero-actions">
         <button class="btn-professional btn-primary" onclick="openCalendly()">
-  Schedule Consultation
-  <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <path d="M4 10h12m0 0l-4-4m4 4l-4 4"
-      stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</button>
-
+          Schedule Consultation
+          <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10h12m0 0l-4-4m4 4l-4 4"
+              stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </div>
-     <!-- Calendly widget styles -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
-<!-- Calendly widget script -->
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+      <!-- Calendly widget styles -->
+      <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+      <!-- Calendly widget script -->
+      <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
 
-<script>
-  function openCalendly() {
-    Calendly.initPopupWidget({
-      url: 'https://calendly.com/techedilite/30min'
-    });
-  }
-</script>
+      <script>
+        function openCalendly() {
+          Calendly.initPopupWidget({
+            url: 'https://calendly.com/techedilite/30min'
+          });
+        }
+      </script>
 
       <div class="hero-stats">
         <div class="stat-item">
@@ -940,43 +938,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     
     <div class="hero-visual">
-      <div class="visual-grid">
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item grid-accent"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item grid-accent"></div>
-        <div class="grid-item"></div>
-      </div>
-      
-      <div class="visual-overlay">
-        <div class="overlay-card card-1">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="card-text">
-            <div class="card-title">Innovation</div>
-            <div class="card-value">+250%</div>
-          </div>
-        </div>
-        
-        <div class="overlay-card card-2">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2v20m0-20a9 9 0 019 9m-9-9a9 9 0 00-9 9m18 0a9 9 0 01-9 9m9-9H3m9 9a9 9 0 01-9-9" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="card-text">
-            <div class="card-title">Global Reach</div>
-            <div class="card-value">10+ Countries</div>
-          </div>
-        </div>
-      </div>
+      <img src="./Techedilite.png" alt="Techedilite" class="hero-image" style="border-radius: 10px;">
     </div>
   </div>
   
@@ -1255,6 +1217,9 @@ document.addEventListener('DOMContentLoaded', function() {
 .hero-visual {
   position: relative;
   height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   animation: fadeIn 1s ease-out 0.3s backwards;
 }
 
@@ -1267,128 +1232,23 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 }
 
-.visual-grid {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 1rem;
-  padding: 2rem;
+.hero-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
 }
 
-.grid-item {
-  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
-  border-radius: 12px;
-  border: 1px solid #E5E7EB;
-  transition: all 0.3s ease;
-  animation: gridFade 0.6s ease-out backwards;
-}
-
-.grid-item:nth-child(1) { animation-delay: 0.1s; }
-.grid-item:nth-child(2) { animation-delay: 0.15s; }
-.grid-item:nth-child(3) { animation-delay: 0.2s; }
-.grid-item:nth-child(4) { animation-delay: 0.25s; }
-.grid-item:nth-child(5) { animation-delay: 0.3s; }
-.grid-item:nth-child(6) { animation-delay: 0.35s; }
-.grid-item:nth-child(7) { animation-delay: 0.4s; }
-.grid-item:nth-child(8) { animation-delay: 0.45s; }
-.grid-item:nth-child(9) { animation-delay: 0.5s; }
-
-@keyframes gridFade {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  50% {
+    transform: translateY(-20px);
   }
-}
-
-.grid-accent {
-  background: linear-gradient(135deg, rgba(39, 89, 255, 0.1) 0%, rgba(58, 33, 168, 0.1) 100%);
-  border-color: rgba(39, 89, 255, 0.2);
-}
-
-/* Overlay Cards */
-.visual-overlay {
-  position: absolute;
-  inset: 0;
-}
-
-.overlay-card {
-  position: absolute;
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  border: 1px solid #E5E7EB;
-  transition: all 0.3s ease;
-  animation: cardFloat 1s ease-out backwards;
-}
-
-@keyframes cardFloat {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.overlay-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-}
-
-.card-1 {
-  top: 15%;
-  right: 10%;
-  animation-delay: 0.7s;
-}
-
-.card-2 {
-  bottom: 20%;
-  left: 5%;
-  animation-delay: 0.9s;
-}
-
-.card-icon {
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, #A527FF 0%, #6B21A8 100%);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.card-icon svg {
-  stroke: #ffffff;
-}
-
-.card-text {
-  flex: 1;
-}
-
-.card-title {
-  font-size: 0.875rem;
-  color: #6B7280;
-  margin-bottom: 0.25rem;
-  font-weight: 500;
-}
-
-.card-value {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #000000;
 }
 
 /* Responsive Design */
@@ -1434,27 +1294,8 @@ document.addEventListener('DOMContentLoaded', function() {
     display: none;
   }
   
-  .visual-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-  
-  .grid-item:nth-child(n+5) {
-    display: none;
-  }
-  
-  .overlay-card {
-    padding: 1rem;
-  }
-  
-  .card-1 {
-    top: 10%;
-    right: 5%;
-  }
-  
-  .card-2 {
-    bottom: 10%;
-    left: 5%;
+  .hero-visual {
+    height: 300px;
   }
 }
 
@@ -1501,31 +1342,6 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => ripple.remove(), 600);
     });
   });
-  
-  // Parallax effect for overlay cards
-  const hero = document.querySelector('.hero-professional');
-  const cards = document.querySelectorAll('.overlay-card');
-  
-  if (window.innerWidth > 768) {
-    hero.addEventListener('mousemove', function(e) {
-      const mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-      const mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-      
-      cards.forEach((card, index) => {
-        const speed = (index + 1) * 10;
-        const x = mouseX * speed;
-        const y = mouseY * speed;
-        
-        card.style.transform = `translate(${x}px, ${y}px)`;
-      });
-    });
-    
-    hero.addEventListener('mouseleave', function() {
-      cards.forEach(card => {
-        card.style.transform = 'translate(0, 0)';
-      });
-    });
-  }
   
   // Intersection Observer for animations
   const observerOptions = {
@@ -3588,7 +3404,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- Footer Bottom -->
     <div class="flex flex-col md:flex-row md:justify-between items-center text-sm text-gray-500">
-      <span>© 2026 <a href="/" class="hover:text-gray-900 transition-colors">Techedilite</a>. All rights reserved.</span>
+      <span>© 2026 <a href="/" class="hover:text-gray-900 transition-colors">TechEdilite</a>. All rights reserved.</span>
       <div class="flex space-x-6 mt-4 md:mt-0">
         <a href="privacyPolicy.html" class="hover:text-gray-900 transition-colors">Privacy Policy</a>
         <a href="termsService.html" class="hover:text-gray-900 transition-colors">Terms of Service</a>
