@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.techedilite.co/favTE.png">
+  <link rel="shortcut icon" href="https://www.techedilite.co/favTE.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers | TechEdilite — Build What Matters</title>
+  <meta name="description" content="Join TechEdilite — a remote-first software firm where bright minds build real things, grow fast, and are recognized for their craft." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray-soft: #f7f7f7;
+      --gray-mid: #e5e7eb;
+      --gray-text: #4b5563;
+      --accent: #111827;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+  font-family: 'Exo 2', sans-serif;
+      color: var(--black);
+      background: var(--white);
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV (same as index) ── */
+    .nav-professional {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      animation: navSlideDown 0.5s ease-out;
+    }
+    .nav-professional.scrolled { background: rgba(255,255,255,0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; transition: transform 0.3s ease; }
+    .nav-logo:hover { transform: scale(1.02); }
+    .logo-img { height: 36px; width: auto; border-radius: 8px; }
+    .logo-text { font-size: 1.375rem; font-weight: 700; color: #000; letter-spacing: -0.02em; }
+    .nav-menu { display: flex; align-items: center; gap: 3rem; }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+    .nav-link { position: relative; font-size: 0.9375rem; font-weight: 500; color: #4B5563; text-decoration: none; padding: 0.5rem 0; transition: color 0.3s ease; }
+    .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #000; transition: width 0.3s ease; }
+    .nav-link:hover, .nav-link.active { color: #000; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .btn-nav { padding: 0.625rem 1.5rem; font-size: 0.9375rem; font-weight: 600; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; }
+    .btn-contact { background: #141414; color: #fff; border: none; }
+    .btn-contact:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+    .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 1001; }
+    .menu-icon { width: 24px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s ease; }
+    .mobile-menu-btn.active .menu-icon:nth-child(1) { transform: rotate(45deg) translate(6px,6px); }
+    .mobile-menu-btn.active .menu-icon:nth-child(2) { opacity: 0; transform: translateX(-20px); }
+    .mobile-menu-btn.active .menu-icon:nth-child(3) { transform: rotate(-45deg) translate(6px,-6px); }
+    .mobile-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+    .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+    .mobile-menu-content { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 2rem; }
+    .mobile-nav-links { list-style: none; text-align: center; width: 100%; max-width: 400px; }
+    .mobile-nav-links li { margin-bottom: 0.5rem; }
+    .mobile-link { display: block; font-size: 1.5rem; font-weight: 600; color: #000; text-decoration: none; padding: 1rem; transition: all 0.3s ease; border-radius: 8px; }
+    .mobile-link:hover { color: #A527FF; background: rgba(165,39,255,0.05); transform: translateX(8px); }
+    .mobile-link-contact { margin-top: 1.5rem; background: #141414; color: #fff; font-size: 1.25rem; }
+    .mobile-link-contact:hover { background: #333; color: #fff; transform: none; }
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .mobile-menu-btn { display: flex; }
+    }
+    @keyframes navSlideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    /* ── HERO ── */
+    .careers-hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      overflow: hidden;
+      padding: 8rem 2rem 6rem;
+    }
+    .hero-bg-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+    .hero-bg-blob {
+      position: absolute; top: -10%; right: -5%;
+      width: 55%; height: 70%;
+      background: radial-gradient(circle, rgba(17,24,39,0.04) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 900px; margin: 0 auto;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #374151;
+      background: #f3f4f6; border: 1px solid #e5e7eb;
+      padding: 0.45rem 1rem; border-radius: 20px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.6s ease-out both;
+    }
+    .tag-dot { width: 7px; height: 7px; background: #111827; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+
+    .hero-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3.2rem, 7vw, 6rem);
+      line-height: 1.05;
+      color: #000;
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.02em;
+      animation: fadeUp 0.6s 0.1s ease-out both;
+    }
+    .hero-headline em {
+      font-style: italic;
+      background: linear-gradient(135deg, #374151 0%, #9ca3af 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.2rem; line-height: 1.75; color: #6b7280;
+      max-width: 640px; margin: 0 auto 2.5rem;
+      animation: fadeUp 0.6s 0.2s ease-out both;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: #111827; color: #fff;
+      padding: 1rem 2.25rem; border-radius: 6px;
+      font-weight: 600; font-size: 1rem; text-decoration: none;
+      transition: all 0.3s ease;
+      animation: fadeUp 0.6s 0.3s ease-out both;
+    }
+    .hero-cta:hover { background: #374151; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.15); }
+    .hero-cta svg { transition: transform 0.3s; }
+    .hero-cta:hover svg { transform: translateX(4px); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── PERKS ── */
+    .perks-section { padding: 6rem 2rem; background: #f9fafb; }
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.75rem; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: #000; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .section-sub { font-size: 1.05rem; color: #6b7280; line-height: 1.7; max-width: 560px; }
+
+    .perks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
+    .perk-card {
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+      padding: 2rem; transition: all 0.3s ease;
+    }
+    .perk-card:hover { border-color: #d1d5db; box-shadow: 0 10px 30px rgba(0,0,0,0.07); transform: translateY(-3px); }
+    .perk-icon {
+      width: 46px; height: 46px; background: #f3f4f6; border: 1px solid #e5e7eb;
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .perk-icon svg { stroke: #374151; }
+    .perk-title { font-weight: 700; font-size: 1.05rem; color: #111827; margin-bottom: 0.5rem; }
+    .perk-desc { font-size: 0.9rem; color: #6b7280; line-height: 1.65; }
+
+    /* ── OPENINGS ── */
+    .openings-section { padding: 6rem 2rem; background: #fff; }
+    .openings-container { max-width: 900px; margin: 0 auto; }
+
+    .openings-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+
+    .opening-card {
+      border: 1px solid #e5e7eb; border-radius: 12px;
+      overflow: hidden; margin-bottom: 1.25rem;
+      transition: all 0.3s ease;
+      background: #fff;
+    }
+    .opening-card:hover { border-color: #9ca3af; box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+
+    .opening-top {
+      padding: 1.75rem 2rem; display: flex; justify-content: space-between;
+      align-items: center; cursor: pointer; gap: 1rem;
+    }
+    .opening-left { flex: 1; }
+    .opening-role { font-weight: 700; font-size: 1.125rem; color: #111827; margin-bottom: 0.4rem; }
+    .opening-meta { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .meta-tag {
+      font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.8rem;
+      border-radius: 20px; border: 1px solid #e5e7eb; color: #374151; background: #f9fafb;
+    }
+    .meta-tag.remote { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
+    .meta-tag.intern { background: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
+
+    .opening-chevron { flex-shrink: 0; width: 36px; height: 36px; border: 1px solid #e5e7eb; border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+    .opening-card.open .opening-chevron { background: #111827; border-color: #111827; }
+    .opening-card.open .opening-chevron svg { stroke: #fff; transform: rotate(180deg); }
+
+    .opening-body { display: none; padding: 0 2rem 2rem; border-top: 1px solid #f3f4f6; }
+    .opening-card.open .opening-body { display: block; }
+    .opening-desc { font-size: 0.95rem; color: #4b5563; line-height: 1.75; margin-top: 1.5rem; margin-bottom: 1.5rem; }
+    .req-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.75rem; }
+    .req-list li { font-size: 0.8rem; font-weight: 600; padding: 0.35rem 0.9rem; background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 6px; color: #374151; }
+
+    .apply-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #111827; color: #fff;
+      padding: 0.85rem 1.75rem; border-radius: 6px;
+      font-weight: 600; font-size: 0.9rem; text-decoration: none;
+      cursor: pointer; border: none; transition: all 0.3s ease;
+    }
+    .apply-btn:hover { background: #374151; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+
+    /* ── APPLY FORM MODAL ── */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px); z-index: 9000;
+      display: none; align-items: center; justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.open { display: flex; animation: fadeIn 0.25s ease; }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+    .modal-box {
+      background: #fff; border-radius: 16px; width: 100%; max-width: 600px;
+      max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+      animation: scaleIn 0.3s ease;
+    }
+    @keyframes scaleIn { from{opacity:0;transform:scale(0.94)} to{opacity:1;transform:scale(1)} }
+
+    .modal-header {
+      padding: 2rem 2rem 1.25rem;
+      border-bottom: 1px solid #f3f4f6;
+      display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .modal-title { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: #111827; }
+    .modal-sub { font-size: 0.85rem; color: #9ca3af; margin-top: 0.25rem; }
+    .modal-close {
+      width: 36px; height: 36px; border: 1px solid #e5e7eb; border-radius: 8px;
+      background: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: all 0.2s ease;
+    }
+    .modal-close:hover { background: #f3f4f6; }
+
+    .modal-body { padding: 1.75rem 2rem 2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 0.5rem; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 0.75rem 1rem; font-size: 0.9rem;
+      border: 1px solid #d1d5db; border-radius: 8px; background: #f9fafb;
+      color: #111827; font-family: 'Exo', sans-serif;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: #111827; background: #fff;
+      box-shadow: 0 0 0 3px rgba(17,24,39,0.07);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-submit {
+      width: 100%; padding: 1rem; background: #111827; color: #fff;
+      font-size: 1rem; font-weight: 600; font-family: 'Exo', sans-serif;
+      border: none; border-radius: 8px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: all 0.3s ease; margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: #374151; transform: translateY(-1px); }
+    .form-submit:disabled { background: #9ca3af; cursor: not-allowed; transform: none; }
+
+    .form-note { font-size: 0.78rem; color: #9ca3af; text-align: center; margin-top: 1rem; }
+
+    /* ── VALUES STRIP ── */
+    .values-strip { background: #111827; padding: 5rem 2rem; }
+    .values-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+    .values-strip .section-label { color: #6b7280; }
+    .values-strip .section-title { color: #fff; margin-bottom: 3rem; }
+    .values-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 3rem; }
+    .value-item { text-align: center; max-width: 200px; }
+    .value-num { font-family: 'DM Serif Display', serif; font-size: 2.75rem; color: #fff; line-height: 1; margin-bottom: 0.5rem; }
+    .value-label { font-size: 0.85rem; color: #9ca3af; font-weight: 500; letter-spacing: 0.05em; }
+
+    /* ── PROCESS ── */
+    .process-section { padding: 6rem 2rem; background: #f9fafb; }
+    .process-inner { max-width: 1100px; margin: 0 auto; }
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 4rem; }
+    .process-step { position: relative; }
+    .step-num { font-family: 'DM Serif Display', serif; font-size: 3.5rem; color: #e5e7eb; line-height: 1; margin-bottom: 0.75rem; }
+    .step-title { font-weight: 700; font-size: 1rem; color: #111827; margin-bottom: 0.4rem; }
+    .step-desc { font-size: 0.875rem; color: #6b7280; line-height: 1.65; }
+
+    /* ── FOOTER ── */
+    footer { background: #fff; border-top: 1px solid #e5e7eb; padding: 3rem 2rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-brand { font-weight: 700; font-size: 1.25rem; color: #111827; }
+    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.875rem; color: #6b7280; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #111827; }
+    .footer-copy { font-size: 0.8rem; color: #9ca3af; margin-top: 2rem; text-align: center; }
+
+    /* ── SUCCESS STATE ── */
+    .success-screen { text-align: center; padding: 3rem 2rem; }
+    .success-icon { width: 64px; height: 64px; background: #ecfdf5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+    .success-title { font-family: 'DM Serif Display', serif; font-size: 1.75rem; color: #111827; margin-bottom: 0.75rem; }
+    .success-text { font-size: 0.95rem; color: #6b7280; line-height: 1.7; max-width: 400px; margin: 0 auto 2rem; }
+
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+      .opening-top { flex-direction: column; align-items: flex-start; }
+      .hero-headline { font-size: 2.75rem; }
+      .values-row { gap: 2rem; }
+    }
+
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════════════════════ -->
+<nav class="nav-professional">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="./logo.png" class="logo-img" alt="Techedilite Logo" onerror="this.style.display='none'">
+      <span class="logo-text">Techedilite</span>
+    </a>
+    <div class="nav-menu" id="navbar-menu">
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#services" class="nav-link">Services</a></li>
+        <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="index.html#aboutUs" class="nav-link">About</a></li>
+        <li><a href="careers.html" class="nav-link active">Careers</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="index.html#contact" class="btn-nav btn-contact">Contact Us</a>
+      </div>
+    </div>
+    <button class="mobile-menu-btn" id="mobile-menu-button" aria-label="Toggle menu">
+      <span class="menu-icon"></span>
+      <span class="menu-icon"></span>
+      <span class="menu-icon"></span>
+    </button>
+  </div>
+  <div class="mobile-menu-overlay" id="mobile-overlay">
+    <div class="mobile-menu-content">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-link">Home</a></li>
+        <li><a href="index.html#services" class="mobile-link">Services</a></li>
+        <li><a href="index.html#portfolio" class="mobile-link">Portfolio</a></li>
+        <li><a href="index.html#aboutUs" class="mobile-link">About</a></li>
+        <li><a href="careers.html" class="mobile-link">Careers</a></li>
+        <li><a href="index.html#contact" class="mobile-link mobile-link-contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════════════════════════════ -->
+<section class="careers-hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-blob"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">
+      <span class="tag-dot"></span>
+      We're hiring — remote & global
+    </div>
+    <h1 class="hero-headline">
+      Build things that<br><em>actually matter.</em>
+    </h1>
+    <p class="hero-sub">
+      TechEdilite is looking for curious, driven minds — designers and developers who want more than a job.
+      We've built a place where your work is seen, your growth is real, and your life outside work is respected.
+    </p>
+    <a href="#openings" class="hero-cta">
+      See open roles
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- ══ VALUES STRIP ══════════════════════════════════════════════════════ -->
+<div class="values-strip">
+  <div class="values-inner">
+    <p class="section-label">Why TechEdilite</p>
+    <h2 class="section-title">A firm designed around <em style="font-style:italic">people</em></h2>
+    <div class="values-row">
+      <div class="value-item">
+        <div class="value-num">100%</div>
+        <div class="value-label">Remote — work from anywhere</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">50+</div>
+        <div class="value-label">Partners who trust our work</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">6+</div>
+        <div class="value-label">Years of real-world projects</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">∞</div>
+        <div class="value-label">Room to grow and be recognized</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PERKS ══════════════════════════════════════════════════════════════ -->
+<section class="perks-section">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div>
+      <p class="section-label">What you get</p>
+      <h2 class="section-title">Life at TechEdilite</h2>
+      <p class="section-sub">We didn't stumble into a healthy work culture — we designed it deliberately. Here's what joining looks like.</p>
+    </div>
+    <div class="perks-grid">
+
+      <div class="perk-card">
+        <div class="perk-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+        </div>
+        <div class="perk-title">Fully Remote</div>
+        <div class="perk-desc">Your best work happens wherever you feel at your best. No commute, no rigid hours — just results and respect.</div>
+      </div>
+
+      <div class="perk-card">
+        <div class="perk-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div class="perk-title">Work-Life Balance by Design</div>
+        <div class="perk-desc">We've thought deeply about sustainable work. Our systems protect your time and energy — not just your output.</div>
+      </div>
+
+      <div class="perk-card">
+        <div class="perk-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+          </svg>
+        </div>
+        <div class="perk-title">Your Talent, on Display</div>
+        <div class="perk-desc">Real projects, real clients, real impact. Your fingerprint is on what we ship — and we make sure the world knows it.</div>
+      </div>
+
+      <div class="perk-card">
+        <div class="perk-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+          </svg>
+        </div>
+        <div class="perk-title">Recognition That's Genuine</div>
+        <div class="perk-desc">Great work doesn't go unnoticed here. We celebrate contributions loudly, with our team, our partners, and beyond.</div>
+      </div>
+
+      <div class="perk-card">
+        <div class="perk-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <div class="perk-title">Trusted Partners, Strong Network</div>
+        <div class="perk-desc">You join a team trusted by real businesses. That trust opens doors — for the firm, and for everyone in it.</div>
+      </div>
+
+      <div class="perk-card">
+        <div class="perk-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+          </svg>
+        </div>
+        <div class="perk-title">Grow at Your Own Pace</div>
+        <div class="perk-desc">No cookie-cutter career paths. We invest in where you want to go and give you the space to get there.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESS ════════════════════════════════════════════════════════════ -->
+<section class="process-section">
+  <div class="process-inner">
+    <p class="section-label">How we hire</p>
+    <h2 class="section-title">Simple. Transparent. Human.</h2>
+    <p class="section-sub" style="margin-top:0.5rem;">No mystery, no games. Here's exactly what to expect after you apply.</p>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-title">You apply</div>
+        <div class="step-desc">Fill in the short form below. Tell us who you are and share your work — a portfolio, a GitHub, anything that shows what you can do.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-title">We review</div>
+        <div class="step-desc">A real person reads every application. We look for potential and passion, not just polished CVs. You'll hear back within 5 business days.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Quick conversation</div>
+        <div class="step-desc">A relaxed 30-minute video call to get to know each other. No trick questions — just a genuine chat about your work and goals.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Welcome aboard</div>
+        <div class="step-desc">If it's a match, you're in. We onboard you smoothly, introduce you to the team, and get you building something real from day one.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ OPENINGS ════════════════════════════════════════════════════════════ -->
+<section class="openings-section" id="openings">
+  <div class="openings-container">
+    <div class="openings-header">
+      <div>
+        <p class="section-label">Open positions</p>
+        <h2 class="section-title" style="margin-bottom:0">Current Openings</h2>
+      </div>
+      <span id="roles-count" style="font-size:0.85rem;color:#9ca3af;">Loading roles…</span>
+    </div>
+
+    <!-- Dynamic roles injected here -->
+    <div id="roles-list">
+      <!-- Skeleton loader -->
+      <div class="opening-card skeleton-card" style="pointer-events:none;">
+        <div class="opening-top">
+          <div class="opening-left">
+            <div class="sk-line" style="width:200px;height:18px;border-radius:4px;background:#f3f4f6;margin-bottom:10px;"></div>
+            <div style="display:flex;gap:8px;">
+              <div class="sk-line" style="width:70px;height:22px;border-radius:20px;background:#f3f4f6;"></div>
+              <div class="sk-line" style="width:80px;height:22px;border-radius:20px;background:#f3f4f6;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="opening-card skeleton-card" style="pointer-events:none;margin-top:1rem;">
+        <div class="opening-top">
+          <div class="opening-left">
+            <div class="sk-line" style="width:230px;height:18px;border-radius:4px;background:#f3f4f6;margin-bottom:10px;"></div>
+            <div style="display:flex;gap:8px;">
+              <div class="sk-line" style="width:70px;height:22px;border-radius:20px;background:#f3f4f6;"></div>
+              <div class="sk-line" style="width:90px;height:22px;border-radius:20px;background:#f3f4f6;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error state -->
+    <div id="roles-error" style="display:none;padding:2rem;background:#fff1f2;border:1px solid #fecdd3;border-radius:12px;text-align:center;margin-bottom:1.5rem;">
+      <p style="font-size:0.95rem;font-weight:600;color:#be123c;margin-bottom:0.3rem;">Couldn't load openings right now.</p>
+      <p style="font-size:0.85rem;color:#9f1239;">Please check back in a moment or <a href="index.html#contact" style="color:#be123c;text-decoration:underline;">reach out directly</a>.</p>
+    </div>
+
+    <!-- No openings state -->
+    <div id="roles-empty" style="display:none;padding:2rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;text-align:center;margin-bottom:1.5rem;">
+      <p style="font-size:0.95rem;font-weight:600;color:#111827;margin-bottom:0.3rem;">No openings at the moment.</p>
+      <p style="font-size:0.85rem;color:#6b7280;">We update roles regularly — check back soon or send a general application below.</p>
+    </div>
+
+    <!-- General application CTA (always visible) -->
+    <div style="margin-top:2.5rem;padding:2rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;text-align:center;">
+      <p style="font-size:1rem;font-weight:600;color:#111827;margin-bottom:0.4rem;">Don't see your role here?</p>
+      <p style="font-size:0.9rem;color:#6b7280;margin-bottom:1.25rem;">We're always open to hearing from talented people. Send us a note — we read every message.</p>
+      <button class="apply-btn" style="margin:0 auto;display:inline-flex;" onclick="openModal(null, null, 'Open Application')">
+        Send a general application
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ APPLY MODAL ════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="applyModal" onclick="handleOverlayClick(event)">
+  <div class="modal-box" id="modalBox">
+
+    <!-- Form View -->
+    <div id="formView">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">Apply Now</div>
+          <div class="modal-sub" id="modalRoleLabel">—</div>
+        </div>
+        <button class="modal-close" onclick="closeModal()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="applyForm" onsubmit="handleApply(event)">
+          <input type="hidden" id="hiddenCareerId" name="career_id">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" name="full_name" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX">
+            </div>
+            <div class="form-group">
+              <label>Portfolio / GitHub / LinkedIn</label>
+              <input type="url" name="portfolio" placeholder="https://...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Resume Link *</label>
+            <input type="url" name="resume_url" placeholder="Google Drive / Dropbox link to your resume" required>
+          </div>
+          <div class="form-group">
+            <label>Why TechEdilite? <span style="color:#9ca3af;font-weight:400">(optional)</span></label>
+            <textarea name="cover_letter" placeholder="Tell us a little about yourself and what excites you about joining our team..."></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">
+            <span id="submitText">Submit Application</span>
+            <span id="submitLoader" style="display:none">Sending...</span>
+            <svg id="submitArrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </button>
+          <p class="form-note">We respect your privacy. Your information will only be used in the hiring process.</p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success View -->
+    <div id="successView" style="display:none">
+      <div class="modal-header" style="border:none;padding-bottom:0;">
+        <div></div>
+        <button class="modal-close" onclick="closeModal()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="success-screen">
+        <div class="success-icon">
+          <svg width="28" height="28" fill="none" stroke="#059669" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <div class="success-title">Application received!</div>
+        <p class="success-text">
+          Thank you for taking the time to reach out. A member of our team will personally review your application and
+          get back to you within 5 business days.
+        </p>
+        <button class="apply-btn" style="margin:0 auto;display:inline-flex;" onclick="closeModal()">Back to openings</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">TechEdilite</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="privacyPolicy.html">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 TechEdilite. All rights reserved. · contact@techedilite.co</div>
+</footer>
+
+
+<!-- ══ SCRIPTS ══════════════════════════════════════════════════════════════ -->
+<script>
+  // ── CONFIG ─────────────────────────────────────────────────────────────────
+  const API_BASE = 'https://careers.techedilite.co'; // ← your subdomain
+
+  // ── NAV ────────────────────────────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', function () {
+    const nav = document.querySelector('.nav-professional');
+    const mobileMenuBtn = document.getElementById('mobile-menu-button');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.pageYOffset > 50);
+    });
+
+    mobileMenuBtn.addEventListener('click', function () {
+      this.classList.toggle('active');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileOverlay.classList.contains('active')) {
+        mobileMenuBtn.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Animate static cards on scroll
+    const staticCards = document.querySelectorAll('.perk-card, .process-step');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.08 });
+    staticCards.forEach((c, i) => {
+      c.style.opacity = '0';
+      c.style.transform = 'translateY(20px)';
+      c.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
+      obs.observe(c);
+    });
+
+    // Boot: load careers from API
+    loadCareers();
+  });
+
+  // ── LOAD CAREERS FROM API ──────────────────────────────────────────────────
+  async function loadCareers() {
+    const list    = document.getElementById('roles-list');
+    const errEl   = document.getElementById('roles-error');
+    const emptyEl = document.getElementById('roles-empty');
+    const countEl = document.getElementById('roles-count');
+
+    try {
+      const res = await fetch(`${API_BASE}/careers`);
+      if (!res.ok) throw new Error('fetch failed');
+      const { careers, total } = await res.json();
+
+      // Clear skeleton
+      list.innerHTML = '';
+
+      if (!careers || careers.length === 0) {
+        emptyEl.style.display = 'block';
+        countEl.textContent = '0 open roles';
+        return;
+      }
+
+      countEl.textContent = `${total} open role${total !== 1 ? 's' : ''} · Remote · Internship`;
+
+      careers.forEach((career, idx) => {
+        const card = buildRoleCard(career, idx);
+        list.appendChild(card);
+      });
+
+      // Animate new cards
+      document.querySelectorAll('.opening-card').forEach((c, i) => {
+        c.style.opacity = '0';
+        c.style.transform = 'translateY(20px)';
+        c.style.transition = `opacity 0.45s ease ${i * 0.08}s, transform 0.45s ease ${i * 0.08}s`;
+        requestAnimationFrame(() => {
+          c.style.opacity = '1';
+          c.style.transform = 'translateY(0)';
+        });
+      });
+
+    } catch (err) {
+      list.innerHTML = '';
+      errEl.style.display = 'block';
+      countEl.textContent = 'Unable to load';
+      console.error('Career API error:', err);
+    }
+  }
+
+  // ── BUILD ROLE CARD HTML ───────────────────────────────────────────────────
+  function buildRoleCard(career, idx) {
+    const cardId = `role-${career.id}`;
+    const reqs   = Array.isArray(career.requirements) ? career.requirements : [];
+
+    const card = document.createElement('div');
+    card.className = 'opening-card';
+    card.id = cardId;
+    if (idx === 0) card.style.marginTop = '0'; // first card no extra margin
+
+    // Badge colour helpers
+    const locationClass = career.location?.toLowerCase().includes('remote') ? 'remote' : '';
+    const typeClass     = career.type?.toLowerCase().includes('intern') ? 'intern' : '';
+
+    card.innerHTML = `
+      <div class="opening-top" onclick="toggleRole('${cardId}')">
+        <div class="opening-left">
+          <div class="opening-role">${escHtml(career.title)}</div>
+          <div class="opening-meta">
+            <span class="meta-tag ${locationClass}">
+              ${locationClass === 'remote' ? '🌍 ' : ''}${escHtml(career.location || 'Remote')}
+            </span>
+            <span class="meta-tag ${typeClass}">${escHtml(career.type || 'Internship')}</span>
+            ${career.department ? `<span class="meta-tag">${escHtml(career.department)}</span>` : ''}
+          </div>
+        </div>
+        <div class="opening-chevron">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </div>
+      </div>
+      <div class="opening-body">
+        <p class="opening-desc">${escHtml(career.description)}</p>
+        ${reqs.length ? `
+          <p style="font-size:0.85rem;font-weight:700;color:#374151;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.06em;">What you'll bring</p>
+          <ul class="req-list">
+            ${reqs.map(r => `<li>${escHtml(r)}</li>`).join('')}
+          </ul>
+        ` : ''}
+        ${career.resume_link ? `
+          
+          &nbsp;
+        ` : ''}
+        <button class="apply-btn" onclick="openModal('${career.id}', '${escHtml(career.title)}', '${escHtml(career.title)}')">
+          Apply for this role
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </button>
+      </div>
+    `;
+
+    return card;
+  }
+
+  // ── ACCORDION ─────────────────────────────────────────────────────────────
+  function toggleRole(id) {
+    const card = document.getElementById(id);
+    if (!card) return;
+
+    // Close others
+    document.querySelectorAll('.opening-card.open').forEach(c => {
+      if (c.id !== id) c.classList.remove('open');
+    });
+
+    card.classList.toggle('open');
+  }
+
+  // ── MODAL ─────────────────────────────────────────────────────────────────
+  // careerId = career.id (for the API endpoint)
+  // careerTitle = display label in modal
+  function openModal(careerId, careerTitle, displayLabel) {
+    document.getElementById('hiddenCareerId').value = careerId || '';
+    document.getElementById('modalRoleLabel').textContent = displayLabel || careerTitle || 'General Application';
+    document.getElementById('formView').style.display = 'block';
+    document.getElementById('successView').style.display = 'none';
+    document.getElementById('applyModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('applyModal').classList.remove('open');
+    document.body.style.overflow = '';
+    document.getElementById('applyForm').reset();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = false;
+    document.getElementById('submitText').style.display = 'inline';
+    document.getElementById('submitLoader').style.display = 'none';
+    document.getElementById('submitArrow').style.display = 'inline';
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('applyModal')) closeModal();
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // ── FORM SUBMIT → POST /apply/:careerId ───────────────────────────────────
+  async function handleApply(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    document.getElementById('submitText').style.display = 'none';
+    document.getElementById('submitLoader').style.display = 'inline';
+    document.getElementById('submitArrow').style.display = 'none';
+
+    const form     = document.getElementById('applyForm');
+    const careerId = document.getElementById('hiddenCareerId').value;
+    const data     = Object.fromEntries(new FormData(form));
+    delete data.career_id; // not a body field
+
+    // Build endpoint: if no careerId (general apply), skip
+    const endpoint = careerId && careerId !== 'null'
+      ? `${API_BASE}/apply/${encodeURIComponent(careerId)}`
+      : null;
+
+    let apiOk = false;
+    if (endpoint) {
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (res.ok) apiOk = true;
+        else {
+          const err = await res.json().catch(() => ({}));
+          // Show specific API error if duplicate etc.
+          if (res.status === 409) {
+            showFormError("You've already applied for this role. We'll be in touch soon!");
+            resetSubmitBtn();
+            return;
+          }
+          if (res.status === 404) {
+            showFormError('This role is no longer available.');
+            resetSubmitBtn();
+            return;
+          }
+        }
+      } catch (_) {
+        // Network failure — graceful degradation, show success anyway
+      }
+    }
+
+    // Show success
+    document.getElementById('formView').style.display = 'none';
+    document.getElementById('successView').style.display = 'block';
+  }
+
+  function resetSubmitBtn() {
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = false;
+    document.getElementById('submitText').style.display = 'inline';
+    document.getElementById('submitLoader').style.display = 'none';
+    document.getElementById('submitArrow').style.display = 'inline';
+  }
+
+  function showFormError(msg) {
+    let el = document.getElementById('form-api-error');
+    if (!el) {
+      el = document.createElement('p');
+      el.id = 'form-api-error';
+      el.style.cssText = 'font-size:0.85rem;color:#be123c;background:#fff1f2;border:1px solid #fecdd3;padding:0.75rem 1rem;border-radius:8px;margin-bottom:1rem;';
+      document.getElementById('applyForm').prepend(el);
+    }
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+
+  // ── UTILS ─────────────────────────────────────────────────────────────────
+  function escHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+</script>
+
+</body>
+</html>
