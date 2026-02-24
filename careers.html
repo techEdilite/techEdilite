@@ -12,7 +12,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -27,14 +27,14 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-  font-family: 'Exo 2', sans-serif;
+      font-family: 'Exo', sans-serif;
       color: var(--black);
       background: var(--white);
       font-size: 15px;
       overflow-x: hidden;
     }
 
-    /* ── NAV (same as index) ── */
+    /* ── NAV ── */
     .nav-professional {
       position: sticky; top: 0; z-index: 1000;
       background: rgba(255,255,255,0.95);
@@ -212,6 +212,11 @@
     .req-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.75rem; }
     .req-list li { font-size: 0.8rem; font-weight: 600; padding: 0.35rem 0.9rem; background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 6px; color: #374151; }
 
+    /* ── BUTTON ROW ── */
+    .btn-row {
+      display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+    }
+
     .apply-btn {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: #111827; color: #fff;
@@ -221,65 +226,16 @@
     }
     .apply-btn:hover { background: #374151; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
 
-    /* ── APPLY FORM MODAL ── */
-    .modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(4px); z-index: 9000;
-      display: none; align-items: center; justify-content: center;
-      padding: 1.5rem;
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; font-weight: 600; color: #374151;
+      background: #f3f4f6; border: 1px solid #e5e7eb;
+      padding: 0.75rem 1.2rem; border-radius: 6px;
+      cursor: pointer; transition: all 0.2s ease;
+      white-space: nowrap;
     }
-    .modal-overlay.open { display: flex; animation: fadeIn 0.25s ease; }
-    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
-
-    .modal-box {
-      background: #fff; border-radius: 16px; width: 100%; max-width: 600px;
-      max-height: 90vh; overflow-y: auto;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.18);
-      animation: scaleIn 0.3s ease;
-    }
-    @keyframes scaleIn { from{opacity:0;transform:scale(0.94)} to{opacity:1;transform:scale(1)} }
-
-    .modal-header {
-      padding: 2rem 2rem 1.25rem;
-      border-bottom: 1px solid #f3f4f6;
-      display: flex; justify-content: space-between; align-items: flex-start;
-    }
-    .modal-title { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: #111827; }
-    .modal-sub { font-size: 0.85rem; color: #9ca3af; margin-top: 0.25rem; }
-    .modal-close {
-      width: 36px; height: 36px; border: 1px solid #e5e7eb; border-radius: 8px;
-      background: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; transition: all 0.2s ease;
-    }
-    .modal-close:hover { background: #f3f4f6; }
-
-    .modal-body { padding: 1.75rem 2rem 2rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    .form-group { margin-bottom: 1.25rem; }
-    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 0.5rem; }
-    .form-group input, .form-group textarea, .form-group select {
-      width: 100%; padding: 0.75rem 1rem; font-size: 0.9rem;
-      border: 1px solid #d1d5db; border-radius: 8px; background: #f9fafb;
-      color: #111827; font-family: 'Exo', sans-serif;
-      transition: all 0.2s ease;
-      outline: none;
-    }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-      border-color: #111827; background: #fff;
-      box-shadow: 0 0 0 3px rgba(17,24,39,0.07);
-    }
-    .form-group textarea { resize: vertical; min-height: 110px; }
-    .form-submit {
-      width: 100%; padding: 1rem; background: #111827; color: #fff;
-      font-size: 1rem; font-weight: 600; font-family: 'Exo', sans-serif;
-      border: none; border-radius: 8px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-      transition: all 0.3s ease; margin-top: 0.5rem;
-    }
-    .form-submit:hover { background: #374151; transform: translateY(-1px); }
-    .form-submit:disabled { background: #9ca3af; cursor: not-allowed; transform: none; }
-
-    .form-note { font-size: 0.78rem; color: #9ca3af; text-align: center; margin-top: 1rem; }
+    .share-btn:hover { background: #e5e7eb; border-color: #d1d5db; }
+    .share-btn.copied { color: #059669; background: #ecfdf5; border-color: #a7f3d0; }
 
     /* ── VALUES STRIP ── */
     .values-strip { background: #111827; padding: 5rem 2rem; }
@@ -309,14 +265,7 @@
     .footer-links a:hover { color: #111827; }
     .footer-copy { font-size: 0.8rem; color: #9ca3af; margin-top: 2rem; text-align: center; }
 
-    /* ── SUCCESS STATE ── */
-    .success-screen { text-align: center; padding: 3rem 2rem; }
-    .success-icon { width: 64px; height: 64px; background: #ecfdf5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
-    .success-title { font-family: 'DM Serif Display', serif; font-size: 1.75rem; color: #111827; margin-bottom: 0.75rem; }
-    .success-text { font-size: 0.95rem; color: #6b7280; line-height: 1.7; max-width: 400px; margin: 0 auto 2rem; }
-
     @media (max-width: 640px) {
-      .form-row { grid-template-columns: 1fr; }
       .opening-top { flex-direction: column; align-items: flex-start; }
       .hero-headline { font-size: 2.75rem; }
       .values-row { gap: 2rem; }
@@ -405,10 +354,6 @@
       <div class="value-item">
         <div class="value-num">50+</div>
         <div class="value-label">Partners who trust our work</div>
-      </div>
-      <div class="value-item">
-        <div class="value-num">6+</div>
-        <div class="value-label">Years of real-world projects</div>
       </div>
       <div class="value-item">
         <div class="value-num">∞</div>
@@ -534,7 +479,6 @@
       <span id="roles-count" style="font-size:0.85rem;color:#9ca3af;">Loading roles…</span>
     </div>
 
-    <!-- Dynamic roles injected here -->
     <div id="roles-list">
       <!-- Skeleton loader -->
       <div class="opening-card skeleton-card" style="pointer-events:none;">
@@ -573,104 +517,19 @@
       <p style="font-size:0.85rem;color:#6b7280;">We update roles regularly — check back soon or send a general application below.</p>
     </div>
 
-    <!-- General application CTA (always visible) -->
+    <!-- General application CTA -->
     <div style="margin-top:2.5rem;padding:2rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;text-align:center;">
       <p style="font-size:1rem;font-weight:600;color:#111827;margin-bottom:0.4rem;">Don't see your role here?</p>
       <p style="font-size:0.9rem;color:#6b7280;margin-bottom:1.25rem;">We're always open to hearing from talented people. Send us a note — we read every message.</p>
-      <button class="apply-btn" style="margin:0 auto;display:inline-flex;" onclick="openModal(null, null, 'Open Application')">
+      <a href="job.html" class="apply-btn" style="display:inline-flex;margin:0 auto;">
         Send a general application
-      </button>
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
     </div>
   </div>
 </section>
-
-<!-- ══ APPLY MODAL ════════════════════════════════════════════════════════ -->
-<div class="modal-overlay" id="applyModal" onclick="handleOverlayClick(event)">
-  <div class="modal-box" id="modalBox">
-
-    <!-- Form View -->
-    <div id="formView">
-      <div class="modal-header">
-        <div>
-          <div class="modal-title">Apply Now</div>
-          <div class="modal-sub" id="modalRoleLabel">—</div>
-        </div>
-        <button class="modal-close" onclick="closeModal()">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="applyForm" onsubmit="handleApply(event)">
-          <input type="hidden" id="hiddenCareerId" name="career_id">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Full Name *</label>
-              <input type="text" name="full_name" placeholder="Your full name" required>
-            </div>
-            <div class="form-group">
-              <label>Email Address *</label>
-              <input type="email" name="email" placeholder="your@email.com" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Phone Number</label>
-              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX">
-            </div>
-            <div class="form-group">
-              <label>Portfolio / GitHub / LinkedIn</label>
-              <input type="url" name="portfolio" placeholder="https://...">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Resume Link *</label>
-            <input type="url" name="resume_url" placeholder="Google Drive / Dropbox link to your resume" required>
-          </div>
-          <div class="form-group">
-            <label>Why TechEdilite? <span style="color:#9ca3af;font-weight:400">(optional)</span></label>
-            <textarea name="cover_letter" placeholder="Tell us a little about yourself and what excites you about joining our team..."></textarea>
-          </div>
-          <button type="submit" class="form-submit" id="submitBtn">
-            <span id="submitText">Submit Application</span>
-            <span id="submitLoader" style="display:none">Sending...</span>
-            <svg id="submitArrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </button>
-          <p class="form-note">We respect your privacy. Your information will only be used in the hiring process.</p>
-        </form>
-      </div>
-    </div>
-
-    <!-- Success View -->
-    <div id="successView" style="display:none">
-      <div class="modal-header" style="border:none;padding-bottom:0;">
-        <div></div>
-        <button class="modal-close" onclick="closeModal()">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
-      <div class="success-screen">
-        <div class="success-icon">
-          <svg width="28" height="28" fill="none" stroke="#059669" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-          </svg>
-        </div>
-        <div class="success-title">Application received!</div>
-        <p class="success-text">
-          Thank you for taking the time to reach out. A member of our team will personally review your application and
-          get back to you within 5 business days.
-        </p>
-        <button class="apply-btn" style="margin:0 auto;display:inline-flex;" onclick="closeModal()">Back to openings</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 <!-- ══ FOOTER ══════════════════════════════════════════════════════════════ -->
 <footer>
@@ -687,11 +546,9 @@
   <div class="footer-copy">© 2026 TechEdilite. All rights reserved. · contact@techedilite.co</div>
 </footer>
 
-
 <!-- ══ SCRIPTS ══════════════════════════════════════════════════════════════ -->
 <script>
-  // ── CONFIG ─────────────────────────────────────────────────────────────────
-  const API_BASE = 'https://careers.techedilite.co'; // ← your subdomain
+  const API_BASE = 'https://careers.techedilite.co';
 
   // ── NAV ────────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
@@ -725,7 +582,6 @@
       }
     });
 
-    // Animate static cards on scroll
     const staticCards = document.querySelectorAll('.perk-card, .process-step');
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -742,11 +598,10 @@
       obs.observe(c);
     });
 
-    // Boot: load careers from API
     loadCareers();
   });
 
-  // ── LOAD CAREERS FROM API ──────────────────────────────────────────────────
+  // ── LOAD CAREERS ──────────────────────────────────────────────────────────
   async function loadCareers() {
     const list    = document.getElementById('roles-list');
     const errEl   = document.getElementById('roles-error');
@@ -758,7 +613,6 @@
       if (!res.ok) throw new Error('fetch failed');
       const { careers, total } = await res.json();
 
-      // Clear skeleton
       list.innerHTML = '';
 
       if (!careers || careers.length === 0) {
@@ -774,7 +628,6 @@
         list.appendChild(card);
       });
 
-      // Animate new cards
       document.querySelectorAll('.opening-card').forEach((c, i) => {
         c.style.opacity = '0';
         c.style.transform = 'translateY(20px)';
@@ -793,7 +646,7 @@
     }
   }
 
-  // ── BUILD ROLE CARD HTML ───────────────────────────────────────────────────
+  // ── BUILD ROLE CARD ───────────────────────────────────────────────────────
   function buildRoleCard(career, idx) {
     const cardId = `role-${career.id}`;
     const reqs   = Array.isArray(career.requirements) ? career.requirements : [];
@@ -801,11 +654,13 @@
     const card = document.createElement('div');
     card.className = 'opening-card';
     card.id = cardId;
-    if (idx === 0) card.style.marginTop = '0'; // first card no extra margin
+    if (idx === 0) card.style.marginTop = '0';
 
-    // Badge colour helpers
     const locationClass = career.location?.toLowerCase().includes('remote') ? 'remote' : '';
     const typeClass     = career.type?.toLowerCase().includes('intern') ? 'intern' : '';
+
+    // Build the direct application URL for this job
+    const jobUrl = `${window.location.origin}${window.location.pathname.replace('careers.html', '')}job.html?id=${encodeURIComponent(career.id)}`;
 
     card.innerHTML = `
       <div class="opening-top" onclick="toggleRole('${cardId}')">
@@ -833,148 +688,65 @@
             ${reqs.map(r => `<li>${escHtml(r)}</li>`).join('')}
           </ul>
         ` : ''}
-        ${career.resume_link ? `
-          
-          &nbsp;
-        ` : ''}
-        <button class="apply-btn" onclick="openModal('${career.id}', '${escHtml(career.title)}', '${escHtml(career.title)}')">
-          Apply for this role
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </button>
+        <div class="btn-row">
+          <a class="apply-btn" href="job.html?id=${encodeURIComponent(career.id)}">
+            Apply for this role
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <button class="share-btn" id="share-${cardId}" onclick="copyJobLink(event, '${escHtml(jobUrl)}', '${cardId}')">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+            <span id="share-text-${cardId}">Share</span>
+          </button>
+        </div>
       </div>
     `;
 
     return card;
   }
 
+  // ── SHARE / COPY LINK ─────────────────────────────────────────────────────
+  function copyJobLink(event, url, cardId) {
+    event.stopPropagation();
+    navigator.clipboard.writeText(url).then(() => {
+      const btn = document.getElementById(`share-${cardId}`);
+      const txt = document.getElementById(`share-text-${cardId}`);
+      btn.classList.add('copied');
+      txt.textContent = 'Copied!';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        txt.textContent = 'Share';
+      }, 2500);
+    }).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    });
+  }
+
   // ── ACCORDION ─────────────────────────────────────────────────────────────
   function toggleRole(id) {
     const card = document.getElementById(id);
     if (!card) return;
-
-    // Close others
     document.querySelectorAll('.opening-card.open').forEach(c => {
       if (c.id !== id) c.classList.remove('open');
     });
-
     card.classList.toggle('open');
-  }
-
-  // ── MODAL ─────────────────────────────────────────────────────────────────
-  // careerId = career.id (for the API endpoint)
-  // careerTitle = display label in modal
-  function openModal(careerId, careerTitle, displayLabel) {
-    document.getElementById('hiddenCareerId').value = careerId || '';
-    document.getElementById('modalRoleLabel').textContent = displayLabel || careerTitle || 'General Application';
-    document.getElementById('formView').style.display = 'block';
-    document.getElementById('successView').style.display = 'none';
-    document.getElementById('applyModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    document.getElementById('applyModal').classList.remove('open');
-    document.body.style.overflow = '';
-    document.getElementById('applyForm').reset();
-    const btn = document.getElementById('submitBtn');
-    btn.disabled = false;
-    document.getElementById('submitText').style.display = 'inline';
-    document.getElementById('submitLoader').style.display = 'none';
-    document.getElementById('submitArrow').style.display = 'inline';
-  }
-
-  function handleOverlayClick(e) {
-    if (e.target === document.getElementById('applyModal')) closeModal();
-  }
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModal();
-  });
-
-  // ── FORM SUBMIT → POST /apply/:careerId ───────────────────────────────────
-  async function handleApply(e) {
-    e.preventDefault();
-
-    const btn = document.getElementById('submitBtn');
-    btn.disabled = true;
-    document.getElementById('submitText').style.display = 'none';
-    document.getElementById('submitLoader').style.display = 'inline';
-    document.getElementById('submitArrow').style.display = 'none';
-
-    const form     = document.getElementById('applyForm');
-    const careerId = document.getElementById('hiddenCareerId').value;
-    const data     = Object.fromEntries(new FormData(form));
-    delete data.career_id; // not a body field
-
-    // Build endpoint: if no careerId (general apply), skip
-    const endpoint = careerId && careerId !== 'null'
-      ? `${API_BASE}/apply/${encodeURIComponent(careerId)}`
-      : null;
-
-    let apiOk = false;
-    if (endpoint) {
-      try {
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-        if (res.ok) apiOk = true;
-        else {
-          const err = await res.json().catch(() => ({}));
-          // Show specific API error if duplicate etc.
-          if (res.status === 409) {
-            showFormError("You've already applied for this role. We'll be in touch soon!");
-            resetSubmitBtn();
-            return;
-          }
-          if (res.status === 404) {
-            showFormError('This role is no longer available.');
-            resetSubmitBtn();
-            return;
-          }
-        }
-      } catch (_) {
-        // Network failure — graceful degradation, show success anyway
-      }
-    }
-
-    // Show success
-    document.getElementById('formView').style.display = 'none';
-    document.getElementById('successView').style.display = 'block';
-  }
-
-  function resetSubmitBtn() {
-    const btn = document.getElementById('submitBtn');
-    btn.disabled = false;
-    document.getElementById('submitText').style.display = 'inline';
-    document.getElementById('submitLoader').style.display = 'none';
-    document.getElementById('submitArrow').style.display = 'inline';
-  }
-
-  function showFormError(msg) {
-    let el = document.getElementById('form-api-error');
-    if (!el) {
-      el = document.createElement('p');
-      el.id = 'form-api-error';
-      el.style.cssText = 'font-size:0.85rem;color:#be123c;background:#fff1f2;border:1px solid #fecdd3;padding:0.75rem 1rem;border-radius:8px;margin-bottom:1rem;';
-      document.getElementById('applyForm').prepend(el);
-    }
-    el.textContent = msg;
-    el.style.display = 'block';
   }
 
   // ── UTILS ─────────────────────────────────────────────────────────────────
   function escHtml(str) {
     if (!str) return '';
     return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
   }
 </script>
 
