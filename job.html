@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.techedilite.co/favTE.png">
+  <link rel="shortcut icon" href="https://www.techedilite.co/favTE.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Apply | TechEdilite</title>
+  <meta name="description" content="Apply for a role at TechEdilite — where curious, driven minds build real things." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray-soft: #f7f7f7;
+      --gray-mid: #e5e7eb;
+      --gray-text: #4b5563;
+      --accent: #111827;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Exo', sans-serif;
+      color: var(--black);
+      background: var(--white);
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    .nav-professional {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      animation: navSlideDown 0.5s ease-out;
+    }
+    .nav-professional.scrolled { background: rgba(255,255,255,0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; transition: transform 0.3s ease; }
+    .nav-logo:hover { transform: scale(1.02); }
+    .logo-img { height: 36px; width: auto; border-radius: 8px; }
+    .logo-text { font-size: 1.375rem; font-weight: 700; color: #000; letter-spacing: -0.02em; }
+    .nav-menu { display: flex; align-items: center; gap: 3rem; }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+    .nav-link { position: relative; font-size: 0.9375rem; font-weight: 500; color: #4B5563; text-decoration: none; padding: 0.5rem 0; transition: color 0.3s ease; }
+    .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #000; transition: width 0.3s ease; }
+    .nav-link:hover, .nav-link.active { color: #000; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .btn-nav { padding: 0.625rem 1.5rem; font-size: 0.9375rem; font-weight: 600; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; }
+    .btn-contact { background: #141414; color: #fff; border: none; }
+    .btn-contact:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+    .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 1001; }
+    .menu-icon { width: 24px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s ease; }
+    .mobile-menu-btn.active .menu-icon:nth-child(1) { transform: rotate(45deg) translate(6px,6px); }
+    .mobile-menu-btn.active .menu-icon:nth-child(2) { opacity: 0; transform: translateX(-20px); }
+    .mobile-menu-btn.active .menu-icon:nth-child(3) { transform: rotate(-45deg) translate(6px,-6px); }
+    .mobile-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+    .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+    .mobile-menu-content { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 2rem; }
+    .mobile-nav-links { list-style: none; text-align: center; width: 100%; max-width: 400px; }
+    .mobile-nav-links li { margin-bottom: 0.5rem; }
+    .mobile-link { display: block; font-size: 1.5rem; font-weight: 600; color: #000; text-decoration: none; padding: 1rem; transition: all 0.3s ease; border-radius: 8px; }
+    .mobile-link:hover { color: #A527FF; background: rgba(165,39,255,0.05); transform: translateX(8px); }
+    .mobile-link-contact { margin-top: 1.5rem; background: #141414; color: #fff; font-size: 1.25rem; }
+    .mobile-link-contact:hover { background: #333; color: #fff; transform: none; }
+    @media (max-width: 768px) { .nav-menu { display: none; } .mobile-menu-btn { display: flex; } }
+    @keyframes navSlideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    /* ── PAGE LAYOUT ── */
+    .page-wrapper {
+      min-height: 100vh;
+      background: #f9fafb;
+      padding: 3rem 1.5rem 6rem;
+    }
+
+    .page-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.875rem; font-weight: 500; color: #6b7280;
+      text-decoration: none; margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #111827; }
+    .back-link svg { transition: transform 0.2s; }
+    .back-link:hover svg { transform: translateX(-3px); }
+
+    /* ── TWO-COL LAYOUT ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    /* ── JOB INFO PANEL ── */
+    .job-panel {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 2.5rem;
+      position: sticky;
+      top: 100px;
+    }
+    @media (max-width: 900px) { .job-panel { position: static; } }
+
+    .job-dept {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem;
+    }
+
+    .job-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      color: #000;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .job-meta {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .meta-tag {
+      font-size: 0.75rem; font-weight: 600; padding: 0.35rem 0.9rem;
+      border-radius: 20px; border: 1px solid #e5e7eb; color: #374151; background: #f9fafb;
+    }
+    .meta-tag.remote { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
+    .meta-tag.intern { background: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
+
+    .job-desc {
+      font-size: 0.95rem; color: #4b5563; line-height: 1.75;
+      margin-bottom: 1.75rem;
+    }
+
+    .req-heading {
+      font-size: 0.75rem; font-weight: 700; color: #374151;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+
+    .req-list {
+      list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .req-list li {
+      font-size: 0.8rem; font-weight: 600;
+      padding: 0.35rem 0.9rem; background: #f3f4f6;
+      border: 1px solid #e5e7eb; border-radius: 6px; color: #374151;
+    }
+
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; font-weight: 600; color: #374151;
+      background: #f3f4f6; border: 1px solid #e5e7eb;
+      padding: 0.6rem 1.1rem; border-radius: 8px;
+      cursor: pointer; border: 1px solid #e5e7eb;
+      transition: all 0.2s ease;
+    }
+    .share-btn:hover { background: #e5e7eb; }
+    .share-btn.copied { color: #059669; background: #ecfdf5; border-color: #a7f3d0; }
+
+    /* ── FORM PANEL ── */
+    .form-panel {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+
+    .form-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.625rem; color: #111827;
+      margin-bottom: 0.4rem;
+    }
+    .form-subheading {
+      font-size: 0.875rem; color: #9ca3af; margin-bottom: 2rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 0.5rem; }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 0.75rem 1rem; font-size: 0.9rem;
+      border: 1px solid #d1d5db; border-radius: 8px; background: #f9fafb;
+      color: #111827; font-family: 'Exo', sans-serif;
+      transition: all 0.2s ease; outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: #111827; background: #fff;
+      box-shadow: 0 0 0 3px rgba(17,24,39,0.07);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      width: 100%; padding: 1rem; background: #111827; color: #fff;
+      font-size: 1rem; font-weight: 600; font-family: 'Exo', sans-serif;
+      border: none; border-radius: 8px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: all 0.3s ease; margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: #374151; transform: translateY(-1px); }
+    .form-submit:disabled { background: #9ca3af; cursor: not-allowed; transform: none; }
+    .form-note { font-size: 0.78rem; color: #9ca3af; text-align: center; margin-top: 1rem; }
+
+    /* ── SUCCESS STATE ── */
+    .success-screen {
+      text-align: center; padding: 3rem 1rem;
+    }
+    .success-icon {
+      width: 72px; height: 72px; background: #ecfdf5; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .success-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem; color: #111827; margin-bottom: 0.75rem;
+    }
+    .success-text {
+      font-size: 0.95rem; color: #6b7280; line-height: 1.7;
+      max-width: 420px; margin: 0 auto 2rem;
+    }
+
+    /* ── EXPIRED/ERROR STATE ── */
+    .state-screen {
+      text-align: center;
+      padding: 5rem 2rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .state-illustration {
+      margin: 0 auto 2rem;
+      width: 140px; height: 140px;
+    }
+    .state-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem; color: #111827; margin-bottom: 0.75rem;
+    }
+    .state-sub {
+      font-size: 0.95rem; color: #6b7280; line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    /* ── LOADING SKELETON ── */
+    .skeleton-panel {
+      background: #fff; border: 1px solid #e5e7eb;
+      border-radius: 16px; padding: 2.5rem;
+    }
+    .sk { background: #f3f4f6; border-radius: 6px; animation: shimmer 1.4s infinite; }
+    @keyframes shimmer {
+      0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; }
+    }
+
+    /* ── UTIL ── */
+    .apply-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #111827; color: #fff;
+      padding: 0.85rem 1.75rem; border-radius: 6px;
+      font-weight: 600; font-size: 0.9rem; text-decoration: none;
+      cursor: pointer; border: none; transition: all 0.3s ease;
+    }
+    .apply-btn:hover { background: #374151; transform: translateY(-1px); }
+
+    html { scroll-behavior: smooth; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.5s ease-out both; }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════════════════════ -->
+<nav class="nav-professional" id="mainNav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="./logo.png" class="logo-img" alt="Techedilite Logo" onerror="this.style.display='none'">
+      <span class="logo-text">Techedilite</span>
+    </a>
+    <div class="nav-menu">
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#services" class="nav-link">Services</a></li>
+        <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="index.html#aboutUs" class="nav-link">About</a></li>
+        <li><a href="careers.html" class="nav-link active">Careers</a></li>
+      </ul>
+      <div>
+        <a href="index.html#contact" class="btn-nav btn-contact">Contact Us</a>
+      </div>
+    </div>
+    <button class="mobile-menu-btn" id="mobile-menu-button" aria-label="Toggle menu">
+      <span class="menu-icon"></span>
+      <span class="menu-icon"></span>
+      <span class="menu-icon"></span>
+    </button>
+  </div>
+  <div class="mobile-menu-overlay" id="mobile-overlay">
+    <div class="mobile-menu-content">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-link">Home</a></li>
+        <li><a href="index.html#services" class="mobile-link">Services</a></li>
+        <li><a href="index.html#portfolio" class="mobile-link">Portfolio</a></li>
+        <li><a href="index.html#aboutUs" class="mobile-link">About</a></li>
+        <li><a href="careers.html" class="mobile-link">Careers</a></li>
+        <li><a href="index.html#contact" class="mobile-link mobile-link-contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ MAIN ══════════════════════════════════════════════════════════════ -->
+<div class="page-wrapper">
+  <div class="page-inner">
+
+    <a href="careers.html" class="back-link">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      Back to all openings
+    </a>
+
+    <!-- Loading state -->
+    <div id="loadingState">
+      <div class="two-col">
+        <div class="skeleton-panel">
+          <div class="sk" style="width:80px;height:12px;margin-bottom:14px;"></div>
+          <div class="sk" style="width:260px;height:38px;margin-bottom:10px;border-radius:8px;"></div>
+          <div class="sk" style="width:200px;height:28px;margin-bottom:24px;border-radius:8px;"></div>
+          <div class="sk" style="width:100%;height:12px;margin-bottom:8px;"></div>
+          <div class="sk" style="width:90%;height:12px;margin-bottom:8px;"></div>
+          <div class="sk" style="width:75%;height:12px;margin-bottom:28px;"></div>
+          <div style="display:flex;gap:8px;">
+            <div class="sk" style="width:80px;height:28px;border-radius:20px;"></div>
+            <div class="sk" style="width:90px;height:28px;border-radius:20px;"></div>
+            <div class="sk" style="width:70px;height:28px;border-radius:20px;"></div>
+          </div>
+        </div>
+        <div class="skeleton-panel">
+          <div class="sk" style="width:160px;height:30px;margin-bottom:10px;border-radius:8px;"></div>
+          <div class="sk" style="width:220px;height:14px;margin-bottom:28px;"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+            <div><div class="sk" style="width:70%;height:12px;margin-bottom:8px;"></div><div class="sk" style="height:44px;border-radius:8px;"></div></div>
+            <div><div class="sk" style="width:70%;height:12px;margin-bottom:8px;"></div><div class="sk" style="height:44px;border-radius:8px;"></div></div>
+          </div>
+          <div class="sk" style="width:70%;height:12px;margin-bottom:8px;"></div>
+          <div class="sk" style="height:44px;border-radius:8px;margin-bottom:16px;"></div>
+          <div class="sk" style="width:70%;height:12px;margin-bottom:8px;"></div>
+          <div class="sk" style="height:44px;border-radius:8px;margin-bottom:16px;"></div>
+          <div class="sk" style="height:120px;border-radius:8px;margin-bottom:16px;"></div>
+          <div class="sk" style="height:52px;border-radius:8px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Expired/Not-found state -->
+    <div id="expiredState" style="display:none;">
+      <div class="state-screen fade-up">
+        <div class="state-illustration">
+          <!-- Inline SVG illustration -->
+          <svg viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="70" cy="70" r="65" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="2"/>
+            <!-- Calendar icon -->
+            <rect x="35" y="42" width="70" height="60" rx="8" fill="#fff" stroke="#d1d5db" stroke-width="2"/>
+            <rect x="35" y="42" width="70" height="20" rx="8" fill="#e5e7eb"/>
+            <rect x="35" y="52" width="70" height="10" fill="#e5e7eb"/>
+            <rect x="48" y="35" width="8" height="16" rx="4" fill="#9ca3af"/>
+            <rect x="84" y="35" width="8" height="16" rx="4" fill="#9ca3af"/>
+            <!-- X mark in center -->
+            <line x1="55" y1="75" x2="85" y2="105" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+            <line x1="85" y1="75" x2="55" y2="105" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h2 class="state-title">This role is no longer available</h2>
+        <p class="state-sub">The position you're looking for may have been filled or the listing has expired. Check out our other open roles — there may be a great fit for you.</p>
+        <a href="careers.html" class="apply-btn">View all openings</a>
+      </div>
+    </div>
+
+    <!-- Error state -->
+    <div id="errorState" style="display:none;">
+      <div class="state-screen fade-up">
+        <div class="state-illustration">
+          <svg viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="70" cy="70" r="65" fill="#fff1f2" stroke="#fecdd3" stroke-width="2"/>
+            <circle cx="70" cy="60" r="24" fill="#fff" stroke="#fca5a5" stroke-width="2"/>
+            <line x1="70" y1="48" x2="70" y2="64" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="70" cy="72" r="2.5" fill="#ef4444"/>
+            <path d="M40 100 Q70 88 100 100" stroke="#fca5a5" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h2 class="state-title">Something went wrong</h2>
+        <p class="state-sub">We couldn't load this job listing. Please try again in a moment or browse all open positions.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <button class="apply-btn" onclick="loadJob()">Try again</button>
+          <a href="careers.html" style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.9rem;font-weight:600;color:#374151;background:#f3f4f6;border:1px solid #e5e7eb;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;transition:all 0.2s;" >View all openings</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div id="mainContent" style="display:none;">
+      <div class="two-col fade-up">
+
+        <!-- LEFT: Job info -->
+        <div class="job-panel">
+          <p class="job-dept" id="jobDept"></p>
+          <h1 class="job-title" id="jobTitle"></h1>
+          <div class="job-meta" id="jobMeta"></div>
+          <p class="job-desc" id="jobDesc"></p>
+          <div id="jobReqsWrapper" style="display:none;">
+            <p class="req-heading">What you'll bring</p>
+            <ul class="req-list" id="jobReqs"></ul>
+          </div>
+          <button class="share-btn" id="shareBtn" onclick="copyLink()">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+            <span id="shareBtnText">Copy link to share</span>
+          </button>
+        </div>
+
+        <!-- RIGHT: Application form -->
+        <div class="form-panel">
+
+          <!-- Form view -->
+          <div id="formView">
+            <h2 class="form-heading">Apply for this role</h2>
+            <p class="form-subheading" id="formSubheading">Fill in your details below — we read every application.</p>
+
+            <form id="applyForm" onsubmit="handleApply(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Full Name *</label>
+                  <input type="text" name="full_name" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                  <label>Email Address *</label>
+                  <input type="email" name="email" placeholder="your@email.com" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX">
+                </div>
+                <div class="form-group">
+                  <label>Portfolio / GitHub / LinkedIn</label>
+                  <input type="url" name="portfolio" placeholder="https://...">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Resume Link *</label>
+                <input type="url" name="resume_url" placeholder="Google Drive / Dropbox link to your resume" required>
+              </div>
+              <div class="form-group">
+                <label>Why TechEdilite? <span style="color:#9ca3af;font-weight:400">(optional)</span></label>
+                <textarea name="cover_letter" placeholder="Tell us a little about yourself and what excites you about joining our team..."></textarea>
+              </div>
+              <button type="submit" class="form-submit" id="submitBtn">
+                <span id="submitText">Submit Application</span>
+                <span id="submitLoader" style="display:none">Sending...</span>
+                <svg id="submitArrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </button>
+              <p class="form-note">We respect your privacy. Your information will only be used in the hiring process.</p>
+            </form>
+          </div>
+
+          <!-- Success view -->
+          <div id="successView" style="display:none;">
+            <div class="success-screen">
+              <div class="success-icon">
+                <svg width="30" height="30" fill="none" stroke="#059669" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div class="success-title">Application received!</div>
+              <p class="success-text">Thank you for taking the time to reach out. A member of our team will personally review your application and get back to you within 5 business days.</p>
+              <a href="careers.html" class="apply-btn" style="display:inline-flex;margin:0 auto;">View all openings</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════════════════ -->
+<footer style="background:#fff;border-top:1px solid #e5e7eb;padding:3rem 2rem 2rem;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;">
+    <div style="font-weight:700;font-size:1.25rem;color:#111827;">TechEdilite</div>
+    <div style="display:flex;gap:2rem;flex-wrap:wrap;">
+      <a href="index.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;">Home</a>
+      <a href="index.html#services" style="font-size:0.875rem;color:#6b7280;text-decoration:none;">Services</a>
+      <a href="careers.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;">Careers</a>
+      <a href="index.html#contact" style="font-size:0.875rem;color:#6b7280;text-decoration:none;">Contact</a>
+      <a href="privacyPolicy.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;">Privacy Policy</a>
+    </div>
+  </div>
+  <div style="font-size:0.8rem;color:#9ca3af;margin-top:2rem;text-align:center;">© 2026 TechEdilite. All rights reserved. · contact@techedilite.co</div>
+</footer>
+
+<script>
+  const API_BASE = 'https://careers.techedilite.co';
+  let currentCareerId = null;
+
+  // ── GET CAREER ID FROM URL ────────────────────────────────────────────────
+  function getCareerIdFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id');
+  }
+
+  // ── LOAD JOB ──────────────────────────────────────────────────────────────
+  async function loadJob() {
+    const careerId = getCareerIdFromUrl();
+
+    // Show loading, hide others
+    document.getElementById('loadingState').style.display = 'block';
+    document.getElementById('mainContent').style.display = 'none';
+    document.getElementById('expiredState').style.display = 'none';
+    document.getElementById('errorState').style.display = 'none';
+
+    if (!careerId) {
+      showExpired();
+      return;
+    }
+
+    currentCareerId = careerId;
+
+    try {
+      const res = await fetch(`${API_BASE}/careers/${encodeURIComponent(careerId)}`);
+
+      if (res.status === 404) {
+        showExpired();
+        return;
+      }
+      if (!res.ok) throw new Error('fetch failed');
+
+      const job = await res.json();
+
+      if (!job || job.status === 'closed') {
+        showExpired();
+        return;
+      }
+
+      renderJob(job);
+
+    } catch (err) {
+      console.error('Job load error:', err);
+      showError();
+    }
+  }
+
+  // ── RENDER JOB ────────────────────────────────────────────────────────────
+  function renderJob(job) {
+    // Update page title
+    document.getElementById('page-title').textContent = `${job.title} | TechEdilite Careers`;
+    document.getElementById('formSubheading').textContent = `Applying for: ${job.title}`;
+
+    // Department
+    document.getElementById('jobDept').textContent = job.department || 'TechEdilite';
+
+    // Title
+    document.getElementById('jobTitle').textContent = job.title;
+
+    // Meta tags
+    const metaEl = document.getElementById('jobMeta');
+    const locClass = job.location?.toLowerCase().includes('remote') ? 'remote' : '';
+    const typeClass = job.type?.toLowerCase().includes('intern') ? 'intern' : '';
+    metaEl.innerHTML = `
+      <span class="meta-tag ${locClass}">${locClass === 'remote' ? '🌍 ' : ''}${escHtml(job.location || 'Remote')}</span>
+      <span class="meta-tag ${typeClass}">${escHtml(job.type || 'Internship')}</span>
+      ${job.department ? `<span class="meta-tag">${escHtml(job.department)}</span>` : ''}
+    `;
+
+    // Description
+    document.getElementById('jobDesc').textContent = job.description || '';
+
+    // Requirements
+    const reqs = Array.isArray(job.requirements) ? job.requirements : [];
+    if (reqs.length) {
+      const reqList = document.getElementById('jobReqs');
+      reqList.innerHTML = reqs.map(r => `<li>${escHtml(r)}</li>`).join('');
+      document.getElementById('jobReqsWrapper').style.display = 'block';
+    }
+
+    // Show main content
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+  }
+
+  function showExpired() {
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('expiredState').style.display = 'block';
+  }
+
+  function showError() {
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('errorState').style.display = 'block';
+  }
+
+  // ── COPY LINK ─────────────────────────────────────────────────────────────
+  function copyLink() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      const btn = document.getElementById('shareBtn');
+      const txt = document.getElementById('shareBtnText');
+      btn.classList.add('copied');
+      txt.textContent = 'Link copied!';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        txt.textContent = 'Copy link to share';
+      }, 2500);
+    }).catch(() => {
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    });
+  }
+
+  // ── FORM SUBMIT ───────────────────────────────────────────────────────────
+  async function handleApply(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    document.getElementById('submitText').style.display = 'none';
+    document.getElementById('submitLoader').style.display = 'inline';
+    document.getElementById('submitArrow').style.display = 'none';
+
+    const form = document.getElementById('applyForm');
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      const res = await fetch(`${API_BASE}/apply/${encodeURIComponent(currentCareerId)}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (res.status === 409) {
+        showFormError("You've already applied for this role. We'll be in touch soon!");
+        resetBtn();
+        return;
+      }
+      if (res.status === 404) {
+        showFormError('This role is no longer available.');
+        resetBtn();
+        return;
+      }
+    } catch (_) {
+      // Network failure — graceful degradation
+    }
+
+    document.getElementById('formView').style.display = 'none';
+    document.getElementById('successView').style.display = 'block';
+  }
+
+  function resetBtn() {
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = false;
+    document.getElementById('submitText').style.display = 'inline';
+    document.getElementById('submitLoader').style.display = 'none';
+    document.getElementById('submitArrow').style.display = 'inline';
+  }
+
+  function showFormError(msg) {
+    let el = document.getElementById('form-error');
+    if (!el) {
+      el = document.createElement('p');
+      el.id = 'form-error';
+      el.style.cssText = 'font-size:0.85rem;color:#be123c;background:#fff1f2;border:1px solid #fecdd3;padding:0.75rem 1rem;border-radius:8px;margin-bottom:1rem;';
+      document.getElementById('applyForm').prepend(el);
+    }
+    el.textContent = msg;
+  }
+
+  // ── NAV ───────────────────────────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', function () {
+    const nav = document.getElementById('mainNav');
+    const mobileBtn = document.getElementById('mobile-menu-button');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.pageYOffset > 50);
+    });
+
+    mobileBtn.addEventListener('click', function () {
+      this.classList.toggle('active');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileBtn.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    loadJob();
+  });
+
+  // ── UTILS ─────────────────────────────────────────────────────────────────
+  function escHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+  }
+</script>
+
+</body>
+</html>
