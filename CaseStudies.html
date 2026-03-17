@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Case Studies — Techedilite</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Exo:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray-soft: #f7f7f7;
+      --gray-mid: #e5e7eb;
+      --gray-text: #4b5563;
+      --accent: #111827;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Exo', sans-serif;
+      color: var(--black);
+      background: var(--white);
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    .nav-professional {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      animation: navSlideDown 0.5s ease-out;
+    }
+    .nav-professional.scrolled { background: rgba(255,255,255,0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; transition: transform 0.3s ease; }
+    .nav-logo:hover { transform: scale(1.02); }
+    .logo-text { font-size: 1.375rem; font-weight: 700; color: #000; letter-spacing: -0.02em; }
+    .nav-menu { display: flex; align-items: center; gap: 3rem; }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+    .nav-link { position: relative; font-size: 0.9375rem; font-weight: 500; color: #4B5563; text-decoration: none; padding: 0.5rem 0; transition: color 0.3s ease; }
+    .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #000; transition: width 0.3s ease; }
+    .nav-link:hover, .nav-link.active { color: #000; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .btn-nav { padding: 0.625rem 1.5rem; font-size: 0.9375rem; font-weight: 600; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; }
+    .btn-contact { background: #141414; color: #fff; border: none; }
+    .btn-contact:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+    .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 1001; }
+    .menu-icon { width: 24px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s ease; }
+    .mobile-menu-btn.active .menu-icon:nth-child(1) { transform: rotate(45deg) translate(6px,6px); }
+    .mobile-menu-btn.active .menu-icon:nth-child(2) { opacity: 0; transform: translateX(-20px); }
+    .mobile-menu-btn.active .menu-icon:nth-child(3) { transform: rotate(-45deg) translate(6px,-6px); }
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .mobile-menu-btn { display: flex; }
+    }
+    @keyframes navSlideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      padding: 7rem 2rem 5rem;
+      background: #fff;
+      overflow: hidden;
+    }
+    .hero-bg-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #374151;
+      background: #f3f4f6; border: 1px solid #e5e7eb;
+      padding: 0.45rem 1rem; border-radius: 20px;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease-out both;
+    }
+    .tag-dot { width: 7px; height: 7px; background: #111827; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+
+    .hero-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 6.5vw, 5.5rem);
+      line-height: 1.05;
+      color: #000;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      animation: fadeUp 0.6s 0.1s ease-out both;
+    }
+    .hero-headline em {
+      font-style: italic;
+      background: linear-gradient(135deg, #374151 0%, #9ca3af 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.125rem; line-height: 1.8; color: #6b7280;
+      max-width: 580px;
+      animation: fadeUp 0.6s 0.2s ease-out both;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      padding: 2.5rem 2rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      animation: fadeUp 0.6s 0.3s ease-out both;
+    }
+    .filter-btn {
+      font-size: 0.8rem; font-weight: 600; font-family: 'Exo', sans-serif;
+      padding: 0.45rem 1.1rem; border-radius: 20px;
+      border: 1px solid #e5e7eb; background: #fff; color: #374151;
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .filter-btn:hover { border-color: #9ca3af; background: #f9fafb; }
+    .filter-btn.active { background: #111827; color: #fff; border-color: #111827; }
+
+    /* ── STATS STRIP ── */
+    .stats-strip { background: #111827; padding: 4rem 2rem; margin-top: 5rem; }
+    .stats-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; flex-wrap: wrap; gap: 4rem; text-align: center; }
+    .stat-item {}
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 3rem; color: #fff; line-height: 1; margin-bottom: 0.4rem; }
+    .stat-label { font-size: 0.82rem; color: #9ca3af; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ── CASE STUDIES GRID ── */
+    .studies-section { padding: 5rem 2rem; background: #fff; }
+    .studies-container { max-width: 1200px; margin: 0 auto; }
+
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.75rem; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: #000; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    .section-sub { font-size: 1rem; color: #6b7280; line-height: 1.7; max-width: 520px; margin-bottom: 3.5rem; }
+
+    .studies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ── CASE STUDY CARD ── */
+    .cs-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .cs-card:hover { border-color: #9ca3af; box-shadow: 0 12px 36px rgba(0,0,0,0.07); }
+    .cs-card.expanded { border-color: #111827; box-shadow: 0 16px 48px rgba(0,0,0,0.1); transform: none; grid-column: 1 / -1; }
+
+    /* Card top — always visible */
+    .cs-top {
+      cursor: pointer;
+      display: flex;
+      gap: 0;
+      flex-direction: column;
+    }
+    .cs-card.expanded .cs-top { flex-direction: row; }
+
+    /* Thumbnail */
+    .cs-thumb {
+      position: relative;
+      overflow: hidden;
+      background: #f3f4f6;
+      height: 220px;
+      flex-shrink: 0;
+    }
+    .cs-card.expanded .cs-thumb { width: 420px; height: auto; min-height: 320px; }
+
+    .cs-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .cs-card:hover .cs-thumb img { transform: scale(1.04); }
+
+    /* placeholder for image */
+    .cs-thumb-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.5rem; color: #9ca3af;
+    }
+    .cs-thumb-placeholder svg { opacity: 0.4; }
+    .cs-thumb-placeholder span { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    .cs-industry-badge {
+      position: absolute; top: 1rem; left: 1rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      background: rgba(255,255,255,0.92); color: #111827;
+      padding: 0.3rem 0.75rem; border-radius: 20px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+
+    /* Card info strip */
+    .cs-info {
+      padding: 1.6rem 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .cs-card.expanded .cs-info { padding: 2rem 2.5rem; justify-content: flex-start; }
+
+    .cs-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .cs-tag {
+      font-size: 0.72rem; font-weight: 600; padding: 0.28rem 0.75rem;
+      border-radius: 20px; border: 1px solid #e5e7eb;
+      color: #374151; background: #f9fafb;
+    }
+    .cs-tag.highlight { background: #f0fdf4; border-color: #bbf7d0; color: #15803d; }
+
+    .cs-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem; color: #111827;
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+    }
+    .cs-card.expanded .cs-title { font-size: 1.9rem; }
+
+    .cs-excerpt { font-size: 0.9rem; color: #6b7280; line-height: 1.7; margin-bottom: 1.2rem; }
+
+    .cs-metrics {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      padding-top: 1rem;
+      border-top: 1px solid #f3f4f6;
+      margin-top: auto;
+    }
+    .cs-metric {}
+    .cs-metric-val { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: #111827; line-height: 1; }
+    .cs-metric-label { font-size: 0.72rem; color: #9ca3af; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; }
+
+    .cs-toggle-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 1.25rem;
+    }
+    .cs-read-more {
+      font-size: 0.85rem; font-weight: 600; color: #374151;
+      display: flex; align-items: center; gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .cs-read-more svg { transition: transform 0.3s ease; }
+    .cs-card.expanded .cs-read-more svg { transform: rotate(180deg); }
+    .cs-card:hover .cs-read-more { color: #111827; }
+
+    .cs-chevron {
+      width: 34px; height: 34px;
+      border: 1px solid #e5e7eb; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    .cs-card.expanded .cs-chevron { background: #111827; border-color: #111827; }
+    .cs-card.expanded .cs-chevron svg { stroke: #fff; transform: rotate(180deg); }
+
+    /* ── EXPANDED BODY ── */
+    .cs-body {
+      display: none;
+      border-top: 1px solid #f3f4f6;
+    }
+    .cs-card.expanded .cs-body { display: block; }
+
+    .cs-body-inner {
+      padding: 2.5rem 2.5rem 3rem;
+      max-width: 900px;
+    }
+
+    .cs-section-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem; color: #111827;
+      margin-bottom: 1rem;
+      margin-top: 2.25rem;
+      letter-spacing: -0.015em;
+    }
+    .cs-section-heading:first-child { margin-top: 0; }
+
+    .cs-body-text { font-size: 0.95rem; color: #4b5563; line-height: 1.85; margin-bottom: 1rem; }
+
+    .cs-highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .cs-highlight-item {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+    }
+    .cs-highlight-icon {
+      width: 36px; height: 36px;
+      background: #111827; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .cs-highlight-icon svg { stroke: #fff; }
+    .cs-highlight-title { font-weight: 700; font-size: 0.9rem; color: #111827; margin-bottom: 0.3rem; }
+    .cs-highlight-desc { font-size: 0.82rem; color: #6b7280; line-height: 1.55; }
+
+    .cs-result-pills {
+      display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem;
+    }
+    .cs-result-pill {
+      font-size: 0.82rem; font-weight: 700;
+      padding: 0.45rem 1.1rem; border-radius: 6px;
+      background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0;
+    }
+
+    /* Full-width image inside expanded */
+    .cs-full-image {
+      width: 100%; border-radius: 10px; overflow: hidden;
+      background: #f3f4f6; margin: 1.75rem 0;
+      aspect-ratio: 16/7;
+    }
+    .cs-full-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cs-full-image .cs-thumb-placeholder { height: 100%; }
+
+    /* Testimonial */
+    .cs-testimonial {
+      margin: 2rem 0;
+      padding: 1.75rem 2rem;
+      border-left: 3px solid #111827;
+      background: #f9fafb;
+      border-radius: 0 10px 10px 0;
+    }
+    .cs-testimonial-text { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: #111827; line-height: 1.65; font-style: italic; margin-bottom: 1rem; }
+    .cs-testimonial-author { font-size: 0.82rem; font-weight: 700; color: #374151; }
+    .cs-testimonial-role { font-size: 0.78rem; color: #9ca3af; margin-top: 0.15rem; }
+
+    .cs-cta-row {
+      display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2.25rem;
+      padding-top: 2rem; border-top: 1px solid #e5e7eb;
+    }
+    .cs-btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #111827; color: #fff;
+      padding: 0.85rem 1.75rem; border-radius: 6px;
+      font-weight: 600; font-size: 0.9rem; text-decoration: none;
+      cursor: pointer; border: none; font-family: 'Exo', sans-serif;
+      transition: all 0.3s ease;
+    }
+    .cs-btn-primary:hover { background: #374151; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+    .cs-btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #fff; color: #374151;
+      padding: 0.85rem 1.5rem; border-radius: 6px;
+      font-weight: 600; font-size: 0.9rem; text-decoration: none;
+      cursor: pointer; border: 1px solid #e5e7eb; font-family: 'Exo', sans-serif;
+      transition: all 0.2s ease;
+    }
+    .cs-btn-outline:hover { background: #f3f4f6; border-color: #d1d5db; }
+
+    /* ── BOTTOM CTA ── */
+    .cta-section { background: #111827; padding: 5rem 2rem; text-align: center; }
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+    .cta-section .section-label { color: #6b7280; margin-bottom: 0.75rem; }
+    .cta-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .cta-sub { font-size: 1rem; color: #9ca3af; line-height: 1.7; margin-bottom: 2rem; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: #fff; color: #111827;
+      padding: 1rem 2.25rem; border-radius: 6px;
+      font-weight: 700; font-size: 1rem; text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,255,255,0.12); }
+
+    /* ── FOOTER ── */
+    footer { background: #fff; border-top: 1px solid #e5e7eb; padding: 3rem 2rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-brand { font-weight: 700; font-size: 1.25rem; color: #111827; }
+    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.875rem; color: #6b7280; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #111827; }
+    .footer-copy { font-size: 0.8rem; color: #9ca3af; margin-top: 2rem; text-align: center; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      .cs-card.expanded .cs-top { flex-direction: column; }
+      .cs-card.expanded .cs-thumb { width: 100%; min-height: 220px; }
+      .cs-body-inner { padding: 1.5rem 1.25rem 2rem; }
+      .studies-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav-professional" id="mainNav">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <span class="logo-text">Techedilite</span>
+    </a>
+    <!-- <div class="nav-menu">
+      <ul class="nav-links">
+        <li><a href="#" class="nav-link">Work</a></li>
+        <li><a href="#" class="nav-link active">Case Studies</a></li>
+        <li><a href="#" class="nav-link">Services</a></li>
+        <li><a href="#" class="nav-link">About</a></li>
+      </ul>
+      <a href="#" class="btn-nav btn-contact">Get in Touch</a>
+    </div>
+    <button class="mobile-menu-btn" id="mobileBtn" aria-label="Menu">
+      <span class="menu-icon"></span>
+      <span class="menu-icon"></span>
+      <span class="menu-icon"></span>
+    </button> -->
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">
+      <span class="tag-dot"></span>
+      Real Projects · Real Results
+    </div>
+    <h1 class="hero-headline">Work that<br/><em>speaks louder</em><br/>than words.</h1>
+    <p class="hero-sub">
+      Deep dives into the projects we've built — the problems, the decisions,
+      the craft, and the outcomes. Click any case study to read the full story.
+    </p>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<!-- <div class="filter-bar" id="filterBar">
+  <button class="filter-btn active" data-filter="all">All Work</button>
+  <button class="filter-btn" data-filter="blockchain">Blockchain</button>
+  <button class="filter-btn" data-filter="web">Web Development</button>
+  <button class="filter-btn" data-filter="payments">Payments</button>
+  <button class="filter-btn" data-filter="smartcontract">Smart Contracts</button>
+  <button class="filter-btn" data-filter="saas">SaaS</button>
+</div> -->
+
+<!-- STATS STRIP -->
+<!-- <div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">24+</div>
+      <div class="stat-label">Projects Delivered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Blockchain Networks</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">$2M+</div>
+      <div class="stat-label">Transactions Processed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+  </div>
+</div> -->
+
+<!-- CASE STUDIES -->
+<section class="studies-section">
+  <div class="studies-container">
+    <div class="section-label">Case Studies</div>
+    <h2 class="section-title">Selected Work</h2>
+    <p class="section-sub">Click any card to expand the full case study — challenge, approach, and results.</p>
+
+    <div class="studies-grid" id="studiesGrid">
+
+        <!-- CARD 5 — UnitPulse -->
+<div class="cs-card" data-category="saas web" data-id="5">
+  <div class="cs-top" onclick="toggleCard(this.closest('.cs-card'))">
+    <div class="cs-thumb">
+      <div class="cs-thumb-placeholder">
+        <img src="./1c.png" alt="UnitPulse Dashboard">
+       
+      </div>
+      <span class="cs-industry-badge">Inventory SaaS</span>
+    </div>
+    <div class="cs-info">
+      <div class="cs-tags">
+        <span class="cs-tag">SaaS</span>
+        <span class="cs-tag">Cloud</span>
+        <span class="cs-tag">Inventory</span>
+        <span class="cs-tag">ERP</span>
+        <span class="cs-tag highlight">Live</span>
+      </div>
+      <h3 class="cs-title">UnitPulse — Industrial Inventory & Document Management</h3>
+      <p class="cs-excerpt">A complete cloud-based inventory platform for manufacturing and distribution businesses — covering purchase orders, returnable delivery challans, delivery challans, and GST invoicing, all in one system.</p>
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-val">1 wk</div>
+          <div class="cs-metric-label">Delivered</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">4</div>
+          <div class="cs-metric-label">Doc Types</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">100%</div>
+          <div class="cs-metric-label">Cloud Backed</div>
+        </div>
+      </div>
+      <div class="cs-toggle-row">
+        <span class="cs-read-more">
+          Read case study
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+        <div class="cs-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-body">
+    <div class="cs-body-inner">
+
+      <h4 class="cs-section-heading">The Challenge</h4>
+      <p class="cs-body-text">An industrial distribution company was managing their entire inventory operation through paper registers, Excel sheets, and WhatsApp forwards. Purchase orders were raised manually, delivery challans were handwritten, and returnable items had no reliable tracking — leading to disputes, lost stock, and billing errors.</p>
+      <p class="cs-body-text">They needed a single platform that could handle the full document lifecycle of an industrial business: from raising a purchase order to issuing challans, tracking returnables, and generating GST-compliant invoices — all while keeping inventory counts accurate and synced in real time.</p>
+
+      <!-- REPLACE: full-width screenshot -->
+      <!-- <div class="cs-full-image">
+        <div class="cs-thumb-placeholder">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>1600 × 700px — UnitPulse Dashboard / Document Flow Screenshot</span>
+        </div>
+      </div> -->
+
+      <h4 class="cs-section-heading">Our Approach</h4>
+      <p class="cs-body-text">We began with a thorough analysis of the client's business workflow — mapping every touchpoint from supplier to warehouse to customer. This research phase was critical: by deeply understanding the industry's document flow before writing a single line of code, we avoided costly rework and delivered a solution that felt purpose-built rather than generic.</p>
+      <p class="cs-body-text">The result was UnitPulse — a cloud-first SaaS product architected around four core document types that mirror how industrial businesses actually operate. Every module was designed to feed into the next, so a purchase order automatically updates stock, a delivery challan draws from live inventory, and a returnable challan creates a pending return that reconciles automatically when goods come back.</p>
+
+      <div class="cs-highlights-grid">
+        <div class="cs-highlight-item">
+          <div class="cs-highlight-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <div class="cs-highlight-title">Purchase Orders</div>
+          <div class="cs-highlight-desc">Raise, approve, and track POs with supplier details, line items, and expected delivery dates — auto-updating stock on receipt.</div>
+        </div>
+        <div class="cs-highlight-item">
+          <div class="cs-highlight-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          </div>
+          <div class="cs-highlight-title">Delivery Challans</div>
+          <div class="cs-highlight-desc">Issue outbound delivery challans against live stock levels. Inventory deducted instantly on dispatch with full audit trail.</div>
+        </div>
+        <div class="cs-highlight-item">
+          <div class="cs-highlight-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </div>
+          <div class="cs-highlight-title">Returnable Challans</div>
+          <div class="cs-highlight-desc">Track items sent on returnable basis with pending return status, due dates, and automatic reconciliation when goods are received back.</div>
+        </div>
+        <div class="cs-highlight-item">
+          <div class="cs-highlight-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
+          </div>
+          <div class="cs-highlight-title">GST Invoicing</div>
+          <div class="cs-highlight-desc">Generate GST-compliant invoices directly from challan data — CGST, SGST, IGST auto-calculated with printable PDF output.</div>
+        </div>
+        <div class="cs-highlight-item">
+          <div class="cs-highlight-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+          </div>
+          <div class="cs-highlight-title">Cloud Inventory</div>
+          <div class="cs-highlight-desc">All stock levels maintained in the cloud with real-time sync, role-based access, automated daily backups, and zero data loss guarantee.</div>
+        </div>
+        <div class="cs-highlight-item">
+          <div class="cs-highlight-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div class="cs-highlight-title">Secure & Backed Up</div>
+          <div class="cs-highlight-desc">Encrypted data storage, daily automated backups, and role-based permissions — so only the right people see the right data.</div>
+        </div>
+      </div>
+
+      <!-- Second screenshot slot -->
+      <!-- <div class="cs-full-image">
+        <div class="cs-thumb-placeholder">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>1600 × 700px — Inventory Dashboard / Invoice Generator Screenshot</span>
+        </div>
+      </div> -->
+
+      <h4 class="cs-section-heading">Results</h4>
+      <p class="cs-body-text">UnitPulse went from requirement gathering to a fully functional, deployed product in under one week — a testament to the efficiency that comes from deep pre-build analysis. The client immediately eliminated paper-based workflows, reduced billing errors to zero, and gained complete visibility into their stock at any point in time.</p>
+      <p class="cs-body-text">The returnable challan module alone recovered over a dozen unreconciled items in the first month that had previously been written off as losses. Invoicing time dropped from hours of manual entry to minutes of one-click generation.</p>
+
+      <div class="cs-testimonial">
+        <div class="cs-testimonial-text">"We went from paper challans to a fully digital system in one week. The team understood our industry immediately — it felt like they'd worked in warehousing before."</div>
+        <div class="cs-testimonial-author">Client Name</div>
+        <div class="cs-testimonial-role">Operations Manager, [Company Name] — Replace with real testimonial</div>
+      </div>
+
+      <div class="cs-result-pills">
+        <span class="cs-result-pill">Delivered in 2 week</span>
+        <span class="cs-result-pill">Paper workflows eliminated</span>
+        <span class="cs-result-pill">Zero billing errors post-launch</span>
+        <span class="cs-result-pill">Returnable items fully reconciled</span>
+        <span class="cs-result-pill">GST-compliant invoicing</span>
+        <span class="cs-result-pill">Daily automated cloud backup</span>
+      </div>
+
+      <div class="cs-cta-row">
+        <a href="/#contact" class="cs-btn-primary">
+          Build a similar platform
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <button class="cs-btn-outline" onclick="toggleCard(this.closest('.cs-card'))">Collapse</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+      <!-- CARD 1 -->
+      <div class="cs-card" data-category="payments blockchain" data-id="1">
+        <div class="cs-top" onclick="toggleCard(this.closest('.cs-card'))">
+          <div class="cs-thumb">
+            <!-- REPLACE: <img src="YOUR_IMAGE.jpg" alt="PayCircle Dashboard"> -->
+            <div class="cs-thumb-placeholder">
+                   <img src="./2c.png" alt="UnitPulse Dashboard">
+
+            </div>
+            <span class="cs-industry-badge">Payments</span>
+          </div>
+          <div class="cs-info">
+            <div class="cs-tags">
+              <span class="cs-tag">Go</span>
+              <span class="cs-tag">Solana</span>
+              <span class="cs-tag">BSC</span>
+              <span class="cs-tag">RabbitMQ</span>
+              <span class="cs-tag highlight">Live</span>
+            </div>
+            <h3 class="cs-title">Multi-Chain Crypto Payment Platform</h3>
+            <p class="cs-excerpt">A real-time cryptocurrency deposit and withdrawal processing engine supporting multiple blockchains, HD wallet management, and automated fund sweeping.</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-val">6+</div>
+                <div class="cs-metric-label">Chains</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-val">&lt;2s</div>
+                <div class="cs-metric-label">Confirmation</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-val">99.9%</div>
+                <div class="cs-metric-label">Uptime</div>
+              </div>
+            </div>
+            <div class="cs-toggle-row">
+              <span class="cs-read-more">
+                Read case study
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+              <div class="cs-chevron">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-body">
+          <div class="cs-body-inner">
+            <h4 class="cs-section-heading">The Challenge</h4>
+            <p class="cs-body-text">The client needed a production-grade crypto payment gateway capable of monitoring deposits across multiple blockchains simultaneously, processing withdrawals reliably, and managing thousands of HD wallet addresses — all without relying on a third-party custodian.</p>
+            <p class="cs-body-text">Existing open-source solutions were either chain-specific, poorly maintained, or not designed for the reliability requirements of a live payments platform. We needed to build from scratch in Go.</p>
+
+            <!-- REPLACE: full-width screenshot -->
+            <!-- <div class="cs-full-image">
+              <div class="cs-thumb-placeholder">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <span>1600 × 700px — Architecture Diagram / Screenshot</span>
+              </div>
+            </div> -->
+
+            <h4 class="cs-section-heading">Our Approach</h4>
+            <p class="cs-body-text">We architected a microservices system where each blockchain has a dedicated Go service — deposit monitor, withdrawal processor, and sweeper — communicating via RabbitMQ. Each service uses signature-based checkpointing to resume from exactly where it left off after restarts.</p>
+
+            <div class="cs-highlights-grid">
+              <div class="cs-highlight-item">
+                <div class="cs-highlight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="cs-highlight-title">Multi-Chain Architecture</div>
+                <div class="cs-highlight-desc">Independent services per chain (BSC, Solana, Ethereum, Algorand) with shared asset master.</div>
+              </div>
+              <div class="cs-highlight-item">
+                <div class="cs-highlight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div class="cs-highlight-title">Event-Driven Processing</div>
+                <div class="cs-highlight-desc">RabbitMQ with dead-letter queues, retry logic, and routing key separation per service.</div>
+              </div>
+              <div class="cs-highlight-item">
+                <div class="cs-highlight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                </div>
+                <div class="cs-highlight-title">HD Wallet Management</div>
+                <div class="cs-highlight-desc">BIP-44 derived addresses, threshold-based auto-sweeping to cold storage wallets.</div>
+              </div>
+              <div class="cs-highlight-item">
+                <div class="cs-highlight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div class="cs-highlight-title">Checkpoint Resumption</div>
+                <div class="cs-highlight-desc">Signature/block-based pagination so no transaction is missed after a service restart.</div>
+              </div>
+            </div>
+
+            <h4 class="cs-section-heading">Results</h4>
+            <p class="cs-body-text">The platform went live processing real transactions within 8 weeks. Fund sweeping reduced manual wallet management overhead by over 90%, and the RabbitMQ-based architecture gave the ops team full visibility into every transaction event.</p>
+
+            <div class="cs-testimonial">
+              <div class="cs-testimonial-text">"The architecture Josh designed gave us something we didn't expect — total confidence in our infrastructure. Every edge case was handled."</div>
+              <!-- <div class="cs-testimonial-author">Client Name</div> -->
+              <!-- <div class="cs-testimonial-role">CTO, [Company Name] — Replace with real testimonial</div> -->
+            </div>
+
+            <div class="cs-result-pills">
+              <span class="cs-result-pill">6 chains integrated</span>
+              <span class="cs-result-pill">Zero missed deposits in production</span>
+              <span class="cs-result-pill">8-week delivery</span>
+              <span class="cs-result-pill">Auto-sweep threshold system</span>
+            </div>
+
+            <div class="cs-cta-row">
+              <a href="/#contact" class="cs-btn-primary">
+                Discuss a similar project
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a> 
+              <button class="cs-btn-outline" onclick="toggleCard(this.closest('.cs-card'))">Collapse</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="cs-card" data-category="smartcontract blockchain" data-id="2">
+        <div class="cs-top" onclick="toggleCard(this.closest('.cs-card'))">
+          <div class="cs-thumb">
+            <div class="cs-thumb-placeholder">
+                   <img src="./3c.png" alt="UnitPulse Dashboard">
+
+            </div>
+            <span class="cs-industry-badge">DeFi</span>
+          </div>
+          <div class="cs-info">
+            <div class="cs-tags">
+              <span class="cs-tag">Solidity</span>
+              <span class="cs-tag">Foundry</span>
+              <span class="cs-tag">BSC</span>
+              <span class="cs-tag">ERC-20</span>
+              <span class="cs-tag highlight">Deployed</span>
+            </div>
+            <h3 class="cs-title">Token Sale & Vesting Contract Suite</h3>
+            <p class="cs-excerpt">A complete on-chain fundraising system — BNB-denominated token sale with discount tiers, hard cap enforcement, and a cliff+linear vesting contract for team and investor allocations.</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-val">100%</div>
+                <div class="cs-metric-label">Test Coverage</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-val">3</div>
+                <div class="cs-metric-label">Contracts</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-val">0</div>
+                <div class="cs-metric-label">Audit Issues</div>
+              </div>
+            </div>
+            <div class="cs-toggle-row">
+              <span class="cs-read-more">
+                Read case study
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+              <div class="cs-chevron">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-body">
+          <div class="cs-body-inner">
+            <h4 class="cs-section-heading">The Challenge</h4>
+            <p class="cs-body-text">A Web3 startup needed a complete fundraising mechanism on BSC — a BNB-based token sale contract with tiered discounts, hard cap protection, and a separate vesting system that would automatically release tokens to investors and team members over a configurable schedule.</p>
+            <p class="cs-body-text">The contracts had to be gas-optimized, auditable, and tested with a full Foundry suite before mainnet deployment.</p>
+<!-- 
+            <div class="cs-full-image">
+              <div class="cs-thumb-placeholder">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <span>1600 × 700px — Contract Diagram / BSCScan Screenshot</span>
+              </div>
+            </div> -->
+
+            <h4 class="cs-section-heading">Our Approach</h4>
+            <p class="cs-body-text">We built three contracts: the ERC-20 token, the ICO sale contract (with phase-based discount mechanics and emergency pause), and the vesting contract (configurable cliff, linear daily release, multi-beneficiary). Each was developed test-first using Foundry with fuzz testing on critical parameters.</p>
+
+            <div class="cs-highlights-grid">
+              <div class="cs-highlight-item">
+                <div class="cs-highlight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                </div>
+                <div class="cs-highlight-title">Foundry Test Suite</div>
+                <div class="cs-highlight-desc">100+ unit tests and fuzz tests covering edge cases, reentrancy, and overflow scenarios.</div>
+              </div>
+              <div class="cs-highlight-item">
+                <div class="cs-highlight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                </div>
+                <div class="cs-highlight-title">Discount Tiers</div>
+                <div class="cs-highlight-desc">Time-based or volume-based discount phases configurable by the contract owner.</div>
+              </div>
+              <div class="cs-highlight-item">
+                <div class="cs-highlight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="cs-highlight-title">Cliff + Linear Vesting</div>
+                <div class="cs-highlight-desc">Configurable cliff period followed by pro-rata daily token release per beneficiary.</div>
+              </div>
+              <div class="cs-highlight-item">
+                <div class="cs-highlight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                </div>
+                <div class="cs-highlight-title">Emergency Controls</div>
+                <div class="cs-highlight-desc">Pause/unpause mechanics and owner-withdrawable BNB with access control.</div>
+              </div>
+            </div>
+
+            <h4 class="cs-section-heading">Results</h4>
+            <p class="cs-body-text">Contracts deployed successfully to BSC mainnet and Sepolia testnet. The Foundry suite caught two critical edge cases pre-deployment. The client's team was able to manage the ICO parameters independently through the owner functions post-handoff.</p>
+
+            <div class="cs-result-pills">
+              <span class="cs-result-pill">Deployed to BSC mainnet</span>
+              <span class="cs-result-pill">2 critical bugs caught pre-launch</span>
+              <span class="cs-result-pill">Fully gas-optimized</span>
+              <span class="cs-result-pill">Client-operable post-handoff</span>
+            </div>
+
+            <div class="cs-cta-row">
+              <a href="/#contact" class="cs-btn-primary">
+                Build a smart contract
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <button class="cs-btn-outline" onclick="toggleCard(this.closest('.cs-card'))">Collapse</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      
+
+      <!-- CARD 4 -->
+      <div class="cs-card" data-category="saas blockchain" data-id="4">
+        <div class="cs-top" onclick="toggleCard(this.closest('.cs-card'))">
+          <div class="cs-thumb">
+            <div class="cs-thumb-placeholder">
+                    <img src="./4c.png" alt="UnitPulse Dashboard">
+
+            </div>
+            <span class="cs-industry-badge">NGO / Web3</span>
+          </div>
+          <div class="cs-info">
+            <div class="cs-tags">
+              <span class="cs-tag">Go</span>
+              <span class="cs-tag">Solidity</span>
+              <span class="cs-tag">CoinGate</span>
+              <span class="cs-tag">BSC</span>
+              <span class="cs-tag highlight">Shipped</span>
+            </div>
+            <h3 class="cs-title">Cross-Chain NGO Donation Platform</h3>
+            <p class="cs-excerpt">A crypto-native donation gateway for NGOs integrating CoinGate and NowPayments with a custom PaymentVault smart contract for on-chain fund transparency and governance.</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-val">100+</div>
+                <div class="cs-metric-label">Currencies</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-val">On-chain</div>
+                <div class="cs-metric-label">Transparency</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-val">3</div>
+                <div class="cs-metric-label">Integrations</div>
+              </div>
+            </div>
+            <div class="cs-toggle-row">
+              <span class="cs-read-more">
+                Read case study
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+              <div class="cs-chevron">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-body">
+          <div class="cs-body-inner">
+            <h4 class="cs-section-heading">The Challenge</h4>
+            <p class="cs-body-text">A non-profit organisation wanted to accept cryptocurrency donations from a global audience while providing donors with verifiable, on-chain proof of how funds were allocated — a trust-first requirement for NGO fundraising.</p>
+            <p class="cs-body-text">They needed support for 100+ cryptocurrencies, a familiar checkout experience (not just MetaMask), and a smart contract that enforced allocation transparency for donors and auditors.</p>
+
+            <!-- <div class="cs-full-image">
+              <div class="cs-thumb-placeholder">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <span>1600 × 700px — Platform Screenshot / Flow Diagram</span>
+              </div>
+            </div> -->
+
+            <h4 class="cs-section-heading">Our Approach</h4>
+            <p class="cs-body-text">We built a Go backend orchestrating two payment processor APIs (CoinGate and NowPayments) with webhook handling, idempotent transaction recording, and a BSC-deployed PaymentVault Solidity contract that logs donation allocations immutably on-chain.</p>
+            <p class="cs-body-text">Donors could pay with any major cryptocurrency via a clean hosted checkout, while the NGO dashboard showed both off-chain payment records and on-chain vault state in real time.</p>
+
+            <div class="cs-highlights-grid">
+              <div class="cs-highlight-item">
+                <div class="cs-highlight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="cs-highlight-title">Dual Payment Processor</div>
+                <div class="cs-highlight-desc">CoinGate + NowPayments with automatic failover and 100+ cryptocurrency support.</div>
+              </div>
+              <div class="cs-highlight-item">
+                <div class="cs-highlight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="cs-highlight-title">PaymentVault Contract</div>
+                <div class="cs-highlight-desc">On-chain allocation logging — donors can verify fund destination through BSCScan.</div>
+              </div>
+              <div class="cs-highlight-item">
+                <div class="cs-highlight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div class="cs-highlight-title">Webhook Idempotency</div>
+                <div class="cs-highlight-desc">Duplicate-safe webhook processing with idempotency keys and transaction state machine.</div>
+              </div>
+              <div class="cs-highlight-item">
+                <div class="cs-highlight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                </div>
+                <div class="cs-highlight-title">NGO Dashboard</div>
+                <div class="cs-highlight-desc">Real-time view of off-chain payments and on-chain vault state for fund managers.</div>
+              </div>
+            </div>
+
+            <h4 class="cs-section-heading">Results</h4>
+            <p class="cs-body-text">HUMA launched with full support for 100+ cryptocurrencies and immediate on-chain transparency for every donation. The PaymentVault contract gave the NGO a verifiable audit trail that they used in donor communications to demonstrate accountability.</p>
+
+            <div class="cs-result-pills">
+              <span class="cs-result-pill">100+ currencies supported</span>
+              <span class="cs-result-pill">On-chain fund proof</span>
+              <span class="cs-result-pill">Zero duplicate transactions</span>
+              <span class="cs-result-pill">BSC + CoinGate + NowPayments</span>
+            </div>
+
+            <div class="cs-cta-row">
+              <a href="/#contact" class="cs-btn-primary">
+                Build a donation platform
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <button class="cs-btn-outline" onclick="toggleCard(this.closest('.cs-card'))">Collapse</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /studies-grid -->
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<!-- <section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label">Start a project</div>
+    <h2 class="cta-title">Your case study starts here.</h2>
+    <p class="cta-sub">Have a blockchain, payments, or web development project? Let's build something worth writing about.</p>
+    <a href="#" class="cta-btn">
+      Get in touch
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section> -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Techedilite</div>
+    <!-- <div class="footer-links">
+      <a href="#">Work</a>
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div> -->
+  </div>
+  <div class="footer-copy">© 2026 Techedilite. All rights reserved.</div>
+</footer>
+
+<script>
+  // Sticky nav
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Mobile menu
+  const btn = document.getElementById('mobileBtn');
+  btn.addEventListener('click', () => btn.classList.toggle('active'));
+
+  // Expand/collapse cards
+  function toggleCard(card) {
+    const wasExpanded = card.classList.contains('expanded');
+    // Close all cards
+    document.querySelectorAll('.cs-card.expanded').forEach(c => c.classList.remove('expanded'));
+    // If wasn't expanded, open it
+    if (!wasExpanded) {
+      card.classList.add('expanded');
+      setTimeout(() => {
+        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 80);
+    }
+  }
+
+  // Filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.cs-card').forEach(card => {
+        const cats = card.dataset.category || '';
+        const show = filter === 'all' || cats.includes(filter);
+        card.style.display = show ? '' : 'none';
+        if (!show) card.classList.remove('expanded');
+      });
+    });
+  });
+
+  // Animate cards on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationDelay = `${i * 0.08}s`;
+        entry.target.style.animation = 'fadeUp 0.5s ease-out both';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.cs-card').forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>
