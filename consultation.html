@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.techedilite.co/favTE.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consultation Services — Techedilite</title>
+  <meta name="description"
+    content="Expert tech consultation for small projects and startups. Strategy, compliance, project management, AI automation, and development support. NDA-first. Book a free call today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Exo', sans-serif;
+      background: #fff;
+      color: #111;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV (identical to index.html) ── */
+    .nav-professional {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      animation: navSlideDown 0.5s ease-out;
+    }
+
+    .nav-professional.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.02);
+    }
+
+    .logo-img {
+      height: 36px;
+      width: auto;
+      border-radius: 8px;
+    }
+
+    .logo-text {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: #000;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-link {
+      position: relative;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: #4B5563;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #000;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #000;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-nav {
+      padding: 0.625rem 1.5rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-contact {
+      background: #141414;
+      color: #fff;
+      border: none;
+    }
+
+    .btn-contact:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .menu-icon {
+      width: 24px;
+      height: 2px;
+      background: #000;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-btn.active .menu-icon:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .mobile-menu-btn.active .menu-icon:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    .mobile-menu-btn.active .menu-icon:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 2rem;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .mobile-nav-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .mobile-link {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #000;
+      text-decoration: none;
+      padding: 1rem;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+    }
+
+    .mobile-link:hover {
+      color: #A527FF;
+      background: rgba(165, 39, 255, 0.05);
+      transform: translateX(8px);
+    }
+
+    .mobile-link-contact {
+      margin-top: 1.5rem;
+      background: #A527FF;
+      color: #fff;
+      font-size: 1.25rem;
+    }
+
+    .mobile-link-contact:hover {
+      background: #6B21A8;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    @keyframes navSlideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        gap: 1.5rem;
+      }
+
+      .nav-menu {
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-menu {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .logo-text {
+        font-size: 1.125rem;
+      }
+
+      .logo-img {
+        height: 32px;
+      }
+    }
+
+    /* ── CONSULTATION DESIGN TOKENS ── */
+    :root {
+      --ink: #0a0a0a;
+      --ink2: #111111;
+      --ink3: #1a1a1a;
+      --bdr: rgba(255, 255, 255, 0.07);
+      --bdr2: rgba(255, 255, 255, 0.12);
+      --gold: #e8a020;
+      --gold-l: #f5c55a;
+      --dim: #888888;
+      --dim2: #555555;
+      --serif: 'DM Serif Display', Georgia, serif;
+    }
+
+    /* ── HERO ── */
+    .c-hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--ink);
+      padding: 6rem 2rem 5rem;
+    }
+
+    .c-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .c-hero-glow {
+      position: absolute;
+      top: -20%;
+      left: 55%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(232, 160, 32, 0.1) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .c-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .c-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(232, 160, 32, 0.3);
+      color: var(--gold-l);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.45rem 1rem;
+      border-radius: 4px;
+      margin-bottom: 1.75rem;
+    }
+
+    .c-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    .c-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.12;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .c-hero h1 em {
+      font-style: italic;
+      color: var(--gold-l);
+    }
+
+    .c-hero-sub {
+      font-size: 1.05rem;
+      color: #999;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .c-hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .c-hero-card {
+      background: var(--ink2);
+      border: 1px solid var(--bdr2);
+      border-radius: 16px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .c-hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-l));
+    }
+
+    .c-card-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .c-hero-card h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .c-hero-card p {
+      font-size: 0.88rem;
+      color: var(--dim);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-box {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--bdr);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .stat-n {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      color: var(--gold-l);
+      display: block;
+    }
+
+    .stat-l {
+      font-size: 0.68rem;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nda-box {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(232, 160, 32, 0.08);
+      border: 1px solid rgba(232, 160, 32, 0.2);
+      border-radius: 8px;
+      padding: 0.9rem 1.1rem;
+      font-size: 0.83rem;
+      color: var(--gold-l);
+    }
+
+    /* ── BUTTONS ── */
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Exo', sans-serif;
+      text-decoration: none;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-l);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(232, 160, 32, 0.25);
+    }
+
+    .btn-outline-w {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: #fff;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      border: 1px solid var(--bdr2);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Exo', sans-serif;
+      text-decoration: none;
+    }
+
+    .btn-outline-w:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* ── SECTIONS ── */
+    .s-dark {
+      padding: 5.5rem 2rem;
+      background: var(--ink2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .s-light {
+      padding: 5.5rem 2rem;
+      background: #FAFAFA;
+    }
+
+    .s-white {
+      padding: 5.5rem 2rem;
+      background: #fff;
+    }
+
+    .c-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .s-lbl {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .s-lbl-dark {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #374151;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .s-h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+
+    .s-h2-dark {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #0a0a0a;
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+
+    .s-sub {
+      color: var(--dim);
+      font-size: 1rem;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .s-sub-dark {
+      color: #6B7280;
+      font-size: 1rem;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .hr-dark {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .hr-light {
+      width: 100%;
+      height: 1px;
+      background: #E5E7EB;
+    }
+
+    /* ── WHY GRID ── */
+    .why-g {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--bdr);
+      border: 1px solid var(--bdr);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .why-c {
+      background: var(--ink2);
+      padding: 2.5rem 2rem;
+      transition: background 0.25s;
+    }
+
+    .why-c:hover {
+      background: var(--ink3);
+    }
+
+    .why-ico {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--bdr2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      background: rgba(232, 160, 32, 0.06);
+    }
+
+    .why-ico svg {
+      stroke: var(--gold);
+    }
+
+    .why-c h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .why-c p {
+      font-size: 0.85rem;
+      color: var(--dim);
+      line-height: 1.65;
+    }
+
+    /* ── SERVICES ── */
+    .svc-lay {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .svc-sticky {
+      position: sticky;
+      top: 7rem;
+    }
+
+    .svc-g {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: var(--bdr);
+      border: 1px solid var(--bdr);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .svc-c {
+      background: var(--ink2);
+      padding: 2rem 2.25rem;
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      gap: 1.5rem;
+      align-items: start;
+      transition: background 0.2s;
+    }
+
+    .svc-c:hover {
+      background: var(--ink3);
+    }
+
+    .svc-num {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--bdr2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .svc-name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .svc-pain {
+      font-size: 0.78rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .svc-desc {
+      font-size: 0.85rem;
+      color: var(--dim);
+      line-height: 1.65;
+    }
+
+    .svc-tag {
+      display: inline-block;
+      background: rgba(232, 160, 32, 0.1);
+      border: 1px solid rgba(232, 160, 32, 0.2);
+      color: var(--gold-l);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    /* ── PROCESS ── */
+    .proc-g {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .proc-s {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid var(--bdr);
+    }
+
+    .proc-s:last-child {
+      border-right: none;
+    }
+
+    .proc-n {
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      color: rgba(232, 160, 32, 0.12);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .proc-t {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .proc-d {
+      font-size: 0.84rem;
+      color: var(--dim);
+      line-height: 1.65;
+    }
+
+    .proc-l {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── PROOF ── */
+    .proof-lay {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .proof-q {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+      color: #fff;
+      line-height: 1.45;
+      margin-bottom: 1.5rem;
+    }
+
+    .proof-q em {
+      color: var(--gold-l);
+      font-style: italic;
+    }
+
+    .proof-a {
+      font-size: 0.85rem;
+      color: var(--dim);
+    }
+
+    .proof-a strong {
+      color: #fff;
+    }
+
+    .proof-m {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: var(--bdr);
+      border: 1px solid var(--bdr);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .proof-mi {
+      background: var(--ink2);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .proof-mn {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      color: var(--gold-l);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .proof-ml {
+      font-size: 0.78rem;
+      color: var(--dim);
+      line-height: 1.5;
+    }
+
+    .urg-strip {
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(232, 160, 32, 0.08);
+      border: 1px solid rgba(232, 160, 32, 0.2);
+      border-radius: 10px;
+      padding: 1.25rem 1.75rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .urg-t {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--gold-l);
+      font-weight: 600;
+    }
+
+    .urg-dot {
+      width: 8px;
+      height: 8px;
+      background: #ef4444;
+      border-radius: 50%;
+      animation: pulse 1s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    /* ── WHO ── */
+    .who-g {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .who-c {
+      border: 1px solid #E5E7EB;
+      border-radius: 14px;
+      padding: 2rem;
+      background: #fff;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .who-c:hover {
+      border-color: #9CA3AF;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .who-em {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .who-c h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: #111;
+      margin-bottom: 0.5rem;
+    }
+
+    .who-c p {
+      font-size: 0.84rem;
+      color: #6B7280;
+      line-height: 1.65;
+    }
+
+    /* ── FORM ── */
+    .form-lay {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .form-g {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-r2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .fl {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #6B7280;
+      margin-bottom: 0.4rem;
+    }
+
+    .fi,
+    .fs,
+    .ft {
+      width: 100%;
+      background: #F9FAFB;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      padding: 0.875rem 1rem;
+      font-size: 0.9375rem;
+      color: #111;
+      font-family: 'Exo', sans-serif;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .fi::placeholder,
+    .ft::placeholder {
+      color: #9CA3AF;
+    }
+
+    .fi:focus,
+    .fs:focus,
+    .ft:focus {
+      border-color: #9CA3AF;
+      background: #fff;
+    }
+
+    .fs option {
+      background: #fff;
+    }
+
+    .ft {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .trust-box {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      background: #F9FAFB;
+    }
+
+    .trust-r {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.87rem;
+      color: #374151;
+      margin-bottom: 0.6rem;
+    }
+
+    .trust-r:last-child {
+      margin-bottom: 0;
+    }
+
+    .trust-r svg {
+      stroke: #6B7280;
+      flex-shrink: 0;
+    }
+
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #111;
+      color: #fff;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Exo', sans-serif;
+    }
+
+    .btn-dark:hover {
+      background: #333;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-dark:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ── STICKY CTA ── */
+    .stick {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 90;
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--bdr2);
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      transform: translateY(100%);
+      transition: transform 0.35s ease;
+    }
+
+    .stick.on {
+      transform: translateY(0);
+    }
+
+    .stick-t {
+      font-size: 0.9rem;
+      color: var(--dim);
+      font-family: 'Exo', sans-serif;
+    }
+
+    .stick-t strong {
+      color: #fff;
+    }
+
+    .stick-a {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .btn-sm-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: transparent;
+      color: #9CA3AF;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.83rem;
+      font-weight: 500;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-family: 'Exo', sans-serif;
+      cursor: pointer;
+    }
+
+    .btn-sm-ghost:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-sm-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 0.83rem;
+      font-weight: 700;
+      padding: 0.65rem 1.4rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Exo', sans-serif;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-sm-gold:hover {
+      background: var(--gold-l);
+    }
+
+    /* ── NOTIFIER ── */
+    #c-notif {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      max-width: 360px;
+      z-index: 1100;
+      transform: translateX(120%);
+      transition: transform 0.3s ease;
+    }
+
+    #c-notif.on {
+      transform: translateX(0);
+    }
+
+    /* ── SCROLL BUTTONS (same as index) ── */
+    .scroll-button {
+      position: fixed;
+      bottom: 20px;
+      right: 40px;
+      padding: 10px 20px;
+      background-color: #0155b5;
+      color: #fbfbfb;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 15px;
+      z-index: 1000;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fu {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fu.iv {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .d1 {
+      transition-delay: 0.1s;
+    }
+
+    .d2 {
+      transition-delay: 0.2s;
+    }
+
+    .d3 {
+      transition-delay: 0.3s;
+    }
+
+    .d4 {
+      transition-delay: 0.4s;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .c-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .c-hero-card {
+        display: none;
+      }
+
+      .svc-lay {
+        grid-template-columns: 1fr;
+      }
+
+      .svc-sticky {
+        position: static;
+      }
+
+      .proc-g {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .proof-lay {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .form-lay {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .why-g {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .who-g {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      .s-dark,
+      .s-light,
+      .s-white {
+        padding: 4rem 1.25rem;
+      }
+
+      .why-g,
+      .who-g {
+        grid-template-columns: 1fr;
+      }
+
+      .proc-g {
+        grid-template-columns: 1fr;
+      }
+
+      .proc-s {
+        border-right: none;
+        border-bottom: 1px solid var(--bdr);
+      }
+
+      .proc-s:last-child {
+        border-bottom: none;
+      }
+
+      .proof-m {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-r2 {
+        grid-template-columns: 1fr;
+      }
+
+      .stick-t {
+        display: none;
+      }
+
+      .svc-c {
+        grid-template-columns: 40px 1fr;
+      }
+
+      .svc-tag {
+        display: none;
+      }
+
+      .c-hero {
+        padding: 4rem 1.25rem 3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ NAV ══ -->
+  <nav class="nav-professional">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <img src="./assets/logo.png" class="logo-img" alt="Techedilite"
+          onerror="this.src='https://www.techedilite.co/favTE.png'" />
+        <span class="logo-text">Techedilite</span>
+      </a>
+      <div class="nav-menu" id="navbar-menu">
+        <ul class="nav-links">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/#services" class="nav-link">Services</a></li>
+          <li><a href="/#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="/#aboutUs" class="nav-link">About</a></li>
+          <li><a href="careers.html" class="nav-link">Careers</a></li>
+          <li><a href="#" class="nav-link active" onclick="openCalendly(event)">Book a call</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="#contact" class="btn-nav btn-contact">Contact Us</a>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-button" aria-label="Toggle menu">
+        <span class="menu-icon"></span><span class="menu-icon"></span><span class="menu-icon"></span>
+      </button>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-overlay">
+      <div class="mobile-menu-content">
+        <ul class="mobile-nav-links">
+          <li><a href="index.html" class="mobile-link">Home</a></li>
+          <li><a href="index.html#services" class="mobile-link">Services</a></li>
+          <li><a href="index.html#portfolio" class="mobile-link">Portfolio</a></li>
+          <li><a href="index.html#aboutUs" class="mobile-link">About</a></li>
+          <li><a href="careers.html" class="mobile-link">Careers</a></li>
+          <li><a href="#" class="mobile-link" onclick="openCalendly(event)">Book a call</a></li>
+          <li><a href="#contact" class="mobile-link mobile-link-contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="c-hero">
+    <div class="c-hero-glow"></div>
+    <div class="c-hero-inner c-wrap">
+      <div>
+        <div class="c-badge"><span class="c-badge-dot"></span>Consultation · Techedilite</div>
+        <h1>Your Project.<br /><em>Expert Hands.</em><br />Real Results.</h1>
+        <p class="c-hero-sub">We do what the big firms charge a fortune for — strategy, compliance, stakeholder
+          management, and execution — built specifically for small teams and early-stage projects.</p>
+        <div class="c-hero-actions">
+          <button class="btn-gold" onclick="openCalendly()">
+            Book Free Strategy Call
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+          <a href="#contact" class="btn-outline-w">Send a Message</a>
+        </div>
+      </div>
+      <div class="c-hero-card">
+        <div class="c-card-tag">What you get from Day 1</div>
+        <h3>Structure before chaos.</h3>
+        <p>Every engagement starts with an NDA, a clear scope, and a communication plan — so your idea stays protected
+          and your timeline stays real.</p>
+        <div class="stat-row">
+          <div class="stat-box"><span class="stat-n">90</span><span class="stat-l">Day delivery</span></div>
+          <div class="stat-box"><span class="stat-n">6+</span><span class="stat-l">Yrs experience</span></div>
+          <div class="stat-box"><span class="stat-n">50+</span><span class="stat-l">Projects</span></div>
+        </div>
+        <div class="nda-box">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+          </svg>
+          <div><strong style="color:#fff;display:block;font-size:0.85rem;">NDA signed on Day 1</strong><span
+              style="color:var(--dim);font-size:0.78rem;">Your idea. Protected. Always.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hr-dark"></div>
+
+  <!-- ══ WHY US ══ -->
+  <section class="s-dark">
+    <div class="c-wrap">
+      <div style="text-align:center;margin-bottom:3.5rem;" class="fu">
+        <span class="s-lbl" style="display:inline-block;">Why us</span>
+        <h2 class="s-h2" style="text-align:center;">Big-agency capability.<br />Boutique-firm care.</h2>
+        <p class="s-sub" style="margin:0 auto;text-align:center;">Same expertise large firms charge enterprise prices
+          for — brought directly to your project.</p>
+      </div>
+      <div class="why-g">
+        <div class="why-c fu d1">
+          <div class="why-ico"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg></div>
+          <h3>NDA-First Policy</h3>
+          <p>Before a single technical detail is shared, we sign a mutual NDA. Your concept, code, and roadmap are
+            legally protected from minute one.</p>
+        </div>
+        <div class="why-c fu d2">
+          <div class="why-ico"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+            </svg></div>
+          <h3>Senior Team, Always</h3>
+          <p>No juniors running your project. Every consultation is handled by experienced engineers and strategists
+            with real product scars.</p>
+        </div>
+        <div class="why-c fu d3">
+          <div class="why-ico"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg></div>
+          <h3>Deadlines Are Sacred</h3>
+          <p>We built internal PM systems to manage stakeholders, track phases, and flag blockers early. You always know
+            where your project stands.</p>
+        </div>
+        <div class="why-c fu d1">
+          <div class="why-ico"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+            </svg></div>
+          <h3>Right Stack from Day 1</h3>
+          <p>We've seen what happens when teams pick the wrong platform. You get a data-backed tech recommendation — so
+            you don't rebuild in 12 months.</p>
+        </div>
+        <div class="why-c fu d2">
+          <div class="why-ico"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+            </svg></div>
+          <h3>AI-Native Operations</h3>
+          <p>We use and build AI automation internally — faster delivery, smarter analysis, workflows that don't require
+            armies of people to run.</p>
+        </div>
+        <div class="why-c fu d3">
+          <div class="why-ico"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+            </svg></div>
+          <h3>Compliance Built-In</h3>
+          <p>Fintech, data laws, integration compliance — we embed regulatory thinking into your architecture so you're
+            not scrambling when audits come.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hr-dark"></div>
+
+  <!-- ══ SERVICES ══ -->
+  <section class="s-dark" id="services-consult">
+    <div class="c-wrap">
+      <div class="svc-lay">
+        <div class="svc-sticky">
+          <span class="s-lbl fu">What we offer</span>
+          <h2 class="s-h2 fu d1">Five ways we fix your project</h2>
+          <p class="s-sub fu d2">Each service targets a real pain point small projects face. Pick one or combine — we'll
+            tell you what actually makes sense.</p>
+          <div style="margin-top:2.5rem;" class="fu d3"><button class="btn-gold" onclick="openCalendly()">Start the
+              Conversation →</button></div>
+        </div>
+        <div class="svc-g">
+          <div class="svc-c fu">
+            <div class="svc-num">01</div>
+            <div>
+              <div class="svc-name">Digital Presence & Development</div><span class="svc-pain">Pain: "We need to be
+                online but don't know where to start."</span>
+              <p class="svc-desc">We design, build, and launch compliant web and mobile products with SEO baked in from
+                day one. No bloated agencies, no redos. Fast, working product that ranks.</p>
+            </div>
+            <div class="svc-tag">Most Popular</div>
+          </div>
+          <div class="svc-c fu d1">
+            <div class="svc-num">02</div>
+            <div>
+              <div class="svc-name">Project Management & Stakeholder Control</div><span class="svc-pain">Pain: "Too many
+                opinions, no one shipping."</span>
+              <p class="svc-desc">We embed into your project as delivery leads. Phase demos keep stakeholders aligned.
+                Our job is to protect your timeline — from everyone, including your own team.</p>
+            </div>
+            <div class="svc-tag">High Demand</div>
+          </div>
+          <div class="svc-c fu d2">
+            <div class="svc-num">03</div>
+            <div>
+              <div class="svc-name">AI Automation & Workflow Design</div><span class="svc-pain">Pain: "My team is doing
+                things manually that should run automatically."</span>
+              <p class="svc-desc">We identify repetitive workflows eating your team's hours and replace them with custom
+                AI agents. Clients recover 60% of manual processing time within the first sprint.</p>
+            </div>
+            <div class="svc-tag">Quick ROI</div>
+          </div>
+          <div class="svc-c fu d3">
+            <div class="svc-num">04</div>
+            <div>
+              <div class="svc-name">Strategy, Tech Stack & Fintech Compliance</div><span class="svc-pain">Pain: "We're
+                building something regulated and don't know the rules."</span>
+              <p class="svc-desc">From platform selection to API architecture to fintech compliance, KYC flows, and data
+                regulations — a blueprint that won't need to be torn apart in six months.</p>
+            </div>
+            <div class="svc-tag">Fintech Focus</div>
+          </div>
+          <div class="svc-c fu d4">
+            <div class="svc-num">05</div>
+            <div>
+              <div class="svc-name">Emerging Tech Strategy & Integration</div><span class="svc-pain">Pain: "Should we
+                use this new platform? How do we integrate it properly?"</span>
+              <p class="svc-desc">We cut through the hype and give you an honest assessment of whether new platforms or
+                protocols fit your product. If they do, we design the architecture and support development.</p>
+            </div>
+            <div class="svc-tag">Technical Deep-Dive</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hr-dark"></div>
+
+  <!-- ══ PROCESS ══ -->
+  <section class="s-dark">
+    <div class="c-wrap">
+      <div style="text-align:center;margin-bottom:4rem;" class="fu">
+        <span class="s-lbl" style="display:inline-block;">How it works</span>
+        <h2 class="s-h2" style="text-align:center;">From first call to shipped product</h2>
+        <p
+          style="color:var(--dim);margin-top:0.75rem;max-width:520px;margin-left:auto;margin-right:auto;font-size:0.95rem;line-height:1.7;">
+          The same disciplined process on every engagement — so you always know what happens next.</p>
+      </div>
+      <div class="proc-g">
+        <div class="proc-s fu">
+          <div class="proc-n">01</div>
+          <div class="proc-t">Discovery Call</div>
+          <p class="proc-d">30-minute session. We understand your idea, constraints, and goals. No pitch — just
+            listening and asking the right questions.</p><span class="proc-l">Free · 30 min</span>
+        </div>
+        <div class="proc-s fu d1">
+          <div class="proc-n">02</div>
+          <div class="proc-t">NDA + Scoping</div>
+          <p class="proc-d">Mutual NDA signed immediately, then a detailed scope — architecture, timeline, milestones,
+            and cost estimate delivered within 48 hours.</p><span class="proc-l">Within 48 hours</span>
+        </div>
+        <div class="proc-s fu d2">
+          <div class="proc-n">03</div>
+          <div class="proc-t">Execute & Deliver</div>
+          <p class="proc-d">We build or guide. Phase demos every 2 weeks. Blockers flagged instantly. Real progress —
+            not just status updates.</p><span class="proc-l">Ongoing · Transparent</span>
+        </div>
+        <div class="proc-s fu d3">
+          <div class="proc-n">04</div>
+          <div class="proc-t">Launch & Support</div>
+          <p class="proc-d">We ship on time, document everything, and stay available. Clean handoff or ongoing support —
+            your choice.</p><span class="proc-l">90-Day Target</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hr-dark"></div>
+
+  <!-- ══ PROOF ══ -->
+  <section class="s-dark" style="position:relative;overflow:hidden;">
+    <div
+      style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(232,160,32,0.06) 0%,transparent 60%);pointer-events:none;">
+    </div>
+    <div class="c-wrap" style="position:relative;z-index:1;">
+      <div class="proof-lay">
+        <div class="fu">
+          <span class="s-lbl">Client story</span>
+          <p class="proof-q">"Bengaluru startup was drowning in stakeholder chaos and missed sprints. We deployed
+            project ops, tamed the scope, and shipped in <em>90 days</em> — against an industry average of 9 months."
+          </p>
+          <p class="proof-a">Result: <strong>3 referrals from a single client.</strong><br />"They actually did what
+            they said they'd do. First time that's happened." — Founder</p>
+          <div class="urg-strip">
+            <div class="urg-t">
+              <div class="urg-dot"></div>Limited spots available this month — we keep teams small on purpose
+            </div><button class="btn-sm-gold" onclick="openCalendly()">Claim a Spot</button>
+          </div>
+        </div>
+        <div class="proof-m fu d2">
+          <div class="proof-mi"><span class="proof-mn">90<small style="font-size:1.2rem">d</small></span>
+            <div class="proof-ml">Delivery vs industry 270-day average</div>
+          </div>
+          <div class="proof-mi"><span class="proof-mn">60%</span>
+            <div class="proof-ml">Reduction in manual ops via AI automation</div>
+          </div>
+          <div class="proof-mi"><span class="proof-mn">3×</span>
+            <div class="proof-ml">Faster stakeholder alignment</div>
+          </div>
+          <div class="proof-mi"><span class="proof-mn">Day 1</span>
+            <div class="proof-ml">NDA signed before any detail is shared</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hr-light"></div>
+
+  <!-- ══ WHO ══ -->
+  <section class="s-light">
+    <div class="c-wrap">
+      <div style="text-align:center;max-width:580px;margin:0 auto 4rem;" class="fu">
+        <span class="s-lbl-dark" style="display:inline-block;">Who we work with</span>
+        <h2 class="s-h2-dark">Built for the people building</h2>
+        <p class="s-sub-dark" style="margin:0 auto;">We work with small teams and early-stage projects. We know exactly
+          what you're dealing with — and we've solved it before.</p>
+      </div>
+      <div class="who-g">
+        <div class="who-c fu"><span class="who-em">💡</span>
+          <h3>First-Time Founders</h3>
+          <p>You have a strong idea but haven't navigated a full product build before. We structure everything so you
+            don't waste months on the wrong things.</p>
+        </div>
+        <div class="who-c fu d1"><span class="who-em">🏗️</span>
+          <h3>Projects That Stalled</h3>
+          <p>Something broke — technically, operationally, or politically. We step in, diagnose fast, and unblock
+            delivery without blowing up what's working.</p>
+        </div>
+        <div class="who-c fu d2"><span class="who-em">📈</span>
+          <h3>Growing Too Fast</h3>
+          <p>Your MVP worked. Now it's cracking under pressure. We redesign for scale before a production incident does
+            it for you.</p>
+        </div>
+        <div class="who-c fu d1"><span class="who-em">🏦</span>
+          <h3>Regulated & Fintech Projects</h3>
+          <p>Building in finance, payments, or compliance-heavy domains? We embed regulatory thinking into your
+            architecture from day one.</p>
+        </div>
+        <div class="who-c fu d2"><span class="who-em">⚙️</span>
+          <h3>Teams Drowning in Manual Work</h3>
+          <p>Operations that should be automated but aren't. We identify, design, and implement AI-powered workflows
+            that free your team for actual growth.</p>
+        </div>
+        <div class="who-c fu d3"><span class="who-em">🌐</span>
+          <h3>Evaluating New Platforms</h3>
+          <p>Wondering if a new technology or architecture fits your product? We give you honest technical diligence —
+            not a sales pitch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hr-light"></div>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact" class="s-white" style="background:#F9FAFB;">
+    <div class="c-wrap">
+      <div style="text-align:center;margin-bottom:3.5rem;" class="fu">
+        <span
+          style="display:inline-block;padding:0.25rem 0.75rem;background:#F3F4F6;color:#374151;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border-radius:100px;margin-bottom:1rem;">Get
+          In Touch</span>
+        <h2 class="s-h2-dark">Let's talk about your project</h2>
+        <p class="s-sub-dark" style="margin:0 auto;">No sales call. No pitch deck. Just a real conversation about what
+          you're building and whether we're the right fit.</p>
+      </div>
+
+      <!-- Info cards row -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:3.5rem;" class="fu d1">
+        <div style="background:#fff;border:1px solid #E5E7EB;border-radius:10px;padding:1.5rem;text-align:center;">
+          <div
+            style="width:40px;height:40px;background:#F3F4F6;border:1px solid #E5E7EB;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <svg width="18" height="18" fill="none" stroke="#374151" viewBox="0 0 24 24" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg></div>
+          <div
+            style="font-size:0.78rem;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.3rem;">
+            Email</div><a href="mailto:contact@techedilite.co"
+            style="font-size:0.9rem;color:#111;text-decoration:none;">contact@techedilite.co</a>
+        </div>
+        <div style="background:#fff;border:1px solid #E5E7EB;border-radius:10px;padding:1.5rem;text-align:center;">
+          <div
+            style="width:40px;height:40px;background:#F3F4F6;border:1px solid #E5E7EB;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <svg width="18" height="18" fill="none" stroke="#374151" viewBox="0 0 24 24" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+            </svg></div>
+          <div
+            style="font-size:0.78rem;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.3rem;">
+            Phone</div><span style="font-size:0.9rem;color:#111;">+91 96777 45956</span>
+        </div>
+        <div style="background:#fff;border:1px solid #E5E7EB;border-radius:10px;padding:1.5rem;text-align:center;">
+          <div
+            style="width:40px;height:40px;background:#F3F4F6;border:1px solid #E5E7EB;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <svg width="18" height="18" fill="none" stroke="#374151" viewBox="0 0 24 24" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg></div>
+          <div
+            style="font-size:0.78rem;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.3rem;">
+            Location</div><span style="font-size:0.9rem;color:#111;">Bangalore, Karnataka</span>
+        </div>
+      </div>
+
+      <!-- Form layout -->
+      <div class="form-lay fu d2">
+        <div>
+          <h3 style="font-family:var(--serif);font-size:1.75rem;color:#0a0a0a;margin-bottom:1rem;">Ready to move
+            forward?</h3>
+          <p style="color:#6B7280;line-height:1.75;margin-bottom:2rem;font-size:0.95rem;">Tell us about your project.
+            We'll get back to you within 24 hours with honest thoughts on how we can help.</p>
+          <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem;">
+            <div style="display:flex;align-items:flex-start;gap:1rem;">
+              <div
+                style="width:40px;height:40px;background:#F3F4F6;border:1px solid #E5E7EB;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="18" height="18" fill="none" stroke="#374151" viewBox="0 0 24 24" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg></div>
+              <div>
+                <div
+                  style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#9CA3AF;margin-bottom:0.2rem;">
+                  Email</div><a href="mailto:contact@techedilite.co"
+                  style="font-size:0.92rem;color:#111;text-decoration:none;">contact@techedilite.co</a>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:1rem;">
+              <div
+                style="width:40px;height:40px;background:#F3F4F6;border:1px solid #E5E7EB;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="18" height="18" fill="none" stroke="#374151" viewBox="0 0 24 24" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                </svg></div>
+              <div>
+                <div
+                  style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#9CA3AF;margin-bottom:0.2rem;">
+                  WhatsApp / Phone</div><span style="font-size:0.92rem;color:#111;">+91 96777 45956</span>
+              </div>
+            </div>
+          </div>
+          <div class="trust-box">
+            <div
+              style="font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#9CA3AF;margin-bottom:1rem;">
+              What to expect</div>
+            <div class="trust-r"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                stroke-width="2.5">
+                <path d="M5 13l4 4L19 7" />
+              </svg>Response within 24 hours</div>
+            <div class="trust-r"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                stroke-width="2.5">
+                <path d="M5 13l4 4L19 7" />
+              </svg>Free discovery call — no commitment</div>
+            <div class="trust-r"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                stroke-width="2.5">
+                <path d="M5 13l4 4L19 7" />
+              </svg>NDA offered before any discussion</div>
+            <div class="trust-r"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                stroke-width="2.5">
+                <path d="M5 13l4 4L19 7" />
+              </svg>Honest — we'll say if we're not the right fit</div>
+          </div>
+        </div>
+
+        <!-- Form box -->
+        <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:2.5rem;">
+          <form class="form-g" id="consultForm">
+            <div class="form-r2">
+              <div><label class="fl" for="c-org">Organization / Project</label><input class="fi" type="text" id="c-org"
+                  placeholder="Acme Corp" /></div>
+              <div><label class="fl" for="c-country">Country</label><select class="fs" id="c-country">
+                  <option value="">Select country…</option>
+                  <option>United States</option>
+                  <option>Canada</option>
+                  <option selected>India</option>
+                  <option>United Kingdom</option>
+                  <option>Australia</option>
+                  <option>Other</option>
+                </select></div>
+            </div>
+            <div class="form-r2">
+              <div><label class="fl" for="c-name">Your Name</label><input class="fi" type="text" id="c-name"
+                  placeholder="Jane Smith" required /></div>
+              <div><label class="fl" for="c-role">Your Role</label><input class="fi" type="text" id="c-role"
+                  placeholder="Founder / CTO" /></div>
+            </div>
+            <div><label class="fl" for="c-email">Email</label><input class="fi" type="email" id="c-email"
+                placeholder="jane@company.com" required /></div>
+            <div><label class="fl" for="c-svc">What do you need help with?</label><select class="fs" id="c-svc">
+                <option value="">Select a service…</option>
+                <option>Digital Presence & Development</option>
+                <option>Project Management & Stakeholder Control</option>
+                <option>AI Automation & Workflow Design</option>
+                <option>Strategy, Tech Stack & Fintech Compliance</option>
+                <option>Emerging Tech Strategy & Integration</option>
+                <option>Not sure — let's talk</option>
+              </select></div>
+            <div><label class="fl" for="c-msg">About Your Project</label><textarea class="ft" id="c-msg"
+                placeholder="What are you building? What's blocking you? What does success look like in 90 days?"></textarea>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+              <span style="font-size:0.76rem;color:#9CA3AF;display:flex;align-items:center;gap:0.4rem;"><svg width="13"
+                  height="13" fill="none" stroke="#9CA3AF" viewBox="0 0 24 24" stroke-width="2">
+                  <path
+                    d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                </svg>NDA available on request</span>
+              <button class="btn-dark" type="submit" id="c-submit-btn">Send Message <svg width="16" height="16"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></button>
+            </div>
+            <div id="c-success"
+              style="display:none;margin-top:0.5rem;padding:1rem;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.2);border-radius:8px;color:#166534;font-size:0.88rem;">
+              ✓ Message received. We'll get back to you within 24 hours.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER (identical to index.html) ══ -->
+  <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+    <div class="container mx-auto px-4 md:px-8 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-4">TechEdilite</h3>
+          <p class="text-gray-600 mb-6 text-sm">Innovative technology solutions to help businesses grow and succeed.</p>
+          <div class="space-y-3 mb-6">
+            <div class="flex items-start text-sm"><svg class="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg><span class="text-gray-600">Bangalore, Karnataka, India</span></div>
+            <div class="flex items-center text-sm"><svg class="w-4 h-4 text-gray-400 mr-2 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                </path>
+              </svg><a href="mailto:contact@techedilite.co"
+                class="text-gray-600 hover:text-gray-900 transition-colors">contact@techedilite.co</a></div>
+            <div class="flex items-center text-sm"><svg class="w-4 h-4 text-gray-400 mr-2 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4">
+                </path>
+              </svg><span class="text-gray-600 text-xs">GSTIN: 33AHDPF3055G1ZV</span></div>
+          </div>
+          <div class="flex space-x-3">
+            <a href="https://www.linkedin.com/company/techedilite/"
+              class="w-9 h-9 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-200 transition-colors"
+              target="_blank"><svg class="w-4 h-4 text-gray-600" viewBox="0 0 448 512" fill="currentColor">
+                <path
+                  d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.72 0 54S24.09 0 53.79 0s53.79 24.38 53.79 54-24.1 54.1-53.79 54.1zm394.2 339.9h-92.68V302.4c0-34.7-12.4-58.3-43.44-58.3-23.72 0-37.88 16-44.12 31.4-2.28 5.6-2.84 13.4-2.84 21.2v151.3h-92.68s1.24-245.4 0-270.9h92.68v38.4c12.3-19 34.3-46.1 83.44-46.1 60.88 0 106.56 39.8 106.56 125.4v153.2z" />
+              </svg></a>
+            <a href="https://x.com/TechEdilite"
+              class="w-9 h-9 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-200 transition-colors"
+              target="_blank"><svg class="w-4 h-4 text-gray-600" viewBox="0 0 1200 1227" fill="currentColor">
+                <path
+                  d="M741.33 580.16L1169.74 0H1063.8L699.29 492.75L371.5 0H0L454.15 683.32L0 1227H105.96L493.52 699.58L842.25 1227H1200L741.33 580.16ZM539.7 619.24L504.23 566.2L155.76 80.3H321.88L616.02 523.26L651.49 576.3L1014.67 1098.45H848.54L539.7 619.24Z" />
+              </svg></a>
+            <a href="https://www.instagram.com/techedilite/"
+              class="w-9 h-9 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-200 transition-colors"
+              target="_blank"><svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd"
+                  d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                  clip-rule="evenodd"></path>
+              </svg></a>
+            <a href="mailto:contact@techedilite.co"
+              class="w-9 h-9 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-200 transition-colors"><svg
+                class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                </path>
+              </svg></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Quick Links</h3>
+          <ul class="space-y-2.5">
+            <li><a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a></li>
+            <li><a href="/#aboutUs" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
+            </li>
+            <li><a href="/#services" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Services</a>
+            </li>
+            <li><a href="/#contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Newsletter</h3>
+          <p class="text-sm text-gray-600 mb-4">Stay updated with our latest news and offers.</p>
+          <form id="newsletter-form" class="space-y-3">
+            <input type="email" id="email-input" placeholder="Your email"
+              class="w-full px-4 py-2.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+              required>
+            <button type="submit" id="subscribe-button"
+              class="w-full bg-gray-900 text-white text-sm font-medium py-2.5 px-4 rounded-lg hover:bg-gray-800 transition-colors opacity-50 cursor-not-allowed"
+              disabled>
+              <span id="button-text">Subscribe</span><span id="button-loading" class="hidden">Processing...</span>
+            </button>
+            <div id="success-message" class="hidden text-xs text-green-600">✓ Subscribed successfully!</div>
+          </form>
+        </div>
+      </div>
+      <hr class="border-gray-200 mb-8" />
+      <div class="flex flex-col md:flex-row md:justify-between items-center text-sm text-gray-500">
+        <span>© 2026 <a href="/" class="hover:text-gray-900 transition-colors">TechEdilite</a>. All rights
+          reserved.</span>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="privacyPolicy.html" class="hover:text-gray-900 transition-colors">Privacy Policy</a>
+          <a href="termsService.html" class="hover:text-gray-900 transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- NOTIFIER -->
+  <div id="c-notif">
+    <div
+      style="background:#fff;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,0.12);border:1px solid #E5E7EB;padding:1rem 1.25rem;">
+      <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="18" height="18" fill="none" stroke="#3B82F6"
+          viewBox="0 0 24 24" stroke-width="2">
+          <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <p id="c-notif-msg" style="font-size:0.875rem;color:#111;flex:1;line-height:1.5;font-family:'Exo',sans-serif;">
+        </p>
+        <button id="c-notif-close" style="background:none;border:none;cursor:pointer;padding:0;color:#9CA3AF;"><svg
+            width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path d="M6 18L18 6M6 6l12 12" />
+          </svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY CTA -->
+  <div class="stick" id="stickyCta">
+    <div class="stick-t"><strong>Ready to move your project forward?</strong> We respond within 24 hours.</div>
+    <div class="stick-a">
+      <a href="mailto:contact@techedilite.co" class="btn-sm-ghost">Email Us</a>
+      <button class="btn-sm-gold" onclick="openCalendly()">Book Free Call →</button>
+    </div>
+  </div>
+
+  <script>
+    /* ── Calendly ── */
+    function openCalendly(e) {
+      if (e) e.preventDefault();
+      Calendly.initPopupWidget({ url: 'https://calendly.com/techedilite/30min' });
+    }
+
+    /* ── Nav ── */
+    document.addEventListener('DOMContentLoaded', function () {
+      const nav = document.querySelector('.nav-professional');
+      const btn = document.getElementById('mobile-menu-button');
+      const overlay = document.getElementById('mobile-overlay');
+      window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.pageYOffset > 50));
+      btn.addEventListener('click', function () {
+        this.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+      });
+      document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+        btn.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = '';
+      }));
+      overlay.addEventListener('click', e => { if (e.target === overlay) { btn.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; } });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('active')) { btn.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; } });
+    });
+
+    /* ── Notifier ── */
+    function showNotification(msg, duration = 6000) {
+      const el = document.getElementById('c-notif');
+      document.getElementById('c-notif-msg').textContent = msg;
+      el.classList.add('on');
+      const t = setTimeout(() => el.classList.remove('on'), duration);
+      document.getElementById('c-notif-close').onclick = () => { clearTimeout(t); el.classList.remove('on'); };
+    }
+
+    /* ── Contact form — same API as index.html ── */
+    document.getElementById('consultForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const btn = document.getElementById('c-submit-btn');
+      const success = document.getElementById('c-success');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      const svc = document.getElementById('c-svc').value;
+      const msg = document.getElementById('c-msg').value;
+
+      const payload = {
+        organisationName: document.getElementById('c-org').value || 'Consultation Page',
+        country: document.getElementById('c-country').value || 'Not specified',
+        yourName: document.getElementById('c-name').value,
+        yourRole: document.getElementById('c-role').value || 'Consultation Inquiry',
+        aboutYourBusiness: (svc ? '[' + svc + '] ' : '') + msg,
+        mailId: document.getElementById('c-email').value
+      };
+
+      fetch('https://contact-manager-one-gamma.vercel.app/register-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+        .then(() => {
+          success.style.display = 'block';
+          this.reset();
+          showNotification('Thank you for contacting us and giving us the opportunity to offer our support. Our team will get back to you shortly.', 8000);
+        })
+        .catch(() => {
+          success.style.display = 'block';
+          success.style.cssText += 'background:rgba(239,68,68,0.06);border-color:rgba(239,68,68,0.2);color:#991B1B;';
+          success.textContent = 'We are currently under maintenance. Please email us at contact@techedilite.co';
+          showNotification('We are currently under maintenance. Please feel free to try again after some time.', 8000);
+        })
+        .finally(() => {
+          btn.disabled = false;
+          btn.innerHTML = 'Send Message <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        });
+    });
+
+    /* ── Newsletter ── */
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('newsletter-form');
+      const inp = document.getElementById('email-input');
+      const subBtn = document.getElementById('subscribe-button');
+      function valid(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+      inp.addEventListener('input', function () {
+        const ok = this.value.trim() && valid(this.value);
+        subBtn.disabled = !ok;
+        subBtn.classList.toggle('opacity-50', !ok);
+        subBtn.classList.toggle('cursor-not-allowed', !ok);
+      });
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        document.getElementById('button-text').classList.add('hidden');
+        document.getElementById('button-loading').classList.remove('hidden');
+        subBtn.disabled = true;
+        setTimeout(() => {
+          document.getElementById('button-text').classList.remove('hidden');
+          document.getElementById('button-loading').classList.add('hidden');
+          document.getElementById('success-message').classList.remove('hidden');
+          inp.value = '';
+        }, 1500);
+      });
+    });
+
+    /* ── Fade-up observer ── */
+    const fuEls = document.querySelectorAll('.fu');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('iv'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    fuEls.forEach(el => obs.observe(el));
+
+    /* ── Sticky CTA ── */
+    const stickEl = document.getElementById('stickyCta');
+    window.addEventListener('scroll', () => stickEl.classList.toggle('on', window.scrollY > 500));
+
+    /* ── Smooth scroll ── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id === '#') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+        const t = document.querySelector(id);
+        if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+
+</html>
