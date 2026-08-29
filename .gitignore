@@ -1,4 +1,7 @@
-# Go build artifacts
+# Go source and build artifacts
+*.go
+*.mod
+*.sum
 *.exe
 *.exe~
 *.dll
