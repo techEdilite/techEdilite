@@ -1,0 +1,21 @@
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Compiled binary from this project
+/techedilite
+/techedilite_bin
+techedilite
+
+# Go workspace / vendor
+vendor/
+go.work
+go.work.sum
+
+# Environment files
+.env
