@@ -235,7 +235,7 @@
       <div class="hero-content">
         <span class="hero-badge">
           <span class="hero-badge-dot"></span>
-          Web3 &bull; Enterprise Software &bull; AI Automation
+         Techedilite
         </span>
         <h1 class="hero-heading">
           <span class="hero-line">Precision. Performance. Progress.</span>
@@ -507,7 +507,7 @@
                       d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Enterprise Application Development</h3>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Custom ERP Application Development</h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Full-stack web and mobile applications, ERP
                   systems, inventory management, and scalable cloud-native solutions</p>
                 <a href="#contact"
@@ -559,7 +559,7 @@
                       d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Smart Contract & Security Audits</h3>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Web3, Smart Contract & Security Audits</h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Comprehensive smart contract audits, vulnerability
                   assessments, and penetration testing for blockchain applications</p>
                 <a href="#contact"
@@ -1788,6 +1788,17 @@
           const isDark = document.documentElement.classList.toggle('dark');
           try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) { }
         });
+      }
+
+      const heroVideo = document.querySelector('.hero-bg-video');
+      if (heroVideo) {
+        const tryPlay = () => heroVideo.play().catch(function () { });
+        heroVideo.muted = true;
+        tryPlay();
+        document.addEventListener('visibilitychange', function () {
+          if (!document.hidden && heroVideo.paused) tryPlay();
+        });
+        document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
       }
 
       mobileLinks.forEach(link => {
