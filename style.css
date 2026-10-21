@@ -627,12 +627,13 @@
 
     .hero-professional {
       position: relative;
-      min-height: 100vh;
+      min-height: calc(100vh - 80px);
+      min-height: calc(100svh - 80px);
       display: flex;
       align-items: center;
       background: var(--bg-page);
       overflow: hidden;
-      padding: 6rem 2rem;
+      padding: 3rem 2rem;
     }
 
     /* Background Elements */
@@ -792,10 +793,10 @@
     .hero-container {
       position: relative;
       z-index: 10;
-      max-width: 1320px;
+      max-width: 1336px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1fr 1fr;
       gap: 3.5rem;
       align-items: center;
       width: 100%;
@@ -1111,7 +1112,26 @@
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero-professional {
-        padding: 4rem 1.5rem;
+        min-height: auto;
+        padding: 3rem 1.5rem 3.5rem;
+      }
+
+      .hero-content {
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .stat-item {
+        text-align: center;
       }
 
       .hero-container {
