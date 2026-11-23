@@ -241,13 +241,7 @@
               Blockchain as a technology has powerful real-world use cases beyond tokens and cryptocurrencies. For businesses operating in a consortium, it can enable private, tamper-resistant, cost-effective, and efficient solutions through shared, verifiable records and trusted workflows.
             </span>
           </span>
-          <span class="hero-badge-sep">·</span>
-          <span class="hero-badge-tip" tabindex="0" aria-describedby="saasTip">
-            <span class="hero-badge-hl">SaaS · SI tools</span>
-            <span class="hero-badge-pop" id="saasTip" role="tooltip">
-              SaaS products powered by artificial intelligence, which may evolve into superintelligence in the future, enable better understanding, faster development, and quicker delivery with less overhead. They help us understand requirements more deeply, continuously improve the solutions we offer, and deliver results that go beyond expectations.
-            </span>
-          </span>
+          <span>· SaaS · SI tools</span>
         </span>
         <h1 class="hero-heading">
           <span class="hero-line">Engineering what</span>
@@ -292,7 +286,7 @@
 
           <div class="hv-team">
             <span class="hv-avatars"><b>BC</b><b>CL</b><b>AI</b></span>
-            <span class="hv-team-label">Blockchain · SaaS · SI tools</span>
+            <span class="hv-team-label">Blockchain · SaaS · AI tools</span>
           </div>
 
           <div class="hv-code">
@@ -311,8 +305,8 @@
         </div>
 
         <div class="hv-chip hv-chip-stat">
-          <strong>Built for Reliability.</strong>
-          <small>Designed for Continuity.</small>
+          <small>Uptime we aim for</small>
+          <strong>99.9%</strong>
         </div>
       </div>
     </div>
@@ -362,32 +356,6 @@
           <circle cx="175" cy="160" r="3.5" fill="currentColor" />
         </svg>
       </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-     PROOF BANNER (rotating, 8s each)
-     ======================================== -->
-  <section class="proof-banner" aria-label="Why Techedilite">
-    <div class="proof-inner">
-      <svg class="proof-ring" viewBox="0 0 36 36" aria-hidden="true">
-        <circle class="proof-ring-track" cx="18" cy="18" r="15" />
-        <circle class="proof-ring-fill" id="proofRing" cx="18" cy="18" r="15" />
-      </svg>
-
-      <div class="proof-slides" aria-live="polite">
-        <p class="proof-slide is-active">An experienced team with proven expertise in blockchain solutions, backed by projects that remain active in production today.</p>
-        <p class="proof-slide">We go beyond requirements by understanding client operations firsthand and building solutions that address real-world challenges.</p>
-        <p class="proof-slide">Our AI-powered applications help businesses uncover hidden challenges, gain deeper insights, and make better-informed decisions.</p>
-        <p class="proof-slide">Our products are actively used by clients, delivering value through real-world applications.</p>
-      </div>
-
-      <a class="proof-cta" href="/case-studies" target="_blank" rel="noopener">
-        View our case study
-        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </a>
     </div>
   </section>
 
@@ -1304,7 +1272,7 @@
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">UnitPulse</h3>
                     <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Advanced inventory management with real-time
                       analytics</p>
-                    <a href="https://d236sw3ec9o22g.cloudfront.net/Unit%20Pulse/UnitPulse_Overview.pdf" target="_blank"
+                    <a href="https://unitepulse.techedilite.co/" target="_blank"
                       class="inline-flex items-center text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300 font-medium text-sm group/link">
                       View project
                       <svg class="w-4 h-4 ml-1 transition-transform group-hover/link:translate-x-1" fill="none"
@@ -2488,27 +2456,6 @@
       modal.addEventListener('click', function (e) { if (e.target === modal) window.closeCloudModal(); });
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && !modal.classList.contains('hidden')) window.closeCloudModal();
-      });
-    })();
-  </script>
-
-  <script>
-    (function () {
-      var slides = document.querySelectorAll('.proof-slide');
-      var ring = document.getElementById('proofRing');
-      if (!slides.length || !ring) return;
-      var i = 0;
-      function restartRing() {
-        ring.style.animation = 'none';
-        void ring.getBoundingClientRect();
-        ring.style.animation = '';
-      }
-      // The ring sweeps clockwise over 8s; when it completes, the next sentence takes over.
-      ring.addEventListener('animationend', function () {
-        slides[i].classList.remove('is-active');
-        i = (i + 1) % slides.length;
-        slides[i].classList.add('is-active');
-        restartRing();
       });
     })();
   </script>
